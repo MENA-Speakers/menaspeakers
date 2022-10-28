@@ -1,8 +1,10 @@
 <?php
 
     use App\Http\Controllers\BlogsController;
-    use App\Http\Controllers\HomeController;
-    use App\Http\Controllers\SpeakersController;
+  use App\Http\Controllers\FaqsController;
+  use App\Http\Controllers\HomeController;
+  use App\Http\Controllers\PagesController;
+  use App\Http\Controllers\SpeakersController;
     use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,10 +19,15 @@
 */
 
 Route::get('/', [HomeController::class, 'index'])->name('index');
-Route::get('/speakers', [SpeakersController::class, 'index'])->name('index');
+Route::get('/speakers', [SpeakersController::class, 'index'])->name('speakers.index');
 Route::get('/speakers/{speaker}', [SpeakersController::class, 'show'])->name('speakers.show');
 Route::get('/blogs', [BlogsController::class, 'index'])->name('blogs.index');
 Route::get('/blogs/{blog}', [BlogsController::class, 'show'])->name('blogs.show');
+
+Route::get('/FAQs', [FaqsController::class, 'index'])->name('faqs.index');
+Route::get('page/terms-condition', [PagesController::class, 'terms'])->name('pages.terms');
+Route::get('page/contact', [PagesController::class, 'contact'])->name('pages.contact');
+Route::get('page/refund-policy', [PagesController::class, 'policy'])->name('pages.policy');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
