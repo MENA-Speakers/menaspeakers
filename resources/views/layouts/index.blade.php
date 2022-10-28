@@ -64,7 +64,7 @@
   <input type="hidden" id="pp_enable_right_click" name="pp_enable_right_click" value="" />
   <input type="hidden" id="pp_enable_dragging" name="pp_enable_dragging" value="" />
   <input type="hidden" id="pp_image_path" name="pp_image_path" value="images/" />
-  <input type="hidden" id="pp_homepage_url" name="pp_homepage_url" value="index.html" />
+  <input type="hidden" id="pp_homepage_url" name="pp_homepage_url" value="/" />
   <input type="hidden" id="pp_fixed_menu" name="pp_fixed_menu" value="1" />
   <input type="hidden" id="tg_sidebar_sticky" name="tg_sidebar_sticky" value="1" />
   <input type="hidden" id="tg_footer_reveal" name="tg_footer_reveal" value="1" />
@@ -246,7 +246,7 @@
                                     data-widget_type="heading.default"
                                   >
                                     <div class="elementor-widget-container">
-                                      <span class="elementor-heading-title elementor-size-default"><a href="index.html">Burlington Tower, 18th floor, Business Bay</a></span>
+                                      <span class="elementor-heading-title elementor-size-default"><a href="/">Burlington Tower, 18th floor, Business Bay</a></span>
                                     </div>
                                   </div>
                                   <div
@@ -257,7 +257,7 @@
                                     data-widget_type="heading.default"
                                   >
                                     <div class="elementor-widget-container">
-                                      <span class="elementor-heading-title elementor-size-default"><a href="index.html">Dubai, United Arab Emirates </a></span>
+                                      <span class="elementor-heading-title elementor-size-default"><a href="/">Dubai, United Arab Emirates </a></span>
                                     </div>
                                   </div>
                                   <div
@@ -482,7 +482,7 @@
   /* <![CDATA[ */
   var lpGlobalSettings = {
     url: null,
-    siteurl: "index.html",
+    siteurl: "/",
     ajax: "#",
     theme: "dotlife",
     localize: { button_ok: "OK", button_cancel: "Cancel", button_yes: "Yes", button_no: "No" },

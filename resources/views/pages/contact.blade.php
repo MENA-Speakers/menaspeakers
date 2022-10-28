@@ -47,12 +47,12 @@
 
 <body data-rsssl="1"  class="home page-template-default page page-id-1737 woocommerce-no-js tg_menu_transparent tg_lightbox_black leftalign tg_footer_reveal loftloader-lite-enabled elementor-default elementor-kit-3076 elementor-page elementor-page-1737" >
 <div id="loftloader-wrapper" class="pl-imgloading" data-show-close-time="15000" data-max-load-time="0">
-  <div class="loader-inner">
-    <div id="loader">
-      <div class="imgloading-container"><span style="background-image: url({{ asset('images/Logo-Wide-MENA-Speakers-1.png') }});"></span></div>
-      <img data-no-lazy="1" class="skip-lazy" alt="loader image" src="{{ asset('images/Logo-Wide-MENA-Speakers-1.png') }}" />
-    </div>
-  </div>
+{{--  <div class="loader-inner">--}}
+{{--    <div id="loader">--}}
+{{--      <div class="imgloading-container"><span style="background-image: url({{ asset('images/Logo-Wide-MENA-Speakers-1.png') }});"></span></div>--}}
+{{--      <img data-no-lazy="1" class="skip-lazy" alt="loader image" src="{{ asset('images/Logo-Wide-MENA-Speakers-1.png') }}" />--}}
+{{--    </div>--}}
+{{--  </div>--}}
   <div class="loader-section section-fade"></div>
   <div class="loader-close-button" style="display: none;"><span class="screen-reader-text">Close</span></div>
 </div>
@@ -61,7 +61,7 @@
   <input type="hidden" id="pp_enable_right_click" name="pp_enable_right_click" value="" />
   <input type="hidden" id="pp_enable_dragging" name="pp_enable_dragging" value="" />
   <input type="hidden" id="pp_image_path" name="pp_image_path" value="images/" />
-  <input type="hidden" id="pp_homepage_url" name="pp_homepage_url" value="index.html" />
+  <input type="hidden" id="pp_homepage_url" name="pp_homepage_url" value="/" />
   <input type="hidden" id="pp_fixed_menu" name="pp_fixed_menu" value="1" />
   <input type="hidden" id="tg_sidebar_sticky" name="tg_sidebar_sticky" value="1" />
   <input type="hidden" id="tg_footer_reveal" name="tg_footer_reveal" value="1" />
@@ -86,10 +86,10 @@
       <div class="menu-main-menu-container">
         <ul id="mobile_main_menu" class="mobile_main_nav">
           <li class="menu-item menu-item-has-children" >
-            <a href="index.html" aria-current="page">Home</a>
+            <a href="/" aria-current="page">Home</a>
             <ul class="sub-menu">
               <li class="menu-item">
-                <a href="index.html" aria-current="page">Home 1</a>
+                <a href="/" aria-current="page">Home 1</a>
               </li>
               <li class="menu-item"><a href="home2.html">Home 2</a></li>
               <li class="menu-item"><a href="home3.html">Home 3</a></li>
@@ -263,7 +263,7 @@
                           data-widget_type="image.default" >
                           <div class="elementor-widget-container">
                             <div class="elementor-image">
-                              <a href="index.htm">
+                              <a href="/">
                                 <img
                                   width="320"
                                   height="174"
@@ -494,29 +494,14 @@
                                 data-settings='{"_animation":"fadeIn","_animation_delay":600,"dotlife_ext_is_scrollme":"false","dotlife_ext_is_smoove":"false","dotlife_ext_is_parallax_mouse":"false","dotlife_ext_is_infinite":"false","dotlife_ext_is_fadeout_animation":"false"}'
                                 data-widget_type="shortcode.default"
                               >
-                                <div class="elementor-widget-container">
-                                  <div class="elementor-shortcode">
-                                    <div role="form" class="wpcf7" id="wpcf7-f5-p1218-o1" lang="en-US" dir="ltr">
-                                      <div class="screen-reader-response" role="alert" aria-live="polite"></div>
-
-                                      <form method="post" action="contactform/contactengine.php">
-                                        <label for="Name">Name:</label>
-                                        <input type="text" name="Name" id="Name"  class="input"/>
-
-                                        <label for="City">City:</label>
-                                        <input type="text" name="City" id="City"  class="input"/>
-
-                                        <label for="Email">Email:</label>
-                                        <input type="text" name="Email" id="Email"  class="input"/>
-
-                                        <label for="Message">Message:</label><br />
-                                        <textarea name="Message" rows="20" cols="20" id="Message" class="input"></textarea>
-
-                                        <input type="submit" name="submit" value="Submit" class="submit-button" />
-                                      </form>
-                                    </div>
-                                  </div>
-                                </div>
+                                <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
+                                <script>
+                                  hbspt.forms.create({
+                                    region: "na1",
+                                    portalId: "5847879",
+                                    formId: "fcd954e7-779b-4047-bb57-310149a2c32c"
+                                  });
+                                </script>
                               </div>
                             </div>
                           </div>
@@ -732,7 +717,7 @@
                                     data-widget_type="heading.default"
                                   >
                                     <div class="elementor-widget-container">
-                                      <span class="elementor-heading-title elementor-size-default"><a href="index.html">Burlington Tower, 18th floor, Business Bay</a></span>
+                                      <span class="elementor-heading-title elementor-size-default"><a href="/">Burlington Tower, 18th floor, Business Bay</a></span>
                                     </div>
                                   </div>
                                   <div
@@ -743,7 +728,7 @@
                                     data-widget_type="heading.default"
                                   >
                                     <div class="elementor-widget-container">
-                                      <span class="elementor-heading-title elementor-size-default"><a href="index.html">Dubai, United Arab Emirates </a></span>
+                                      <span class="elementor-heading-title elementor-size-default"><a href="/">Dubai, United Arab Emirates </a></span>
                                     </div>
                                   </div>
                                   <div
@@ -967,7 +952,7 @@
   /* <![CDATA[ */
   var lpGlobalSettings = {
     url: null,
-    siteurl: "index.html",
+    siteurl: "/",
     ajax: "#",
     theme: "dotlife",
     localize: { button_ok: "OK", button_cancel: "Cancel", button_yes: "Yes", button_no: "No" },

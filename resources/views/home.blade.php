@@ -49,7 +49,7 @@
                         >
                           <div class="elementor-widget-container">
                             <div class="elementor-image">
-                              <a href="index.html">
+                              <a href="/">
                                 <img
                                   width="320"
                                   height="174"
@@ -878,93 +878,93 @@
                         </div>
                       </section>
 
-                      <section
-                        class="elementor-element elementor-element-0c2a8e1 elementor-section-stretched elementor-section-full_width elementor-section-height-default elementor-section-height-default elementor-section elementor-top-section"
-                        data-id="0c2a8e1"
-                        data-element_type="section"
-                        data-settings='{"stretch_section":"section-stretched","dotlife_ext_is_background_parallax":"false"}'
-                      >
-                        <div class="elementor-container elementor-column-gap-default">
-                          <div class="elementor-row">
-                            <div
-                              class="elementor-element elementor-element-f174d8a elementor-column elementor-col-100 elementor-top-column"
-                              data-id="f174d8a"
-                              data-element_type="column"
-                              data-settings='{"dotlife_ext_is_scrollme":"false","dotlife_ext_is_smoove":"false","dotlife_ext_is_parallax_mouse":"false","dotlife_ext_is_infinite":"false","dotlife_ext_is_fadeout_animation":"false"}'
-                            >
-                              <div class="elementor-column-wrap elementor-element-populated">
-                                <div class="elementor-widget-wrap">
-                                  <div
-                                    class="elementor-element elementor-element-f1269a1 animated-fast elementor-invisible elementor-widget elementor-widget-dotlife-course-grid"
-                                    data-id="f1269a1"
-                                    data-element_type="widget"
-                                    data-settings='{"_animation":"fadeIn","_animation_delay":600,"dotlife_ext_is_scrollme":"false","dotlife_ext_is_smoove":"false","dotlife_ext_is_parallax_mouse":"false","dotlife_ext_is_infinite":"false","dotlife_ext_is_fadeout_animation":"false"}'
-                                    data-widget_type="dotlife-course-grid.default"
-                                  >
-                                    <div class="elementor-widget-container">
-                                      <div class="course_grid_container">
-                                        <div class="portfolio_classic_content_wrapper portfolio_classic layout_tg_three_cols" data-cols="3">
+{{--                      <section--}}
+{{--                        class="elementor-element elementor-element-0c2a8e1 elementor-section-stretched elementor-section-full_width elementor-section-height-default elementor-section-height-default elementor-section elementor-top-section"--}}
+{{--                        data-id="0c2a8e1"--}}
+{{--                        data-element_type="section"--}}
+{{--                        data-settings='{"stretch_section":"section-stretched","dotlife_ext_is_background_parallax":"false"}'--}}
+{{--                      >--}}
+{{--                        <div class="elementor-container elementor-column-gap-default">--}}
+{{--                          <div class="elementor-row">--}}
+{{--                            <div--}}
+{{--                              class="elementor-element elementor-element-f174d8a elementor-column elementor-col-100 elementor-top-column"--}}
+{{--                              data-id="f174d8a"--}}
+{{--                              data-element_type="column"--}}
+{{--                              data-settings='{"dotlife_ext_is_scrollme":"false","dotlife_ext_is_smoove":"false","dotlife_ext_is_parallax_mouse":"false","dotlife_ext_is_infinite":"false","dotlife_ext_is_fadeout_animation":"false"}'--}}
+{{--                            >--}}
+{{--                              <div class="elementor-column-wrap elementor-element-populated">--}}
+{{--                                <div class="elementor-widget-wrap">--}}
+{{--                                  <div--}}
+{{--                                    class="elementor-element elementor-element-f1269a1 animated-fast elementor-invisible elementor-widget elementor-widget-dotlife-course-grid"--}}
+{{--                                    data-id="f1269a1"--}}
+{{--                                    data-element_type="widget"--}}
+{{--                                    data-settings='{"_animation":"fadeIn","_animation_delay":600,"dotlife_ext_is_scrollme":"false","dotlife_ext_is_smoove":"false","dotlife_ext_is_parallax_mouse":"false","dotlife_ext_is_infinite":"false","dotlife_ext_is_fadeout_animation":"false"}'--}}
+{{--                                    data-widget_type="dotlife-course-grid.default"--}}
+{{--                                  >--}}
+{{--                                    <div class="elementor-widget-container">--}}
+{{--                                      <div class="course_grid_container">--}}
+{{--                                        <div class="portfolio_classic_content_wrapper portfolio_classic layout_tg_three_cols" data-cols="3">--}}
 
-                                          <div class="portfolio_classic_grid_wrapper tg_three_cols portfolio-1 tile scale-anm">
-                                            <div class="card__img" style="background-image: url(upload/smiling-people-with-craft-beer-PU5U9MA-700x466.jpg);"></div>
-
-
-
-                                            <a href="market-and-digital-technology.html" class="card_link">
-                                              <div class="card__img--hover" style="background-image: url(upload/smiling-people-with-craft-beer-PU5U9MA-700x466.jpg);"></div>
-                                            </a>
-
-                                            <div class="card__info">
-                                              <span class="card__date">April 16, 2019</span>
-
-                                              <h3 class="card__title"><a href="market-and-digital-technology.html">Diversification of Digital Marketing Strategies</a></h3>
-                                              <div class="card__excerpt"><p>Polished finish elegant court shoe work duty stretchy slingback strap mid kitten heel this...</p></div>
-
-                                            </div>
-                                          </div>
-                                          <div class="portfolio_classic_grid_wrapper tg_three_cols portfolio-2 tile scale-anm">
-                                            <div class="card__img" style="background-image: url(upload/woman-working-on-a-laptop-J5YMA9W-700x466.jpg);"></div>
-
-                                            <a href="market-and-digital-technology.html" class="card_link">
-                                              <div class="card__img--hover" style="background-image: url(upload/woman-working-on-a-laptop-J5YMA9W-700x466.jpg);"></div>
-                                            </a>
-
-                                            <div class="card__info">
-                                              <span class="card__date">April 22, 2019</span>
-
-                                              <h3 class="card__title"><a href="market-and-digital-technology.html">How to Success through Market Segmentation</a></h3>
-                                              <div class="card__excerpt"><p>Polished finish elegant court shoe work duty stretchy slingback strap mid kitten heel this...</p></div>
-
-                                            </div>
-                                          </div>
-                                          <div class="portfolio_classic_grid_wrapper tg_three_cols last portfolio-3 tile scale-anm">
-                                            <div class="card__img" style="background-image: url(upload/business-workstation-PRB5Z2M-700x466.jpg);"></div>
-
-                                            <a href="market-and-digital-technology.html" class="card_link">
-                                              <div class="card__img--hover" style="background-image: url(upload/business-workstation-PRB5Z2M-700x466.jpg);"></div>
-                                            </a>
-
-                                            <div class="card__info">
-                                              <span class="card__date">April 18, 2019</span>
-
-                                              <h3 class="card__title"><a href="market-and-digital-technology.html">Digital Skills: Using Information to Build Business</a></h3>
-                                              <div class="card__excerpt"><p>Polished finish elegant court shoe work duty stretchy slingback strap mid kitten heel this...</p></div>
+{{--                                          <div class="portfolio_classic_grid_wrapper tg_three_cols portfolio-1 tile scale-anm">--}}
+{{--                                            <div class="card__img" style="background-image: url(upload/smiling-people-with-craft-beer-PU5U9MA-700x466.jpg);"></div>--}}
 
 
-                                            </div>
-                                          </div>
-                                          <br class="clear" />
-                                        </div>
-                                      </div>
-                                      <br class="clear" />
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </section>
+
+{{--                                            <a href="market-and-digital-technology.html" class="card_link">--}}
+{{--                                              <div class="card__img--hover" style="background-image: url(upload/smiling-people-with-craft-beer-PU5U9MA-700x466.jpg);"></div>--}}
+{{--                                            </a>--}}
+
+{{--                                            <div class="card__info">--}}
+{{--                                              <span class="card__date">April 16, 2019</span>--}}
+
+{{--                                              <h3 class="card__title"><a href="market-and-digital-technology.html">Diversification of Digital Marketing Strategies</a></h3>--}}
+{{--                                              <div class="card__excerpt"><p>Polished finish elegant court shoe work duty stretchy slingback strap mid kitten heel this...</p></div>--}}
+
+{{--                                            </div>--}}
+{{--                                          </div>--}}
+{{--                                          <div class="portfolio_classic_grid_wrapper tg_three_cols portfolio-2 tile scale-anm">--}}
+{{--                                            <div class="card__img" style="background-image: url(upload/woman-working-on-a-laptop-J5YMA9W-700x466.jpg);"></div>--}}
+
+{{--                                            <a href="market-and-digital-technology.html" class="card_link">--}}
+{{--                                              <div class="card__img--hover" style="background-image: url(upload/woman-working-on-a-laptop-J5YMA9W-700x466.jpg);"></div>--}}
+{{--                                            </a>--}}
+
+{{--                                            <div class="card__info">--}}
+{{--                                              <span class="card__date">April 22, 2019</span>--}}
+
+{{--                                              <h3 class="card__title"><a href="market-and-digital-technology.html">How to Success through Market Segmentation</a></h3>--}}
+{{--                                              <div class="card__excerpt"><p>Polished finish elegant court shoe work duty stretchy slingback strap mid kitten heel this...</p></div>--}}
+
+{{--                                            </div>--}}
+{{--                                          </div>--}}
+{{--                                          <div class="portfolio_classic_grid_wrapper tg_three_cols last portfolio-3 tile scale-anm">--}}
+{{--                                            <div class="card__img" style="background-image: url(upload/business-workstation-PRB5Z2M-700x466.jpg);"></div>--}}
+
+{{--                                            <a href="market-and-digital-technology.html" class="card_link">--}}
+{{--                                              <div class="card__img--hover" style="background-image: url(upload/business-workstation-PRB5Z2M-700x466.jpg);"></div>--}}
+{{--                                            </a>--}}
+
+{{--                                            <div class="card__info">--}}
+{{--                                              <span class="card__date">April 18, 2019</span>--}}
+
+{{--                                              <h3 class="card__title"><a href="market-and-digital-technology.html">Digital Skills: Using Information to Build Business</a></h3>--}}
+{{--                                              <div class="card__excerpt"><p>Polished finish elegant court shoe work duty stretchy slingback strap mid kitten heel this...</p></div>--}}
+
+
+{{--                                            </div>--}}
+{{--                                          </div>--}}
+{{--                                          <br class="clear" />--}}
+{{--                                        </div>--}}
+{{--                                      </div>--}}
+{{--                                      <br class="clear" />--}}
+{{--                                    </div>--}}
+{{--                                  </div>--}}
+{{--                                </div>--}}
+{{--                              </div>--}}
+{{--                            </div>--}}
+{{--                          </div>--}}
+{{--                        </div>--}}
+{{--                      </section>--}}
 
 
 
@@ -1028,153 +1028,153 @@
                         </div>
                       </section>
 
-                      <section
-                        class="elementor-element elementor-element-173d976 elementor-section-boxed elementor-section-height-default elementor-section-height-default elementor-section elementor-top-section"
-                        data-id="173d976"
-                        data-element_type="section"
-                        data-settings='{"dotlife_ext_is_background_parallax":"false"}'
-                      >
-                        <div class="elementor-container elementor-column-gap-default">
-                          <div class="elementor-row">
-                            <div
-                              class="elementor-element elementor-element-9a10849 elementor-column elementor-col-100 elementor-top-column"
-                              data-id="9a10849"
-                              data-element_type="column"
-                              data-settings='{"dotlife_ext_is_scrollme":"false","dotlife_ext_is_smoove":"false","dotlife_ext_is_parallax_mouse":"false","dotlife_ext_is_infinite":"false","dotlife_ext_is_fadeout_animation":"false"}'
-                            >
-                              <div class="elementor-column-wrap elementor-element-populated">
-                                <div class="elementor-widget-wrap">
-                                  <div
-                                    class="elementor-element elementor-element-4026079 animated-fast elementor-invisible elementor-widget elementor-widget-dotlife-blog-posts"
-                                    data-id="4026079"
-                                    data-element_type="widget"
-                                    data-settings='{"_animation":"fadeIn","_animation_delay":600,"dotlife_ext_is_scrollme":"false","dotlife_ext_is_smoove":"false","dotlife_ext_is_parallax_mouse":"false","dotlife_ext_is_infinite":"false","dotlife_ext_is_fadeout_animation":"false"}'
-                                    data-widget_type="dotlife-blog-posts.default"
-                                  >
-                                    <div class="elementor-widget-container">
-                                      <div class="blog_post_content_wrapper layout_grid">
-                                        <!-- Begin each blog post -->
-                                        <div
-                                          class="blog-posts-grid post-203 post type-post status-publish format-video has-post-thumbnail hentry category-career category-family category-life tag-direction tag-vision-goal-setting post_format-post-format-video"
-                                        >
-                                          <div class="post_wrapper">
-                                            <div class="post_img static">
-                                              <div class="post_img_hover">
-                                                <img src="upload/man-cleaning-glasses-PKAQUKX-960x550.jpg" class="" alt="" />
-                                                <div class="post_type_icon"><i class="fa fa-play"></i></div>
-                                                <a href="#"></a>
-                                              </div>
-                                            </div>
+{{--                      <section--}}
+{{--                        class="elementor-element elementor-element-173d976 elementor-section-boxed elementor-section-height-default elementor-section-height-default elementor-section elementor-top-section"--}}
+{{--                        data-id="173d976"--}}
+{{--                        data-element_type="section"--}}
+{{--                        data-settings='{"dotlife_ext_is_background_parallax":"false"}'--}}
+{{--                      >--}}
+{{--                        <div class="elementor-container elementor-column-gap-default">--}}
+{{--                          <div class="elementor-row">--}}
+{{--                            <div--}}
+{{--                              class="elementor-element elementor-element-9a10849 elementor-column elementor-col-100 elementor-top-column"--}}
+{{--                              data-id="9a10849"--}}
+{{--                              data-element_type="column"--}}
+{{--                              data-settings='{"dotlife_ext_is_scrollme":"false","dotlife_ext_is_smoove":"false","dotlife_ext_is_parallax_mouse":"false","dotlife_ext_is_infinite":"false","dotlife_ext_is_fadeout_animation":"false"}'--}}
+{{--                            >--}}
+{{--                              <div class="elementor-column-wrap elementor-element-populated">--}}
+{{--                                <div class="elementor-widget-wrap">--}}
+{{--                                  <div--}}
+{{--                                    class="elementor-element elementor-element-4026079 animated-fast elementor-invisible elementor-widget elementor-widget-dotlife-blog-posts"--}}
+{{--                                    data-id="4026079"--}}
+{{--                                    data-element_type="widget"--}}
+{{--                                    data-settings='{"_animation":"fadeIn","_animation_delay":600,"dotlife_ext_is_scrollme":"false","dotlife_ext_is_smoove":"false","dotlife_ext_is_parallax_mouse":"false","dotlife_ext_is_infinite":"false","dotlife_ext_is_fadeout_animation":"false"}'--}}
+{{--                                    data-widget_type="dotlife-blog-posts.default"--}}
+{{--                                  >--}}
+{{--                                    <div class="elementor-widget-container">--}}
+{{--                                      <div class="blog_post_content_wrapper layout_grid">--}}
+{{--                                        <!-- Begin each blog post -->--}}
+{{--                                        <div--}}
+{{--                                          class="blog-posts-grid post-203 post type-post status-publish format-video has-post-thumbnail hentry category-career category-family category-life tag-direction tag-vision-goal-setting post_format-post-format-video"--}}
+{{--                                        >--}}
+{{--                                          <div class="post_wrapper">--}}
+{{--                                            <div class="post_img static">--}}
+{{--                                              <div class="post_img_hover">--}}
+{{--                                                <img src="upload/man-cleaning-glasses-PKAQUKX-960x550.jpg" class="" alt="" />--}}
+{{--                                                <div class="post_type_icon"><i class="fa fa-play"></i></div>--}}
+{{--                                                <a href="#"></a>--}}
+{{--                                              </div>--}}
+{{--                                            </div>--}}
 
-                                            <div class="post_content_wrapper text_left">
-                                              <div class="post_header">
-                                                <div class="post_detail single_post">
-                                                  <span class="ti-folder ti_icon"></span>
-                                                  <span class="post_info_cat">
-                                                                                                            <a href="#">Career</a>
-                                                                                                            &nbsp;&middot;&nbsp; <a href="#">Family</a> &nbsp;&middot;&nbsp; <a href="#">Life</a>
-                                                                                                        </span>
-                                                </div>
-                                                <div class="post_header_title">
-                                                  <h5>
-                                                    <a href="#" title="10 Things Successful Mompreneurs Do Different">
-                                                      10 Things Successful Mompreneurs Do Different
-                                                    </a>
-                                                  </h5>
-                                                </div>
-                                              </div>
+{{--                                            <div class="post_content_wrapper text_left">--}}
+{{--                                              <div class="post_header">--}}
+{{--                                                <div class="post_detail single_post">--}}
+{{--                                                  <span class="ti-folder ti_icon"></span>--}}
+{{--                                                  <span class="post_info_cat">--}}
+{{--                                                                                                            <a href="#">Career</a>--}}
+{{--                                                                                                            &nbsp;&middot;&nbsp; <a href="#">Family</a> &nbsp;&middot;&nbsp; <a href="#">Life</a>--}}
+{{--                                                                                                        </span>--}}
+{{--                                                </div>--}}
+{{--                                                <div class="post_header_title">--}}
+{{--                                                  <h5>--}}
+{{--                                                    <a href="#" title="10 Things Successful Mompreneurs Do Different">--}}
+{{--                                                      10 Things Successful Mompreneurs Do Different--}}
+{{--                                                    </a>--}}
+{{--                                                  </h5>--}}
+{{--                                                </div>--}}
+{{--                                              </div>--}}
 
-                                              <div class="post_header_wrapper"></div>
-                                            </div>
-                                          </div>
-                                        </div>
+{{--                                              <div class="post_header_wrapper"></div>--}}
+{{--                                            </div>--}}
+{{--                                          </div>--}}
+{{--                                        </div>--}}
 
-                                        <!-- End each blog post --><!-- Begin each blog post -->
-                                        <div
-                                          class="blog-posts-grid post-200 post type-post status-publish format-standard has-post-thumbnail hentry category-career category-entrepreneur category-life tag-direction tag-vision-goal-setting"
-                                        >
-                                          <div class="post_wrapper">
-                                            <div class="post_img static">
-                                              <div class="post_img_hover">
-                                                <img src="upload/teamwork-together-professional-occupation-concept-PL9Q9XJ-960x550.jpg" class="" alt="" />
-                                                <a href="#"></a>
-                                              </div>
-                                            </div>
+{{--                                        <!-- End each blog post --><!-- Begin each blog post -->--}}
+{{--                                        <div--}}
+{{--                                          class="blog-posts-grid post-200 post type-post status-publish format-standard has-post-thumbnail hentry category-career category-entrepreneur category-life tag-direction tag-vision-goal-setting"--}}
+{{--                                        >--}}
+{{--                                          <div class="post_wrapper">--}}
+{{--                                            <div class="post_img static">--}}
+{{--                                              <div class="post_img_hover">--}}
+{{--                                                <img src="upload/teamwork-together-professional-occupation-concept-PL9Q9XJ-960x550.jpg" class="" alt="" />--}}
+{{--                                                <a href="#"></a>--}}
+{{--                                              </div>--}}
+{{--                                            </div>--}}
 
-                                            <div class="post_content_wrapper text_left">
-                                              <div class="post_header">
-                                                <div class="post_detail single_post">
-                                                  <span class="ti-folder ti_icon"></span>
-                                                  <span class="post_info_cat">
-                                                                                                            <a href="#">Career</a>
-                                                                                                            &nbsp;&middot;&nbsp; <a href="#">Entrepreneur</a> &nbsp;&middot;&nbsp;
-                                                                                                            <a href="#">Life</a>
-                                                                                                        </span>
-                                                </div>
-                                                <div class="post_header_title">
-                                                  <h5>
-                                                    <a href="#" title="3 Clear Warnings That Say Your Goals Are Too Small">
-                                                      3 Clear Warnings That Say Your Goals Are Too Small
-                                                    </a>
-                                                  </h5>
-                                                </div>
-                                              </div>
+{{--                                            <div class="post_content_wrapper text_left">--}}
+{{--                                              <div class="post_header">--}}
+{{--                                                <div class="post_detail single_post">--}}
+{{--                                                  <span class="ti-folder ti_icon"></span>--}}
+{{--                                                  <span class="post_info_cat">--}}
+{{--                                                                                                            <a href="#">Career</a>--}}
+{{--                                                                                                            &nbsp;&middot;&nbsp; <a href="#">Entrepreneur</a> &nbsp;&middot;&nbsp;--}}
+{{--                                                                                                            <a href="#">Life</a>--}}
+{{--                                                                                                        </span>--}}
+{{--                                                </div>--}}
+{{--                                                <div class="post_header_title">--}}
+{{--                                                  <h5>--}}
+{{--                                                    <a href="#" title="3 Clear Warnings That Say Your Goals Are Too Small">--}}
+{{--                                                      3 Clear Warnings That Say Your Goals Are Too Small--}}
+{{--                                                    </a>--}}
+{{--                                                  </h5>--}}
+{{--                                                </div>--}}
+{{--                                              </div>--}}
 
-                                              <div class="post_header_wrapper"></div>
-                                            </div>
-                                          </div>
-                                        </div>
+{{--                                              <div class="post_header_wrapper"></div>--}}
+{{--                                            </div>--}}
+{{--                                          </div>--}}
+{{--                                        </div>--}}
 
-                                        <!-- End each blog post --><!-- Begin each blog post -->
-                                        <div
-                                          class="blog-posts-grid post-198 post type-post status-publish format-standard has-post-thumbnail hentry category-career category-entrepreneur category-life tag-direction tag-vision-goal-setting"
-                                        >
-                                          <div class="post_wrapper">
-                                            <div class="post_img static">
-                                              <div class="post_img_hover">
-                                                <img src="upload/thinking-man-at-work-U7PFMZW-960x550.jpg" class="" alt="" />
-                                                <a href="#"></a>
-                                              </div>
-                                            </div>
+{{--                                        <!-- End each blog post --><!-- Begin each blog post -->--}}
+{{--                                        <div--}}
+{{--                                          class="blog-posts-grid post-198 post type-post status-publish format-standard has-post-thumbnail hentry category-career category-entrepreneur category-life tag-direction tag-vision-goal-setting"--}}
+{{--                                        >--}}
+{{--                                          <div class="post_wrapper">--}}
+{{--                                            <div class="post_img static">--}}
+{{--                                              <div class="post_img_hover">--}}
+{{--                                                <img src="upload/thinking-man-at-work-U7PFMZW-960x550.jpg" class="" alt="" />--}}
+{{--                                                <a href="#"></a>--}}
+{{--                                              </div>--}}
+{{--                                            </div>--}}
 
-                                            <div class="post_content_wrapper text_left">
-                                              <div class="post_header">
-                                                <div class="post_detail single_post">
-                                                  <span class="ti-folder ti_icon"></span>
-                                                  <span class="post_info_cat">
-                                                      <a href="#">Career</a>
-                                                      &nbsp;&middot;&nbsp; <a href="#">Entrepreneur</a> &nbsp;&middot;&nbsp;
-                                                      <a href="#">Life</a>
-                                                  </span>
-                                                </div>
-                                                <div class="post_header_title">
-                                                  <h5>
-                                                    <a
-                                                      href="#"
-                                                      title="Questions every business owner must be able to answer correctly"
-                                                    >
-                                                      Questions every business owner must be able to answer correctly
-                                                    </a>
-                                                  </h5>
-                                                </div>
-                                              </div>
+{{--                                            <div class="post_content_wrapper text_left">--}}
+{{--                                              <div class="post_header">--}}
+{{--                                                <div class="post_detail single_post">--}}
+{{--                                                  <span class="ti-folder ti_icon"></span>--}}
+{{--                                                  <span class="post_info_cat">--}}
+{{--                                                      <a href="#">Career</a>--}}
+{{--                                                      &nbsp;&middot;&nbsp; <a href="#">Entrepreneur</a> &nbsp;&middot;&nbsp;--}}
+{{--                                                      <a href="#">Life</a>--}}
+{{--                                                  </span>--}}
+{{--                                                </div>--}}
+{{--                                                <div class="post_header_title">--}}
+{{--                                                  <h5>--}}
+{{--                                                    <a--}}
+{{--                                                      href="#"--}}
+{{--                                                      title="Questions every business owner must be able to answer correctly"--}}
+{{--                                                    >--}}
+{{--                                                      Questions every business owner must be able to answer correctly--}}
+{{--                                                    </a>--}}
+{{--                                                  </h5>--}}
+{{--                                                </div>--}}
+{{--                                              </div>--}}
 
-                                              <div class="post_header_wrapper"></div>
-                                            </div>
-                                          </div>
-                                        </div>
+{{--                                              <div class="post_header_wrapper"></div>--}}
+{{--                                            </div>--}}
+{{--                                          </div>--}}
+{{--                                        </div>--}}
 
-                                        <!-- End each blog post -->
-                                      </div>
-                                      <br class="clear" />
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </section>
+{{--                                        <!-- End each blog post -->--}}
+{{--                                      </div>--}}
+{{--                                      <br class="clear" />--}}
+{{--                                    </div>--}}
+{{--                                  </div>--}}
+{{--                                </div>--}}
+{{--                              </div>--}}
+{{--                            </div>--}}
+{{--                          </div>--}}
+{{--                        </div>--}}
+{{--                      </section>--}}
 
 
                     </div>
