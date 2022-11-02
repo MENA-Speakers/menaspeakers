@@ -1,6 +1,9 @@
 <?php
 
-    use App\Http\Controllers\BlogsController;
+  use App\Http\Controllers\Admin\AdminBlogController;
+  use App\Http\Controllers\Admin\AdminHomeController;
+  use App\Http\Controllers\Admin\SpeakerController;
+  use App\Http\Controllers\BlogsController;
   use App\Http\Controllers\FaqsController;
   use App\Http\Controllers\HomeController;
   use App\Http\Controllers\PagesController;
@@ -20,6 +23,7 @@
 
 Route::get('/', [HomeController::class, 'index'])->name('index');
 Route::get('/speakers', [SpeakersController::class, 'index'])->name('speakers.index');
+Route::post('/speakers', [SpeakersController::class, 'store'])->name('speakers.store');
 Route::get('/speakers/{speaker}', [SpeakersController::class, 'show'])->name('speakers.show');
 Route::get('/blogs', [BlogsController::class, 'index'])->name('blogs.index');
 Route::get('/blogs/{blog}', [BlogsController::class, 'show'])->name('blogs.show');
@@ -30,6 +34,24 @@ Route::get('/blogs/{blog}', [BlogsController::class, 'show'])->name('blogs.show'
   Route::get('page/terms-condition', [PagesController::class, 'terms'])->name('pages.terms');
 Route::get('page/contact', [PagesController::class, 'contact'])->name('pages.contact');
 Route::get('page/refund-policy', [PagesController::class, 'policy'])->name('pages.policy');
+
+Route::middleware('auth')->name('admin.')->prefix('admin')->group(function() {
+  Route::get('home', [AdminHomeController::class, 'index'])->name('dashboard');
+
+  Route::get('speakers', [SpeakerController::class, 'index'])->name('speakers.index');
+  Route::post('speakers', [SpeakerController::class, 'store'])->name('speakers.store');
+  Route::get('speakers/create', [SpeakerController::class, 'create'])->name('speakers.create');
+  Route::get('speakers/{speaker}/edit', [SpeakerController::class, 'edit'])->name('speakers.edit');
+  Route::post('speakers/{speaker}', [SpeakerController::class, 'update'])->name('speakers.update');
+
+
+  Route::get('blogs', [AdminBlogController::class, 'index'])->name('blogs.index');
+  Route::post('blogs', [AdminBlogController::class, 'store'])->name('blogs.store');
+  Route::get('blogs/create', [AdminBlogController::class, 'create'])->name('blogs.create');
+  Route::get('blogs/{blog}/edit', [AdminBlogController::class, 'edit'])->name('blogs.edit');
+  Route::post('blogs/{blog}', [AdminBlogController::class, 'update'])->name('blogs.update');
+
+});
 
 Route::get('/dashboard', function () {
     return view('dashboard');

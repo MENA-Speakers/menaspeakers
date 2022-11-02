@@ -8,6 +8,14 @@ class PagesController extends Controller
 {
 
 
+  public function terms(){
+      return view('pages.terms-condition');
+  }
+
+
+  public function policy(){
+
+  }
 
 
   public function contact(){

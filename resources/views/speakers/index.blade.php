@@ -2,7 +2,7 @@
 <html lang="en-US" data-menu="leftalign">
 <head>
 
-  <title>Contact Us - MENA SPEAKERS</title>
+  <title>Speakers - MENA SPEAKERS</title>
 
   <meta name="robots" content="noindex,nofollow" />
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -36,7 +36,7 @@
   <link rel="stylesheet" href="{{ asset('css/responsive.css') }}" type="text/css" media="all" />
   <link rel="stylesheet" href="{{ asset('js/plugins/dotlife-elementor/assets/css/typedjs.min.css') }}" type="text/css" media="all" />
   <link rel="stylesheet" href="{{ asset('css/custom.css') }}" type="text/css" media="all" />
-
+  @vite(['resources/css/app.css', 'resources/js/app.js'])
   <link rel="icon" href="upload/TG-Thumb.png" sizes="32x32" />
   <link rel="icon" href="upload/TG-Thumb.png" sizes="192x192" />
   <link rel="apple-touch-icon" href="upload/TG-Thumb.png" />
@@ -46,10 +46,7 @@
 </head>
 
 <body data-rsssl="1"  class="home page-template-default page page-id-1737 woocommerce-no-js tg_menu_transparent tg_lightbox_black leftalign tg_footer_reveal loftloader-lite-enabled elementor-default elementor-kit-3076 elementor-page elementor-page-1737" >
-<div id="loftloader-wrapper" class="pl-imgloading" data-show-close-time="15000" data-max-load-time="0">
-  <div class="loader-section section-fade"></div>
-  <div class="loader-close-button" style="display: none;"><span class="screen-reader-text">Close</span></div>
-</div>
+
 <div id="perspective" style="">
   <input type="hidden" id="pp_menu_layout" name="pp_menu_layout" value="leftalign" />
   <input type="hidden" id="pp_enable_right_click" name="pp_enable_right_click" value="" />
@@ -89,11 +86,11 @@
             <a href="/" aria-current="page">Gallery</a>
           </li>
           <li class="menu-item" >
-              <a href="/" aria-current="page">Blogs</a>
+            <a href="/" aria-current="page">Blogs</a>
           </li>
 
           <li class="menu-item" >
-              <a href="{{ route('pages.contact') }}" aria-current="page">Contact</a>
+            <a href="{{ route('pages.contact') }}" aria-current="page">Contact</a>
           </li>
 
         </ul>
@@ -246,156 +243,59 @@
         <!-- Begin main content -->
         <div class="inner_wrapper">
           <div class="sidebar_content full_width">
-            <div data-elementor-type="wp-post" data-elementor-id="1218" class="elementor elementor-1218" data-elementor-settings="[]">
+            <div data-elementor-type="wp-post" data-elementor-id="848" class="elementor elementor-848" data-elementor-settings="[]">
               <div class="elementor-inner">
                 <div class="elementor-section-wrap">
                   <section
-                    class="elementor-element elementor-element-d72cff7 elementor-section-stretched elementor-section-full_width elementor-section-height-default elementor-section-height-default elementor-section elementor-top-section"
-                    data-id="d72cff7"
+                    class="elementor-element elementor-element-76ce29b elementor-section-stretched elementor-section-height-min-height elementor-section-boxed elementor-section-height-default elementor-section-items-middle elementor-section elementor-top-section"
+                    data-id="76ce29b"
                     data-element_type="section"
-                    data-settings='{"stretch_section":"section-stretched","dotlife_ext_is_background_parallax":"false"}'
+                    data-settings='{"stretch_section":"section-stretched","background_background":"classic","shape_divider_bottom":"tilt","dotlife_ext_is_background_parallax":"false"}'
                   >
-                    <div class="elementor-container elementor-column-gap-no">
+                    <div class="elementor-shape elementor-shape-bottom" data-negative="false">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 1000 100" preserveaspectratio="none">
+                        <path class="elementor-shape-fill" d="M0,6V0h1000v100L0,6z"></path>
+                      </svg>
+                    </div>
+                    <div class="elementor-container elementor-column-gap-default">
                       <div class="elementor-row">
                         <div
-                          class="elementor-element elementor-element-714654b elementor-column elementor-col-33 elementor-top-column"
-                          data-id="714654b"
+                          class="elementor-element elementor-element-249d1ca elementor-column elementor-col-100 elementor-top-column"
+                          data-id="249d1ca"
                           data-element_type="column"
                           data-settings='{"dotlife_ext_is_scrollme":"false","dotlife_ext_is_smoove":"false","dotlife_ext_is_parallax_mouse":"false","dotlife_ext_is_infinite":"false","dotlife_ext_is_fadeout_animation":"false"}'
                         >
                           <div class="elementor-column-wrap elementor-element-populated">
                             <div class="elementor-widget-wrap">
                               <div
-                                class="elementor-element elementor-element-580f040 animated-fast elementor-invisible elementor-widget elementor-widget-heading"
-                                data-id="580f040"
+                                class="elementor-element elementor-element-2d98e2f animated-fast elementor-invisible elementor-widget elementor-widget-heading"
+                                data-id="2d98e2f"
                                 data-element_type="widget"
-                                data-settings='{"_animation":"fadeInUp","_animation_delay":0,"dotlife_ext_is_scrollme":"false","dotlife_ext_is_smoove":"false","dotlife_ext_is_parallax_mouse":"false","dotlife_ext_is_infinite":"false","dotlife_ext_is_fadeout_animation":"false"}'
+                                data-settings='{"_animation":"fadeInUp","dotlife_ext_is_scrollme":"false","dotlife_ext_is_smoove":"false","dotlife_ext_is_parallax_mouse":"false","dotlife_ext_is_infinite":"false","dotlife_ext_is_fadeout_animation":"false"}'
                                 data-widget_type="heading.default"
                               >
                                 <div class="elementor-widget-container">
-                                  <span class="elementor-heading-title elementor-size-default">Are you interested in <b>Booking an Expert?</b> Contact Us.</span>
+                                  <span class="elementor-heading-title elementor-size-default">Dare to fly higher</span>
                                 </div>
                               </div>
-                              <section
-                                class="elementor-element elementor-element-87f20a8 elementor-section-boxed elementor-section-height-default elementor-section-height-default elementor-section elementor-inner-section"
-                                data-id="87f20a8"
-                                data-element_type="section"
-                                data-settings='{"dotlife_ext_is_background_parallax":"false"}'
-                              >
-                                <div class="elementor-container elementor-column-gap-default">
-                                  <div class="elementor-row">
-                                    <div
-                                      class="elementor-element elementor-element-d8d5a80 animated-fast elementor-invisible elementor-column elementor-col-50 elementor-inner-column"
-                                      data-id="d8d5a80"
-                                      data-element_type="column"
-                                      data-settings='{"animation":"fadeInUp","animation_delay":200,"dotlife_ext_is_scrollme":"false","dotlife_ext_is_smoove":"false","dotlife_ext_is_parallax_mouse":"false","dotlife_ext_is_infinite":"false","dotlife_ext_is_fadeout_animation":"false"}'
-                                    >
-                                      <div class="elementor-column-wrap elementor-element-populated">
-                                        <div class="elementor-widget-wrap">
-                                          <div
-                                            class="elementor-element elementor-element-5557c5d animated-fast elementor-invisible elementor-widget elementor-widget-heading"
-                                            data-id="5557c5d"
-                                            data-element_type="widget"
-                                            data-settings='{"_animation":"fadeInUp","_animation_delay":0,"dotlife_ext_is_scrollme":"false","dotlife_ext_is_smoove":"false","dotlife_ext_is_parallax_mouse":"false","dotlife_ext_is_infinite":"false","dotlife_ext_is_fadeout_animation":"false"}'
-                                            data-widget_type="heading.default"
-                                          >
-                                            <div class="elementor-widget-container">
-                                              <span class="elementor-heading-title elementor-size-default">Info@mena-speakers.com</span>
-                                            </div>
-                                          </div>
-                                          <div
-                                            class="elementor-element elementor-element-208e4b5 animated-fast elementor-invisible elementor-widget elementor-widget-heading"
-                                            data-id="208e4b5"
-                                            data-element_type="widget"
-                                            data-settings='{"_animation":"fadeInUp","_animation_delay":200,"dotlife_ext_is_scrollme":"false","dotlife_ext_is_smoove":"false","dotlife_ext_is_parallax_mouse":"false","dotlife_ext_is_infinite":"false","dotlife_ext_is_fadeout_animation":"false"}'
-                                            data-widget_type="heading.default"
-                                          >
-                                            <div class="elementor-widget-container">
-                                              <span class="elementor-heading-title elementor-size-default">Send Me Email</span>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
-                                    <div
-                                      class="elementor-element elementor-element-212454a animated-fast elementor-invisible elementor-column elementor-col-50 elementor-inner-column"
-                                      data-id="212454a"
-                                      data-element_type="column"
-                                      data-settings='{"animation":"fadeInUp","animation_delay":300,"dotlife_ext_is_scrollme":"false","dotlife_ext_is_smoove":"false","dotlife_ext_is_parallax_mouse":"false","dotlife_ext_is_infinite":"false","dotlife_ext_is_fadeout_animation":"false"}'
-                                    >
-                                      <div class="elementor-column-wrap elementor-element-populated">
-                                        <div class="elementor-widget-wrap">
-                                          <div
-                                            class="elementor-element elementor-element-40d2de8 elementor-invisible elementor-widget elementor-widget-heading"
-                                            data-id="40d2de8"
-                                            data-element_type="widget"
-                                            data-settings='{"_animation":"fadeInUp","_animation_delay":0,"dotlife_ext_is_scrollme":"false","dotlife_ext_is_smoove":"false","dotlife_ext_is_parallax_mouse":"false","dotlife_ext_is_infinite":"false","dotlife_ext_is_fadeout_animation":"false"}'
-                                            data-widget_type="heading.default"
-                                          >
-                                            <div class="elementor-widget-container">
-                                              <span class="elementor-heading-title elementor-size-default">+971 55 98 32 756</span>
-                                            </div>
-                                          </div>
-                                          <div
-                                            class="elementor-element elementor-element-5365b06 animated-fast elementor-invisible elementor-widget elementor-widget-heading"
-                                            data-id="5365b06"
-                                            data-element_type="widget"
-                                            data-settings='{"_animation":"fadeInUp","_animation_delay":200,"dotlife_ext_is_scrollme":"false","dotlife_ext_is_smoove":"false","dotlife_ext_is_parallax_mouse":"false","dotlife_ext_is_infinite":"false","dotlife_ext_is_fadeout_animation":"false"}'
-                                            data-widget_type="heading.default"
-                                          >
-                                            <div class="elementor-widget-container">
-                                              <span class="elementor-heading-title elementor-size-default">Call Us</span>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </section>
                               <div
-                                class="elementor-element elementor-element-cea35dc animated-fast elementor-invisible elementor-widget elementor-widget-shortcode"
-                                data-id="cea35dc"
+                                class="elementor-element elementor-element-9b70812 animated-fast elementor-invisible elementor-widget elementor-widget-heading"
+                                data-id="9b70812"
                                 data-element_type="widget"
-                                data-settings='{"_animation":"fadeIn","_animation_delay":600,"dotlife_ext_is_scrollme":"false","dotlife_ext_is_smoove":"false","dotlife_ext_is_parallax_mouse":"false","dotlife_ext_is_infinite":"false","dotlife_ext_is_fadeout_animation":"false"}'
-                                data-widget_type="shortcode.default"
-                              >
-                                <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
-                                <script>
-                                  hbspt.forms.create({
-                                    region: "na1",
-                                    portalId: "5847879",
-                                    formId: "fcd954e7-779b-4047-bb57-310149a2c32c"
-                                  });
-                                </script>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div
-                          class="elementor-element elementor-element-f8e12aa translate_right_less elementor-column elementor-col-66 elementor-top-column"
-                          data-id="f8e12aa"
-                          data-element_type="column"
-                          data-settings='{"background_background":"classic","dotlife_ext_is_scrollme":"false","dotlife_ext_is_smoove":"false","dotlife_ext_is_parallax_mouse":"false","dotlife_ext_is_infinite":"false","dotlife_ext_is_fadeout_animation":"false"}'
-                        >
-                          <div class="elementor-column-wrap elementor-element-populated">
-                            <div class="elementor-widget-wrap">
-                              <div
-                                class="elementor-element elementor-element-10c7d34 translate_left_half elementor-widget elementor-widget-image"
-                                data-id="10c7d34"
-                                data-element_type="widget"
-                                data-settings='{"dotlife_image_is_animation":"false","dotlife_ext_is_scrollme":"false","dotlife_ext_is_smoove":"false","dotlife_ext_is_parallax_mouse":"false","dotlife_ext_is_infinite":"false","dotlife_ext_is_fadeout_animation":"false"}'
-                                data-widget_type="image.default"
+                                data-settings='{"_animation":"fadeInUp","_animation_delay":200,"dotlife_ext_is_scrollme":"false","dotlife_ext_is_smoove":"false","dotlife_ext_is_parallax_mouse":"false","dotlife_ext_is_infinite":"false","dotlife_ext_is_fadeout_animation":"false"}'
+                                data-widget_type="heading.default"
                               >
                                 <div class="elementor-widget-container">
-                                  <div class="elementor-image">
-                                    <img
-                                      width="768"
-                                      height="1152"
-                                      src="{{ asset('images/mangaer-02.png') }}"
-                                      class="attachment-medium_large size-medium_large"
-                                      alt=""
-                                    />
+                                  <div class="elementor-heading-title elementor-size-default">
+                                    I need to change my
+                                    <div class="type-wrap" style="display: none;">
+                                      <div id="typed-strings">
+                                        <p>career</p>
+                                        <p>future</p>
+                                        <p>goal</p>
+                                      </div>
+                                      <span id="typed" style="white-space: pre;"></span>
+                                    </div>
                                   </div>
                                 </div>
                               </div>
@@ -405,6 +305,179 @@
                       </div>
                     </div>
                   </section>
+                  <section
+                    class="elementor-element elementor-element-d24af5d elementor-section-stretched elementor-section-full_width elementor-section-height-default elementor-section-height-default elementor-section elementor-top-section"
+                    data-id="d24af5d"
+                    data-element_type="section"
+                    data-settings='{"stretch_section":"section-stretched","dotlife_ext_is_background_parallax":"false"}'
+                  >
+                    <div class="elementor-container elementor-column-gap-default">
+                      <div class="elementor-row">
+                        <div
+                          class="elementor-element elementor-element-d885258 elementor-column elementor-col-100 elementor-top-column"
+                          data-id="d885258"
+                          data-element_type="column"
+                          data-settings='{"dotlife_ext_is_scrollme":"false","dotlife_ext_is_smoove":"false","dotlife_ext_is_parallax_mouse":"false","dotlife_ext_is_infinite":"false","dotlife_ext_is_fadeout_animation":"false"}'
+                        >
+                          <div class="elementor-column-wrap elementor-element-populated">
+                            <div class="elementor-widget-wrap">
+                              <div
+                                class="elementor-element elementor-element-05fcb21 elementor-widget elementor-widget-dotlife-course-grid"
+                                data-id="05fcb21"
+                                data-element_type="widget"
+                                data-settings='{"dotlife_ext_is_scrollme":"false","dotlife_ext_is_smoove":"false","dotlife_ext_is_parallax_mouse":"false","dotlife_ext_is_infinite":"false","dotlife_ext_is_fadeout_animation":"false"}'
+                                data-widget_type="dotlife-course-grid.default"
+                              >
+                                <div class="elementor-widget-container">
+                                  <form method="get" name="search-course" class="learn-press-search-course-form" action="https://themes.themegoods.com/dotlife/demo/course-grid/">
+                                    <input type="text" name="keyword" class="search-course-input" value="" placeholder="enter keywords here" />
+                                    <button class="lp-button button search-course-button">Search</button>
+                                  </form>
+
+                                  <div class="course_grid_container">
+                                    <div class="portfolio_classic_content_wrapper space-x-6 portfolio_classic layout_tg_three_cols" data-cols="3">
+
+                                      @foreach($speakers as $speaker)
+                                        <div class="portfolio_classic_grid_wrapper tg_three_cols last portfolio-1 tile scale-anm">
+                                          <div class="card__img" style="background-image: url({{ $speaker->getFirstMediaUrl('avatar') }});"></div>
+
+
+
+                                          <a href="{{ route('speakers.show', $speaker->slug) }}" class="card_link">
+                                            <div
+                                              class="card__img--hover"
+                                              style="background-image: url({{ $speaker->getFirstMediaUrl('avatar') }});"
+                                            ></div>
+                                          </a>
+
+                                          <div class="card__info">
+{{--                                            <span class="card__date">April 16, 2019</span>--}}
+
+                                            <h3 class="card__title"><a href="{{ route('speakers.show', $speaker->slug) }}" >{{ $speaker->name }}</a></h3>
+                                            <div class="card__excerpt"><p>{{ $speaker->excerpt }}</p></div>
+
+                                          </div>
+                                        </div>
+                                      @endforeach
+                                      <br class="clear" />
+                                    </div>
+                                  </div>
+                                  <br class="clear" />
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </section>
+{{--                  <section--}}
+{{--                    class="elementor-element elementor-element-f4e4745 elementor-section-stretched elementor-section-height-min-height elementor-section-boxed elementor-section-height-default elementor-section-items-middle elementor-section elementor-top-section"--}}
+{{--                    data-id="f4e4745"--}}
+{{--                    data-element_type="section"--}}
+{{--                    data-settings='{"stretch_section":"section-stretched","background_background":"classic","dotlife_ext_is_background_parallax":"false"}'--}}
+{{--                  >--}}
+{{--                    <div class="elementor-container elementor-column-gap-default">--}}
+{{--                      <div class="elementor-row">--}}
+{{--                        <div--}}
+{{--                          class="elementor-element elementor-element-ee0c216 elementor-column elementor-col-50 elementor-top-column"--}}
+{{--                          data-id="ee0c216"--}}
+{{--                          data-element_type="column"--}}
+{{--                          data-settings='{"dotlife_ext_is_scrollme":"false","dotlife_ext_is_smoove":"false","dotlife_ext_is_parallax_mouse":"false","dotlife_ext_is_infinite":"false","dotlife_ext_is_fadeout_animation":"false"}'--}}
+{{--                        >--}}
+{{--                          <div class="elementor-column-wrap elementor-element-populated">--}}
+{{--                            <div class="elementor-widget-wrap">--}}
+{{--                              <div--}}
+{{--                                class="elementor-element elementor-element-26ec0cf animated-fast elementor-invisible elementor-widget elementor-widget-heading"--}}
+{{--                                data-id="26ec0cf"--}}
+{{--                                data-element_type="widget"--}}
+{{--                                data-settings='{"_animation":"fadeInUp","_animation_delay":0,"dotlife_ext_is_scrollme":"false","dotlife_ext_is_smoove":"false","dotlife_ext_is_parallax_mouse":"false","dotlife_ext_is_infinite":"false","dotlife_ext_is_fadeout_animation":"false"}'--}}
+{{--                                data-widget_type="heading.default"--}}
+{{--                              >--}}
+{{--                                <div class="elementor-widget-container">--}}
+{{--                                  <span class="elementor-heading-title elementor-size-default">Self Development Course</span>--}}
+{{--                                </div>--}}
+{{--                              </div>--}}
+{{--                              <div--}}
+{{--                                class="elementor-element elementor-element-07c8b90 animated-fast elementor-invisible elementor-widget elementor-widget-heading"--}}
+{{--                                data-id="07c8b90"--}}
+{{--                                data-element_type="widget"--}}
+{{--                                data-settings='{"_animation":"fadeInUp","_animation_delay":200,"dotlife_ext_is_scrollme":"false","dotlife_ext_is_smoove":"false","dotlife_ext_is_parallax_mouse":"false","dotlife_ext_is_infinite":"false","dotlife_ext_is_fadeout_animation":"false"}'--}}
+{{--                                data-widget_type="heading.default"--}}
+{{--                              >--}}
+{{--                                <div class="elementor-widget-container">--}}
+{{--                                  <h2 class="elementor-heading-title elementor-size-default">Get Instant Access To Free Audio Book</h2>--}}
+{{--                                </div>--}}
+{{--                              </div>--}}
+{{--                              <div--}}
+{{--                                class="elementor-element elementor-element-21c5a8c animated-fast elementor-invisible elementor-widget elementor-widget-text-editor"--}}
+{{--                                data-id="21c5a8c"--}}
+{{--                                data-element_type="widget"--}}
+{{--                                data-settings='{"_animation":"fadeInUp","_animation_delay":400,"dotlife_ext_is_scrollme":"false","dotlife_ext_is_smoove":"false","dotlife_ext_is_parallax_mouse":"false","dotlife_ext_is_infinite":"false","dotlife_ext_is_fadeout_animation":"false"}'--}}
+{{--                                data-widget_type="text-editor.default"--}}
+{{--                              >--}}
+{{--                                <div class="elementor-widget-container">--}}
+{{--                                  <div class="elementor-text-editor elementor-clearfix">--}}
+{{--                                    <p>--}}
+{{--                                      Effortless comfortable full leather lining eye-catching unique detail to the toe low ‘cut-away’ sides clean and sleek. Polished finish elegant court shoe--}}
+{{--                                      work.--}}
+{{--                                    </p>--}}
+{{--                                  </div>--}}
+{{--                                </div>--}}
+{{--                              </div>--}}
+{{--                            </div>--}}
+{{--                          </div>--}}
+{{--                        </div>--}}
+{{--                        <div--}}
+{{--                          class="elementor-element elementor-element-36d4f19 elementor-column elementor-col-50 elementor-top-column"--}}
+{{--                          data-id="36d4f19"--}}
+{{--                          data-element_type="column"--}}
+{{--                          data-settings='{"dotlife_ext_is_scrollme":"false","dotlife_ext_is_smoove":"false","dotlife_ext_is_parallax_mouse":"false","dotlife_ext_is_infinite":"false","dotlife_ext_is_fadeout_animation":"false"}'--}}
+{{--                        >--}}
+{{--                          <div class="elementor-column-wrap elementor-element-populated">--}}
+{{--                            <div class="elementor-widget-wrap">--}}
+{{--                              <div--}}
+{{--                                class="elementor-element elementor-element-2c73f81 stellar animated-fast elementor-invisible elementor-widget elementor-widget-dotlife-music-player"--}}
+{{--                                data-id="2c73f81"--}}
+{{--                                data-element_type="widget"--}}
+{{--                                data-settings='{"_animation":"fadeIn","_animation_delay":400,"dotlife_ext_is_scrollme":"false","dotlife_ext_is_smoove":"false","dotlife_ext_is_parallax_mouse":"false","dotlife_ext_is_infinite":"false","dotlife_ext_is_fadeout_animation":"false"}'--}}
+{{--                                data-widget_type="dotlife-music-player.default"--}}
+{{--                              >--}}
+{{--                                <div class="elementor-widget-container">--}}
+{{--                                  <input--}}
+{{--                                    type="hidden"--}}
+{{--                                    id="2c73f81_songlist"--}}
+{{--                                    value='[{"title":"Self Developement","artist":"Jennifer Hardy","mp3":"upload/21509715_talk-show_by_musicalvitamin_preview.mp3","poster":"upload/smiling-businesswoman-standing-with-arms-crossed-ULM4PGT-150x150.jpg"},{"title":"Successful Business","artist":"Jennifer Hardy","mp3":"upload/21509715_talk-show_by_musicalvitamin_preview.mp3","poster":"upload/woman-side-view-close-eyes-thinking-concept-PTKET4T-150x150.jpg"}]'--}}
+{{--                                  />--}}
+{{--                                  <div class="music_player" data-songlist="2c73f81_songlist">--}}
+{{--                                    <div class="player">--}}
+{{--                                      <div class="player__background"></div>--}}
+{{--                                      <img src="images/default-image.jpg" alt="" class="player__img" />--}}
+{{--                                      <h2 class="player__title"></h2>--}}
+{{--                                      <h3 class="player__artist"></h3>--}}
+{{--                                      <div class="player__controls">--}}
+{{--                                        <a href="javascript:;" class="player__controls__prev"><i class="fa fa-backward"></i></a>--}}
+{{--                                        <a href="javascript:;" class="player__controls__play"><i class="fa fa-play"></i></a>--}}
+{{--                                        <a href="javascript:;" class="player__controls__next"><i class="fa fa-forward"></i></a>--}}
+{{--                                      </div>--}}
+{{--                                      <div class="player__scrubber">--}}
+{{--                                        <div class="player__scrubber__fill"></div>--}}
+{{--                                        <div class="player__scrubber__handle"></div>--}}
+{{--                                      </div>--}}
+{{--                                      <div class="player__time">--}}
+{{--                                        <div class="player__time__played">0:00</div>--}}
+{{--                                        <div class="player__time__duration">-:--</div>--}}
+{{--                                      </div>--}}
+{{--                                    </div>--}}
+{{--                                  </div>--}}
+{{--                                </div>--}}
+{{--                              </div>--}}
+{{--                            </div>--}}
+{{--                          </div>--}}
+{{--                        </div>--}}
+{{--                      </div>--}}
+{{--                    </div>--}}
+{{--                  </section>--}}
                 </div>
               </div>
             </div>
@@ -658,7 +731,7 @@
                                     data-widget_type="heading.default"
                                   >
                                     <div class="elementor-widget-container">
-                                      <span class="elementor-heading-title elementor-size-default"><a href="{{ route('faqs.index') }}">FAQs</a></span>
+                                      <span class="elementor-heading-title elementor-size-default"><a href="#">FAQs</a></span>
                                     </div>
                                   </div>
                                   <div
@@ -669,7 +742,7 @@
                                     data-widget_type="heading.default"
                                   >
                                     <div class="elementor-widget-container">
-                                      <span class="elementor-heading-title elementor-size-default"><a href="{{ route('pages.policy') }}">Refund Policy</a></span>
+                                      <span class="elementor-heading-title elementor-size-default"><a href="#">Refund Policy</a></span>
                                     </div>
                                   </div>
                                   <div
@@ -713,9 +786,9 @@
                                     data-widget_type="heading.default"
                                   >
                                     <div class="elementor-widget-container">
-                                                                                        <span class="elementor-heading-title elementor-size-default">
-                                                                                            Are we friends on social media, yet? Use the buttons below to connect, then join my list to your right.
-                                                                                        </span>
+                                        <span class="elementor-heading-title elementor-size-default">
+                                            Are we friends on social media, yet? Use the buttons below to connect, then join my list to your right.
+                                        </span>
                                     </div>
                                   </div>
                                   <div

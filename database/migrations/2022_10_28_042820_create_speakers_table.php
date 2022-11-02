@@ -20,8 +20,8 @@ return new class extends Migration
             $table->longText('bio')->nullable();
             $table->boolean('featured')->default(false);
             $table->string('meta_title')->nullable();
-            $table->longText('meta_description')->nullable();
-            $table->longText('keywords');
+            $table->longText('except')->nullable();
+            $table->longText('keywords')->nullable();
             $table->timestamps();
         });
     }

@@ -2,7 +2,7 @@
 <html lang="en-US" data-menu="leftalign">
 <head>
 
-  <title>Contact Us - MENA SPEAKERS</title>
+  <title>Refund Policy - MENA SPEAKERS</title>
 
   <meta name="robots" content="noindex,nofollow" />
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -46,10 +46,7 @@
 </head>
 
 <body data-rsssl="1"  class="home page-template-default page page-id-1737 woocommerce-no-js tg_menu_transparent tg_lightbox_black leftalign tg_footer_reveal loftloader-lite-enabled elementor-default elementor-kit-3076 elementor-page elementor-page-1737" >
-<div id="loftloader-wrapper" class="pl-imgloading" data-show-close-time="15000" data-max-load-time="0">
-  <div class="loader-section section-fade"></div>
-  <div class="loader-close-button" style="display: none;"><span class="screen-reader-text">Close</span></div>
-</div>
+
 <div id="perspective" style="">
   <input type="hidden" id="pp_menu_layout" name="pp_menu_layout" value="leftalign" />
   <input type="hidden" id="pp_enable_right_click" name="pp_enable_right_click" value="" />
@@ -89,11 +86,11 @@
             <a href="/" aria-current="page">Gallery</a>
           </li>
           <li class="menu-item" >
-              <a href="/" aria-current="page">Blogs</a>
+            <a href="/" aria-current="page">Blogs</a>
           </li>
 
           <li class="menu-item" >
-              <a href="{{ route('pages.contact') }}" aria-current="page">Contact</a>
+            <a href="{{ route('pages.contact') }}" aria-current="page">Contact</a>
           </li>
 
         </ul>
@@ -246,105 +243,83 @@
         <!-- Begin main content -->
         <div class="inner_wrapper">
           <div class="sidebar_content full_width">
-            <div data-elementor-type="wp-post" data-elementor-id="1218" class="elementor elementor-1218" data-elementor-settings="[]">
+
+
+            <div data-elementor-type="wp-post" data-elementor-id="6488" class="elementor elementor-6488">
               <div class="elementor-inner">
                 <div class="elementor-section-wrap">
-                  <section
-                    class="elementor-element elementor-element-d72cff7 elementor-section-stretched elementor-section-full_width elementor-section-height-default elementor-section-height-default elementor-section elementor-top-section"
-                    data-id="d72cff7"
-                    data-element_type="section"
-                    data-settings='{"stretch_section":"section-stretched","dotlife_ext_is_background_parallax":"false"}'
-                  >
-                    <div class="elementor-container elementor-column-gap-no">
+                  <section class="elementor-section elementor-top-section elementor-element elementor-element-371f533 elementor-section-stretched elementor-section-full_width elementor-section-height-min-height elementor-section-height-default elementor-section-items-middle" data-id="371f533" data-element_type="section" data-settings="{&quot;stretch_section&quot;:&quot;section-stretched&quot;,&quot;background_background&quot;:&quot;classic&quot;}" style="width: 1519px; left: -137.1px;">
+                    <div class="elementor-container elementor-column-gap-default">
                       <div class="elementor-row">
-                        <div
-                          class="elementor-element elementor-element-714654b elementor-column elementor-col-33 elementor-top-column"
-                          data-id="714654b"
-                          data-element_type="column"
-                          data-settings='{"dotlife_ext_is_scrollme":"false","dotlife_ext_is_smoove":"false","dotlife_ext_is_parallax_mouse":"false","dotlife_ext_is_infinite":"false","dotlife_ext_is_fadeout_animation":"false"}'
-                        >
+                        <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-688b491" data-id="688b491" data-element_type="column">
                           <div class="elementor-column-wrap elementor-element-populated">
                             <div class="elementor-widget-wrap">
-                              <div
-                                class="elementor-element elementor-element-580f040 animated-fast elementor-invisible elementor-widget elementor-widget-heading"
-                                data-id="580f040"
-                                data-element_type="widget"
-                                data-settings='{"_animation":"fadeInUp","_animation_delay":0,"dotlife_ext_is_scrollme":"false","dotlife_ext_is_smoove":"false","dotlife_ext_is_parallax_mouse":"false","dotlife_ext_is_infinite":"false","dotlife_ext_is_fadeout_animation":"false"}'
-                                data-widget_type="heading.default"
-                              >
+                              <div class="elementor-element elementor-element-377342d elementor-widget elementor-widget-dotlife-mouse-driven-vertical-carousel" data-id="377342d" data-element_type="widget" data-widget_type="dotlife-mouse-driven-vertical-carousel.default">
                                 <div class="elementor-widget-container">
-                                  <span class="elementor-heading-title elementor-size-default">Are you interested in <b>Booking an Expert?</b> Contact Us.</span>
+                                  <div class="tg_mouse_driven_vertical_carousel_wrapper">
+                                    <header class="c-header c-header--archive c-header--project-list">
+                                      <div class="c-mouse-vertical-carousel js-carousel u-media-wrapper">
+
+                                        <div class="carousel__header">
+                                          <div class="carousel__sub_header"> </div>
+                                          <h2>Terms and conditions</h2>
+                                        </div>
+
+                                        <ul class="c-mouse-vertical-carousel__list js-carousel-list" style="transform: matrix(1, 0, 0, 1, 0, -47.3333);">
+                                          <li class="c-mouse-vertical-carousel__list-item js-carousel-list-item" data-item-id="0" style="visibility: inherit; opacity: 1;">
+                                            <a href="">
+                                              <p class="c-mouse-vertical-carousel__eyebrow">
+                                              </p>
+                                              <p class="c-mouse-vertical-carousel__title">
+                                              </p>
+                                            </a>
+                                          </li>
+                                        </ul>
+                                        <i class="c-mouse-vertical-carousel__bg-img js-carousel-bg-img is-visible" style="background-image: url(&quot;https://mena-speakers.com/wp-content/uploads/2020/04/i405L3GqkB.jpg&quot;); visibility: inherit; opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);"></i>
+                                        <i class="c-gradient-overlay"></i>
+                                      </div>
+                                    </header>
+                                  </div>
                                 </div>
                               </div>
-                              <section
-                                class="elementor-element elementor-element-87f20a8 elementor-section-boxed elementor-section-height-default elementor-section-height-default elementor-section elementor-inner-section"
-                                data-id="87f20a8"
-                                data-element_type="section"
-                                data-settings='{"dotlife_ext_is_background_parallax":"false"}'
-                              >
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </section>
+                  <section class="elementor-section elementor-top-section elementor-element elementor-element-241b67b elementor-section-stretched elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="241b67b" data-element_type="section" data-settings="{&quot;stretch_section&quot;:&quot;section-stretched&quot;}" style="width: 1519px; left: -137.1px;">
+                    <div class="elementor-container elementor-column-gap-default">
+                      <div class="elementor-row">
+                        <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-d4a95cd" data-id="d4a95cd" data-element_type="column">
+                          <div class="elementor-column-wrap elementor-element-populated">
+                            <div class="elementor-widget-wrap">
+                              <div class="elementor-element elementor-element-d398a44 animated-fast elementor-widget elementor-widget-heading animated fadeInUp" data-id="d398a44" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;,&quot;_animation_delay&quot;:0}" data-widget_type="heading.default">
+                                <div class="elementor-widget-container">
+                                  <span class="elementor-heading-title elementor-size-default">Return Policy</span>		</div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </section>
+                  <section class="elementor-section elementor-top-section elementor-element elementor-element-5d30e10 elementor-section-stretched elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="5d30e10" data-element_type="section" data-settings="{&quot;stretch_section&quot;:&quot;section-stretched&quot;}" style="width: 1519px; left: -137.1px;">
+                    <div class="elementor-container elementor-column-gap-default">
+                      <div class="elementor-row">
+                        <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-42c09b6" data-id="42c09b6" data-element_type="column">
+                          <div class="elementor-column-wrap elementor-element-populated">
+                            <div class="elementor-widget-wrap">
+                              <section class="elementor-section elementor-inner-section elementor-element elementor-element-464b98e elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="464b98e" data-element_type="section">
                                 <div class="elementor-container elementor-column-gap-default">
                                   <div class="elementor-row">
-                                    <div
-                                      class="elementor-element elementor-element-d8d5a80 animated-fast elementor-invisible elementor-column elementor-col-50 elementor-inner-column"
-                                      data-id="d8d5a80"
-                                      data-element_type="column"
-                                      data-settings='{"animation":"fadeInUp","animation_delay":200,"dotlife_ext_is_scrollme":"false","dotlife_ext_is_smoove":"false","dotlife_ext_is_parallax_mouse":"false","dotlife_ext_is_infinite":"false","dotlife_ext_is_fadeout_animation":"false"}'
-                                    >
+                                    <div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-fcf3d16" data-id="fcf3d16" data-element_type="column">
                                       <div class="elementor-column-wrap elementor-element-populated">
                                         <div class="elementor-widget-wrap">
-                                          <div
-                                            class="elementor-element elementor-element-5557c5d animated-fast elementor-invisible elementor-widget elementor-widget-heading"
-                                            data-id="5557c5d"
-                                            data-element_type="widget"
-                                            data-settings='{"_animation":"fadeInUp","_animation_delay":0,"dotlife_ext_is_scrollme":"false","dotlife_ext_is_smoove":"false","dotlife_ext_is_parallax_mouse":"false","dotlife_ext_is_infinite":"false","dotlife_ext_is_fadeout_animation":"false"}'
-                                            data-widget_type="heading.default"
-                                          >
+                                          <div class="elementor-element elementor-element-1a4bfe3 animated-fast elementor-widget elementor-widget-text-editor animated fadeInUp" data-id="1a4bfe3" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;,&quot;_animation_delay&quot;:400}" data-widget_type="text-editor.default">
                                             <div class="elementor-widget-container">
-                                              <span class="elementor-heading-title elementor-size-default">Info@mena-speakers.com</span>
-                                            </div>
-                                          </div>
-                                          <div
-                                            class="elementor-element elementor-element-208e4b5 animated-fast elementor-invisible elementor-widget elementor-widget-heading"
-                                            data-id="208e4b5"
-                                            data-element_type="widget"
-                                            data-settings='{"_animation":"fadeInUp","_animation_delay":200,"dotlife_ext_is_scrollme":"false","dotlife_ext_is_smoove":"false","dotlife_ext_is_parallax_mouse":"false","dotlife_ext_is_infinite":"false","dotlife_ext_is_fadeout_animation":"false"}'
-                                            data-widget_type="heading.default"
-                                          >
-                                            <div class="elementor-widget-container">
-                                              <span class="elementor-heading-title elementor-size-default">Send Me Email</span>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
-                                    <div
-                                      class="elementor-element elementor-element-212454a animated-fast elementor-invisible elementor-column elementor-col-50 elementor-inner-column"
-                                      data-id="212454a"
-                                      data-element_type="column"
-                                      data-settings='{"animation":"fadeInUp","animation_delay":300,"dotlife_ext_is_scrollme":"false","dotlife_ext_is_smoove":"false","dotlife_ext_is_parallax_mouse":"false","dotlife_ext_is_infinite":"false","dotlife_ext_is_fadeout_animation":"false"}'
-                                    >
-                                      <div class="elementor-column-wrap elementor-element-populated">
-                                        <div class="elementor-widget-wrap">
-                                          <div
-                                            class="elementor-element elementor-element-40d2de8 elementor-invisible elementor-widget elementor-widget-heading"
-                                            data-id="40d2de8"
-                                            data-element_type="widget"
-                                            data-settings='{"_animation":"fadeInUp","_animation_delay":0,"dotlife_ext_is_scrollme":"false","dotlife_ext_is_smoove":"false","dotlife_ext_is_parallax_mouse":"false","dotlife_ext_is_infinite":"false","dotlife_ext_is_fadeout_animation":"false"}'
-                                            data-widget_type="heading.default"
-                                          >
-                                            <div class="elementor-widget-container">
-                                              <span class="elementor-heading-title elementor-size-default">+971 55 98 32 756</span>
-                                            </div>
-                                          </div>
-                                          <div
-                                            class="elementor-element elementor-element-5365b06 animated-fast elementor-invisible elementor-widget elementor-widget-heading"
-                                            data-id="5365b06"
-                                            data-element_type="widget"
-                                            data-settings='{"_animation":"fadeInUp","_animation_delay":200,"dotlife_ext_is_scrollme":"false","dotlife_ext_is_smoove":"false","dotlife_ext_is_parallax_mouse":"false","dotlife_ext_is_infinite":"false","dotlife_ext_is_fadeout_animation":"false"}'
-                                            data-widget_type="heading.default"
-                                          >
-                                            <div class="elementor-widget-container">
-                                              <span class="elementor-heading-title elementor-size-default">Call Us</span>
+                                              <div class="elementor-text-editor elementor-clearfix">
+                                                <p><b style="font-family: inherit; font-style: inherit; letter-spacing: 0px;">What is MENA Speakers return policy?</b></p><p>We have a 30-day return policy, which means you have 30 days after receiving your item to request a return.&nbsp;<span style="font-size: 16px; letter-spacing: 0px;">To be eligible for a return, your item must be in the same condition that you received it, unworn or unused, with tags, and in its original packaging. You’ll also need the receipt or proof of purchase.&nbsp;</span><span style="font-size: 16px; letter-spacing: 0px;">To start a return, you can contact us at info@mena-speakers.com. If your return is accepted, we’ll send you a return shipping label, as well as instructions on how and where to send your package. Items sent back to us without first requesting a return will not be accepted.&nbsp;</span><span style="font-size: 16px; letter-spacing: 0px;">You can always contact us for any return question at info@mena-speakers.com.</span></p><p><span style="font-size: 16px; letter-spacing: 0px;"><b>Damages and Issues</b></span></p><p>Please inspect your order upon reception and contact us immediately if the item is defective, damaged or if you receive the wrong item, so that we can evaluate the issue and make it right.</p><p><b>Exceptions / non-returnable items</b></p><p>Certain types of items cannot be returned, like perishable goods (such as food, flowers, or plants), custom products (such as special orders or personalized items), and personal care goods (such as beauty products). We also do not accept returns for hazardous materials, flammable liquids, or gases. Please get in touch if you have questions or concerns about your specific item&nbsp;<span style="font-size: 16px; letter-spacing: 0px;">Unfortunately, we cannot accept returns on sale items or gift cards.</span></p><p><span style="font-size: 16px; letter-spacing: 0px;"><b>Exchanges</b></span></p><p><span style="font-size: 16px; letter-spacing: 0px;">The fastest way to ensure you get what you want is to return the item you have, and once the return is accepted, make a separate purchase for the new item.</span></p><p><b>Refunds</b></p><p>We will notify you once we’ve received and inspected your return, and let you know if the refund was approved or not. If approved, you’ll be automatically refunded on your original payment method. Please remember it can take some time for your bank or credit card company to process and post the refund too.</p>					</div>
                                             </div>
                                           </div>
                                         </div>
@@ -353,52 +328,24 @@
                                   </div>
                                 </div>
                               </section>
-                              <div
-                                class="elementor-element elementor-element-cea35dc animated-fast elementor-invisible elementor-widget elementor-widget-shortcode"
-                                data-id="cea35dc"
-                                data-element_type="widget"
-                                data-settings='{"_animation":"fadeIn","_animation_delay":600,"dotlife_ext_is_scrollme":"false","dotlife_ext_is_smoove":"false","dotlife_ext_is_parallax_mouse":"false","dotlife_ext_is_infinite":"false","dotlife_ext_is_fadeout_animation":"false"}'
-                                data-widget_type="shortcode.default"
-                              >
-                                <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
-                                <script>
-                                  hbspt.forms.create({
-                                    region: "na1",
-                                    portalId: "5847879",
-                                    formId: "fcd954e7-779b-4047-bb57-310149a2c32c"
-                                  });
-                                </script>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div
-                          class="elementor-element elementor-element-f8e12aa translate_right_less elementor-column elementor-col-66 elementor-top-column"
-                          data-id="f8e12aa"
-                          data-element_type="column"
-                          data-settings='{"background_background":"classic","dotlife_ext_is_scrollme":"false","dotlife_ext_is_smoove":"false","dotlife_ext_is_parallax_mouse":"false","dotlife_ext_is_infinite":"false","dotlife_ext_is_fadeout_animation":"false"}'
-                        >
-                          <div class="elementor-column-wrap elementor-element-populated">
-                            <div class="elementor-widget-wrap">
-                              <div
-                                class="elementor-element elementor-element-10c7d34 translate_left_half elementor-widget elementor-widget-image"
-                                data-id="10c7d34"
-                                data-element_type="widget"
-                                data-settings='{"dotlife_image_is_animation":"false","dotlife_ext_is_scrollme":"false","dotlife_ext_is_smoove":"false","dotlife_ext_is_parallax_mouse":"false","dotlife_ext_is_infinite":"false","dotlife_ext_is_fadeout_animation":"false"}'
-                                data-widget_type="image.default"
-                              >
-                                <div class="elementor-widget-container">
-                                  <div class="elementor-image">
-                                    <img
-                                      width="768"
-                                      height="1152"
-                                      src="{{ asset('images/mangaer-02.png') }}"
-                                      class="attachment-medium_large size-medium_large"
-                                      alt=""
-                                    />
+                              <section class="elementor-section elementor-inner-section elementor-element elementor-element-2c5be4f elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="2c5be4f" data-element_type="section">
+                                <div class="elementor-container elementor-column-gap-default">
+                                  <div class="elementor-row">
+                                    <div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-9d2d3bf" data-id="9d2d3bf" data-element_type="column">
+                                      <div class="elementor-column-wrap elementor-element-populated">
+                                        <div class="elementor-widget-wrap">
+                                          <div class="elementor-element elementor-element-014a521 animated-fast elementor-widget elementor-widget-image animated fadeInUp" data-id="014a521" data-element_type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;,&quot;_animation_delay&quot;:600}" data-widget_type="image.default">
+                                            <div class="elementor-widget-container">
+                                              <div class="elementor-image">
+                                                <img width="260" height="88" src="https://mena.nbbcravings.com/wp-content/uploads/2019/04/mena-logo-norm.png" class="attachment-large size-large" alt="" loading="lazy">														</div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
                                   </div>
                                 </div>
-                              </div>
+                              </section>
                             </div>
                           </div>
                         </div>
@@ -658,7 +605,7 @@
                                     data-widget_type="heading.default"
                                   >
                                     <div class="elementor-widget-container">
-                                      <span class="elementor-heading-title elementor-size-default"><a href="{{ route('faqs.index') }}">FAQs</a></span>
+                                      <span class="elementor-heading-title elementor-size-default"><a href="#">FAQs</a></span>
                                     </div>
                                   </div>
                                   <div
@@ -669,7 +616,7 @@
                                     data-widget_type="heading.default"
                                   >
                                     <div class="elementor-widget-container">
-                                      <span class="elementor-heading-title elementor-size-default"><a href="{{ route('pages.policy') }}">Refund Policy</a></span>
+                                      <span class="elementor-heading-title elementor-size-default"><a href="#">Refund Policy</a></span>
                                     </div>
                                   </div>
                                   <div
@@ -713,9 +660,9 @@
                                     data-widget_type="heading.default"
                                   >
                                     <div class="elementor-widget-container">
-                                                                                        <span class="elementor-heading-title elementor-size-default">
-                                                                                            Are we friends on social media, yet? Use the buttons below to connect, then join my list to your right.
-                                                                                        </span>
+                                        <span class="elementor-heading-title elementor-size-default">
+                                            Are we friends on social media, yet? Use the buttons below to connect, then join my list to your right.
+                                        </span>
                                     </div>
                                   </div>
                                   <div
