@@ -957,7 +957,7 @@
 
                                             <div class="max-w-sm bg-white rounded-lg border border-gray-200 dark:bg-gray-800 dark:border-gray-700">
                                               <a href="{{ route('speakers.show', $speaker->slug) }}">
-                                                <img class="rounded-t-lg h-72 transform group-hover:scale-110 transition  object-cover ease-out duration-500" src="{{ $speaker->getFirstMediaUrl('avatar') }}" alt="">
+                                                <img class="rounded-t-lg max-h-72 transform group-hover:scale-110 transition  object-cover ease-out duration-500" src="{{ $speaker->getFirstMediaUrl('avatar') }}" alt="">
                                               </a>
                                               <div class="p-5">
                                                 <a href="{{ route('speakers.show', $speaker->slug) }}">
