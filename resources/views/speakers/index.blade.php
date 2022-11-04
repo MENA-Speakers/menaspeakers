@@ -177,8 +177,8 @@
                                       class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                                       @foreach($speakers as $speaker)
                                         <div class="max-w-sm bg-white rounded-lg border border-gray-200 dark:bg-gray-800 dark:border-gray-700">
-                                          <a href="{{ route('speakers.show', $speaker->slug) }}">
-                                            <img class="rounded-t-lg h-72 transform group-hover:scale-110 transition  object-cover ease-out duration-500" src="{{ $speaker->getFirstMediaUrl('avatar') }}" alt="">
+                                          <a href="{{ route('speakers.show', $speaker->slug) }}" >
+                                            <img class="rounded-t-lg max-h-72 transform group-hover:scale-110 transition  object-cover  w-full ease-out duration-500" src="{{ $speaker->getFirstMediaUrl('avatar') }}" alt="">
                                           </a>
                                           <div class="p-5">
                                             <a href="{{ route('speakers.show', $speaker->slug) }}">
