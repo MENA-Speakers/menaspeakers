@@ -8,7 +8,7 @@
     <div class="mobile_menu_content">
       <div class="menu-main-menu-container">
         <ul id="mobile_main_menu" class="mobile_main_nav">
-          <li class="menu-item" >
+          <li class="menu-item">
             <a href="/" aria-current="page">Home</a>
           </li>
 
@@ -20,7 +20,8 @@
   <!-- Begin template wrapper -->
   <div id="wrapper" class="hasbg transparent">
     <div id="elementor_header" class="header_style_wrapper">
-      <div data-elementor-type="wp-post" data-elementor-id="110" class="elementor elementor-110" data-elementor-settings="[]">
+      <div data-elementor-type="wp-post" data-elementor-id="110" class="elementor elementor-110"
+           data-elementor-settings="[]">
         <div class="elementor-inner">
           <div class="elementor-section-wrap">
             <section
@@ -109,19 +110,27 @@
                         >
                           <div class="elementor-widget-container">
                             <div class="elementor-social-icons-wrapper">
-                              <a href="#" class="elementor-icon elementor-social-icon elementor-social-icon-facebook elementor-animation-grow elementor-repeater-item-4c7fc40" target="_blank">
+                              <a href="#"
+                                 class="elementor-icon elementor-social-icon elementor-social-icon-facebook elementor-animation-grow elementor-repeater-item-4c7fc40"
+                                 target="_blank">
                                 <span class="elementor-screen-only">Facebook</span>
                                 <i class="fa fa-facebook"></i>
                               </a>
-                              <a href="#" class="elementor-icon elementor-social-icon elementor-social-icon-twitter elementor-animation-grow elementor-repeater-item-a6a46e5" target="_blank">
+                              <a href="#"
+                                 class="elementor-icon elementor-social-icon elementor-social-icon-twitter elementor-animation-grow elementor-repeater-item-a6a46e5"
+                                 target="_blank">
                                 <span class="elementor-screen-only">Twitter</span>
                                 <i class="fa fa-twitter"></i>
                               </a>
-                              <a href="#" class="elementor-icon elementor-social-icon elementor-social-icon-linkedin elementor-animation-grow elementor-repeater-item-cc5da47" target="_blank">
+                              <a href="#"
+                                 class="elementor-icon elementor-social-icon elementor-social-icon-linkedin elementor-animation-grow elementor-repeater-item-cc5da47"
+                                 target="_blank">
                                 <span class="elementor-screen-only">Linkedin</span>
                                 <i class="fa fa-linkedin"></i>
                               </a>
-                              <a href="#" class="elementor-icon elementor-social-icon elementor-social-icon-instagram elementor-animation-grow elementor-repeater-item-979e885" target="_blank">
+                              <a href="#"
+                                 class="elementor-icon elementor-social-icon elementor-social-icon-instagram elementor-animation-grow elementor-repeater-item-979e885"
+                                 target="_blank">
                                 <span class="elementor-screen-only">Instagram</span>
                                 <i class="fa fa-instagram"></i>
                               </a>
@@ -138,11 +147,15 @@
                           <div class="elementor-widget-container">
                             <div class="elementor-button-wrapper">
                               <a href="" class="elementor-button-link elementor-button elementor-size-xl" role="button">
-                                                                            <span class="elementor-button-content-wrapper">
-                                                                                <span class="elementor-button-icon elementor-align-icon-left">
-                                                                                    <i class="fa fa-bars" aria-hidden="true"></i>
+                                                                            <span
+                                                                              class="elementor-button-content-wrapper">
+                                                                                <span
+                                                                                  class="elementor-button-icon elementor-align-icon-left">
+                                                                                    <i class="fa fa-bars"
+                                                                                       aria-hidden="true"></i>
                                                                                 </span>
-                                                                                <span class="elementor-button-text"></span>
+                                                                                <span
+                                                                                  class="elementor-button-text"></span>
                                                                             </span>
                               </a>
                             </div>
@@ -180,7 +193,8 @@
             <!-- Begin main content -->
             <div class="inner_wrapper">
               <div class="sidebar_content full_width">
-                <div data-elementor-type="wp-post" data-elementor-id="1737" class="elementor elementor-1737" data-elementor-settings="[]">
+                <div data-elementor-type="wp-post" data-elementor-id="1737" class="elementor elementor-1737"
+                     data-elementor-settings="[]">
                   <div class="elementor-inner">
                     <div class="elementor-section-wrap">
                       <section
@@ -225,7 +239,8 @@
                                   >
                                     <div class="elementor-widget-container">
                                       <div class="elementor-heading-title elementor-size-default">
-                                        Bringing You a <b>positive</b> and <b>awakening</b> <b>perspective</b> on your <br />
+                                        Bringing You a <b>positive</b> and <b>awakening</b> <b>perspective</b> on your
+                                        <br/>
                                         <div class="type-wrap" style="display: none;">
                                           <div id="typed-strings">
                                             <p>potentials</p>
@@ -251,8 +266,10 @@
                                           class="elementor-button-link elementor-button elementor-size-sm elementor-animation-shrink"
                                           role="button"
                                         >
-                                                                                        <span class="elementor-button-content-wrapper">
-                                                                                            <span class="elementor-button-text">Book Speaker</span>
+                                                                                        <span
+                                                                                          class="elementor-button-content-wrapper">
+                                                                                            <span
+                                                                                              class="elementor-button-text">Book Speaker</span>
                                                                                         </span>
                                         </a>
                                       </div>
@@ -320,7 +337,8 @@
                                     data-widget_type="heading.default"
                                   >
                                     <div class="elementor-widget-container">
-                                      <h2 class="elementor-heading-title elementor-size-default">Find a speaker for your event in 5 minutes or less.</h2>
+                                      <h2 class="elementor-heading-title elementor-size-default">Find a speaker for your
+                                        event in 5 minutes or less.</h2>
                                     </div>
                                   </div>
                                   <div
@@ -331,8 +349,9 @@
                                     data-widget_type="heading.default"
                                   >
                                     <div class="elementor-widget-container">
-                                                                                <span class="elementor-heading-title elementor-size-default">
-                                                                                    We are the leading speaker and MC Bureau in the Middle East. With a portfolio of hundreds of international and MENA based speakers, you will find exactly what you're looking for. The power is in your hands. Simply book professionally trained speakers anytime for just about anything.<br />
+                                                                                <span
+                                                                                  class="elementor-heading-title elementor-size-default">
+                                                                                    We are the leading speaker and MC Bureau in the Middle East. With a portfolio of hundreds of international and MENA based speakers, you will find exactly what you're looking for. The power is in your hands. Simply book professionally trained speakers anytime for just about anything.<br/>
 
                                                                                 </span>
                                     </div>
@@ -389,9 +408,13 @@
                                   >
                                     <div class="elementor-widget-container">
                                       <div class="elementor-button-wrapper">
-                                        <a href="{{ route('speakers.index') }}" class="elementor-button-link elementor-button elementor-size-sm" role="button">
-                                                                                        <span class="elementor-button-content-wrapper">
-                                                                                            <span class="elementor-button-text">Motivational Speakers</span>
+                                        <a href="{{ route('speakers.index') }}"
+                                           class="elementor-button-link elementor-button elementor-size-sm"
+                                           role="button">
+                                                                                        <span
+                                                                                          class="elementor-button-content-wrapper">
+                                                                                            <span
+                                                                                              class="elementor-button-text">Motivational Speakers</span>
                                                                                         </span>
                                         </a>
                                       </div>
@@ -438,10 +461,14 @@
                                   >
                                     <div class="elementor-widget-container">
                                       <div class="elementor-button-wrapper">
-                                        <a href="{{ route('speakers.index') }}" class="elementor-button-link elementor-button elementor-size-sm" role="button">
-                                                                                        <span class="elementor-button-content-wrapper">
-                                                                                            <span class="elementor-button-text">MC & Presenters</span>
-                                                                                        </span>
+                                        <a href="{{ route('speakers.index') }}"
+                                           class="elementor-button-link elementor-button elementor-size-sm"
+                                           role="button">
+                                                <span
+                                                  class="elementor-button-content-wrapper">
+                                                    <span
+                                                      class="elementor-button-text">MC & Presenters</span>
+                                                </span>
                                         </a>
                                       </div>
                                     </div>
@@ -487,10 +514,14 @@
                                   >
                                     <div class="elementor-widget-container">
                                       <div class="elementor-button-wrapper">
-                                        <a href="{{ route('speakers.index') }}" class="elementor-button-link elementor-button elementor-size-sm" role="button">
-                                                                                        <span class="elementor-button-content-wrapper">
-                                                                                            <span class="elementor-button-text">Expert Speakers</span>
-                                                                                        </span>
+                                        <a href="{{ route('speakers.index') }}"
+                                           class="elementor-button-link elementor-button elementor-size-sm"
+                                           role="button">
+                                              <span
+                                                class="elementor-button-content-wrapper">
+                                                  <span
+                                                    class="elementor-button-text">Expert Speakers</span>
+                                              </span>
                                         </a>
                                       </div>
                                     </div>
@@ -536,10 +567,14 @@
                                   >
                                     <div class="elementor-widget-container">
                                       <div class="elementor-button-wrapper">
-                                        <a href="{{ route('speakers.index') }}" class="elementor-button-link elementor-button elementor-size-sm" role="button">
-                                                                                        <span class="elementor-button-content-wrapper">
-                                                                                            <span class="elementor-button-text">Inspirational Speakers</span>
-                                                                                        </span>
+                                        <a href="{{ route('speakers.index') }}"
+                                           class="elementor-button-link elementor-button elementor-size-sm"
+                                           role="button">
+                                              <span
+                                                class="elementor-button-content-wrapper">
+                                                  <span
+                                                    class="elementor-button-text">Inspirational Speakers</span>
+                                              </span>
                                         </a>
                                       </div>
                                     </div>
@@ -652,10 +687,13 @@
                                   >
                                     <div class="elementor-widget-container">
                                       <div class="elementor-button-wrapper">
-                                        <a href="#" class="elementor-button-link elementor-button elementor-size-sm" role="button">
-                                                                                        <span class="elementor-button-content-wrapper">
-                                                                                            <span class="elementor-button-text">PR AND MEDIA STRATEGY</span>
-                                                                                        </span>
+                                        <a href="#" class="elementor-button-link elementor-button elementor-size-sm"
+                                           role="button">
+                                            <span
+                                              class="elementor-button-content-wrapper">
+                                                <span
+                                                  class="elementor-button-text">PR AND MEDIA STRATEGY</span>
+                                            </span>
                                         </a>
                                       </div>
                                     </div>
@@ -701,10 +739,13 @@
                                   >
                                     <div class="elementor-widget-container">
                                       <div class="elementor-button-wrapper">
-                                        <a href="#" class="elementor-button-link elementor-button elementor-size-sm" role="button">
-                                                                                        <span class="elementor-button-content-wrapper">
-                                                                                            <span class="elementor-button-text">MANAGEMENT CONSULTANCY AND ADVISORY</span>
-                                                                                        </span>
+                                        <a href="#" class="elementor-button-link elementor-button elementor-size-sm"
+                                           role="button">
+                                              <span
+                                                class="elementor-button-content-wrapper">
+                                                  <span
+                                                    class="elementor-button-text">MANAGEMENT CONSULTANCY AND ADVISORY</span>
+                                              </span>
                                         </a>
                                       </div>
                                     </div>
@@ -765,7 +806,9 @@
                                     <div class="elementor-widget-container">
                                       <div class="elementor-text-editor elementor-clearfix">
                                         <p>
-                                          We’re a dedicated team of intellectuals giving you the very best with a focus on empowering & educating.Delivering exclusive, educative & engaging content to you.                                                                         </p>
+                                          We’re a dedicated team of intellectuals giving you the very best with a focus
+                                          on empowering & educating.Delivering exclusive, educative & engaging content
+                                          to you. </p>
                                         <p>
                                       </div>
                                     </div>
@@ -779,10 +822,14 @@
                                   >
                                     <div class="elementor-widget-container">
                                       <div class="elementor-button-wrapper">
-                                        <a href="{{ route('faqs.index') }}" class="elementor-button-link elementor-button elementor-size-sm elementor-animation-grow" role="button">
-                                                                                        <span class="elementor-button-content-wrapper">
-                                                                                            <span class="elementor-button-text">Become a Speaker</span>
-                                                                                        </span>
+                                        <a href="{{ route('faqs.index') }}"
+                                           class="elementor-button-link elementor-button elementor-size-sm elementor-animation-grow"
+                                           role="button">
+                                              <span
+                                                class="elementor-button-content-wrapper">
+                                                  <span
+                                                    class="elementor-button-text">Become a Speaker</span>
+                                              </span>
                                         </a>
                                       </div>
                                     </div>
@@ -866,9 +913,10 @@
                                     data-widget_type="heading.default"
                                   >
                                     <div class="elementor-widget-container">
-                                                                                <span class="elementor-heading-title elementor-size-default">
-                                                                                    We work fast, we work diligently, and we produce results.
-                                                                                </span>
+                                          <span
+                                            class="elementor-heading-title elementor-size-default">
+                                              We work fast, we work diligently, and we produce results.
+                                          </span>
                                     </div>
                                   </div>
                                 </div>
@@ -902,31 +950,26 @@
                                     data-widget_type="dotlife-course-grid.default"
                                   >
                                     <div class="elementor-widget-container">
-                                      <div class="course_grid_container">
-                                        <div class="portfolio_classic_content_wrapper portfolio_classic layout_tg_three_cols" data-cols="3">
+                                      <div class="max-w-7xl mx-auto">
+                                        <div
+                                          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                                           @foreach($speakers as $speaker)
-                                            <div class="portfolio_classic_grid_wrapper tg_three_cols last portfolio-3 tile scale-anm">
-                                              <div class="card__img" style="background-image: url({{ $speaker->getFirstMediaUrl('avatar') }});"></div>
 
-                                              <a href="{{ route('speakers.show', $speaker->slug) }}" class="card_link">
-                                                <div class="card__img--hover" style="background-image: url({{ $speaker->getFirstMediaUrl('avatar') }});"></div>
+                                            <div class="max-w-sm bg-white rounded-lg border border-gray-200 dark:bg-gray-800 dark:border-gray-700">
+                                              <a href="{{ route('speakers.show', $speaker->slug) }}">
+                                                <img class="rounded-t-lg h-72 transform group-hover:scale-110 transition  object-cover ease-out duration-500" src="{{ $speaker->getFirstMediaUrl('avatar') }}" alt="">
                                               </a>
-
-                                              <div class="card__info">
-{{--                                                <span class="card__date">April 18, 2019</span>--}}
-
-                                                <h3 class="card__title"><a href="{{ route('speakers.show', $speaker->slug) }}">{{$speaker->name}}</a></h3>
-                                                <div class="card__excerpt"><p>{{ $speaker->excerpt }}</p></div>
-
-
+                                              <div class="p-5">
+                                                <a href="{{ route('speakers.show', $speaker->slug) }}">
+                                                  <h5 class=" font-semibold tracking-tight text-gray-900 dark:text-white">{!! $speaker->name !!}</h5>
+                                                </a>
                                               </div>
                                             </div>
-                                          @endforeach
 
-                                          <br class="clear" />
+                                          @endforeach
                                         </div>
                                       </div>
-                                      <br class="clear" />
+                                      <br class="clear"/>
                                     </div>
                                   </div>
                                 </div>
@@ -935,8 +978,6 @@
                           </div>
                         </div>
                       </section>
-
-
 
 
                       <section
@@ -974,7 +1015,8 @@
                                     data-widget_type="heading.default"
                                   >
                                     <div class="elementor-widget-container">
-                                      <h2 class="elementor-heading-title elementor-size-default">Latest From The Blog</h2>
+                                      <h2 class="elementor-heading-title elementor-size-default">Latest From The
+                                        Blog</h2>
                                     </div>
                                   </div>
                                   <div
@@ -985,8 +1027,9 @@
                                     data-widget_type="heading.default"
                                   >
                                     <div class="elementor-widget-container">
-                                                                                <span class="elementor-heading-title elementor-size-default">
-                                                                                    the ultimate planning solution for<br />
+                                                                                <span
+                                                                                  class="elementor-heading-title elementor-size-default">
+                                                                                    the ultimate planning solution for<br/>
                                                                                     busy women who want to reach their personal goals
                                                                                 </span>
                                     </div>
@@ -1031,20 +1074,20 @@
                                             <div class="post_wrapper">
                                               <div class="post_img static">
                                                 <div class="post_img_hover">
-                                                  <img src="{{ $blog->getFirstMediaUrl('image') }}" class="" alt="" />
+                                                  <img src="{{ $blog->getFirstMediaUrl('image') }}" class="" alt=""/>
                                                   <a href="{{route('blogs.show', $blog->slug)}}"></a>
                                                 </div>
                                               </div>
 
                                               <div class="post_content_wrapper text_left">
                                                 <div class="post_header">
-{{--                                                  <div class="post_detail single_post">--}}
-{{--                                                    <span class="ti-folder ti_icon"></span>--}}
-{{--                                                    <span class="post_info_cat">--}}
-{{--                                                        <a href="#">Career</a>--}}
-{{--                                                        &nbsp;&middot;&nbsp; <a href="#">Family</a> &nbsp;&middot;&nbsp; <a href="#">Life</a>--}}
-{{--                                                    </span>--}}
-{{--                                                  </div>--}}
+                                                  {{--                                                  <div class="post_detail single_post">--}}
+                                                  {{--                                                    <span class="ti-folder ti_icon"></span>--}}
+                                                  {{--                                                    <span class="post_info_cat">--}}
+                                                  {{--                                                        <a href="#">Career</a>--}}
+                                                  {{--                                                        &nbsp;&middot;&nbsp; <a href="#">Family</a> &nbsp;&middot;&nbsp; <a href="#">Life</a>--}}
+                                                  {{--                                                    </span>--}}
+                                                  {{--                                                  </div>--}}
                                                   <div class="post_header_title">
                                                     <h5>
                                                       <a href="#" title="10 Things Successful Mompreneurs Do Different">
@@ -1064,7 +1107,7 @@
 
                                         <!-- End each blog post -->
                                       </div>
-                                      <br class="clear" />
+                                      <br class="clear"/>
                                     </div>
                                   </div>
                                 </div>
@@ -1083,11 +1126,11 @@
             </div>
             <!-- End main content -->
           </div>
-          <br class="clear" />
+          <br class="clear"/>
         </div>
         <!-- End main content -->
       </div>
-      <br class="clear" />
+      <br class="clear"/>
     </div>
   </div>
 @endsection

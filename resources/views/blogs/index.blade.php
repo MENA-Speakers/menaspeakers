@@ -2,7 +2,7 @@
 <html lang="en-US" data-menu="leftalign">
 <head>
 
-  <title>Contact Us - MENA SPEAKERS</title>
+  <title>Speakers - MENA SPEAKERS</title>
 
   <meta name="robots" content="noindex,nofollow" />
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -36,7 +36,7 @@
   <link rel="stylesheet" href="{{ asset('css/responsive.css') }}" type="text/css" media="all" />
   <link rel="stylesheet" href="{{ asset('js/plugins/dotlife-elementor/assets/css/typedjs.min.css') }}" type="text/css" media="all" />
   <link rel="stylesheet" href="{{ asset('css/custom.css') }}" type="text/css" media="all" />
-
+  @vite(['resources/css/app.css', 'resources/js/app.js'])
   <link rel="icon" href="upload/TG-Thumb.png" sizes="32x32" />
   <link rel="icon" href="upload/TG-Thumb.png" sizes="192x192" />
   <link rel="apple-touch-icon" href="upload/TG-Thumb.png" />
@@ -46,10 +46,7 @@
 </head>
 
 <body data-rsssl="1"  class="home page-template-default page page-id-1737 woocommerce-no-js tg_menu_transparent tg_lightbox_black leftalign tg_footer_reveal loftloader-lite-enabled elementor-default elementor-kit-3076 elementor-page elementor-page-1737" >
-<div id="loftloader-wrapper" class="pl-imgloading" data-show-close-time="15000" data-max-load-time="0">
-  <div class="loader-section section-fade"></div>
-  <div class="loader-close-button" style="display: none;"><span class="screen-reader-text">Close</span></div>
-</div>
+
 <div id="perspective" style="">
   <input type="hidden" id="pp_menu_layout" name="pp_menu_layout" value="leftalign" />
   <input type="hidden" id="pp_enable_right_click" name="pp_enable_right_click" value="" />
@@ -68,10 +65,12 @@
   <input type="hidden" id="tg_lightbox_timer" name="tg_lightbox_timer" value="7000" />
 
 
+  <input type="hidden" id="tg_live_builder" name="tg_live_builder" value="0" />
+
+  <input type="hidden" id="pp_footer_style" name="pp_footer_style" value="3" />
 
   <!-- Begin mobile menu -->
-  <x-mobile-menu />
-  <!-- End mobile menu -->
+    <x-mobile-menu />
   <!-- Begin template wrapper -->
   <div id="wrapper" class="" style="background-color: #f9f9f9;">
 
@@ -83,156 +82,56 @@
         <!-- Begin main content -->
         <div class="inner_wrapper">
           <div class="sidebar_content full_width">
-            <div data-elementor-type="wp-post" data-elementor-id="1218" class="elementor elementor-1218" data-elementor-settings="[]">
+            <div data-elementor-type="wp-post" data-elementor-id="848" class="elementor elementor-848" data-elementor-settings="[]">
               <div class="elementor-inner">
                 <div class="elementor-section-wrap">
                   <section
-                    class="elementor-element elementor-element-d72cff7 elementor-section-stretched elementor-section-full_width elementor-section-height-default elementor-section-height-default elementor-section elementor-top-section"
-                    data-id="d72cff7"
+                    class="elementor-element elementor-element-76ce29b elementor-section-stretched elementor-section-height-min-height elementor-section-boxed elementor-section-height-default elementor-section-items-middle elementor-section elementor-top-section"
+                    data-id="76ce29b"
                     data-element_type="section"
-                    data-settings='{"stretch_section":"section-stretched","dotlife_ext_is_background_parallax":"false"}'
+                    data-settings='{"stretch_section":"section-stretched","background_background":"classic","shape_divider_bottom":"tilt","dotlife_ext_is_background_parallax":"false"}'
                   >
-                    <div class="elementor-container elementor-column-gap-no">
+                    <div class="elementor-shape elementor-shape-bottom" data-negative="false">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 1000 100" preserveaspectratio="none">
+                        <path class="elementor-shape-fill" d="M0,6V0h1000v100L0,6z"></path>
+                      </svg>
+                    </div>
+                    <div class="elementor-container elementor-column-gap-default">
                       <div class="elementor-row">
                         <div
-                          class="elementor-element elementor-element-714654b elementor-column elementor-col-33 elementor-top-column"
-                          data-id="714654b"
+                          class="elementor-element elementor-element-249d1ca elementor-column elementor-col-100 elementor-top-column"
+                          data-id="249d1ca"
                           data-element_type="column"
                           data-settings='{"dotlife_ext_is_scrollme":"false","dotlife_ext_is_smoove":"false","dotlife_ext_is_parallax_mouse":"false","dotlife_ext_is_infinite":"false","dotlife_ext_is_fadeout_animation":"false"}'
                         >
                           <div class="elementor-column-wrap elementor-element-populated">
                             <div class="elementor-widget-wrap">
                               <div
-                                class="elementor-element elementor-element-580f040 animated-fast elementor-invisible elementor-widget elementor-widget-heading"
-                                data-id="580f040"
+                                class="elementor-element elementor-element-2d98e2f animated-fast elementor-invisible elementor-widget elementor-widget-heading"
+                                data-id="2d98e2f"
                                 data-element_type="widget"
-                                data-settings='{"_animation":"fadeInUp","_animation_delay":0,"dotlife_ext_is_scrollme":"false","dotlife_ext_is_smoove":"false","dotlife_ext_is_parallax_mouse":"false","dotlife_ext_is_infinite":"false","dotlife_ext_is_fadeout_animation":"false"}'
+                                data-settings='{"_animation":"fadeInUp","dotlife_ext_is_scrollme":"false","dotlife_ext_is_smoove":"false","dotlife_ext_is_parallax_mouse":"false","dotlife_ext_is_infinite":"false","dotlife_ext_is_fadeout_animation":"false"}'
+                                data-widget_type="heading.default"
+                              >
+                              </div>
+                              <div
+                                class="elementor-element elementor-element-9b70812 animated-fast elementor-invisible elementor-widget elementor-widget-heading"
+                                data-id="9b70812"
+                                data-element_type="widget"
+                                data-settings='{"_animation":"fadeInUp","_animation_delay":200,"dotlife_ext_is_scrollme":"false","dotlife_ext_is_smoove":"false","dotlife_ext_is_parallax_mouse":"false","dotlife_ext_is_infinite":"false","dotlife_ext_is_fadeout_animation":"false"}'
                                 data-widget_type="heading.default"
                               >
                                 <div class="elementor-widget-container">
-                                  <span class="elementor-heading-title elementor-size-default">Are you interested in <b>Booking an Expert?</b> Contact Us.</span>
-                                </div>
-                              </div>
-                              <section
-                                class="elementor-element elementor-element-87f20a8 elementor-section-boxed elementor-section-height-default elementor-section-height-default elementor-section elementor-inner-section"
-                                data-id="87f20a8"
-                                data-element_type="section"
-                                data-settings='{"dotlife_ext_is_background_parallax":"false"}'
-                              >
-                                <div class="elementor-container elementor-column-gap-default">
-                                  <div class="elementor-row">
-                                    <div
-                                      class="elementor-element elementor-element-d8d5a80 animated-fast elementor-invisible elementor-column elementor-col-50 elementor-inner-column"
-                                      data-id="d8d5a80"
-                                      data-element_type="column"
-                                      data-settings='{"animation":"fadeInUp","animation_delay":200,"dotlife_ext_is_scrollme":"false","dotlife_ext_is_smoove":"false","dotlife_ext_is_parallax_mouse":"false","dotlife_ext_is_infinite":"false","dotlife_ext_is_fadeout_animation":"false"}'
-                                    >
-                                      <div class="elementor-column-wrap elementor-element-populated">
-                                        <div class="elementor-widget-wrap">
-                                          <div
-                                            class="elementor-element elementor-element-5557c5d animated-fast elementor-invisible elementor-widget elementor-widget-heading"
-                                            data-id="5557c5d"
-                                            data-element_type="widget"
-                                            data-settings='{"_animation":"fadeInUp","_animation_delay":0,"dotlife_ext_is_scrollme":"false","dotlife_ext_is_smoove":"false","dotlife_ext_is_parallax_mouse":"false","dotlife_ext_is_infinite":"false","dotlife_ext_is_fadeout_animation":"false"}'
-                                            data-widget_type="heading.default"
-                                          >
-                                            <div class="elementor-widget-container">
-                                              <span class="elementor-heading-title elementor-size-default">Info@mena-speakers.com</span>
-                                            </div>
-                                          </div>
-                                          <div
-                                            class="elementor-element elementor-element-208e4b5 animated-fast elementor-invisible elementor-widget elementor-widget-heading"
-                                            data-id="208e4b5"
-                                            data-element_type="widget"
-                                            data-settings='{"_animation":"fadeInUp","_animation_delay":200,"dotlife_ext_is_scrollme":"false","dotlife_ext_is_smoove":"false","dotlife_ext_is_parallax_mouse":"false","dotlife_ext_is_infinite":"false","dotlife_ext_is_fadeout_animation":"false"}'
-                                            data-widget_type="heading.default"
-                                          >
-                                            <div class="elementor-widget-container">
-                                              <span class="elementor-heading-title elementor-size-default">Send Me Email</span>
-                                            </div>
-                                          </div>
-                                        </div>
+                                  <div class="elementor-heading-title elementor-size-default">
+                                    In 5 minutes find the
+                                    <div class="type-wrap" style="display: none;">
+                                      <div id="typed-strings">
+                                        <p>best</p>
+                                        <p>speaker</p>
+                                        <p>expert</p>
                                       </div>
+                                      <span id="typed" style="white-space: pre;"></span>
                                     </div>
-                                    <div
-                                      class="elementor-element elementor-element-212454a animated-fast elementor-invisible elementor-column elementor-col-50 elementor-inner-column"
-                                      data-id="212454a"
-                                      data-element_type="column"
-                                      data-settings='{"animation":"fadeInUp","animation_delay":300,"dotlife_ext_is_scrollme":"false","dotlife_ext_is_smoove":"false","dotlife_ext_is_parallax_mouse":"false","dotlife_ext_is_infinite":"false","dotlife_ext_is_fadeout_animation":"false"}'
-                                    >
-                                      <div class="elementor-column-wrap elementor-element-populated">
-                                        <div class="elementor-widget-wrap">
-                                          <div
-                                            class="elementor-element elementor-element-40d2de8 elementor-invisible elementor-widget elementor-widget-heading"
-                                            data-id="40d2de8"
-                                            data-element_type="widget"
-                                            data-settings='{"_animation":"fadeInUp","_animation_delay":0,"dotlife_ext_is_scrollme":"false","dotlife_ext_is_smoove":"false","dotlife_ext_is_parallax_mouse":"false","dotlife_ext_is_infinite":"false","dotlife_ext_is_fadeout_animation":"false"}'
-                                            data-widget_type="heading.default"
-                                          >
-                                            <div class="elementor-widget-container">
-                                              <span class="elementor-heading-title elementor-size-default">+971 55 98 32 756</span>
-                                            </div>
-                                          </div>
-                                          <div
-                                            class="elementor-element elementor-element-5365b06 animated-fast elementor-invisible elementor-widget elementor-widget-heading"
-                                            data-id="5365b06"
-                                            data-element_type="widget"
-                                            data-settings='{"_animation":"fadeInUp","_animation_delay":200,"dotlife_ext_is_scrollme":"false","dotlife_ext_is_smoove":"false","dotlife_ext_is_parallax_mouse":"false","dotlife_ext_is_infinite":"false","dotlife_ext_is_fadeout_animation":"false"}'
-                                            data-widget_type="heading.default"
-                                          >
-                                            <div class="elementor-widget-container">
-                                              <span class="elementor-heading-title elementor-size-default">Call Us</span>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </section>
-                              <div
-                                class="elementor-element elementor-element-cea35dc animated-fast elementor-invisible elementor-widget elementor-widget-shortcode"
-                                data-id="cea35dc"
-                                data-element_type="widget"
-                                data-settings='{"_animation":"fadeIn","_animation_delay":600,"dotlife_ext_is_scrollme":"false","dotlife_ext_is_smoove":"false","dotlife_ext_is_parallax_mouse":"false","dotlife_ext_is_infinite":"false","dotlife_ext_is_fadeout_animation":"false"}'
-                                data-widget_type="shortcode.default"
-                              >
-                                <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
-                                <script>
-                                  hbspt.forms.create({
-                                    region: "na1",
-                                    portalId: "5847879",
-                                    formId: "fcd954e7-779b-4047-bb57-310149a2c32c"
-                                  });
-                                </script>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div
-                          class="elementor-element elementor-element-f8e12aa translate_right_less elementor-column elementor-col-66 elementor-top-column"
-                          data-id="f8e12aa"
-                          data-element_type="column"
-                          data-settings='{"background_background":"classic","dotlife_ext_is_scrollme":"false","dotlife_ext_is_smoove":"false","dotlife_ext_is_parallax_mouse":"false","dotlife_ext_is_infinite":"false","dotlife_ext_is_fadeout_animation":"false"}'
-                        >
-                          <div class="elementor-column-wrap elementor-element-populated">
-                            <div class="elementor-widget-wrap">
-                              <div
-                                class="elementor-element elementor-element-10c7d34 translate_left_half elementor-widget elementor-widget-image"
-                                data-id="10c7d34"
-                                data-element_type="widget"
-                                data-settings='{"dotlife_image_is_animation":"false","dotlife_ext_is_scrollme":"false","dotlife_ext_is_smoove":"false","dotlife_ext_is_parallax_mouse":"false","dotlife_ext_is_infinite":"false","dotlife_ext_is_fadeout_animation":"false"}'
-                                data-widget_type="image.default"
-                              >
-                                <div class="elementor-widget-container">
-                                  <div class="elementor-image">
-                                    <img
-                                      width="768"
-                                      height="1152"
-                                      src="{{ asset('images/mangaer-02.png') }}"
-                                      class="attachment-medium_large size-medium_large"
-                                      alt=""
-                                    />
                                   </div>
                                 </div>
                               </div>
@@ -242,6 +141,72 @@
                       </div>
                     </div>
                   </section>
+                  <section
+                    class="elementor-element elementor-element-d24af5d elementor-section-stretched elementor-section-full_width elementor-section-height-default elementor-section-height-default elementor-section elementor-top-section"
+                    data-id="d24af5d"
+                    data-element_type="section"
+                    data-settings='{"stretch_section":"section-stretched","dotlife_ext_is_background_parallax":"false"}'
+                  >
+                    <div class="elementor-container elementor-column-gap-default">
+                      <div class="elementor-row">
+                        <div
+                          class="elementor-element elementor-element-d885258 elementor-column elementor-col-100 elementor-top-column"
+                          data-id="d885258"
+                          data-element_type="column"
+                          data-settings='{"dotlife_ext_is_scrollme":"false","dotlife_ext_is_smoove":"false","dotlife_ext_is_parallax_mouse":"false","dotlife_ext_is_infinite":"false","dotlife_ext_is_fadeout_animation":"false"}'
+                        >
+                          <div class="elementor-column-wrap elementor-element-populated">
+                            <div class="elementor-widget-wrap">
+                              <div
+                                class="elementor-element elementor-element-05fcb21 elementor-widget elementor-widget-dotlife-course-grid"
+                                data-id="05fcb21"
+                                data-element_type="widget"
+                                data-settings='{"dotlife_ext_is_scrollme":"false","dotlife_ext_is_smoove":"false","dotlife_ext_is_parallax_mouse":"false","dotlife_ext_is_infinite":"false","dotlife_ext_is_fadeout_animation":"false"}'
+                                data-widget_type="dotlife-course-grid.default"
+                              >
+                                <div class="elementor-widget-container">
+
+                                  <div class="max-w-7xl mx-auto pb-8">
+                                    <form method="get" name="search-course" class="learn-press-search-course-form" action="{{ route('blogs.index') }}">
+                                      <input type="text" name="query" class="search-course-input" value="{{  $query }}" placeholder="Search" />
+                                      <button class="lp-button button search-course-button">Search</button>
+                                    </form>
+
+                                    <div
+                                      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                      @foreach($blogs as $blog)
+                                        <div class="w-full ">
+                                          <a class="group" href="{{ route('blogs.show', $blog->slug) }}">
+                                            <div class="group flex flex-col mb-5 overflow-hidden rounded-xl">
+                                              <img class="h-72 object-cover transform group-hover:scale-110 transition ease-out duration-500" src="{{ $blog->getFirstMediaUrl('image') }}" alt="{{ $blog->title }}">
+                                            </div>
+                                            <h2 class="mb-4 font-heading font-medium text-xl text-gray-900 group-hover:underline">
+                                              {{ $blog->title }}
+                                            </h2>
+                                            <p>
+                                              {{ $blog->excerpt }}
+                                            </p>
+                                          </a>
+                                        </div>
+
+                                      @endforeach
+
+                                    </div>
+
+                                    <div class="mt-12 px-6">
+                                      {{ $blogs->links() }}
+                                    </div>
+                                  </div>
+                                  <br class="clear" />
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </section>
+
                 </div>
               </div>
             </div>
@@ -257,7 +222,7 @@
 
   </div>
 
-  <x-footer />
+ <x-footer />
 
 </div>
 

@@ -11,9 +11,18 @@ use Maatwebsite\Excel\Facades\Excel;
 class SpeakersController extends Controller
 {
 
-  public function index(){
-    $speakers = Speaker::paginate(12);
-    return view('speakers.index', compact('speakers'));
+  public function index(Request $request){
+
+    $speakers = null;
+    $query = null;
+    if($request->has('query')){
+       $speakers = Speaker::search($request->input('query'))->paginate(12)->withQueryString();
+       $query = $request->input('query');
+    } else {
+      $speakers = Speaker::paginate(12);
+    }
+
+    return view('speakers.index', compact('speakers', 'query'));
   }
 
   public function show(Speaker $speaker){

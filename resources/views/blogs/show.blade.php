@@ -2,7 +2,7 @@
 <html lang="en-US" data-menu="leftalign">
 <head>
 
-  <title>Contact Us - MENA SPEAKERS</title>
+  <title>{{ $blog->title }} - MENA SPEAKERS</title>
 
   <meta name="robots" content="noindex,nofollow" />
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -36,7 +36,7 @@
   <link rel="stylesheet" href="{{ asset('css/responsive.css') }}" type="text/css" media="all" />
   <link rel="stylesheet" href="{{ asset('js/plugins/dotlife-elementor/assets/css/typedjs.min.css') }}" type="text/css" media="all" />
   <link rel="stylesheet" href="{{ asset('css/custom.css') }}" type="text/css" media="all" />
-
+  @vite(['resources/css/app.css', 'resources/js/app.js'])
   <link rel="icon" href="upload/TG-Thumb.png" sizes="32x32" />
   <link rel="icon" href="upload/TG-Thumb.png" sizes="192x192" />
   <link rel="apple-touch-icon" href="upload/TG-Thumb.png" />
@@ -46,10 +46,7 @@
 </head>
 
 <body data-rsssl="1"  class="home page-template-default page page-id-1737 woocommerce-no-js tg_menu_transparent tg_lightbox_black leftalign tg_footer_reveal loftloader-lite-enabled elementor-default elementor-kit-3076 elementor-page elementor-page-1737" >
-<div id="loftloader-wrapper" class="pl-imgloading" data-show-close-time="15000" data-max-load-time="0">
-  <div class="loader-section section-fade"></div>
-  <div class="loader-close-button" style="display: none;"><span class="screen-reader-text">Close</span></div>
-</div>
+
 <div id="perspective" style="">
   <input type="hidden" id="pp_menu_layout" name="pp_menu_layout" value="leftalign" />
   <input type="hidden" id="pp_enable_right_click" name="pp_enable_right_click" value="" />
@@ -68,190 +65,231 @@
   <input type="hidden" id="tg_lightbox_timer" name="tg_lightbox_timer" value="7000" />
 
 
+  <input type="hidden" id="tg_live_builder" name="tg_live_builder" value="0" />
+
+  <input type="hidden" id="pp_footer_style" name="pp_footer_style" value="3" />
 
   <!-- Begin mobile menu -->
   <x-mobile-menu />
-  <!-- End mobile menu -->
   <!-- Begin template wrapper -->
   <div id="wrapper" class="" style="background-color: #f9f9f9;">
 
     <x-head-section />
 
     <!-- Begin content -->
-    <div id="page_content_wrapper" class="">
+
+    <div id="page_content_wrapper" class=" ">
       <div class="inner">
-        <!-- Begin main content -->
-        <div class="inner_wrapper">
+        <div class="inner_wrapper" style="position: relative;">
+
           <div class="sidebar_content full_width">
-            <div data-elementor-type="wp-post" data-elementor-id="1218" class="elementor elementor-1218" data-elementor-settings="[]">
+            <div data-elementor-type="wp-post" data-elementor-id="310" class="elementor elementor-310" data-elementor-settings="[]">
               <div class="elementor-inner">
-                <div class="elementor-section-wrap">
-                  <section
-                    class="elementor-element elementor-element-d72cff7 elementor-section-stretched elementor-section-full_width elementor-section-height-default elementor-section-height-default elementor-section elementor-top-section"
-                    data-id="d72cff7"
-                    data-element_type="section"
-                    data-settings='{"stretch_section":"section-stretched","dotlife_ext_is_background_parallax":"false"}'
-                  >
-                    <div class="elementor-container elementor-column-gap-no">
-                      <div class="elementor-row">
-                        <div
-                          class="elementor-element elementor-element-714654b elementor-column elementor-col-33 elementor-top-column"
-                          data-id="714654b"
-                          data-element_type="column"
-                          data-settings='{"dotlife_ext_is_scrollme":"false","dotlife_ext_is_smoove":"false","dotlife_ext_is_parallax_mouse":"false","dotlife_ext_is_infinite":"false","dotlife_ext_is_fadeout_animation":"false"}'
-                        >
-                          <div class="elementor-column-wrap elementor-element-populated">
-                            <div class="elementor-widget-wrap">
-                              <div
-                                class="elementor-element elementor-element-580f040 animated-fast elementor-invisible elementor-widget elementor-widget-heading"
-                                data-id="580f040"
-                                data-element_type="widget"
-                                data-settings='{"_animation":"fadeInUp","_animation_delay":0,"dotlife_ext_is_scrollme":"false","dotlife_ext_is_smoove":"false","dotlife_ext_is_parallax_mouse":"false","dotlife_ext_is_infinite":"false","dotlife_ext_is_fadeout_animation":"false"}'
-                                data-widget_type="heading.default"
-                              >
-                                <div class="elementor-widget-container">
-                                  <span class="elementor-heading-title elementor-size-default">Are you interested in <b>Booking an Expert?</b> Contact Us.</span>
-                                </div>
-                              </div>
-                              <section
-                                class="elementor-element elementor-element-87f20a8 elementor-section-boxed elementor-section-height-default elementor-section-height-default elementor-section elementor-inner-section"
-                                data-id="87f20a8"
-                                data-element_type="section"
-                                data-settings='{"dotlife_ext_is_background_parallax":"false"}'
-                              >
-                                <div class="elementor-container elementor-column-gap-default">
-                                  <div class="elementor-row">
-                                    <div
-                                      class="elementor-element elementor-element-d8d5a80 animated-fast elementor-invisible elementor-column elementor-col-50 elementor-inner-column"
-                                      data-id="d8d5a80"
-                                      data-element_type="column"
-                                      data-settings='{"animation":"fadeInUp","animation_delay":200,"dotlife_ext_is_scrollme":"false","dotlife_ext_is_smoove":"false","dotlife_ext_is_parallax_mouse":"false","dotlife_ext_is_infinite":"false","dotlife_ext_is_fadeout_animation":"false"}'
-                                    >
-                                      <div class="elementor-column-wrap elementor-element-populated">
-                                        <div class="elementor-widget-wrap">
-                                          <div
-                                            class="elementor-element elementor-element-5557c5d animated-fast elementor-invisible elementor-widget elementor-widget-heading"
-                                            data-id="5557c5d"
-                                            data-element_type="widget"
-                                            data-settings='{"_animation":"fadeInUp","_animation_delay":0,"dotlife_ext_is_scrollme":"false","dotlife_ext_is_smoove":"false","dotlife_ext_is_parallax_mouse":"false","dotlife_ext_is_infinite":"false","dotlife_ext_is_fadeout_animation":"false"}'
-                                            data-widget_type="heading.default"
-                                          >
-                                            <div class="elementor-widget-container">
-                                              <span class="elementor-heading-title elementor-size-default">Info@mena-speakers.com</span>
-                                            </div>
-                                          </div>
-                                          <div
-                                            class="elementor-element elementor-element-208e4b5 animated-fast elementor-invisible elementor-widget elementor-widget-heading"
-                                            data-id="208e4b5"
-                                            data-element_type="widget"
-                                            data-settings='{"_animation":"fadeInUp","_animation_delay":200,"dotlife_ext_is_scrollme":"false","dotlife_ext_is_smoove":"false","dotlife_ext_is_parallax_mouse":"false","dotlife_ext_is_infinite":"false","dotlife_ext_is_fadeout_animation":"false"}'
-                                            data-widget_type="heading.default"
-                                          >
-                                            <div class="elementor-widget-container">
-                                              <span class="elementor-heading-title elementor-size-default">Send Me Email</span>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
-                                    <div
-                                      class="elementor-element elementor-element-212454a animated-fast elementor-invisible elementor-column elementor-col-50 elementor-inner-column"
-                                      data-id="212454a"
-                                      data-element_type="column"
-                                      data-settings='{"animation":"fadeInUp","animation_delay":300,"dotlife_ext_is_scrollme":"false","dotlife_ext_is_smoove":"false","dotlife_ext_is_parallax_mouse":"false","dotlife_ext_is_infinite":"false","dotlife_ext_is_fadeout_animation":"false"}'
-                                    >
-                                      <div class="elementor-column-wrap elementor-element-populated">
-                                        <div class="elementor-widget-wrap">
-                                          <div
-                                            class="elementor-element elementor-element-40d2de8 elementor-invisible elementor-widget elementor-widget-heading"
-                                            data-id="40d2de8"
-                                            data-element_type="widget"
-                                            data-settings='{"_animation":"fadeInUp","_animation_delay":0,"dotlife_ext_is_scrollme":"false","dotlife_ext_is_smoove":"false","dotlife_ext_is_parallax_mouse":"false","dotlife_ext_is_infinite":"false","dotlife_ext_is_fadeout_animation":"false"}'
-                                            data-widget_type="heading.default"
-                                          >
-                                            <div class="elementor-widget-container">
-                                              <span class="elementor-heading-title elementor-size-default">+971 55 98 32 756</span>
-                                            </div>
-                                          </div>
-                                          <div
-                                            class="elementor-element elementor-element-5365b06 animated-fast elementor-invisible elementor-widget elementor-widget-heading"
-                                            data-id="5365b06"
-                                            data-element_type="widget"
-                                            data-settings='{"_animation":"fadeInUp","_animation_delay":200,"dotlife_ext_is_scrollme":"false","dotlife_ext_is_smoove":"false","dotlife_ext_is_parallax_mouse":"false","dotlife_ext_is_infinite":"false","dotlife_ext_is_fadeout_animation":"false"}'
-                                            data-widget_type="heading.default"
-                                          >
-                                            <div class="elementor-widget-container">
-                                              <span class="elementor-heading-title elementor-size-default">Call Us</span>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </section>
-                              <div
-                                class="elementor-element elementor-element-cea35dc animated-fast elementor-invisible elementor-widget elementor-widget-shortcode"
-                                data-id="cea35dc"
-                                data-element_type="widget"
-                                data-settings='{"_animation":"fadeIn","_animation_delay":600,"dotlife_ext_is_scrollme":"false","dotlife_ext_is_smoove":"false","dotlife_ext_is_parallax_mouse":"false","dotlife_ext_is_infinite":"false","dotlife_ext_is_fadeout_animation":"false"}'
-                                data-widget_type="shortcode.default"
-                              >
-                                <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
-                                <script>
-                                  hbspt.forms.create({
-                                    region: "na1",
-                                    portalId: "5847879",
-                                    formId: "fcd954e7-779b-4047-bb57-310149a2c32c"
-                                  });
-                                </script>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div
-                          class="elementor-element elementor-element-f8e12aa translate_right_less elementor-column elementor-col-66 elementor-top-column"
-                          data-id="f8e12aa"
-                          data-element_type="column"
-                          data-settings='{"background_background":"classic","dotlife_ext_is_scrollme":"false","dotlife_ext_is_smoove":"false","dotlife_ext_is_parallax_mouse":"false","dotlife_ext_is_infinite":"false","dotlife_ext_is_fadeout_animation":"false"}'
-                        >
-                          <div class="elementor-column-wrap elementor-element-populated">
-                            <div class="elementor-widget-wrap">
-                              <div
-                                class="elementor-element elementor-element-10c7d34 translate_left_half elementor-widget elementor-widget-image"
-                                data-id="10c7d34"
-                                data-element_type="widget"
-                                data-settings='{"dotlife_image_is_animation":"false","dotlife_ext_is_scrollme":"false","dotlife_ext_is_smoove":"false","dotlife_ext_is_parallax_mouse":"false","dotlife_ext_is_infinite":"false","dotlife_ext_is_fadeout_animation":"false"}'
-                                data-widget_type="image.default"
-                              >
-                                <div class="elementor-widget-container">
-                                  <div class="elementor-image">
-                                    <img
-                                      width="768"
-                                      height="1152"
-                                      src="{{ asset('images/mangaer-02.png') }}"
-                                      class="attachment-medium_large size-medium_large"
-                                      alt=""
-                                    />
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </section>
+                <div class="mb-6 rounded overflow-hidden">
+                  <img class="w-full max-h-96 rounded object-cover" src="{{$blog->getFirstMediaUrl('image')}}" alt="">
                 </div>
               </div>
             </div>
             <div class="comment_disable_clearer"></div>
           </div>
+
+          <div class="sidebar_content full_width py-2">
+            <h2 class="font-semibold text-xl mb-6 px-6">{{ $blog->title }}</h2>
+            <div id="post-198" class="post-198 post type-post status-publish format-standard has-post-thumbnail hentry category-career category-entrepreneur category-life tag-direction tag-vision-goal-setting">
+              <div class="post_wrapper px-6 pb-6 mb-12 rounded bg-white">
+
+                {!! $blog->content !!}
+                <br class="clear" />
+
+                <br class="clear" />
+              </div>
+
+
+{{--              <div class="post_related">--}}
+{{--                <h3>Related Articles</h3>--}}
+{{--                <br class="clear" />--}}
+{{--                <div class="one_half">--}}
+{{--                  <div id="post-180" class="post-180 post type-post status-publish format-standard has-post-thumbnail hentry category-direction category-family category-productivity tag-direction tag-vision-goal-setting">--}}
+{{--                    <div class="post_wrapper grid_layout">--}}
+{{--                      <div class="post_img static">--}}
+{{--                        <div class="post_img_hover classic lazy">--}}
+{{--                          <img src="upload/smiling-man-with-laptop-indoors-B3U679G-960x550.jpg" class="" alt="" />--}}
+{{--                          <a href="singleblog.html"></a>--}}
+{{--                        </div>--}}
+{{--                      </div>--}}
+{{--                      <div class="post_header_wrapper single_post_wrapper">--}}
+{{--                        <div class="post_detail single_post">--}}
+{{--                          <span class="ti-folder ti_icon"></span>--}}
+{{--                          <span class="post_info_cat">--}}
+{{--                                                                <a href="#">Direction</a>--}}
+{{--                                                                &nbsp;·&nbsp; <a href="#">Family</a> &nbsp;·&nbsp;--}}
+{{--                                                                <a href="#">Productivity</a>--}}
+{{--                                                            </span>--}}
+{{--                        </div>--}}
+{{--                        <div class="post_header grid related">--}}
+{{--                          <h6>--}}
+{{--                            <a href="singleblog.html" title="4 Rules for a Productive Workday When the Kids Are Home">--}}
+{{--                              4 Rules for a Productive Workday When the Kids Are Home--}}
+{{--                            </a>--}}
+{{--                          </h6>--}}
+{{--                        </div>--}}
+{{--                        <div class="post_button_wrapper">--}}
+{{--                          <div class="post_attribute">--}}
+{{--                            <a href="singleblog.html" title="4 Rules for a Productive Workday When the Kids Are Home">--}}
+{{--                              <span class="ti-timer ti_icon"></span>April 2, 2019--}}
+{{--                            </a>--}}
+{{--                          </div>--}}
+{{--                        </div>--}}
+{{--                      </div>--}}
+{{--                    </div>--}}
+{{--                  </div>--}}
+{{--                </div>--}}
+{{--                <div class="one_half last">--}}
+{{--                  <div--}}
+{{--                    id="post-187"--}}
+{{--                    class="post-187 post type-post status-publish format-standard has-post-thumbnail hentry category-career category-family category-life category-productivity tag-direction tag-vision-goal-setting"--}}
+{{--                  >--}}
+{{--                    <div class="post_wrapper grid_layout">--}}
+{{--                      <div class="post_img static">--}}
+{{--                        <div class="post_img_hover classic lazy">--}}
+{{--                          <img src="upload/business-workstation-PRB5Z2M-960x550.jpg" class="" alt="" />--}}
+{{--                          <a href="singleblog.html"></a>--}}
+{{--                        </div>--}}
+{{--                      </div>--}}
+{{--                      <div class="post_header_wrapper single_post_wrapper">--}}
+{{--                        <div class="post_detail single_post">--}}
+{{--                          <span class="ti-folder ti_icon"></span>--}}
+{{--                          <span class="post_info_cat">--}}
+{{--                                                                <a href="#">Career</a>--}}
+{{--                                                                &nbsp;·&nbsp; <a href="#">Family</a> &nbsp;·&nbsp;--}}
+{{--                                                                <a href="#">Life</a> &nbsp;·&nbsp; <a href="#">Productivity</a>--}}
+{{--                                                            </span>--}}
+{{--                        </div>--}}
+{{--                        <div class="post_header grid related">--}}
+{{--                          <h6>--}}
+{{--                            <a href="singleblog.html" title="What Your Audience Wants From Your Next Speaking Engagement">--}}
+{{--                              What Your Audience Wants From Your Next Speaking Engagement--}}
+{{--                            </a>--}}
+{{--                          </h6>--}}
+{{--                        </div>--}}
+{{--                        <div class="post_button_wrapper">--}}
+{{--                          <div class="post_attribute">--}}
+{{--                            <a href="singleblog.html" title="What Your Audience Wants From Your Next Speaking Engagement">--}}
+{{--                              <span class="ti-timer ti_icon"></span>April 2, 2019--}}
+{{--                            </a>--}}
+{{--                          </div>--}}
+{{--                        </div>--}}
+{{--                      </div>--}}
+{{--                    </div>--}}
+{{--                  </div>--}}
+{{--                </div>--}}
+{{--              </div>--}}
+            </div>
+
+{{--            <div class="post_navigation previous">--}}
+{{--              <a href="singleblog.html">--}}
+{{--                <div class="navigation_post_content">--}}
+{{--                  <div class="post_img static">--}}
+{{--                    <div class="post_img_hover lazy">--}}
+{{--                      <img src="upload/portrait-of-female-student-standing-in-college-PTK57Z8-610x610.jpg" class="" alt="" />--}}
+{{--                    </div>--}}
+{{--                  </div>--}}
+{{--                  <h7>How will you know success when it shows up?</h7>--}}
+{{--                </div>--}}
+{{--                <div class="navigation_anchor">--}}
+{{--                  Previous Article--}}
+{{--                </div>--}}
+{{--              </a>--}}
+{{--            </div>--}}
+{{--            <div class="post_navigation next">--}}
+{{--              <a href="singleblog.html">--}}
+{{--                <div class="navigation_post_content">--}}
+{{--                  <div class="post_img static">--}}
+{{--                    <div class="post_img_hover lazy">--}}
+{{--                      <img src="upload/teamwork-together-professional-occupation-concept-PL9Q9XJ-610x610.jpg" class="" alt="" />--}}
+{{--                    </div>--}}
+{{--                  </div>--}}
+{{--                  <h7>3 Clear Warnings That Say Your Goals Are Too Small</h7>--}}
+{{--                </div>--}}
+{{--                <div class="navigation_anchor">--}}
+{{--                  Next Article--}}
+{{--                </div>--}}
+{{--              </a>--}}
+{{--            </div>--}}
+          </div>
+{{--          <div class="sidebar_wrapper" style="">--}}
+{{--            <div class="sidebar_top"></div>--}}
+{{--            <div class="sidebar">--}}
+{{--              <div class="content">--}}
+{{--                <ul class="sidebar_widget">--}}
+{{--                  <li id="categories-3" class="widget widget_categories">--}}
+{{--                    <h2 class="widgettitle"><span>Categories</span></h2>--}}
+{{--                    <ul>--}}
+{{--                      <li class="cat-item"><a href="#">Career</a> (8)</li>--}}
+{{--                      <li class="cat-item"><a href="#">Direction</a> (4)</li>--}}
+{{--                      <li class="cat-item"><a href="#">Entrepreneur</a> (6)</li>--}}
+{{--                      <li class="cat-item"><a href="#">Family</a> (5)</li>--}}
+{{--                      <li class="cat-item"><a href="#">Life</a> (7)</li>--}}
+{{--                      <li class="cat-item"><a href="#">Productivity</a> (5)</li>--}}
+{{--                    </ul>--}}
+{{--                  </li>--}}
+{{--                  <li id="dotlife_recent_posts-2" class="widget DotLife_Recent_Posts">--}}
+{{--                    <h2 class="widgettitle"><span>Recent Posts</span></h2>--}}
+{{--                    <ul class="posts blog withthumb">--}}
+{{--                      <li>--}}
+{{--                        <div class="post_circle_thumb">--}}
+{{--                          <a href="singleblog.html">--}}
+{{--                            <img--}}
+{{--                              src="upload/man-cleaning-glasses-PKAQUKX-150x150.jpg"--}}
+{{--                              alt="10 Things Successful Mompreneurs Do Different"--}}
+{{--                            />--}}
+{{--                          </a>--}}
+{{--                        </div>--}}
+{{--                        <a href="singleblog.html">10 Things Successful Mompreneurs Do Different</a>--}}
+{{--                        <div class="post_attribute">April 3, 2019</div>--}}
+{{--                      </li>--}}
+{{--                      <li>--}}
+{{--                        <div class="post_circle_thumb">--}}
+{{--                          <a href="singleblog.html">--}}
+{{--                            <img--}}
+{{--                              src="upload/teamwork-together-professional-occupation-concept-PL9Q9XJ-150x150.jpg"--}}
+{{--                              alt="3 Clear Warnings That Say Your Goals Are Too Small"--}}
+{{--                            />--}}
+{{--                          </a>--}}
+{{--                        </div>--}}
+{{--                        <a href="singleblog.html">3 Clear Warnings That Say Your Goals Are Too Small</a>--}}
+{{--                        <div class="post_attribute">April 3, 2019</div>--}}
+{{--                      </li>--}}
+{{--                      <li>--}}
+{{--                        <div class="post_circle_thumb">--}}
+{{--                          <a href="singleblog.html">--}}
+{{--                            <img--}}
+{{--                              src="upload/thinking-man-at-work-U7PFMZW-150x150.jpg"--}}
+{{--                              alt="Questions every business owner must be able to answer correctly"--}}
+{{--                            />--}}
+{{--                          </a>--}}
+{{--                        </div>--}}
+{{--                        <a href="singleblog.html">Questions every business owner must be able to answer correctly</a>--}}
+{{--                        <div class="post_attribute">April 3, 2019</div>--}}
+{{--                      </li>--}}
+{{--                    </ul>--}}
+{{--                  </li>--}}
+{{--                  <li id="text-3" class="widget widget_text">--}}
+{{--                    <div class="textwidget">--}}
+{{--                      <p><img class="alignnone size-medium wp-image-26" src="upload/banner.jpg" alt="" /></p>--}}
+{{--                    </div>--}}
+{{--                  </li>--}}
+{{--                </ul>--}}
+{{--              </div>--}}
+{{--            </div>--}}
+{{--            <br class="clear" />--}}
+{{--            <div class="sidebar_bottom"></div>--}}
+{{--          </div>--}}
         </div>
-        <!-- End main content -->
       </div>
       <br class="clear" />
     </div>
+
 
 
 

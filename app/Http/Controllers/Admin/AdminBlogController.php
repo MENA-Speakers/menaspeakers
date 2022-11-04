@@ -18,11 +18,12 @@ class AdminBlogController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Application|Factory|View
      */
     public function index()
     {
-        return view('admin.blogs.index');
+      $blogs = Blog::paginate(12);
+        return view('admin.blogs.index', compact('blogs'));
     }
 
     /**
@@ -47,6 +48,7 @@ class AdminBlogController extends Controller
         $blog = Blog::create([
           'title' => $request->input('title'),
           'content' => $request->input('content'),
+          'excerpt' => $request->input('excerpt'),
           'featured' => boolval($request->input('featured')),
         ]);
 

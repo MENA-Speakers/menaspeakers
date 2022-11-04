@@ -2,6 +2,7 @@
 
   use App\Http\Controllers\Admin\AdminBlogController;
   use App\Http\Controllers\Admin\AdminHomeController;
+  use App\Http\Controllers\Admin\DashboardController;
   use App\Http\Controllers\Admin\SpeakerController;
   use App\Http\Controllers\BlogsController;
   use App\Http\Controllers\FaqsController;
@@ -53,8 +54,6 @@ Route::middleware('auth')->name('admin.')->prefix('admin')->group(function() {
 
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', [DashboardController::class, 'dashboard'])->middleware(['auth', 'verified'])->name('dashboard');
 
 require __DIR__.'/auth.php';

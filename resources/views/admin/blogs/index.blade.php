@@ -11,9 +11,19 @@
 
   <div class="py-12">
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-      <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-        <div class="p-6 bg-white border-b border-gray-200">
-          You're logged in!
+      <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg p-6">
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:grid-cols-3">
+          @foreach($blogs as $blog)
+            <div class="w-full p-2">
+              <a class="group" href="#">
+                <div class="group flex flex-col mb-2 overflow-hidden rounded-xl">
+                  <img class="transform group-hover:scale-110 transition h-72 object-cover ease-out duration-500" src="{{ $blog->getFirstMediaUrl('image') }}" alt="">
+                </div>
+                <h2 class="font-heading font-medium text-gray-900 group-hover:underline px-2">{{ $blog->title }}</h2>
+              </a>
+            </div>
+          @endforeach
         </div>
       </div>
     </div>
