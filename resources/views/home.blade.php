@@ -2,21 +2,8 @@
 
 @section('content')
   <!-- Begin mobile menu -->
-  <a id="close_mobile_menu" href="javascript:;"></a>
-
-  <div class="mobile_menu_wrapper">
-    <div class="mobile_menu_content">
-      <div class="menu-main-menu-container">
-        <ul id="mobile_main_menu" class="mobile_main_nav">
-          <li class="menu-item">
-            <a href="/" aria-current="page">Home</a>
-          </li>
-
-        </ul>
-      </div>
-    </div>
-  </div>
-  <!-- End mobile menu -->
+ <x-mobile-menu />
+  
   <!-- Begin template wrapper -->
   <div id="wrapper" class="hasbg transparent">
     <div id="elementor_header" class="header_style_wrapper">
