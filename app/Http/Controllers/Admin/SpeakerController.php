@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\SpeakerUpdateRequest;
 use App\Http\Requests\StoreSpeakerRequest;
 use App\Models\Speaker;
 use Illuminate\Contracts\Foundation\Application;
@@ -12,6 +13,8 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Redirect;
+use Spatie\MediaLibrary\MediaCollections\Exceptions\FileDoesNotExist;
+use Spatie\MediaLibrary\MediaCollections\Exceptions\FileIsTooBig;
 
 class SpeakerController extends Controller
 {
@@ -20,10 +23,18 @@ class SpeakerController extends Controller
      *
      * @return Application|Factory|View
      */
-    public function index()
+    public function index(Request $request)
     {
-      $speakers = Speaker::paginate(12);
-      return view('admin.speakers.index', compact('speakers') );
+      $speakers = null;
+      $query = null;
+      if($request->has('query')){
+        $speakers = Speaker::search($request->input('query'))->paginate(12)->withQueryString();
+        $query = $request->input('query');
+      } else {
+        $speakers = Speaker::paginate(12);
+      }
+
+      return view('admin.speakers.index', compact('speakers', 'query') );
     }
 
     /**
@@ -68,24 +79,41 @@ class SpeakerController extends Controller
    *
    * @param Speaker $speaker
    *
-   * @return Response
+   * @return Application|Factory|View
    */
     public function edit(Speaker $speaker)
     {
-        //
+        return view('admin.speakers.edit', compact('speaker'));
     }
 
   /**
    * Update the specified resource in storage.
    *
-   * @param Request $request
+   * @param SpeakerUpdateRequest $request
    * @param Speaker $speaker
    *
-   * @return Response
+   * @return RedirectResponse
+   * @throws FileDoesNotExist
+   * @throws FileIsTooBig
    */
-    public function update(Request $request, Speaker $speaker)
+    public function update(SpeakerUpdateRequest $request, Speaker $speaker)
     {
 
+        $speaker->update([
+          'name' => $request->input('name'),
+          'bio' => $request->input('bio'),
+          'featured' => boolval($request->input('featured')),
+          'meta_title' => $request->input('meta_title'),
+          'excerpt' => $request->input('excerpt'),
+          'keywords' => $request->input('keywords'),
+        ]);
+
+      if($request->hasFile('image')){
+        $speaker->addMediaFromRequest('image')
+          ->toMediaCollection('avatar');
+      }
+
+      return Redirect::route('admin.speakers.index');
     }
 
   /**

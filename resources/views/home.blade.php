@@ -3,7 +3,7 @@
 @section('content')
   <!-- Begin mobile menu -->
  <x-mobile-menu />
-  
+
   <!-- Begin template wrapper -->
   <div id="wrapper" class="hasbg transparent">
     <div id="elementor_header" class="header_style_wrapper">
@@ -674,12 +674,12 @@
                                   >
                                     <div class="elementor-widget-container">
                                       <div class="elementor-button-wrapper">
-                                        <a href="#" class="elementor-button-link elementor-button elementor-size-sm"
+                                        <a href="http://mena-speakers-5847879.hs-sites.com/public-speaking" class="elementor-button-link elementor-button elementor-size-sm"
                                            role="button">
                                             <span
                                               class="elementor-button-content-wrapper">
                                                 <span
-                                                  class="elementor-button-text">PR AND MEDIA STRATEGY</span>
+                                                  class="elementor-button-text">PUBLIC SPEAKING TRAINING</span>
                                             </span>
                                         </a>
                                       </div>
@@ -726,12 +726,12 @@
                                   >
                                     <div class="elementor-widget-container">
                                       <div class="elementor-button-wrapper">
-                                        <a href="#" class="elementor-button-link elementor-button elementor-size-sm"
+                                        <a href="http://mena-speakers-5847879.hs-sites.com/speakers-fast-track-programme" class="elementor-button-link elementor-button elementor-size-sm"
                                            role="button">
                                               <span
                                                 class="elementor-button-content-wrapper">
                                                   <span
-                                                    class="elementor-button-text">MANAGEMENT CONSULTANCY AND ADVISORY</span>
+                                                    class="elementor-button-text">SPEAKER FAST TRACK</span>
                                               </span>
                                         </a>
                                       </div>
