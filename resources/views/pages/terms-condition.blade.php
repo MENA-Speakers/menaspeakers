@@ -200,7 +200,8 @@
                                                   ‘’Customer using the website who are Minor /under the age of 18 shall not register as a User of the website and shall not transact on or use the website’’
                                                 </p>
                                                 <p><strong>Applicable law and jurisdiction</strong>
-                                                  <br>This website and its use are subject to the United Arab of Emirates law and regulations. Should any of the provision be considered void under the United Arab of Emirates law and regulations or any mandatory regulations of another country that would apply the other provisions will remain in full force and effect.</p><p>Last updated: October&nbsp;2015</p>					</div>
+                                                  <br>This website and its use are subject to the United Arab of Emirates law and regulations. Should any of the provision be considered void under the United Arab of Emirates law and regulations or any mandatory regulations of another country that would apply the other provisions will remain in full force and effect.</p><p>Last updated: October&nbsp;2022</p>
+                                              </div>
                                             </div>
                                           </div>
                                         </div>

@@ -14,7 +14,7 @@ class PagesController extends Controller
 
 
   public function policy(){
-
+    return view('pages.refund-policy');
   }
 
 

@@ -29,7 +29,11 @@
                   <h5 class=" font-semibold tracking-tight text-gray-900 dark:text-white">{{ $speaker->name }}</h5>
                 </a>
               </div>
-              <div class="flex justify-end">
+              <div class="flex justify-between">
+                <form action="{{ route('admin.speakers.delete', $speaker->slug) }}" method="post">
+                  @csrf
+                  <button  type="submit" class="text-sm px-3 py-2 text-red-600">Delete</button>
+                </form>
                 <a href="{{ route('admin.speakers.edit', $speaker->slug ) }}" class="text-sm px-3 py-2">Edit</a>
               </div>
             </div>

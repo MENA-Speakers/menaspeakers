@@ -175,11 +175,13 @@
                                                     we’ll send you a return shipping label, as well as instructions on how and where to send your package.
                                                     Items sent back to us without first requesting a return will not be accepted.&nbsp;</span>
                                                   <span style="font-size: 16px; letter-spacing: 0px;">You can always contact us for any return question at info@mena-speakers.com.</span></p><p><span style="font-size: 16px; letter-spacing: 0px;">
-
+                                                  </span>
                                                     <p>We deliver our Products to all Countries and mainly UAE. Shipping will be done by a third-party courier.
-                                                  Delivery within UAE cities shall be in 1 – 2 working days and from 4 to 10 working Days to Other Countries. UAE Delivery Fees will be a Flat Rate of AED: 20 and Delivery Fees outside UAE will be mentioned on the checkout page depending on the country and location. Avoid any delivery delay by providing your full address along with your contact details.</p>
+                                                  Delivery within UAE cities shall be in 1 – 2 working days and from 4 to 10 working Days to Other Countries.
+                                                  UAE Delivery Fees will be a Flat Rate of AED: 20 and Delivery Fees outside
+                                                  UAE will be mentioned on the checkout page depending on the country and location. Avoid any delivery delay by providing your full address along with your contact details.</p>
 
-                                                    <b>Damages and Issues</b></span></p><p>Please inspect your order upon reception and contact us immediately if the item is defective,
+                                                <p> <b>Damages and Issues</b> Please inspect your order upon reception and contact us immediately if the item is defective,
                                                   damaged or if you receive the wrong item, so that we can evaluate the issue and make it right.</p><p><b>Exceptions / non-returnable items</b></p>
                                                 <p>Certain types of items cannot be returned, like perishable goods (such as food, flowers, or plants),
                                                   custom products (such as special orders or personalized items), and personal care goods (such as beauty products).

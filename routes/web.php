@@ -44,6 +44,7 @@ Route::middleware('auth')->name('admin.')->prefix('admin')->group(function() {
   Route::get('speakers/create', [SpeakerController::class, 'create'])->name('speakers.create');
   Route::get('speakers/{speaker}/edit', [SpeakerController::class, 'edit'])->name('speakers.edit');
   Route::post('speakers/{speaker}', [SpeakerController::class, 'update'])->name('speakers.update');
+  Route::post('speakers/{speaker}/delete', [SpeakerController::class, 'destroy'])->name('speakers.delete');
 
 
   Route::get('blogs', [AdminBlogController::class, 'index'])->name('blogs.index');
