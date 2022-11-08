@@ -27,7 +27,7 @@
                         data-widget_type="heading.default"
                       >
                         <div class="elementor-widget-container">
-                          <span class="elementor-heading-title elementor-size-default">Stay in the know on new free e-book</span>
+                          <span class="elementor-heading-title elementor-size-default">Stay in the know</span>
                         </div>
                       </div>
                       <div
@@ -379,4 +379,5 @@
     </div>
   </div>
   <a id="toTop" href="javascript:;"><i class="fa fa-angle-up"></i></a>
+  @include('cookie-consent::index')
 </div>
