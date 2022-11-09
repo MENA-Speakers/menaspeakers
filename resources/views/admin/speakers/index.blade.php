@@ -25,7 +25,7 @@
                 <img class="rounded-t-lg h-60 object-cover" src="{{ $speaker->getFirstMediaUrl('avatar') }}" alt="">
               </a>
               <div class="p-5">
-                <a href="{{ route('speakers.show', 'speaker->slug') }}">
+                <a href="{{ route('speakers.show', $speaker->slug) }}">
                   <h5 class=" font-semibold tracking-tight text-gray-900 dark:text-white">{{ $speaker->name }}</h5>
                 </a>
               </div>

@@ -161,10 +161,10 @@
                                               <div class="elementor-text-editor elementor-clearfix">
                                                 <p><b style="font-family: inherit; font-style: inherit; letter-spacing: 0px;">What is MENA Speakers return policy?</b></p>
                                                 <p>‘All credit/debit cards’ details and personally identifiable information will NOT be stored, sold, shared, rented or leased to any third parties’’</p>
-                                                <p>‘’Merchant will not pass any debit/credit card details to third parties’’</p>
-                                                <p>‘’Merchant takes appropriate steps to ensure data privacy and security including through various hardware and software methodologies. However, (mena-speakers.com) cannot guarantee the security of any information that is disclosed online’’</p>
+                                                <p>“ https://mena-speakers.com will not pass any debit/credit card details to third parties’’</p>
+                                                <p>"https://mena-speakers.com takes appropriate steps to ensure data privacy and security including through various hardware and software methodologies. However, (mena-speakers.com) cannot guarantee the security of any information that is disclosed online’’</p>
                                                 <p>
-                                                  ‘’The merchant is not responsible for the privacy policies of websites to which it links. If you provide any information to such third parties different rules regarding the collection and use of your personal information may apply. You should contact these entities directly if you have any questions about their use of the information that they collect.’’
+                                                  "https://mena-speakers.com is not responsible for the privacy policies of websites to which it links. If you provide any information to such third parties different rules regarding the collection and use of your personal information may apply. You should contact these entities directly if you have any questions about their use of the information that they collect.’’
                                                 </p>
                                                 <p>
                                                   “The Website Policies and Terms & Conditions may be changed or updated occasionally to meet the requirements and standards. Therefore, the Customers’ are encouraged to frequently visit these sections to be updated about the changes on the website. Modifications will be effective on the day they are posted”.
@@ -191,6 +191,10 @@
                                                 <p><b>Refunds</b></p><p>We will notify you once we’ve received and inspected your return, and let you know if the refund was approved or not. If approved,
                                                   you’ll be automatically refunded on your original payment method. Please remember it can take some time for your bank or credit card company to process and post the refund too.</p>
                                               <p>The multiple booking / orders / shipments may result in multiple postings to the cardholder’s monthly statement.</p>
+
+                                                <p>
+                                                  “The Website Policies and Terms & Conditions may be changed or updated occasionally to meet the requirements and standards. Therefore, the Customers’ are encouraged to frequently visit these sections to be updated about the changes on the website. Modifications will be effective on the day they are posted”.
+                                                </p>
                                               </div>
                                             </div>
                                           </div>

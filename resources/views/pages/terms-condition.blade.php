@@ -162,10 +162,10 @@
                                                 <p>MENA Speakers maintains the https://mena-speakers.com Website ("Site"). The use of this website (www.mena-speakers.com) is subject to the conditions of use described hereunder.
                                                   The mere use of the website implies the knowledge and the acceptance of these conditions of use and the privacy policy.</p>
                                                 <p><strong>Copyrights</strong>
-                                                  <br>Copyright MENA SPEAKERS. All Rights Reserved. The text, images, graphics, sound files, animation files, video files and their arrangement on the
-                                                  MENA SPEAKERS website are all subject to Copyright and other intellectual property protection.
+                                                  <br>Copyright MENA SPEAKERS FZE. All Rights Reserved. The text, images, graphics, sound files, animation files, video files and their arrangement on the
+                                                  MENA SPEAKERS FZE website are all subject to Copyright and other intellectual property protection.
                                                   These objects may not be copied for commercial use or distribution, nor may these objects be modified or reposted to other websites.
-                                                  Some of the webpages of MENA SPEAKERS may also contain material that is subject to the copyright rights of third parties and their providers.</p>
+                                                  Some of the webpages of MENA SPEAKERS FZE may also contain material that is subject to the copyright rights of third parties and their providers.</p>
 
                                                 <p><strong>Information</strong><br>The information available on or via the website is of a general nature and is only provided for a general use.
                                                   This information is not adapted to personal or specific circumstances. No rights can be derived from the information.</p>
@@ -190,8 +190,8 @@
                                                 <p><strong>Liability</strong><br>MENA SPEAKERS shall not be liable for any damages arising or resulting from any direct or indirect use of the website or of the
                                                   information made available on or via the website.
                                                   MENA SPEAKERS is not liable for damages resulting from potential interruptions of the website, caused by technical errors, even if the error is qualified as a
-                                                  “serious fault” under United Arab of Emirates law,
-                                                  “United Arab of Emirates is our country of domicile” and stipulate that the governing law is the local law.
+                                                  “serious fault” under United Arab Emirates law,
+                                                  “United Arab Emirates is our country of domicile” and stipulate that the governing law is the local law.
                                                   viruses or any other disturbing element, or the consultation or the use of the websites (e.g. via links) referred to on or via the website or the information available on the former.</p>
                                                 <p>MENA SPEAKERS is not liable for electronic communications via the website, e.g. e-mails, or delays, interceptions or manipulation by third parties of those communications.</p>
                                                 <p>Any use of the information available on or via the website is therefore completely at your own risk. Consequently, you are liable for any of your choices made based on the information available on or via the website.</p><p>You shall take all reasonable precautions to prevent your equipment from being harmed by viruses, bugs, Trojan horses, etc. MENA SPEAKERS does not guarantee any compatibility of your equipment with the files being part of or present on the website, or any accessibility of those elements.</p>
@@ -200,7 +200,7 @@
                                                   ‘’Customer using the website who are Minor /under the age of 18 shall not register as a User of the website and shall not transact on or use the website’’
                                                 </p>
                                                 <p><strong>Applicable law and jurisdiction</strong>
-                                                  <br>This website and its use are subject to the United Arab of Emirates law and regulations. Should any of the provision be considered void under the United Arab of Emirates law and regulations or any mandatory regulations of another country that would apply the other provisions will remain in full force and effect.</p><p>Last updated: October&nbsp;2022</p>
+                                                  <br>This website and its use are subject to the United Arab Emirates law and regulations. Should any of the provision be considered void under the United Arab Emirates law and regulations or any mandatory regulations of another country that would apply the other provisions will remain in full force and effect.</p><p>Last updated: October&nbsp;2022</p>
                                               </div>
                                             </div>
                                           </div>

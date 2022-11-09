@@ -176,6 +176,11 @@
                                       <span class="elementor-heading-title elementor-size-default"><a href="/">Dubai, United Arab Emirates </a></span>
                                     </div>
                                   </div>
+                                  <div class="flex space-x-4 mt-8">
+                                    <img src="{{ asset('images/471-4717614_visa-logo-png-transparent-visa-card-vector-png.png') }}" class="w-12 bg-white" alt="">
+                                    <img src="{{ asset('images/kisspng-mastercard-logo-visa-credit-card-portable-network-mastercard-plus-datacenter-trkiyeampaposde-5bfe50c6987830.6480665815433934786245.jpg') }}" class="w-12 bg-white" alt="">
+                                    <img src="{{ asset('images/png-transparent-logo-unionpay-credit-card-atm-card-bank-card-credit-card-text-payment-logo.png') }}" class="w-12 bg-white" alt="">
+                                  </div>
                                   <div
                                     class="elementor-element elementor-element-8805bcf elementor-widget elementor-widget-heading"
                                     data-id="8805bcf"
@@ -183,6 +188,7 @@
                                     data-settings='{"dotlife_ext_is_scrollme":"false","dotlife_ext_is_smoove":"false","dotlife_ext_is_parallax_mouse":"false","dotlife_ext_is_infinite":"false","dotlife_ext_is_fadeout_animation":"false"}'
                                     data-widget_type="heading.default"
                                   >
+
 
                                   </div>
                                 </div>
