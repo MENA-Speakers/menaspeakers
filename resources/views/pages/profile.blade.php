@@ -118,7 +118,7 @@
             <a href="tel:+971559832756"><img src="{{ asset('/images/call.png')}}" alt=""><p>+971 55 983 2756</p></a>
           </div> -->
           <div class="chat">
-            <a href="javascript:;" target="_self" onclick="livechat();"><img src="{{ asset('/images/chat.png')}}" alt=""> <p>Live Chat </p></a>
+            <a href="#get_started" ><img src="{{ asset('/images/chat.png')}}" alt=""> <p>Get Started</p></a>
           </div>
         </div>
       </div>
@@ -136,7 +136,7 @@
             <span>Corporation in the Middle East</span></h3>
           <p>Public Speakers. MCs. Corporate Trainers. One Stop Solution!</p>
           <a href="tel:971559832756" class="num">+971 55 983 2756</a>
-          <a href="javascript:;" class="live" target="_self" onclick="livechat();">LIVE CHAT</a>
+          <a href="#get_started" class="live" target="_self">BOOK A SPEAKER</a>
         </div>
       </div>
       <div class="item">
@@ -146,7 +146,7 @@
             <span>Corporation in the Middle East</span></h3>
           <p>Public Speakers. MCs. Corporate Trainers. One Stop Solution!</p>
           <a href="tel:971559832756" class="num">+971 55 983 2756</a>
-          <a href="javascript:;" class="live" target="_self" onclick="livechat();">LIVE CHAT</a>
+          <a href="#get_started" class="live" target="_self" >GET STARTED</a>
         </div>
       </div>
 
@@ -157,7 +157,7 @@
             <span>Corporation in the Middle East</span></h3>
           <p>Public Speakers. MCs. Corporate Trainers. One Stop Solution!</p>
           <a href="tel:971559832756" class="num">+971 55 983 2756</a>
-          <a href="javascript:;" class="live" target="_self" onclick="livechat();">LIVE CHAT</a>
+          <a href="#get_started"  target="_self">GET STARTED</a>
         </div>
       </div>
 
@@ -288,7 +288,7 @@
           </div>
           <div class="detail2 wow fadeInRight">
             <ul>
-              <li><a href="javascript:;" target="_self" onclick="livechat();"><img src="{{ asset('/images/wechat.png')}}" alt=""> Live Chat</a></li>
+              <li><a href="#get_started" target="_self" onclick="livechat();"><img src="{{ asset('/images/wechat.png')}}" alt=""> Get Started</a></li>
               <li class="sch"><a href="javascript:;"><img src="{{ asset('/images/calendar.png')}}" alt=""> Schedule a Meeting</a></li>
             </ul>
           </div>
@@ -355,7 +355,7 @@
           </div>
           <div class="detail2 wow fadeInRight">
             <ul>
-              <li><a href="javascript:;" target="_self" onclick="livechat();"><img src="{{ asset('/images/wechat.png')}}" alt=""> Live Chat</a></li>
+              <li><a href="#get_started" target="_self" ><img src="{{ asset('/images/wechat.png')}}" alt=""> GET STARTED</a></li>
               <li class="sch"><img src="{{ asset('/images/calendar.png')}}" alt=""> Schedule a Meeting</li>
             </ul>
           </div>
@@ -472,7 +472,7 @@
   </div>
   <div class="container-fluid contact">
     <div class="container">
-      <div class="row">
+      <div id="get_started" class="row">
         <div class="col-md-12">
           <div class="conthead wow fadeInLeft">
             <h4>Not Sure How to go about it?<br>
@@ -482,7 +482,7 @@
         </div>
         <div class="col-md-1"></div>
         <div class="col-md-10 wow fadeInRight" id="con">
-          <div class="contform" >
+          <div class="contform"  >
             <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
             <script>
               hbspt.forms.create({
@@ -520,43 +520,43 @@
       </div>
     </div>
   </div>
-  <div class="floating-form-wrap">
-    <div class="floating-form">
-      <div class="contform1">
-        <div id="contactform2">
-          <form class="jform validate" action="contact.php" method="post">
-            <div class="col-md-12">
-              <div class="form-group">
-                <input type="text" class="form-control required" name="fn" placeholder="Full Name">
-              </div>
-            </div>
+{{--  <div class="floating-form-wrap">--}}
+{{--    <div class="floating-form">--}}
+{{--      <div class="contform1">--}}
+{{--        <div id="contactform2">--}}
+{{--          <form class="jform validate" action="contact.php" method="post">--}}
+{{--            <div class="col-md-12">--}}
+{{--              <div class="form-group">--}}
+{{--                <input type="text" class="form-control required" name="fn" placeholder="Full Name">--}}
+{{--              </div>--}}
+{{--            </div>--}}
 
-            <div class="col-md-12">
-              <div class="form-group">
+{{--            <div class="col-md-12">--}}
+{{--              <div class="form-group">--}}
 
-                <input type="email" class="form-control required" name="email"  placeholder="Email">
-              </div>
-            </div>
+{{--                <input type="email" class="form-control required" name="email"  placeholder="Email">--}}
+{{--              </div>--}}
+{{--            </div>--}}
 
-            <div class="col-md-12">
-              <div class="form-group">
+{{--            <div class="col-md-12">--}}
+{{--              <div class="form-group">--}}
 
-                <input type="tel" class="form-control" required name="phone"  placeholder="Phone">
-              </div>
-            </div>
-            <div class="col-md-12">
-              <textarea class="form-control" rows="3" name="msg" placeholder="Please list any additional information or needs:"></textarea></div>
-            <button type="submit" class="btnsub"  name="send">Send</button>
-            <input name="send" type="hidden" value="1">
-            <input name="formname" type="hidden" value="Floating Form">
-          </form>
+{{--                <input type="tel" class="form-control" required name="phone"  placeholder="Phone">--}}
+{{--              </div>--}}
+{{--            </div>--}}
+{{--            <div class="col-md-12">--}}
+{{--              <textarea class="form-control" rows="3" name="msg" placeholder="Please list any additional information or needs:"></textarea></div>--}}
+{{--            <button type="submit" class="btnsub"  name="send">Send</button>--}}
+{{--            <input name="send" type="hidden" value="1">--}}
+{{--            <input name="formname" type="hidden" value="Floating Form">--}}
+{{--          </form>--}}
 
 
-        </div>
-      </div>
-    </div>
-    <div class="form-handle"></div>
-  </div>
+{{--        </div>--}}
+{{--      </div>--}}
+{{--    </div>--}}
+{{--    <div class="form-handle"></div>--}}
+{{--  </div>--}}
   <div class="side-bars">
     <div class="clearfix s-bar">
       <div class="clicktocall"> <span class="call-spr"></span>
@@ -609,12 +609,6 @@ Remarketing tags may not be associated with personally identifiable information 
 <!-- End of HubSpot Embed Code -->
 
 <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
-<script>
-  hbspt.forms.create({
-    region: "na1",
-    portalId: "5847879",
-    formId: "fb8b0ab0-0c41-4a33-b8ed-5d4ee5cc4ed4"
-  });
-</script>
+
 </body>
 </html>
