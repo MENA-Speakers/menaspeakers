@@ -157,7 +157,7 @@
             <span>Corporation in the Middle East</span></h3>
           <p>Public Speakers. MCs. Corporate Trainers. One Stop Solution!</p>
           <a href="tel:971559832756" class="num">+971 55 983 2756</a>
-          <a href="#get_started"  target="_self">GET STARTED</a>
+          <a href="#get_started" class="live" target="_self">GET STARTED</a>
         </div>
       </div>
 
