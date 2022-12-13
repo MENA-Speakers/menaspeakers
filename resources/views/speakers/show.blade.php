@@ -244,38 +244,56 @@
         <div class="inner_wrapper">
           <div class="sidebar_content full_width">
             <div id="lp-single-course" class="lp-single-course">
-
-              <div id="single_course_header">
-                <div class="standard_wrapper">
-                  <div class="single_course_title">
-                    <h1 class="page_title_content title_align_left">{{ $speaker->name }}</h1>
-
-                    <div class="single_course_excerpt">
-                      <p>{{ $speaker->excerpt }}</p>
+              <div id="single_course_bgimage" style="background-image: url({{ asset('images/speaker-banner.png') }});"></div>
+              <div class="grid grid-cols-1 z-20 lg:grid-cols-6 gap-6 mt-6 ">
+                <div class="col-span-1 z-0 lg:col-span-2">
+                  <div class="p-4 bg-white -mt-48 w-full border border-red-600">
+                    <img class="object-cover h-96 w-full" src="{{$speaker->getFirstMediaUrl('avatar')}}" alt="{{ $speaker->name }}">
+                  </div>
+                  <div class="spacey-y-4 mt-6">
+                    <div class="bg-gray-100 py-3 px-4">
+                      <h1 class="text-lg font-semibold uppercase">{{ $speaker->name }}</h1>
                     </div>
+                    <div class="bg-gray-50 py-3 px-4">
+
+                    </div>
+
+                    <div class="bg-blue-900 text-white py-3 px-4">
+                      <a href="{{ route('pages.contact') }}" class=" text-xl uppercase">Book Speaker</a>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-span-1 lg:col-span-4">
+                  <div class="bg-blue-900  py-4 px-6">
+                    <h1 class="text-xl text-white font-semibold">
+                      ABOUT SPEAKER
+                    </h1>
+                  </div>
+                  <div class="py-4 px-6">
+                    {!! $speaker->bio !!}
                   </div>
                 </div>
               </div>
-              <br class="clear" />
-              <div id="single_course_bgimage" style="background-image: url({{ $speaker->getFirstMediaUrl('avatar') }});"></div>
               <div id="learn-press-course" class="course-summary">
-                <div class="course-landing-summary">
+{{--                <div class="course-landing-summary">--}}
 
 
-                  <div id="learn-press-course-tabs" class="course-tabs">
+{{--                  <div id="learn-press-course-tabs" class="course-tabs">--}}
 
-                    <div class="course-tab-panel-overview course-tab-panel active" id="tab-overview">
-                      <div class="course-description" id="learn-press-course-description">
-                        {!! $speaker->bio !!}
-                      </div>
-                    </div>
-
-
-
-                  </div>
+{{--                    <div class="course-tab-panel-overview course-tab-panel active" id="tab-overview">--}}
+{{--                      <div class="course-description" id="learn-press-course-description">--}}
+{{--                        {!! $speaker->bio !!}--}}
+{{--                      </div>--}}
+{{--                    </div>--}}
 
 
-                </div>
+
+{{--                  </div>--}}
+
+
+{{--                </div>--}}
+
               </div>
             </div>
             <div class="comment_disable_clearer"></div>
