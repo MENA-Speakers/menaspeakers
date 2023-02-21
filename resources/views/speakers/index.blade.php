@@ -142,68 +142,8 @@
                       </div>
                     </div>
                   </section>
-                  <section
-                    class="elementor-element elementor-element-d24af5d elementor-section-stretched elementor-section-full_width elementor-section-height-default elementor-section-height-default elementor-section elementor-top-section"
-                    data-id="d24af5d"
-                    data-element_type="section"
-                    data-settings='{"stretch_section":"section-stretched","dotlife_ext_is_background_parallax":"false"}'
-                  >
-                    <div class="elementor-container elementor-column-gap-default">
-                      <div class="elementor-row">
-                        <div
-                          class="elementor-element elementor-element-d885258 elementor-column elementor-col-100 elementor-top-column"
-                          data-id="d885258"
-                          data-element_type="column"
-                          data-settings='{"dotlife_ext_is_scrollme":"false","dotlife_ext_is_smoove":"false","dotlife_ext_is_parallax_mouse":"false","dotlife_ext_is_infinite":"false","dotlife_ext_is_fadeout_animation":"false"}'
-                        >
-                          <div class="elementor-column-wrap elementor-element-populated">
-                            <div class="elementor-widget-wrap">
-                              <div
-                                class="elementor-element elementor-element-05fcb21 elementor-widget elementor-widget-dotlife-course-grid"
-                                data-id="05fcb21"
-                                data-element_type="widget"
-                                data-settings='{"dotlife_ext_is_scrollme":"false","dotlife_ext_is_smoove":"false","dotlife_ext_is_parallax_mouse":"false","dotlife_ext_is_infinite":"false","dotlife_ext_is_fadeout_animation":"false"}'
-                                data-widget_type="dotlife-course-grid.default"
-                              >
-                                <div class="elementor-widget-container">
 
-                                  <div class="max-w-7xl mx-auto pb-8">
-                                    <form method="get" name="search-course" class="learn-press-search-course-form" action="{{ route('speakers.index') }}">
-                                      <input type="text" name="query" class="search-course-input" value="{{  $query }}" placeholder="Search" />
-                                      <button class="lp-button button search-course-button">Search</button>
-                                    </form>
 
-                                    <div
-                                      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                                      @foreach($speakers as $speaker)
-                                        <div class="max-w-sm bg-white rounded-lg border border-gray-200 dark:bg-gray-800 dark:border-gray-700">
-                                          <a href="{{ route('speakers.show', $speaker->slug) }}" >
-                                            <img class="rounded-t-lg max-h-72 transform group-hover:scale-110 transition  object-cover  w-full ease-out duration-500" src="{{ $speaker->getFirstMediaUrl('avatar') }}" alt="">
-                                          </a>
-                                          <div class="p-5">
-                                            <a href="{{ route('speakers.show', $speaker->slug) }}">
-                                              <h5 class=" font-semibold tracking-tight text-gray-900 dark:text-white">{!! $speaker->name !!}</h5>
-                                            </a>
-                                          </div>
-                                        </div>
-
-                                      @endforeach
-
-                                    </div>
-
-                                    <div class="mt-12 px-6">
-                                      {{ $speakers->links() }}
-                                    </div>
-                                  </div>
-                                  <br class="clear" />
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </section>
 {{--                  <section--}}
 {{--                    class="elementor-element elementor-element-f4e4745 elementor-section-stretched elementor-section-height-min-height elementor-section-boxed elementor-section-height-default elementor-section-items-middle elementor-section elementor-top-section"--}}
 {{--                    data-id="f4e4745"--}}
@@ -321,6 +261,36 @@
       </div>
       <br class="clear" />
     </div>
+    <section class="py-12">
+      <div class="max-w-7xl mx-auto pb-8">
+        <form method="get" name="search-course" class="learn-press-search-course-form" action="{{ route('speakers.index') }}">
+          <input type="text" name="query" class="search-course-input" value="{{  $query }}" placeholder="Search" />
+          <button class="lp-button button search-course-button">Search</button>
+        </form>
+
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          @foreach($speakers as $speaker)
+            <div class="max-w-sm bg-white rounded-lg border border-gray-200 dark:bg-gray-800 dark:border-gray-700">
+              <a href="{{ route('speakers.show', $speaker->slug) }}" >
+                <img class="object-cover h-80 w-full" src="{{$speaker->getFirstMediaUrl('avatar')}}" alt="{{ $speaker->name }}">
+              </a>
+              <div class="p-5">
+                <a href="{{ route('speakers.show', $speaker->slug) }}">
+                  <h5 class=" font-semibold tracking-tight text-gray-900 dark:text-white">{!! $speaker->name !!}</h5>
+                </a>
+              </div>
+            </div>
+          @endforeach
+
+        </div>
+
+        <div class="mt-12 px-6">
+          {{ $speakers->links() }}
+        </div>
+      </div>
+      <br class="clear" />
+    </section>
 
 
 
