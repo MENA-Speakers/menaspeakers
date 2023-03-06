@@ -19,6 +19,9 @@
           <div class="mt-1">
             <input type="text" name="name" id="name" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Speaker Name">
           </div>
+          @error('name')
+            <p class="text-red-500 text-xs italic">{{ $message }}</p>
+          @enderror
         </div>
 
         <div>
@@ -26,6 +29,9 @@
           <div class="mt-1">
             <textarea rows="2" name="excerpt" id="excerpt" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"></textarea>
           </div>
+          @error('excerpt')
+            <p class="text-red-500 text-xs italic">{{ $message }}</p>
+          @enderror
         </div>
 
         <div>
@@ -34,6 +40,9 @@
             <textarea rows="2" name="bio" id="bio" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"></textarea>
 
           </div>
+          @error('bio')
+            <p class="text-red-500 text-xs italic">{{ $message }}</p>
+          @enderror
         </div>
 
         <div>
@@ -41,6 +50,9 @@
           <div class="mt-1">
             <input type="file" name="image" id="name" accept="image/*" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
           </div>
+          @error('image')
+            <p class="text-red-500 text-xs italic">{{ $message }}</p>
+          @enderror
         </div>
         <div class="relative flex items-start">
           <div class="flex h-5 items-center">

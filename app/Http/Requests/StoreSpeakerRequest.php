@@ -26,8 +26,7 @@ class StoreSpeakerRequest extends FormRequest
         return [
             'name' => 'required',
             'image' => 'required',
-            'bio' => 'required',
-            'excerpt' => 'required'
+            'bio' => 'required'
         ];
     }
 }

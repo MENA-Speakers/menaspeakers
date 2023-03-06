@@ -70,20 +70,7 @@
                           <div class="elementor-widget-container">
                             <div class="tg_navigation_wrapper menu_style2">
                               <div class="menu-main-menu-right-container">
-                                <ul id="nav_menu5" class="nav">
-                                  <li class="menu-item">
-                                    <a href="/">Home</a>
-                                  </li>
-                                  <li class="menu-item">
-                                    <a href="{{ route('speakers.index') }}">Speakers</a>
-                                  </li>
-                                  <li class="menu-item">
-                                    <a href="{{ route('blogs.index') }}">Blog</a>
-                                  </li>
-                                  <li class="menu-item">
-                                    <a href="{{ route('pages.contact') }}">Contact</a>
-                                  </li>
-                                </ul>
+                                <x-main-menu />
                               </div>
                             </div>
                           </div>
@@ -1061,7 +1048,7 @@
                                             <div class="post_wrapper">
                                               <div class="post_img static">
                                                 <div class="post_img_hover">
-                                                  <img src="{{ $blog->getFirstMediaUrl('image') }}" class="" alt=""/>
+                                                  <img  src="{{ $blog->getFirstMediaUrl('image') }}" class=" w-full object-cover h-60" alt=""/>
                                                   <a href="{{route('blogs.show', $blog->slug)}}"></a>
                                                 </div>
                                               </div>

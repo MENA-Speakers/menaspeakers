@@ -37,7 +37,7 @@ Route::get('page/contact', [PagesController::class, 'contact'])->name('pages.con
 Route::get('page/refund-policy', [PagesController::class, 'policy'])->name('pages.policy');
 
 Route::middleware('auth')->name('admin.')->prefix('admin')->group(function() {
-  Route::get('home', [AdminHomeController::class, 'index'])->name('dashboard');
+  Route::get('/', [AdminHomeController::class, 'index'])->name('dashboard');
 
   Route::get('speakers', [SpeakerController::class, 'index'])->name('speakers.index');
   Route::post('speakers', [SpeakerController::class, 'store'])->name('speakers.store');

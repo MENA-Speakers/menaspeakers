@@ -31,7 +31,7 @@ class SpeakerController extends Controller
         $speakers = Speaker::search($request->input('query'))->paginate(12)->withQueryString();
         $query = $request->input('query');
       } else {
-        $speakers = Speaker::paginate(12);
+        $speakers = Speaker::latest()->paginate(12);
       }
 
       return view('admin.speakers.index', compact('speakers', 'query') );
@@ -40,7 +40,7 @@ class SpeakerController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Application|Factory|View
      */
     public function create()
     {

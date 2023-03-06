@@ -16,13 +16,13 @@
         <x-primary-button type="submit">Search</x-primary-button>
       </form>
 
-      <div class="overflow-hidden shadow-sm sm:rounded-lg">
+      <div class="overflow-hidden sm:rounded-lg">
         <div  class="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 sm:gap-x-6 lg:grid-cols-4 xl:gap-x-8">
 
            @foreach($speakers as $speaker)
             <div class="max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
               <a href="#">
-                <img class="rounded-t-lg h-60 object-cover" src="{{ $speaker->getFirstMediaUrl('avatar') }}" alt="">
+                <img class="rounded-t-lg h-60 w-full object-cover" src="{{ $speaker->getFirstMediaUrl('avatar') }}" alt="">
               </a>
               <div class="p-5">
                 <a href="{{ route('speakers.show', $speaker->slug) }}">
@@ -39,7 +39,13 @@
             </div>
            @endforeach
 
+
         </div>
+
+        <div class="mt-12 px-6 w-full">
+          {{ $speakers->links() }}
+        </div>
+
       </div>
     </div>
   </div>

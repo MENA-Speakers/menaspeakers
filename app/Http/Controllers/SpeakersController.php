@@ -19,7 +19,7 @@ class SpeakersController extends Controller
        $speakers = Speaker::search($request->input('query'))->paginate(12)->withQueryString();
        $query = $request->input('query');
     } else {
-      $speakers = Speaker::paginate(12);
+      $speakers = Speaker::latest()->paginate(12);
     }
 
     return view('speakers.index', compact('speakers', 'query'));

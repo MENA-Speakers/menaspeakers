@@ -14,7 +14,7 @@ class BlogsController extends Controller
         $query = $request->input('query');
         $blogs = Blog::search( $query)->paginate(12)->withQueryString();
       } else {
-        $blogs = Blog::paginate(12);
+        $blogs = Blog::latest()->paginate(12);
       }
 
       return view('blogs.index', compact('query', 'blogs'));
