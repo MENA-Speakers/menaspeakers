@@ -26,7 +26,9 @@ class SpeakerUpdateRequest extends FormRequest
         return [
           'name' => 'required',
           'bio' => 'required',
-          'excerpt' => 'required'
+          'meta_title' => 'required',
+          'meta_description' => 'required',
+          'keywords' => 'required',
         ];
     }
 }

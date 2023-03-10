@@ -56,12 +56,21 @@ class SpeakerController extends Controller
    */
     public function store(StoreSpeakerRequest $request)
     {
+
+      $request->validated([
+        'name' => 'required',
+        'bio' => 'required',
+        'featured' => 'required',
+        'meta_title' => 'required',
+        'meta_description' => 'required',
+        'keywords' => 'required',
+      ]);
+
       $speaker = Speaker::create([
         'name' => $request->input('name'),
         'bio' => $request->input('bio'),
-        'featured' => boolval($request->input('featured')),
         'meta_title' => $request->input('meta_title'),
-        'excerpt' => $request->input('excerpt'),
+        'meta-description' => $request->input('meta_description'),
         'keywords' => $request->input('keywords'),
       ]);
 
@@ -99,12 +108,13 @@ class SpeakerController extends Controller
     public function update(SpeakerUpdateRequest $request, Speaker $speaker)
     {
 
+
         $speaker->update([
           'name' => $request->input('name'),
           'bio' => $request->input('bio'),
           'featured' => boolval($request->input('featured')),
           'meta_title' => $request->input('meta_title'),
-          'excerpt' => $request->input('excerpt'),
+          'meta_description' => $request->input('meta_description'),
           'keywords' => $request->input('keywords'),
         ]);
 

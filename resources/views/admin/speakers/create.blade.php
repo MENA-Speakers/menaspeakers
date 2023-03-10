@@ -23,13 +23,31 @@
             <p class="text-red-500 text-xs italic">{{ $message }}</p>
           @enderror
         </div>
+        <div>
+          <label for="meta_title" class="block text-sm font-medium text-gray-700">Meta title</label>
+          <div class="mt-1">
+            <input type="text" name="meta_title" id="meta_title" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Meta title">
+          </div>
+          @error('meta_title')
+            <p class="text-red-500 text-xs italic">{{ $message }}</p>
+          @enderror
+        </div>
+        <div>
+          <label for="keywords" class="block text-sm font-medium text-gray-700">Keywords (Comma Seperated)</label>
+          <div class="mt-1">
+            <input type="text" name="keywords" id="keywords" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Keywords, ">
+          </div>
+          @error('keywords')
+            <p class="text-red-500 text-xs italic">{{ $message }}</p>
+          @enderror
+        </div>
 
         <div>
-          <label for="excerpt" class="block text-sm font-medium text-gray-700">Except</label>
+          <label for="meta_description" class="block text-sm font-medium text-gray-700">Meta Description</label>
           <div class="mt-1">
-            <textarea rows="2" name="excerpt" id="excerpt" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"></textarea>
+            <textarea rows="2" name="meta_description" id="meta_description" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"></textarea>
           </div>
-          @error('excerpt')
+          @error('meta_description')
             <p class="text-red-500 text-xs italic">{{ $message }}</p>
           @enderror
         </div>
