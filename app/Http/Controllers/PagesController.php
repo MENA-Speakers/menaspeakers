@@ -26,4 +26,8 @@ class PagesController extends Controller
   public function profile(){
     return view('pages.profile');
   }
+
+  public function profileArabic(){
+    return view('pages.profile-arabic');
+  }
 }
