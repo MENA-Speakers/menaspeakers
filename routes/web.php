@@ -9,18 +9,20 @@
   use App\Http\Controllers\HomeController;
   use App\Http\Controllers\PagesController;
   use App\Http\Controllers\SpeakersController;
-    use Illuminate\Support\Facades\Route;
+  use App\Models\Speaker;
+  use Illuminate\Support\Facades\Route;
+  use Spatie\Sitemap\Sitemap;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+  /*
+  |--------------------------------------------------------------------------
+  | Web Routes
+  |--------------------------------------------------------------------------
+  |
+  | Here is where you can register web routes for your application. These
+  | routes are loaded by the RouteServiceProvider within a group which
+  | contains the "web" middleware group. Now create something great!
+  |
+  */
 
 Route::get('/', [HomeController::class, 'index'])->name('index');
 Route::get('/speakers', [SpeakersController::class, 'index'])->name('speakers.index');
@@ -53,6 +55,23 @@ Route::middleware('auth')->name('admin.')->prefix('admin')->group(function() {
   Route::get('blogs/create', [AdminBlogController::class, 'create'])->name('blogs.create');
   Route::get('blogs/{blog}/edit', [AdminBlogController::class, 'edit'])->name('blogs.edit');
   Route::post('blogs/{blog}', [AdminBlogController::class, 'update'])->name('blogs.update');
+
+  //Site map route
+  Route::get('sitemap', function(){
+    dd('HI');
+    $sitemap = Sitemap::create()
+    ->add(route('index'))
+    ->add(route('speakers.index'))
+    ->add(route('blogs.index'))
+    ->add(route('pages.profile'));
+
+    Speaker::all()->each(function($speaker) use ($sitemap){
+      $sitemap->add(route('speakers.show', $speaker->slug));
+    });
+
+    $sitemap->writeToFile(public_path('sitemap.xml'));
+
+  })->name('sitemap');
 
 });
 
