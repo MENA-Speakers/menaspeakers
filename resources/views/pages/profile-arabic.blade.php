@@ -473,30 +473,15 @@
         <div class="col-md-10 wow fadeInRight" id="con">
           <div class="contform" >
             <div id="contactform1">
-              <form class="jform validate" action="contact.php" method="post">
-                <div class="col-md-4">
-                  <div class="form-group">
-                    <input type="text" class="form-control required" name="fn" placeholder="الاسم"  dir="rtl">
-                  </div>
-                </div>
-                <div class="col-md-4">
-                  <div class="form-group">
 
-                    <input type="email" class="form-control required" name="email"  placeholder="البريد الالكتروني"  dir="rtl">
-                  </div>
-                </div>
-
-                <div class="col-md-4">
-                  <div class="form-group">
-
-                    <input type="tel" class="form-control" name="phone"  placeholder="رقم التواصل"  dir="rtl">
-                  </div>
-                </div>
-                <div class="col-md-12">
-                  <textarea class="form-control" rows="8" name="msg" placeholder="للمزيد من الإستفسارات الرجاء تعبئة هذه الخانه "  dir="rtl"></textarea></div>
-                <button type="submit" class="btn btn-default" name="send" id="btnsub">تأكيد</button>
-                <input name="send" type="hidden" value="1">
-              </form>
+              <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
+              <script>
+                hbspt.forms.create({
+                  region: "na1",
+                  portalId: "5847879",
+                  formId: "e18db37f-01c2-4076-8e53-14251dc7b396"
+                });
+              </script>
             </div>
           </div>
         </div>
