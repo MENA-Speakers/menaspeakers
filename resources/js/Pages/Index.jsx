@@ -145,7 +145,7 @@ function Index({blogs, speakers}) {
                       className={` ${ index === 0 && 'lg:mt-40' }  ${ index === 1 && 'lg:mt-20' } lg:h-96`}>
                    <div className={'shadow-2xl'}>
                      <Link href={route('speakers.show', speaker.slug)}>
-                       <img src={'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZmlsZSUyMHBpY3R1cmV8ZW58MHx8MHx8&auto=format&fit=crop&w=1000&q=60'} alt={speaker.name} className={'w-full object-cover lg:h-96'}/>
+                       <img src={speaker.image} alt={speaker.name} className={'w-full object-cover lg:h-96'}/>
                      </Link>
                    </div>
                    <div className=" mt-3">
