@@ -14,6 +14,16 @@ class BlogResource extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+          'id' => $this->id,
+          'title' => $this->title,
+          'slug' => $this->slug,
+          'excerpt' => $this->excerpt,
+          'content' => $this->content,
+          'meta_title' => $this->meta_title,
+          'meta_description' => $this->meta_description,
+          'meta_keywords' => $this->meta_keywords,
+          'image' => $this->getFirstMediaUrl('image'),
+        ];
     }
 }

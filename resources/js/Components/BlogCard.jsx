@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from "@inertiajs/react";
+import truncateText from "@/Utils/truncateText";
 
 function BlogCard({blog}) {
   return (
@@ -21,7 +22,7 @@ function BlogCard({blog}) {
       <div className={'py-4 space-y-4'}>
         <Link className={'font-bold'} href={route('blogs.show', blog.slug)}>{blog.title}</Link>
         <p>
-          {blog.excerpt}
+          { truncateText(blog.excerpt, 120)}
         </p>
 
         <div>
