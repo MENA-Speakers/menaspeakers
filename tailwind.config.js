@@ -13,9 +13,16 @@ module.exports = {
         extend: {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
-                playfair: ['Playfair Display', ...defaultTheme.fontFamily.sans],
+                poppins: ['Poppins', ...defaultTheme.fontFamily.sans],
             },
-        },
+            colors: {
+              mena: {
+                100: '#34ABE2',
+                200: '#2A72A9',
+                300: '#1F4282'
+              }
+            }
+        }
     },
 
     plugins: [require('@tailwindcss/forms')],

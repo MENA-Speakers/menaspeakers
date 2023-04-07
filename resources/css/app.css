@@ -2,7 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-/* fonts for all Headings */
-h1, h2, h3, h4, h5, h6 {
-    @apply font-playfair;
+
+
+.gradient-btn {
+    @apply bg-gradient-to-r from-mena-200 to-mena-300;
 }
+
+/* Blue backdrop glow shadow*/

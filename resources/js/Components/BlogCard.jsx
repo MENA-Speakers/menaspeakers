@@ -6,7 +6,7 @@ function BlogCard({blog}) {
   return (
     <div className=" bg-white p-6 shadow-md">
       <div className="flex justify-between pb-2 items-center">
-                <span className="bg-gradient-to-r from-rose-500 to-pink-500 py-1 px-2 text-white font-semibold text-sm">
+                <span className="gradient-btn py-1 px-2 text-white font-semibold text-sm">
                   Latest
                 </span>
         <span className={'text-xs text-gray-400'}>
@@ -26,7 +26,7 @@ function BlogCard({blog}) {
         </p>
 
         <div>
-          <Link href={route('blogs.show', blog.slug)} className="text-rose-500 text-sm font-semibold">
+          <Link href={route('blogs.show', blog.slug)} className="text-mena-200 text-sm font-semibold">
             Read More
           </Link>
         </div>

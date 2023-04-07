@@ -30,7 +30,7 @@ function Show({speaker}) {
                   <img className={'w-full h-96 object-cover'} src={speaker.image} alt={speaker.name}/>
 
                 {/*  Book Speaker*/}
-                  <Link href={route('pages.contact')} className="bg-gradient-to-r from-pink-500 to-rose-500  font-semibold py-3 px-4 py-2 px-4 text-white w-full">
+                  <Link href={route('pages.contact')} className="gradient-btn font-semibold py-3 px-4 py-2 px-4 text-white w-full">
                     Book Speaker
                   </Link>
                 </div>
