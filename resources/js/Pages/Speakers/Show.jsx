@@ -27,7 +27,7 @@ function Show({speaker}) {
             <div className="grid grid-cols-2 lg:grid-cols-6 lg:w-[90%]">
               <div className="col-span-2 lg:p-6">
                 <div className={'lg:w-[80%] space-y-6  flex flex-col items-center justify-center'}>
-                  <img className={'w-full h-96 object-cover'} src={'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80'} alt={speaker.name}/>
+                  <img className={'w-full h-96 object-cover'} src={speaker.image} alt={speaker.name}/>
 
                 {/*  Book Speaker*/}
                   <Link href={route('pages.contact')} className="bg-gradient-to-r from-pink-500 to-rose-500  font-semibold py-3 px-4 py-2 px-4 text-white w-full">
