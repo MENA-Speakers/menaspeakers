@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\SpeakerResource;
 use App\Imports\BlogImport;
 use App\Imports\SpeakerImport;
 use App\Models\Speaker;
 use Artesaos\SEOTools\Facades\JsonLdMulti;
 use Artesaos\SEOTools\Facades\SEOTools;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 use Maatwebsite\Excel\Facades\Excel;
 
 class SpeakersController extends Controller
@@ -24,7 +26,10 @@ class SpeakersController extends Controller
       $speakers = Speaker::latest()->paginate(12);
     }
 
-    return view('speakers.index', compact('speakers', 'query'));
+    return Inertia::render('Speakers/Index', [
+      'speakers' => SpeakerResource::collection($speakers),
+      'query' => $query
+    ]);
   }
 
   public function show(Speaker $speaker){

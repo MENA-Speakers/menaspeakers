@@ -62,7 +62,7 @@ class SpeakerController extends Controller
         'bio' => 'required',
         'featured' => 'required',
         'meta_title' => 'required',
-        'meta_description' => 'required',
+        'excerpt' => 'required',
         'keywords' => 'required',
       ]);
 
@@ -70,7 +70,7 @@ class SpeakerController extends Controller
         'name' => $request->input('name'),
         'bio' => $request->input('bio'),
         'meta_title' => $request->input('meta_title'),
-        'meta-description' => $request->input('meta_description'),
+        'excerpt' => $request->input('excerpt'),
         'keywords' => $request->input('keywords'),
       ]);
 
