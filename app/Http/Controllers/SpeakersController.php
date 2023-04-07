@@ -40,7 +40,9 @@ class SpeakersController extends Controller
     SEOTools::opengraph()->addProperty('type', 'person');
     SEOTools::twitter()->setSite('@menaspeakers');
     SEOTools::jsonLd()->addImage($speaker->getFirstMediaUrl('avatar'));
-    return view('speakers.show', compact('speaker'));
+    return Inertia::render('Speakers/Show', [
+      'speaker' => new SpeakerResource($speaker)
+    ]);
   }
 
 }
