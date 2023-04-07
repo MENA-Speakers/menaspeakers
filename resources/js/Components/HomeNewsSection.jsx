@@ -1,6 +1,7 @@
 import { Fragment, useRef, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { ExclamationTriangleIcon } from '@heroicons/react/24/outline'
+import {Link} from "@inertiajs/react";
 
 function HomeNewsSection({news}) {
   const [playVideo, setPlayVideo] = useState(false);
@@ -29,16 +30,19 @@ function HomeNewsSection({news}) {
             </div>
             <div className=" absolute inset-0 ">
               <div className="w-full lg:w-1/2 shadow-2xl ">
-                <div className={'bg-blue-50 p-8 lg:p-24 mt-2'}>
-                  <h3 className="text-3xl leading-relaxed">Academic Search Engine</h3>
-                  <div className={'mt-6'}>
-                    <p className="">The correct Marketing timing to release the product plays a vital role in success of the company.</p>
-                    <p className="">Validating the results to attract additional resource  </p>
+                <div className={'bg-blue-50 p-8  mt-2'}>
+                  <h3 className="text-2xl font-semibold">Second Quarter Public Speaking MasterClass</h3>
+                  <div className={'mt-6 space-y-3'}>
+                    <p className="">Looking back on the previous public speaking masterclass led by Saana Azzam, attendees left feeling confident and capable of handling any speaking engagement.
+                    </p>
+                    <p className="">The workshop provided valuable insights and practical tips for delivering powerful presentations, engaging the audience, and developing a strong personal brand. Participants had the opportunity to practice their speaking skills and receive feedback from both Saana and their peers.
+                    </p>
+                    <p>The next public speaking masterclass is scheduled for April 29, 2023, and early bird offers are available for a limited time.</p>
                   </div>
                 </div>
                 <div>
                   <div className={'bg-gray-50 p-6'}>
-
+                      <Link href={route('pages.contact')} className={'underline text-sm text-gray-500 hover:text-mena-200'}>Learn More</Link>
                   </div>
                 </div>
               </div>

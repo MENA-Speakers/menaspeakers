@@ -4,6 +4,7 @@ import {Head, Link} from "@inertiajs/react";
 import BlogCard from "@/Components/BlogCard";
 import HomeNewsSection from "@/Components/HomeNewsSection";
 import HomeOurPartners from "@/Components/HomeOurPartners";
+import HomeCountdownSection from "@/Components/HomeCountdownSection";
 
 
 function Index({blogs, speakers}) {
@@ -15,7 +16,7 @@ function Index({blogs, speakers}) {
       </Head>
       {/* Hero Header*/}
       <section className="w-full relative">
-        <div className="w-full h-[700px] ">
+        <div className="w-full h-400 lg:h-[800px] ">
           <img className={'w-full h-full object-cover'} src="/images/mena-spearkers-01.webp" alt=""/>
           <div className="absolute inset-0 bg-black/40">
             <div
@@ -26,6 +27,7 @@ function Index({blogs, speakers}) {
               <p className="text-white text-lg font-semibold  ">Public Speakers. MCs. Corporate Trainers. One Stop
                 Solution!
               </p>
+              <Link className={'text-white mt-4'} href={route('pages.contact')}>Get a speaker in 5 minutes</Link>
             </div>
           </div>
         </div>
@@ -68,7 +70,8 @@ function Index({blogs, speakers}) {
               <h3 className="text sm font-semibold text-blue-400">
                 Where
               </h3>
-              <p className="text-gray-100">The Citadel Tower - Dubai</p>
+              <p className="text-gray-100">The Citadel Tower <br />
+                Dubai - UAE</p>
             </div>
             <div className={'space-y-4'}>
 
@@ -129,14 +132,14 @@ function Index({blogs, speakers}) {
                   d="M134.1 134.1c17.3-17.3 17.3-45.3 0-62.6s-45.3-17.3-62.6 0-17.3 45.3 0 62.6c17.2 17.2 45.3 17.2 62.6 0zM88.4 88.4c7.9-7.9 20.7-7.9 28.6 0s7.9 20.7 0 28.6-20.7 7.9-28.6 0c-7.9-7.8-7.9-20.7 0-28.6z"/>
               </svg>
             </div>
-            <div className={'p-6 lg:px-20 space-y-4'}>
+            <a href="https://mena-speakers.com/profile" className={'p-6 lg:px-20 space-y-4'}>
               <h3 className="text-white text-2xl font-bold">SPEAKERS MANAGEMENT
               </h3>
               <p className={'text-gray-100'}>MENA SPEAKERS PROVIDE YOU WITH FIRST CLASS SPEAKERS Our aim is to
                 facilitate the interaction between speaker and different forums and to make sure that the right voice is
                 matched to the right audience.
               </p>
-            </div>
+            </a>
           </div>
           <div className="py-12 bg-mena-200 flex flex-col">
             <div className={'w-full px-6 lg:px-20'}>
@@ -166,11 +169,10 @@ function Index({blogs, speakers}) {
                   d="M134.1 134.1c17.3-17.3 17.3-45.3 0-62.6s-45.3-17.3-62.6 0-17.3 45.3 0 62.6c17.2 17.2 45.3 17.2 62.6 0zM88.4 88.4c7.9-7.9 20.7-7.9 28.6 0s7.9 20.7 0 28.6-20.7 7.9-28.6 0c-7.9-7.8-7.9-20.7 0-28.6z"/>
               </svg>
             </div>
-            <div className={'p-6 lg:px-20 space-y-4'}>
+            <a href="https://mena-speakers-5847879.hs-sites.com/public-speaking" className={'p-6 lg:px-20 space-y-4'}>
               <h3 className="text-white text-2xl font-bold">PUBLIC SPEAKING TRAINING </h3>
-              <p className={'text-gray-100'}>Networking is the exchange of information and ideas among people with
-                common profession or special interes, usually in an informal social setting</p>
-            </div>
+              <p className={'text-gray-100'}>Small organizations with 100 employees have to bear the same cost as leaders are spending 17 hours a week clarifying previous communications. On the other hand, leaders reap the benefit of effective communication by demonstrating a 47% increase in return on investment.</p>
+            </a>
           </div>
           <div className="py-12 bg-mena-300 flex flex-col">
             <div className={'w-full px-6 lg:px-20'}>
@@ -200,60 +202,18 @@ function Index({blogs, speakers}) {
                   d="M134.1 134.1c17.3-17.3 17.3-45.3 0-62.6s-45.3-17.3-62.6 0-17.3 45.3 0 62.6c17.2 17.2 45.3 17.2 62.6 0zM88.4 88.4c7.9-7.9 20.7-7.9 28.6 0s7.9 20.7 0 28.6-20.7 7.9-28.6 0c-7.9-7.8-7.9-20.7 0-28.6z"/>
               </svg>
             </div>
-            <div className={'p-6 lg:px-20 space-y-4'}>
+            <a href="https://mena-speakers-5847879.hs-sites.com/speakers-fast-track-programme" className={'p-6 lg:px-20 space-y-4'}>
               <h3 className="text-white text-2xl font-bold">SPEAKER FAST TRACK </h3>
-              <p className={'text-gray-100'}>Networking is the exchange of information and ideas among people with
-                common profession or special interes, usually in an informal social setting</p>
-            </div>
+              <p className={'text-gray-100'}>The speaker fast track program helps launch your career as a speaker as well as positions speakers to get more speaking engagements around the world. Clients demand that the speakers’ kit is professional, congruent, and appealing.</p>
+            </a>
           </div>
         </div>
 
       </section>
 
 
-      {/* Services */}
-      <section className="bg-white py-24 ">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-5 justify-items-center px-6 lg:px-0">
-          <div className="flex col-span-2 p-6 lg:p-12 items-center justify-center space-y-4 p-6">
-            <h3 className="font-semibold text-5xl leading-tight">Public speaking class start in: </h3>
-
-          </div>
-
-          <div className="col-span-1 lg:col-span-3 w-full lg:pl-32 lg:pr-6 pt-6">
-            <div className="grid grid-cols-2 gap-8 lg:grid-cols-4">
-              <div className="shadow-2xl p-8">
-                <p className="text-5xl text-mena-200">
-                  00
-                </p>
-              </div>
-              <div className="shadow-2xl p-8">
-                <p className="text-5xl text-mena-200">
-                  00
-                </p>
-              </div>
-              <div className="shadow-2xl p-8">
-                <p className="text-5xl text-mena-200">
-                  00
-                </p>
-              </div>
-              <div className="shadow-2xl p-8">
-                <p className="text-5xl text-mena-200">
-                  00
-                </p>
-              </div>
-            </div>
-
-            <div className="flex justify-end mt-12 ">
-              <Link href={route('pages.contact')} className="gradient-btn font-semibold py-3 px-4 py-2 px-4 text-white">
-                Register Now
-              </Link>
-            </div>
-
-          </div>
-
-        </div>
-
-      </section>
+      {/* Count down Section */}
+     <HomeCountdownSection />
 
 
       {/*  Our Partners */}
@@ -261,7 +221,7 @@ function Index({blogs, speakers}) {
 
       {/*  Speaker section */}
 
-      <section className={'py-6'}>
+      <section className={'py-6 mt-12'}>
         <div className={'max-w-7xl mx-auto  grid grid-cols-1 lg:grid-cols-2 px-6 lg:px-0'}>
 
           {/* Featured Speakers */}
@@ -285,17 +245,15 @@ function Index({blogs, speakers}) {
               ))
             }
 
-
           </div>
           <div className={'lg:pl-36 pt-36 lg:pt-0 flex flex-col justify-center'}>
             <h3 className="uppercase text-gray-400 text-sm font-semibold">The Best in Growth</h3>
-            <div className="lg:w-[70%] py-4">
-              <p className="text-5xl font-bold text-gray-900">Many Talent Experts</p>
+            <div className="lg:w-[90%] py-4 mt-3">
+              <p className="text-3xl font-semibold text-gray-900">The Largest Pool of Top Speaker in the MENA Region</p>
             </div>
 
             <div className={'py-4'}>
-              <p className="text-gray-500">2023 Will bring together founders, start-up enthusiasts, corporates, angel
-                investors, VCs from across the globe</p>
+              <p className="text-gray-500">We have a roster of 300 top professionals whose sole purpose is to make an event successful and ensure that your audience is getting engaged, educated and empower.</p>
             </div>
             <div className="py-4">
               <Link href={route('speakers.index')} className="gradient-btn font-semibold py-3 px-4 px-6 text-white">
@@ -306,8 +264,8 @@ function Index({blogs, speakers}) {
         </div>
       </section>
 
-      <section className={'bg-gradient-to-r from-mena-100 to-mena-300 py-12 mt-12'}>
-        <div className="max-w-7xl mx-auto px-4 sm px-6 lg px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <section className={'bg-gradient-to-r from-mena-100 to-mena-300 py-12 mt-12 lg: mt-24'}>
+        <a href="https://g.page/r/CUmLQ8-Do9XOEAI/review" className="max-w-7xl mx-auto px-4 sm px-6 lg px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div className="relative">
             <div className="absolute opacity-10 -top-6 -left-4">
               <svg className={'h-16 w-16 -rotate-25'} xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#fff"
@@ -373,7 +331,7 @@ function Index({blogs, speakers}) {
               <p className={'uppercase text-xs  text-white'}>Success Stories</p>
             </div>
           </div>
-        </div>
+        </a>
       </section>
 
       {/* Our News Section */}
@@ -384,7 +342,7 @@ function Index({blogs, speakers}) {
       {/*  Blog section */}
 
 
-      <section className={''}>
+      <section className={'py-12 lg:mt-20'}>
         <div className={'max-w-7xl mx-auto  '}>
           <div className={'flex items-center flex-col w-full text center py-12'}>
             <h3 className="font-bold text-gray-900 text-5xl">Latest from blog</h3>
