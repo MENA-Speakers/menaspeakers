@@ -11,7 +11,7 @@ function HomeCountdownSection({targetDate}) {
     <section className="bg-white py-24 ">
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-5 justify-items-center px-6 lg:px-0">
         <div className="flex col-span-2 p-6 lg:p-12 items-center justify-center space-y-4 p-6">
-          <h3 className="font-semibold text-5xl leading-tight">Public speaking class start in: </h3>
+          <h3 className="font-semibold text-5xl leading-tight">Public speaking Masterclass start in: </h3>
 
         </div>
 
