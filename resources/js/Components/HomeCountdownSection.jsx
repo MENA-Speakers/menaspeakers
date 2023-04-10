@@ -9,13 +9,14 @@ function HomeCountdownSection({targetDate}) {
 
   return (
     <section className="bg-white py-24 ">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-5 justify-items-center px-6 lg:px-0">
-        <div className="flex col-span-2 p-6 lg:p-12 items-center justify-center space-y-4 p-6">
-          <h3 className="font-semibold text-5xl leading-tight">Public speaking Masterclass start in: </h3>
+      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 justify-items-center px-6 lg:px-0">
+        <div className="flex p-6 lg:p-12 items-center justify-center space-y-4 p-6">
+          <h3 className="font-semibold text-2xl leading-tight">Public speaking Masterclass start in: </h3>
+          <p>The workshop provides valuable insights and practical tips for delivering powerful presentations, engaging the audience, and developing a strong personal brand.</p>
 
         </div>
 
-        <div className="col-span-1 lg:col-span-3 w-full lg:pl-32 lg:pr-6 pt-6">
+        <div className="col-span-1  w-full lg:pl-32 lg:pr-6 pt-6">
           <div className="grid grid-cols-2 gap-8 lg:grid-cols-4">
             <div className="shadow-2xl p-8">
               <p className="text-5xl text-mena-200">

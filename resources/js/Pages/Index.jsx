@@ -27,7 +27,7 @@ function Index({blogs, speakers}) {
               <p className="text-white text-lg font-semibold  ">Public Speakers. MCs. Corporate Trainers. One Stop
                 Solution!
               </p>
-              <Link className={'text-white mt-4'} href={route('pages.contact')}>Get a speaker in 5 minutes</Link>
+              <Link className={'text-white mt-8 gradient-btn py-2 px-4'} href={route('pages.contact')}>Get a speaker in 5 minutes</Link>
             </div>
           </div>
         </div>
@@ -45,7 +45,7 @@ function Index({blogs, speakers}) {
               We are the leading speaker and MC Bureau in the Middle East
             </p>
             <div className={'mt-4'}>
-              <p className="text-gray-400">
+              <p className="text-gray-400 text-white text-justify">
                 MENA Speakers offers solutions built to succeed. What makes MENA Speakers trustworthy is more than their
                 track record. We perpetually strive to provide top notch speakers, raising the bar every day. We
                 recognize it is important to keep growing, especially in a field where a great speaker is a key
@@ -70,7 +70,7 @@ function Index({blogs, speakers}) {
               <h3 className="text sm font-semibold text-blue-400">
                 Where
               </h3>
-              <p className="text-gray-100">The Citadel Tower <br />
+              <p className="text-white">The Citadel Tower <br />
                 Dubai - UAE</p>
             </div>
             <div className={'space-y-4'}>
@@ -135,7 +135,7 @@ function Index({blogs, speakers}) {
             <a href="https://mena-speakers.com/profile" className={'p-6 lg:px-20 space-y-4'}>
               <h3 className="text-white text-2xl font-bold">SPEAKERS MANAGEMENT
               </h3>
-              <p className={'text-gray-100'}>MENA SPEAKERS PROVIDE YOU WITH FIRST CLASS SPEAKERS Our aim is to
+              <p className={'text-gray-100'}>MENA Speakers provide you with first class speakers Our aim is to
                 facilitate the interaction between speaker and different forums and to make sure that the right voice is
                 matched to the right audience.
               </p>
@@ -221,7 +221,7 @@ function Index({blogs, speakers}) {
 
       {/*  Speaker section */}
 
-      <section className={'py-6 mt-12'}>
+      <section className={'py-6 mt-24'}>
         <div className={'max-w-7xl mx-auto  grid grid-cols-1 lg:grid-cols-2 px-6 lg:px-0'}>
 
           {/* Featured Speakers */}

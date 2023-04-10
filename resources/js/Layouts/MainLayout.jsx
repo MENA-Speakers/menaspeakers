@@ -101,7 +101,7 @@ export default function MainLayout({ children}) {
       {children}
 
       {/* Footer */}
-      <footer className="bg-gray-800 pt-12 text-gray-400 p-6">
+      <footer className="bg-black  pt-12 text-gray-400 p-6">
         <div className="max-w-7xl mx-auto py-8 grid grid-cols-2 lg:grid-cols-6 gap-8">
           <div className="col-span-2">
             <img className={'h-20'} src="/images/Mena-logo-white.png" alt=""/>
