@@ -6,6 +6,7 @@ import {Link} from "@inertiajs/react";
 const navigation = [
   { name: 'Home', route: 'index' },
   { name: 'Speakers', route: 'speakers.index' },
+  { name: 'Gallery', route: 'gallery.index' },
   { name: 'Blog', route: 'blogs.index' },
   { name: 'Contact', route: 'pages.contact' },
 ]

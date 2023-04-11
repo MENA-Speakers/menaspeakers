@@ -5,9 +5,10 @@ import BlogCard from "@/Components/BlogCard";
 import HomeNewsSection from "@/Components/HomeNewsSection";
 import HomeOurPartners from "@/Components/HomeOurPartners";
 import HomeCountdownSection from "@/Components/HomeCountdownSection";
+import HomeGallerySection from "@/Components/HomeGallerySection";
 
 
-function Index({blogs, speakers}) {
+function Index({blogs, speakers, gallery,news}) {
   return (
 
     <MainLayout>
@@ -214,6 +215,8 @@ function Index({blogs, speakers}) {
 
       {/* Count down Section */}
      <HomeCountdownSection />
+
+      <HomeGallerySection gallery={gallery}/>
 
 
       {/*  Our Partners */}

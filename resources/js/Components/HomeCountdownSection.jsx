@@ -10,7 +10,7 @@ function HomeCountdownSection({targetDate}) {
   return (
     <section className="bg-white py-24 ">
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 justify-items-center px-6 lg:px-0">
-        <div className="flex p-6 lg:p-12 items-center justify-center space-y-4 p-6">
+        <div className="flex flex-col p-6 lg:p-12  justify-center space-y-4 p-6">
           <h3 className="font-semibold text-2xl leading-tight">Public speaking Masterclass start in: </h3>
           <p>The workshop provides valuable insights and practical tips for delivering powerful presentations, engaging the audience, and developing a strong personal brand.</p>
 

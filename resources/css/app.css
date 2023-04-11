@@ -9,3 +9,7 @@
 }
 
 /* Blue backdrop glow shadow*/
+
+.ql-container {
+  min-height: 300px;
+}

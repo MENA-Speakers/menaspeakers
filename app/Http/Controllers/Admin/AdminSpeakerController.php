@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\SpeakerUpdateRequest;
 use App\Http\Requests\StoreSpeakerRequest;
+use App\Http\Resources\SpeakerResource;
 use App\Models\Speaker;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
@@ -13,29 +14,34 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Redirect;
+use Inertia\Inertia;
 use Spatie\MediaLibrary\MediaCollections\Exceptions\FileDoesNotExist;
 use Spatie\MediaLibrary\MediaCollections\Exceptions\FileIsTooBig;
 
-class SpeakerController extends Controller
+class AdminSpeakerController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return Application|Factory|View
+     * @return \Inertia\Response
      */
-    public function index(Request $request)
+    public function index()
     {
-      $speakers = null;
-      $query = null;
-      if($request->has('query')){
-        $speakers = Speaker::search($request->input('query'))->paginate(12)->withQueryString();
-        $query = $request->input('query');
-      } else {
-        $speakers = Speaker::latest()->paginate(12);
-      }
-
-      return view('admin.speakers.index', compact('speakers', 'query') );
+      $speakers = Speaker::latest()->paginate(12);
+      return Inertia::render('Admin/Speakers/Index', [
+        'speakers' => SpeakerResource::collection($speakers),
+      ]);
     }
+
+    public function search(Request $request){
+      $speakers = Speaker::search($request->input('query'))->paginate(12)->withQueryString();
+      return Inertia::render('Admin/Speakers/Index', [
+        'speakers' => SpeakerResource::collection($speakers),
+        'query' => $request->input('query')
+      ]);
+    }
+
+
 
     /**
      * Show the form for creating a new resource.
@@ -44,7 +50,7 @@ class SpeakerController extends Controller
      */
     public function create()
     {
-        return view('admin.speakers.create');
+        return Inertia::render('Admin/Speakers/Create');
     }
 
   /**
@@ -60,6 +66,7 @@ class SpeakerController extends Controller
       $request->validated([
         'name' => 'required',
         'bio' => 'required',
+        'image' => 'required',
         'featured' => 'required',
         'meta_title' => 'required',
         'excerpt' => 'required',
@@ -71,6 +78,8 @@ class SpeakerController extends Controller
         'bio' => $request->input('bio'),
         'meta_title' => $request->input('meta_title'),
         'excerpt' => $request->input('excerpt'),
+        'featured' => boolval($request->input('featured')),
+        'meta_description' => $request->input('excerpt'),
         'keywords' => $request->input('keywords'),
       ]);
 
@@ -92,7 +101,9 @@ class SpeakerController extends Controller
    */
     public function edit(Speaker $speaker)
     {
-        return view('admin.speakers.edit', compact('speaker'));
+        return Inertia::render('Admin/Speakers/Create', [
+          'speaker' => SpeakerResource::make($speaker)
+        ]);
     }
 
   /**
@@ -108,13 +119,13 @@ class SpeakerController extends Controller
     public function update(SpeakerUpdateRequest $request, Speaker $speaker)
     {
 
-
         $speaker->update([
           'name' => $request->input('name'),
           'bio' => $request->input('bio'),
           'featured' => boolval($request->input('featured')),
           'meta_title' => $request->input('meta_title'),
-          'meta_description' => $request->input('meta_description'),
+          'excerpt' => $request->input('excerpt'),
+          'meta_description' => $request->input('excerpt'),
           'keywords' => $request->input('keywords'),
         ]);
 

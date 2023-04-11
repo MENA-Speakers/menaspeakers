@@ -1,9 +1,22 @@
 import React from 'react';
 import MainLayout from "@/Layouts/MainLayout";
-import {Head} from "@inertiajs/react";
+import {Head, router} from "@inertiajs/react";
 import SpeakerCard from "@/Components/SpeakerCard";
+import {useFormik} from "formik";
+import TextInput from "@/Components/TextInput";
+import PrimaryButton from "@/Components/PrimaryButton";
 
 function Index({speakers, query}) {
+  const formik = useFormik({
+    initialValues: {
+      query: query
+    },
+    onSubmit: (values) => {
+      router.get(route('speakers.index'), values)
+    }
+  })
+
+
   return (
     <MainLayout>
       <Head>
@@ -22,11 +35,22 @@ function Index({speakers, query}) {
       </section>
 
       <section className="py-12">
-        <div className="max-w-7xl mx-auto px-4 sm px-6 lg px-8 py-12 px-6 lg:px-0">
+        <div className="max-w-7xl mx-auto px-4 sm px-6 lg px-8  px-6 lg:px-0">
+
+          <div className=" pb-12 w-full lg:w-1/2">
+            <form onSubmit={formik.handleSubmit} className={'flex space-x-6 items-center'}>
+             <div className="flex-grow">
+               <TextInput name="query" placeholder={'Search'} label="Search" className={'w-full'} value={formik.values.query} onChange={formik.handleChange} />
+             </div>
+              <div>
+                <PrimaryButton type="submit">Search</PrimaryButton>
+              </div>
+            </form>
+          </div>
 
 
           {/* Display Speakers*/}
-          <div className="grid grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4">
+          <div className="grid grid-cols-1 gap-x-6 gap-y-12 py-12 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4">
 
             {
               speakers.data.map(speaker => (

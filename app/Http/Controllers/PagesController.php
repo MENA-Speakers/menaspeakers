@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class PagesController extends Controller
 {
@@ -19,7 +20,7 @@ class PagesController extends Controller
 
 
   public function contact(){
-    return view('pages.contact');
+    return Inertia::render('Contact/Index');
   }
 
 

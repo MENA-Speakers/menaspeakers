@@ -3,9 +3,11 @@
   use App\Http\Controllers\Admin\AdminBlogController;
   use App\Http\Controllers\Admin\AdminHomeController;
   use App\Http\Controllers\Admin\DashboardController;
-  use App\Http\Controllers\Admin\SpeakerController;
+  use App\Http\Controllers\Admin\AdminSpeakerController;
+  use App\Http\Controllers\AdminGalleryController;
   use App\Http\Controllers\BlogsController;
   use App\Http\Controllers\FaqsController;
+  use App\Http\Controllers\GalleryController;
   use App\Http\Controllers\HomeController;
   use App\Http\Controllers\PagesController;
   use App\Http\Controllers\SpeakersController;
@@ -28,6 +30,7 @@
   Route::get('/speakers', [SpeakersController::class, 'index'])->name('speakers.index');
   Route::post('/speakers', [SpeakersController::class, 'store'])->name('speakers.store');
   Route::get('/speakers/{speaker}', [SpeakersController::class, 'show'])->name('speakers.show');
+  Route::get('/gallery/', [GalleryController::class, 'index'])->name('gallery.index');
   Route::get('/blogs', [BlogsController::class, 'index'])->name('blogs.index');
   Route::get('/blogs/{blog}', [BlogsController::class, 'show'])->name('blogs.show');
 
@@ -42,12 +45,20 @@
   Route::middleware('auth')->name('admin.')->prefix('admin')->group(function() {
     Route::get('/', [AdminHomeController::class, 'index'])->name('dashboard');
 
-    Route::get('speakers', [SpeakerController::class, 'index'])->name('speakers.index');
-    Route::post('speakers', [SpeakerController::class, 'store'])->name('speakers.store');
-    Route::get('speakers/create', [SpeakerController::class, 'create'])->name('speakers.create');
-    Route::get('speakers/{speaker}/edit', [SpeakerController::class, 'edit'])->name('speakers.edit');
-    Route::post('speakers/{speaker}', [SpeakerController::class, 'update'])->name('speakers.update');
-    Route::post('speakers/{speaker}/delete', [SpeakerController::class, 'destroy'])->name('speakers.delete');
+    Route::get('speakers', [ AdminSpeakerController::class, 'index'])->name('speakers.index');
+    Route::post('speakers/search', [ AdminSpeakerController::class, 'search'])->name('speakers.search');
+    Route::post('speakers', [ AdminSpeakerController::class, 'store'])->name('speakers.store');
+    Route::get('speakers/create', [ AdminSpeakerController::class, 'create'])->name('speakers.create');
+    Route::get('speakers/{speaker}/edit', [ AdminSpeakerController::class, 'edit'])->name('speakers.edit');
+    Route::post('speakers/{speaker}', [ AdminSpeakerController::class, 'update'])->name('speakers.update');
+    Route::post('speakers/{speaker}/delete', [ AdminSpeakerController::class, 'destroy'])->name('speakers.delete');
+
+    //Gallery Routes
+    Route::get('gallery', [AdminGalleryController::class, 'index'])->name('gallery.index');
+    Route::post('gallery', [AdminGalleryController::class, 'store'])->name('gallery.store');
+    Route::post('gallery/{gallery}', [AdminGalleryController::class, 'destroy'])->name('gallery.delete');
+
+
 
 
     Route::get('blogs', [AdminBlogController::class, 'index'])->name('blogs.index');
