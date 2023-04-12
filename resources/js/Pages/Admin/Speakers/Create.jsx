@@ -10,7 +10,7 @@ import axios from "axios";
 import PrimaryButton from "@/Components/PrimaryButton";
 import InputLabel from "@/Components/InputLabel";
 
-function Create( {speaker} ) {
+function Create( {speaker, locations} ) {
 
   const formik = useFormik( {
     initialValues: {
@@ -19,6 +19,7 @@ function Create( {speaker} ) {
       keywords: speaker?.keywords ? speaker.keywords : '',
       bio: speaker?.bio ? speaker.bio : '',
       excerpt: speaker?.excerpt ? speaker.excerpt : '',
+      location: speaker?.location ? speaker.location : '',
       image: '',
     },
 
@@ -144,6 +145,8 @@ function Create( {speaker} ) {
 
             </div>
 
+
+
             <div>
               <label htmlFor="excerpt" className="block text-sm font-medium text-gray-700">Meta
                 Description</label>
@@ -161,6 +164,30 @@ function Create( {speaker} ) {
                 ) : null
               }
 
+            </div>
+
+            <div className={'w-full lg:w-1/2'}>
+              <label htmlFor="location" className="block text-sm font-medium text-gray-700">Location</label>
+              <div className="mt-1">
+                <select
+                       name="location"
+                       value={formik.values.location}
+                       onChange={formik.handleChange}
+                       id="location"
+                       className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                       placeholder="Meta title">
+                  {
+                    locations.map( ( location ) => {
+                      return <option key={location.id} value={location.id}>{location.name}</option>;
+                    } )
+                  }
+                </select>
+              </div>
+              {
+                formik.touched.location && formik.errors.location ? (
+                  <div className="text-red-500 text-xs italic">{formik.errors.location}</div>
+                ) : null
+              }
             </div>
 
             <div>

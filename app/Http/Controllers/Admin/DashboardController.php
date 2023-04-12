@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\LocationResource;
 use App\Models\Blog;
+use App\Models\Location;
 use App\Models\Speaker;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -18,7 +20,8 @@ class DashboardController extends Controller
       return Inertia::render('Admin/Dashboard', [
         'speaker_count' => $speaker_count,
         'blog_count' => $blog_count,
-        'user_count' => $user_count
+        'user_count' => $user_count,
+        'locations' => LocationResource::collection(Location::all())
       ]);
     }
 }

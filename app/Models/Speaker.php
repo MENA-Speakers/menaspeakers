@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Laravel\Scout\Searchable;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
@@ -34,5 +36,15 @@ class Speaker extends Model implements HasMedia
     $this->addMediaCollection('avatar')->singleFile();
   }
 
+
+  public function videos(): HasMany
+  {
+    return $this->hasMany(Video::class);
+  }
+
+  public function location(): BelongsTo
+  {
+    return $this->belongsTo(Location::class);
+  }
 
 }

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\SpeakerUpdateRequest;
 use App\Http\Requests\StoreSpeakerRequest;
 use App\Http\Resources\SpeakerResource;
+use App\Models\Location;
 use App\Models\Speaker;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
@@ -46,11 +47,13 @@ class AdminSpeakerController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return Application|Factory|View
+     * @return \Inertia\Response
      */
     public function create()
     {
-        return Inertia::render('Admin/Speakers/Create');
+        return Inertia::render('Admin/Speakers/Create', [
+          'locations' => Location::all(),
+        ]);
     }
 
   /**
@@ -77,6 +80,7 @@ class AdminSpeakerController extends Controller
         'name' => $request->input('name'),
         'bio' => $request->input('bio'),
         'meta_title' => $request->input('meta_title'),
+        'location_id' => $request->input('location'),
         'excerpt' => $request->input('excerpt'),
         'featured' => boolval($request->input('featured')),
         'meta_description' => $request->input('excerpt'),
@@ -92,12 +96,21 @@ class AdminSpeakerController extends Controller
     }
 
 
+    public function show(Speaker $speaker)
+    {
+        return Inertia::render('Admin/Speakers/Show', [
+          'speaker' => SpeakerResource::make($speaker),
+          'videos' => $speaker->videos
+        ]);
+    }
+
+
   /**
    * Show the form for editing the specified resource.
    *
    * @param Speaker $speaker
    *
-   * @return Application|Factory|View
+   * @return \Inertia\Response
    */
     public function edit(Speaker $speaker)
     {
@@ -124,6 +137,7 @@ class AdminSpeakerController extends Controller
           'bio' => $request->input('bio'),
           'featured' => boolval($request->input('featured')),
           'meta_title' => $request->input('meta_title'),
+          'location_id' => $request->input('location'),
           'excerpt' => $request->input('excerpt'),
           'meta_description' => $request->input('excerpt'),
           'keywords' => $request->input('keywords'),

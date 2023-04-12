@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class SpeakerResource extends JsonResource
+class LocationResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -17,14 +17,7 @@ class SpeakerResource extends JsonResource
         return [
           'id' => $this->id,
           'name' => $this->name,
-          'image' => $this->getFirstMediaUrl('avatar'),
-          'bio' => $this->bio,
-          'featured' => $this->featured,
-          'meta_title' => $this->meta_title,
-          'excerpt' => $this->excerpt,
-          'slug' => $this->slug,
-          'keywords' => $this->keywords,
-          'videos' => $this->videos,
+          'speakers' => $this->speakers->count()
         ];
     }
 }

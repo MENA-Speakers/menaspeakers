@@ -1,6 +1,7 @@
 import React from 'react';
 import MainLayout from "@/Layouts/MainLayout";
 import {Head, Link} from "@inertiajs/react";
+import AdminYoutubeVideo from "@/Components/AdminYoutubeVideo";
 
 function Show({speaker}) {
   return (
@@ -13,7 +14,7 @@ function Show({speaker}) {
         <img src="https://images.unsplash.com/photo-1561489396-888724a1543d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8Y29uZnJlbmNlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=1000&q=60" alt="" className="w-full h-full object-cover"/>
 
         <div className="absolute inset-0 z-0">
-          <div className="w-full h-full z-20 bg-black/80">
+          <div className="w-full h-full z-20 bg-black/50">
             <div className="max-w-7xl mx-auto flex items-center justify-center h-full  px-4 sm px-6 lg px-8">
               <h1 className="text-gray-200 text-5xl font-bold">{ speaker.name }</h1>
             </div>
@@ -44,6 +45,22 @@ function Show({speaker}) {
               </div>
 
             </div>
+          {/*  Videos*/}
+
+          {speaker.videos?.length > 0 && (
+            <div className="mt-12 px-6">
+              <h2 className="text-2xl font-bold text-gray-800">Videos</h2>
+
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mt-6">
+                {
+                  speaker.videos.map(video => (
+                    <AdminYoutubeVideo key={video.id} video={video}/>
+                  ))
+                }
+              </div>
+
+            </div>
+          )}
         </div>
       </section>
     </MainLayout>

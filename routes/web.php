@@ -2,8 +2,10 @@
 
   use App\Http\Controllers\Admin\AdminBlogController;
   use App\Http\Controllers\Admin\AdminHomeController;
+  use App\Http\Controllers\Admin\AdminSpeakerVideoController;
   use App\Http\Controllers\Admin\DashboardController;
   use App\Http\Controllers\Admin\AdminSpeakerController;
+  use App\Http\Controllers\Admin\SettingController;
   use App\Http\Controllers\AdminGalleryController;
   use App\Http\Controllers\BlogsController;
   use App\Http\Controllers\FaqsController;
@@ -45,13 +47,19 @@
   Route::middleware('auth')->name('admin.')->prefix('admin')->group(function() {
     Route::get('/', [AdminHomeController::class, 'index'])->name('dashboard');
 
+    //Speaker Routes Group
     Route::get('speakers', [ AdminSpeakerController::class, 'index'])->name('speakers.index');
     Route::post('speakers/search', [ AdminSpeakerController::class, 'search'])->name('speakers.search');
-    Route::post('speakers', [ AdminSpeakerController::class, 'store'])->name('speakers.store');
     Route::get('speakers/create', [ AdminSpeakerController::class, 'create'])->name('speakers.create');
+    Route::get('speakers/{speaker}', [ AdminSpeakerController::class, 'show'])->name('speakers.show');
+    Route::post('speakers', [ AdminSpeakerController::class, 'store'])->name('speakers.store');
     Route::get('speakers/{speaker}/edit', [ AdminSpeakerController::class, 'edit'])->name('speakers.edit');
     Route::post('speakers/{speaker}', [ AdminSpeakerController::class, 'update'])->name('speakers.update');
     Route::post('speakers/{speaker}/delete', [ AdminSpeakerController::class, 'destroy'])->name('speakers.delete');
+
+    Route::get('speakers/{speaker}/videos', [ AdminSpeakerVideoController::class, 'index'])->name('speakers.videos');
+    Route::post('speakers/{speaker}/videos', [ AdminSpeakerVideoController::class, 'store'])->name('speakers.videos.store');
+    Route::post('speakers/videos/{video}/delete', [ AdminSpeakerVideoController::class, 'destroy'])->name('speakers.videos.destroy');
 
     //Gallery Routes
     Route::get('gallery', [AdminGalleryController::class, 'index'])->name('gallery.index');
@@ -67,23 +75,30 @@
     Route::get('blogs/{blog}/edit', [AdminBlogController::class, 'edit'])->name('blogs.edit');
     Route::post('blogs/{blog}', [AdminBlogController::class, 'update'])->name('blogs.update');
 
-    //Site map route
-    Route::get('sitemap', function() {
-      $sitemap = Sitemap::create()
-        ->add(route('index'))
-        ->add(route('speakers.index'))
-        ->add(route('blogs.index'))
-        ->add(route('pages.profile'));
+    //settings
+    Route::get('settings/location', [SettingController::class, 'location'])->name('settings.location');
+    Route::post('settings/location', [SettingController::class, 'store'])->name('settings.location.store');
 
-      Speaker::all()->each(function($speaker) use ($sitemap) {
-        $sitemap->add(route('speakers.show', $speaker->slug));
-      });
 
-      $sitemap->writeToFile(public_path('sitemap.xml'));
-
-    })->name('sitemap');
 
   });
+
+
+  //Site map route
+  Route::get('sitemap', function() {
+    $sitemap = Sitemap::create()
+      ->add(route('index'))
+      ->add(route('speakers.index'))
+      ->add(route('blogs.index'))
+      ->add(route('pages.profile'));
+
+    Speaker::all()->each(function($speaker) use ($sitemap) {
+      $sitemap->add(route('speakers.show', $speaker->slug));
+    });
+
+    $sitemap->writeToFile(public_path('sitemap.xml'));
+
+  })->name('sitemap');
 
   Route::get('/dashboard', [DashboardController::class, 'dashboard'])->middleware(['auth', 'verified'])->name('dashboard');
 
