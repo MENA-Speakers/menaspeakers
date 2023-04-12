@@ -16,19 +16,19 @@ function Index({blogs, speakers, gallery,news}) {
         <title>Home</title>
       </Head>
       {/* Hero Header*/}
-      <section className="w-full relative">
-        <div className="w-full h-400 lg:h-[800px] ">
+      <section className="w-full   relative">
+        <div className="w-full h-[600px] lg:h-[800px] ">
           <img className={'w-full h-full object-cover'} src="/images/mena-spearkers-01.webp" alt=""/>
           <div className="absolute inset-0 bg-black/40">
             <div
-              className={'w-full lg:max-w-4xl mx-auto h-full flex space-y-4 flex-col items-center justify-center z-20'}>
-              <h1 className="text-5xl font-semibold text-white text-center">
+              className={'w-full lg:max-w-4xl mx-auto px-6 lg:px-0 pt-40 lg:pt-0 h-full flex space-y-8 flex-col items-center justify-center z-20'}>
+              <h1 className="text-3xl lg:text-5xl font-semibold text-white text-center">
                 LEADING SPEAKERS & MC CORPORATION IN THE MIDDLE EAST
               </h1>
-              <p className="text-white text-lg font-semibold  ">Public Speakers. MCs. Corporate Trainers. One Stop
+              <p className="text-white lg:text-lg font-semibold  ">Public Speakers. MCs. Corporate Trainers. One Stop
                 Solution!
               </p>
-              <Link className={'text-white mt-8 gradient-btn py-2 px-4'} href={route('pages.contact')}>Get a speaker in 5 minutes</Link>
+              <Link className={'text-white mt-8 gradient-btn mt-6 py-2 px-4'} href={route('pages.contact')}>Get a speaker in 5 minutes</Link>
             </div>
           </div>
         </div>
@@ -89,11 +89,11 @@ function Index({blogs, speakers, gallery,news}) {
               <p className="text-gray-100">Monday - Friday <br/> 9 AM - 6 PM</p>
             </div>
 
-            <div className="">
+            <div className="pt-12 lg:pt-0">
               <Link href={route('pages.contact')} className="gradient-btn font-semibold py-3 px-4 px-4 text-white">Book
                 Our Speakers</Link>
             </div>
-            <div>
+            <div className="pt-12 lg:pt-0">
               <Link href={route('speakers.index')}
                     className="underline hover:text-mena-200 font-semibold py-3 px-4 px-4 text-white">View All
                 Speakers</Link>
@@ -345,7 +345,7 @@ function Index({blogs, speakers, gallery,news}) {
       {/*  Blog section */}
 
 
-      <section className={'py-12 lg:mt-20'}>
+      <section className={'py-12 mt-20'}>
         <div className={'max-w-7xl mx-auto  '}>
           <div className={'flex items-center flex-col w-full text center py-12'}>
             <h3 className="font-bold text-gray-900 text-5xl">Latest from blog</h3>
