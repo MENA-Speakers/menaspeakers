@@ -3,6 +3,7 @@
 /public/build
 /public/hot
 /public/storage
+/public/speaker-export.csv
 /storage/*.key
 /vendor
 .env
