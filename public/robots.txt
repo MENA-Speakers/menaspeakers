@@ -1,2 +1,3 @@
 User-agent: *
 Disallow:
+Sitemap: https://mena-speakers.com/sitemap.xml
