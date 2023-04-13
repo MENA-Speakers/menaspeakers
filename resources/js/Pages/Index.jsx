@@ -259,7 +259,7 @@ function Index({blogs, speakers, gallery,news}) {
               <p className="text-gray-500">We have a roster of 300 top professionals whose sole purpose is to make an event successful and ensure that your audience is getting engaged, educated and empower.</p>
             </div>
             <div className="py-4">
-              <Link href={route('speakers.index')} className="gradient-btn font-semibold py-3 px-4 px-6 text-white">
+              <Link href={route('speakers.index')} className="gradient-btn hover:-gradient-btn font-semibold py-3 px-4 px-6 text-white">
                 All Speakers
               </Link>
             </div>
@@ -360,7 +360,7 @@ function Index({blogs, speakers, gallery,news}) {
           </div>
 
           <div className="flex items-center justify-center mt-12 pb-8 py-4">
-            <Link href={route('blogs.index')} className="bg-gray-900 py-2.5 px-8 text-white">View all post</Link>
+            <Link href={route('blogs.index')} className="bg-gray-900 hover:bg-gray-700 py-2.5 px-8 text-white">View all post</Link>
           </div>
         </div>
       </section>
