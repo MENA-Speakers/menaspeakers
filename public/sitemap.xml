@@ -2,67 +2,121 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
     <url>
         <loc>http://localhost:8000</loc>
-        <lastmod>2023-04-13T15:12:30+00:00</lastmod>
+        <lastmod>2023-04-14T12:27:17+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
         </url>
     <url>
         <loc>http://localhost:8000/about</loc>
-        <lastmod>2023-04-13T15:12:30+00:00</lastmod>
+        <lastmod>2023-04-14T12:27:17+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
         </url>
     <url>
-        <loc>http://localhost:8000/contact</loc>
-        <lastmod>2023-04-13T15:12:30+00:00</lastmod>
+        <loc>http://localhost:8000/speakers</loc>
+        <lastmod>2023-04-14T12:27:17+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+        </url>
+    <url>
+        <loc>http://localhost:8000/gallery</loc>
+        <lastmod>2023-04-14T12:27:17+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+        </url>
+    <url>
+        <loc>http://localhost:8000/blogs</loc>
+        <lastmod>2023-04-14T12:27:17+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+        </url>
+    <url>
+        <loc>http://localhost:8000/page/contact</loc>
+        <lastmod>2023-04-14T12:27:17+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
         </url>
     <url>
         <loc>http://localhost:8000/terms</loc>
-        <lastmod>2023-04-13T15:12:30+00:00</lastmod>
+        <lastmod>2023-04-14T12:27:17+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
         </url>
     <url>
         <loc>http://localhost:8000/privacy</loc>
-        <lastmod>2023-04-13T15:12:30+00:00</lastmod>
+        <lastmod>2023-04-14T12:27:17+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
         </url>
     <url>
-        <loc>http://localhost:8000/refund</loc>
-        <lastmod>2023-04-13T15:12:30+00:00</lastmod>
+        <loc>http://localhost:8000/FAQs</loc>
+        <lastmod>2023-04-14T12:27:17+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+        </url>
+    <url>
+        <loc>http://localhost:8000/page/refund-policy</loc>
+        <lastmod>2023-04-14T12:27:17+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
         </url>
     <url>
         <loc>http://localhost:8000/profile</loc>
-        <lastmod>2023-04-13T15:12:30+00:00</lastmod>
+        <lastmod>2023-04-14T12:27:17+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
         </url>
     <url>
         <loc>http://localhost:8000/profile-arabic</loc>
-        <lastmod>2023-04-13T15:12:30+00:00</lastmod>
+        <lastmod>2023-04-14T12:27:17+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
         </url>
     <url>
         <loc>http://localhost:8000/speakers/wrvmaeklrmklr</loc>
-        <lastmod>2023-04-13T15:12:30+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-        </url>
-    <url>
-        <loc>http://localhost:8000/speakers/krlvmrfldrv</loc>
-        <lastmod>2023-04-13T15:12:30+00:00</lastmod>
+        <lastmod>2023-04-14T12:27:17+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
         </url>
     <url>
         <loc>http://localhost:8000/speakers/krlvmrfldrv-1</loc>
-        <lastmod>2023-04-13T15:12:30+00:00</lastmod>
+        <lastmod>2023-04-14T12:27:17+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+        </url>
+    <url>
+        <loc>http://localhost:8000/speakers/klarmklaerbnaeklbmkl</loc>
+        <lastmod>2023-04-14T12:27:17+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+        </url>
+    <url>
+        <loc>http://localhost:8000/storage/2/Screenshot-from-2023-04-06-02-44-38.png</loc>
+        <lastmod>2023-04-13T17:17:44+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+        </url>
+    <url>
+        <loc>http://localhost:8000/blogs/kldfbmdklbneklbm</loc>
+        <lastmod>2023-04-14T12:27:17+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+        </url>
+    <url>
+        <loc>http://localhost:8000/storage/3/Screenshot-from-2023-04-11-14-58-56.png</loc>
+        <lastmod>2023-04-14T11:43:25+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+        </url>
+    <url>
+        <loc>http://localhost:8000/storage/4/Screenshot-from-2023-04-11-15-00-54.png</loc>
+        <lastmod>2023-04-14T12:23:22+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+        </url>
+    <url>
+        <loc>http://localhost:8000/storage/5/Screenshot-from-2023-04-04-17-48-05.png</loc>
+        <lastmod>2023-04-14T12:23:41+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
         </url>
