@@ -5,16 +5,23 @@ import SpeakerCard from "@/Components/SpeakerCard";
 import {useFormik} from "formik";
 import TextInput from "@/Components/TextInput";
 import PrimaryButton from "@/Components/PrimaryButton";
+import Pagination from "@/Components/Pagination";
 
-function Index({speakers, query}) {
+function Index({speakers, query, locations}) {
   const formik = useFormik({
     initialValues: {
-      query: query
+      query: query,
+      location: ''
     },
     onSubmit: (values) => {
       router.get(route('speakers.index'), values)
     }
   })
+
+  const handleLocationChange = (location) => {
+    formik.setFieldValue('location', location.id)
+    formik.handleSubmit()
+  }
 
 
   return (
@@ -38,12 +45,21 @@ function Index({speakers, query}) {
         <div className="max-w-7xl mx-auto px-4 sm px-6 lg px-8  px-6 lg:px-0">
 
           <div className=" pb-12 w-full lg:w-1/2">
-            <form onSubmit={formik.handleSubmit} className={'flex space-x-6 items-center'}>
-             <div className="flex-grow">
-               <TextInput name="query" placeholder={'Search'} label="Search" className={'w-full'} value={formik.values.query} onChange={formik.handleChange} />
+            <form onSubmit={formik.handleSubmit} className={''}>
+             <div className={'flex space-x-6 items-center'}>
+               <div className="flex-grow">
+                 <TextInput name="query" placeholder={'Search'} label="Search" className={'w-full'} value={formik.values.query} onChange={formik.handleChange} />
+               </div>
+               <div>
+                 <PrimaryButton type="submit">Search</PrimaryButton>
+               </div>
              </div>
-              <div>
-                <PrimaryButton type="submit">Search</PrimaryButton>
+              <div className="mt-4 space-x-2 ">
+                {
+                  locations.map((location, index) => (
+                    <button className={'text-xs py-1 px-3 rounded border'} type={'button'} onClick={() => handleLocationChange(location)}>{location.name}</button>
+                  ))
+                }
               </div>
             </form>
           </div>
@@ -56,6 +72,11 @@ function Index({speakers, query}) {
               speakers.data.map(speaker => (
               <SpeakerCard key={speaker.slug} speaker={speaker}/>
               ))}
+          </div>
+
+          {/* Pagination */}
+          <div className="flex justify-center mt-6">
+            <Pagination links={speakers.links} metaLinks={speakers.meta} />
           </div>
         </div>
       </section>

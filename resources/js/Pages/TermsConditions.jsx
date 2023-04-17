@@ -1,7 +1,6 @@
 import React from 'react';
 import MainLayout from "@/Layouts/MainLayout";
 import {Head} from "@inertiajs/react";
-import BlogCard from "@/Components/BlogCard";
 
 function TermsCondition() {
   return (

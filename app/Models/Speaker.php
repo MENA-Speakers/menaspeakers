@@ -47,4 +47,11 @@ class Speaker extends Model implements HasMedia
     return $this->belongsTo(Location::class);
   }
 
+  public function toSearchableArray()
+  {
+    $array = $this->toArray();
+    $array['location'] = $this->location?->name;
+    return $array;
+  }
+
 }

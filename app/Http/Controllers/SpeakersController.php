@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Resources\SpeakerResource;
 use App\Imports\BlogImport;
 use App\Imports\SpeakerImport;
+use App\Models\Location;
 use App\Models\Speaker;
 use Artesaos\SEOTools\Facades\JsonLdMulti;
 use Artesaos\SEOTools\Facades\SEOTools;
@@ -17,18 +18,26 @@ class SpeakersController extends Controller
 
   public function index(Request $request){
 
-    $speakers = null;
-    $query = null;
-    if($request->has('query')){
-       $speakers = Speaker::search($request->input('query'))->paginate(12)->withQueryString();
-       $query = $request->input('query');
-    } else {
-      $speakers = Speaker::latest()->paginate(12);
+    $result = [];
+    if($request->hasAny([
+      'query',
+      'location',
+    ])){
+      $result = Speaker::search($request->input('query'));
+      if($request->has('location')) {
+        $result->where('location_id', intval($request->input('location')));
+      }
+
+    }else {
+      $result = Speaker::latest();
     }
 
+    $locations = Location::all();
+
     return Inertia::render('Speakers/Index', [
-      'speakers' => SpeakerResource::collection($speakers),
-      'query' => $query
+      'speakers' => SpeakerResource::collection($result->paginate(12)->withQueryString()),
+      'query' => $request->input('query'),
+      'locations' => $locations
     ]);
   }
 

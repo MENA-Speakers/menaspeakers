@@ -29,9 +29,13 @@
   */
 
   Route::get('/', [HomeController::class, 'index'])->name('index');
-  Route::get('/speakers', [SpeakersController::class, 'index'])->name('speakers.index');
-  Route::post('/speakers', [SpeakersController::class, 'store'])->name('speakers.store');
-  Route::get('/speakers/{speaker}', [SpeakersController::class, 'show'])->name('speakers.show');
+
+  Route::controller(SpeakersController::class)->group(function () {
+    Route::get('/speakers', 'index')->name('speakers.index');
+    Route::get('/speakers/{speaker}', 'show')->name('speakers.show');
+  });
+
+
   Route::get('/gallery/', [GalleryController::class, 'index'])->name('gallery.index');
   Route::get('/blogs', [BlogsController::class, 'index'])->name('blogs.index');
   Route::get('/blogs/{blog}', [BlogsController::class, 'show'])->name('blogs.show');

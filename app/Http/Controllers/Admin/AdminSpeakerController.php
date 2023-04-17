@@ -115,7 +115,8 @@ class AdminSpeakerController extends Controller
     public function edit(Speaker $speaker)
     {
         return Inertia::render('Admin/Speakers/Create', [
-          'speaker' => SpeakerResource::make($speaker)
+          'speaker' => SpeakerResource::make($speaker),
+          'locations' => Location::all(),
         ]);
     }
 
@@ -131,7 +132,6 @@ class AdminSpeakerController extends Controller
    */
     public function update(SpeakerUpdateRequest $request, Speaker $speaker)
     {
-
         $speaker->update([
           'name' => $request->input('name'),
           'bio' => $request->input('bio'),

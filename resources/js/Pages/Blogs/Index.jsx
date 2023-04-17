@@ -2,6 +2,7 @@ import React from 'react';
 import MainLayout from "@/Layouts/MainLayout";
 import {Head} from "@inertiajs/react";
 import BlogCard from "@/Components/BlogCard";
+import Pagination from "@/Components/Pagination";
 
 function Index({blogs, query}) {
   return (
@@ -32,6 +33,12 @@ function Index({blogs, query}) {
               blogs.data.map(blog => (
               <BlogCard key={blog.slug} blog={blog}/>
               ))}
+          </div>
+
+          {/* Pagination */}
+
+          <div className={'mt-6'}>
+            <Pagination links={blogs.links} metaLinks={blogs.meta}/>
           </div>
         </div>
       </section>
