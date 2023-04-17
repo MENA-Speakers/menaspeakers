@@ -1,656 +1,122 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
     <url>
-        <loc>http://127.0.0.1:8000</loc>
-        <lastmod>2023-03-15T15:12:24+00:00</lastmod>
+        <loc>http://localhost:8000</loc>
+        <lastmod>2023-04-14T12:27:17+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
         </url>
     <url>
-        <loc>http://127.0.0.1:8000/about</loc>
-        <lastmod>2023-03-15T15:12:24+00:00</lastmod>
+        <loc>http://localhost:8000/about</loc>
+        <lastmod>2023-04-14T12:27:17+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
         </url>
     <url>
-        <loc>http://127.0.0.1:8000/contact</loc>
-        <lastmod>2023-03-15T15:12:24+00:00</lastmod>
+        <loc>http://localhost:8000/speakers</loc>
+        <lastmod>2023-04-14T12:27:17+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
         </url>
     <url>
-        <loc>http://127.0.0.1:8000/terms</loc>
-        <lastmod>2023-03-15T15:12:24+00:00</lastmod>
+        <loc>http://localhost:8000/gallery</loc>
+        <lastmod>2023-04-14T12:27:17+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
         </url>
     <url>
-        <loc>http://127.0.0.1:8000/privacy</loc>
-        <lastmod>2023-03-15T15:12:24+00:00</lastmod>
+        <loc>http://localhost:8000/blogs</loc>
+        <lastmod>2023-04-14T12:27:17+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
         </url>
     <url>
-        <loc>http://127.0.0.1:8000/refund</loc>
-        <lastmod>2023-03-15T15:12:24+00:00</lastmod>
+        <loc>http://localhost:8000/page/contact</loc>
+        <lastmod>2023-04-14T12:27:17+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
         </url>
     <url>
-        <loc>http://127.0.0.1:8000/profile</loc>
-        <lastmod>2023-03-15T15:12:24+00:00</lastmod>
+        <loc>http://localhost:8000/terms</loc>
+        <lastmod>2023-04-14T12:27:17+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
         </url>
     <url>
-        <loc>http://127.0.0.1:8000/profile-arabic</loc>
-        <lastmod>2023-03-15T15:12:24+00:00</lastmod>
+        <loc>http://localhost:8000/privacy</loc>
+        <lastmod>2023-04-14T12:27:17+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
         </url>
     <url>
-        <loc>http://127.0.0.1:8000/speakers/saana-azzam</loc>
-        <lastmod>2023-03-15T15:12:24+00:00</lastmod>
+        <loc>http://localhost:8000/FAQs</loc>
+        <lastmod>2023-04-14T12:27:17+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
         </url>
     <url>
-        <loc>http://127.0.0.1:8000/speakers/thea-myhrvold</loc>
-        <lastmod>2023-03-15T15:12:24+00:00</lastmod>
+        <loc>http://localhost:8000/page/refund-policy</loc>
+        <lastmod>2023-04-14T12:27:17+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
         </url>
     <url>
-        <loc>http://127.0.0.1:8000/speakers/professor-martin-spraggon</loc>
-        <lastmod>2023-03-15T15:12:24+00:00</lastmod>
+        <loc>http://localhost:8000/profile</loc>
+        <lastmod>2023-04-14T12:27:17+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
         </url>
     <url>
-        <loc>http://127.0.0.1:8000/speakers/james-taylor</loc>
-        <lastmod>2023-03-15T15:12:24+00:00</lastmod>
+        <loc>http://localhost:8000/profile-arabic</loc>
+        <lastmod>2023-04-14T12:27:17+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
         </url>
     <url>
-        <loc>http://127.0.0.1:8000/speakers/joy-ajlouny</loc>
-        <lastmod>2023-03-15T15:12:24+00:00</lastmod>
+        <loc>http://localhost:8000/speakers/wrvmaeklrmklr</loc>
+        <lastmod>2023-04-14T12:27:17+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
         </url>
     <url>
-        <loc>http://127.0.0.1:8000/speakers/maryam-amiri</loc>
-        <lastmod>2023-03-15T15:12:24+00:00</lastmod>
+        <loc>http://localhost:8000/speakers/krlvmrfldrv-1</loc>
+        <lastmod>2023-04-14T12:27:17+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
         </url>
     <url>
-        <loc>http://127.0.0.1:8000/speakers/her-excellency-sara-al-madani</loc>
-        <lastmod>2023-03-15T15:12:24+00:00</lastmod>
+        <loc>http://localhost:8000/speakers/klarmklaerbnaeklbmkl</loc>
+        <lastmod>2023-04-14T12:27:17+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
         </url>
     <url>
-        <loc>http://127.0.0.1:8000/speakers/khalid-alqoud</loc>
-        <lastmod>2023-03-15T15:12:24+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-        </url>
-    <url>
-        <loc>http://127.0.0.1:8000/speakers/julie-lewis</loc>
-        <lastmod>2023-03-15T15:12:24+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-        </url>
-    <url>
-        <loc>http://127.0.0.1:8000/speakers/he-president-thabo-mbeki</loc>
-        <lastmod>2023-03-15T15:12:24+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-        </url>
-    <url>
-        <loc>http://127.0.0.1:8000/speakers/bianca-miller-cole</loc>
-        <lastmod>2023-03-15T15:12:24+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-        </url>
-    <url>
-        <loc>http://127.0.0.1:8000/speakers/dr-mark-van-rijmenam</loc>
-        <lastmod>2023-03-15T15:12:24+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-        </url>
-    <url>
-        <loc>http://127.0.0.1:8000/speakers/lon-safko</loc>
-        <lastmod>2023-03-15T15:12:24+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-        </url>
-    <url>
-        <loc>http://127.0.0.1:8000/speakers/karl-lillrud</loc>
-        <lastmod>2023-03-15T15:12:24+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-        </url>
-    <url>
-        <loc>http://127.0.0.1:8000/speakers/dr-marie-hlne-pelletier</loc>
-        <lastmod>2023-03-15T15:12:24+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-        </url>
-    <url>
-        <loc>http://127.0.0.1:8000/speakers/david-meltzer</loc>
-        <lastmod>2023-03-15T15:12:24+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-        </url>
-    <url>
-        <loc>http://127.0.0.1:8000/speakers/vusi-thembekwayo</loc>
-        <lastmod>2023-03-15T15:12:24+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-        </url>
-    <url>
-        <loc>http://127.0.0.1:8000/speakers/john-formica</loc>
-        <lastmod>2023-03-15T15:12:24+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-        </url>
-    <url>
-        <loc>http://127.0.0.1:8000/speakers/khalid-machchate</loc>
-        <lastmod>2023-03-15T15:12:24+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-        </url>
-    <url>
-        <loc>http://127.0.0.1:8000/speakers/rahaf-ray-kobeissi</loc>
-        <lastmod>2023-03-15T15:12:24+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-        </url>
-    <url>
-        <loc>http://127.0.0.1:8000/speakers/hussein-sayed</loc>
-        <lastmod>2023-03-15T15:12:24+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-        </url>
-    <url>
-        <loc>http://127.0.0.1:8000/speakers/ersoy-erkazanci</loc>
-        <lastmod>2023-03-15T15:12:24+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-        </url>
-    <url>
-        <loc>http://127.0.0.1:8000/speakers/roy-gluckman</loc>
-        <lastmod>2023-03-15T15:12:24+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-        </url>
-    <url>
-        <loc>http://127.0.0.1:8000/speakers/marc-randolph</loc>
-        <lastmod>2023-03-15T15:12:24+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-        </url>
-    <url>
-        <loc>http://127.0.0.1:8000/speakers/marita-cheng</loc>
-        <lastmod>2023-03-15T15:12:24+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-        </url>
-    <url>
-        <loc>http://127.0.0.1:8000/speakers/kevin-oleary</loc>
-        <lastmod>2023-03-15T15:12:24+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-        </url>
-    <url>
-        <loc>http://127.0.0.1:8000/speakers/jonas-kjellberg</loc>
-        <lastmod>2023-03-15T15:12:24+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-        </url>
-    <url>
-        <loc>http://127.0.0.1:8000/speakers/jia-jiang</loc>
-        <lastmod>2023-03-15T15:12:24+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-        </url>
-    <url>
-        <loc>http://127.0.0.1:8000/speakers/dirk-ahlborn</loc>
-        <lastmod>2023-03-15T15:12:24+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-        </url>
-    <url>
-        <loc>http://127.0.0.1:8000/speakers/bethenny-frankel</loc>
-        <lastmod>2023-03-15T15:12:24+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-        </url>
-    <url>
-        <loc>http://127.0.0.1:8000/speakers/adam-cheyer</loc>
-        <lastmod>2023-03-15T15:12:24+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-        </url>
-    <url>
-        <loc>http://127.0.0.1:8000/speakers/jenn-lim</loc>
-        <lastmod>2023-03-15T15:12:24+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-        </url>
-    <url>
-        <loc>http://127.0.0.1:8000/speakers/christer-fuglesang</loc>
-        <lastmod>2023-03-15T15:12:24+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-        </url>
-    <url>
-        <loc>http://127.0.0.1:8000/speakers/thea-myhrvold-1</loc>
-        <lastmod>2023-03-15T15:12:24+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-        </url>
-    <url>
-        <loc>http://127.0.0.1:8000/speakers/tom-flatau</loc>
-        <lastmod>2023-03-15T15:12:24+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-        </url>
-    <url>
-        <loc>http://127.0.0.1:8000/speakers/nina-zandnia</loc>
-        <lastmod>2023-03-15T15:12:24+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-        </url>
-    <url>
-        <loc>http://127.0.0.1:8000/speakers/silvena-rowe</loc>
-        <lastmod>2023-03-15T15:12:24+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-        </url>
-    <url>
-        <loc>http://127.0.0.1:8000/speakers/professor-martin-spraggon-1</loc>
-        <lastmod>2023-03-15T15:12:24+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-        </url>
-    <url>
-        <loc>http://127.0.0.1:8000/speakers/amna-al-haddad</loc>
-        <lastmod>2023-03-15T15:12:24+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-        </url>
-    <url>
-        <loc>http://127.0.0.1:8000/speakers/sheikh-dr-majid-sultan-al-qassimi-1</loc>
-        <lastmod>2023-03-15T15:12:24+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-        </url>
-    <url>
-        <loc>http://127.0.0.1:8000/speakers/michael-j-fucilli</loc>
-        <lastmod>2023-03-15T15:12:24+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-        </url>
-    <url>
-        <loc>http://127.0.0.1:8000/speakers/jacob-cummings</loc>
-        <lastmod>2023-03-15T15:12:24+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-        </url>
-    <url>
-        <loc>http://127.0.0.1:8000/speakers/nimi-metha</loc>
-        <lastmod>2023-03-15T15:12:24+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-        </url>
-    <url>
-        <loc>http://127.0.0.1:8000/speakers/nayla-al-khaja</loc>
-        <lastmod>2023-03-15T15:12:24+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-        </url>
-    <url>
-        <loc>http://127.0.0.1:8000/speakers/engr-mahmoud-alburai</loc>
-        <lastmod>2023-03-15T15:12:24+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-        </url>
-    <url>
-        <loc>http://127.0.0.1:8000/speakers/rohit-bassi</loc>
-        <lastmod>2023-03-15T15:12:24+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-        </url>
-    <url>
-        <loc>http://127.0.0.1:8000/speakers/ian-khan</loc>
-        <lastmod>2023-03-15T15:12:24+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-        </url>
-    <url>
-        <loc>http://127.0.0.1:8000/speakers/rajan-datar</loc>
-        <lastmod>2023-03-15T15:12:24+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-        </url>
-    <url>
-        <loc>http://127.0.0.1:8000/speakers/wafa-alobaida</loc>
-        <lastmod>2023-03-15T15:12:24+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-        </url>
-    <url>
-        <loc>http://127.0.0.1:8000/speakers/charif-hamidi</loc>
-        <lastmod>2023-03-15T15:12:24+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-        </url>
-    <url>
-        <loc>http://127.0.0.1:8000/speakers/mona-kazim</loc>
-        <lastmod>2023-03-15T15:12:24+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-        </url>
-    <url>
-        <loc>http://127.0.0.1:8000/speakers/maria-conceicao</loc>
-        <lastmod>2023-03-15T15:12:24+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-        </url>
-    <url>
-        <loc>http://127.0.0.1:8000/speakers/tanmay-bakshi</loc>
-        <lastmod>2023-03-15T15:12:24+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-        </url>
-    <url>
-        <loc>http://127.0.0.1:8000/speakers/gerald-lawless</loc>
-        <lastmod>2023-03-15T15:12:24+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-        </url>
-    <url>
-        <loc>http://127.0.0.1:8000/speakers/ahmad-al-assad</loc>
-        <lastmod>2023-03-15T15:12:24+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-        </url>
-    <url>
-        <loc>http://127.0.0.1:8000/speakers/debbie-nicol</loc>
-        <lastmod>2023-03-15T15:12:24+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-        </url>
-    <url>
-        <loc>http://127.0.0.1:8000/speakers/leila-almaeena</loc>
-        <lastmod>2023-03-15T15:12:24+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-        </url>
-    <url>
-        <loc>http://127.0.0.1:8000/speakers/gordon-tredgold</loc>
-        <lastmod>2023-03-15T15:12:24+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-        </url>
-    <url>
-        <loc>http://127.0.0.1:8000/speakers/adnan-al-awadi</loc>
-        <lastmod>2023-03-15T15:12:24+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-        </url>
-    <url>
-        <loc>http://127.0.0.1:8000/speakers/mohamad-al-kendi-aka-kanu</loc>
-        <lastmod>2023-03-15T15:12:24+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-        </url>
-    <url>
-        <loc>http://127.0.0.1:8000/speakers/alex-hirschi</loc>
-        <lastmod>2023-03-15T15:12:24+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-        </url>
-    <url>
-        <loc>http://127.0.0.1:8000/speakers/jessy-el-murr</loc>
-        <lastmod>2023-03-15T15:12:24+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-        </url>
-    <url>
-        <loc>http://127.0.0.1:8000/speakers/ben-collins</loc>
-        <lastmod>2023-03-15T15:12:24+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-        </url>
-    <url>
-        <loc>http://127.0.0.1:8000/speakers/john-sanei</loc>
-        <lastmod>2023-03-15T15:12:24+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-        </url>
-    <url>
-        <loc>http://127.0.0.1:8000/speakers/joe-hart</loc>
-        <lastmod>2023-03-15T15:12:24+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-        </url>
-    <url>
-        <loc>http://127.0.0.1:8000/speakers/mc-bassam-nader</loc>
-        <lastmod>2023-03-15T15:12:24+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-        </url>
-    <url>
-        <loc>http://127.0.0.1:8000/speakers/linda-beaini</loc>
-        <lastmod>2023-03-15T15:12:24+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-        </url>
-    <url>
-        <loc>http://127.0.0.1:8000/speakers/kelly-lundberg</loc>
-        <lastmod>2023-03-15T15:12:24+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-        </url>
-    <url>
-        <loc>http://127.0.0.1:8000/speakers/john-c-maxwell</loc>
-        <lastmod>2023-03-15T15:12:24+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-        </url>
-    <url>
-        <loc>http://127.0.0.1:8000/speakers/sharif-maghraby</loc>
-        <lastmod>2023-03-15T15:12:24+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-        </url>
-    <url>
-        <loc>http://127.0.0.1:8000/speakers/muna-abusulayman</loc>
-        <lastmod>2023-03-15T15:12:24+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-        </url>
-    <url>
-        <loc>http://127.0.0.1:8000/speakers/dr-adil-al-qusadi</loc>
-        <lastmod>2023-03-15T15:12:24+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-        </url>
-    <url>
-        <loc>http://127.0.0.1:8000/speakers/shaden-bolbol</loc>
-        <lastmod>2023-03-15T15:12:24+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-        </url>
-    <url>
-        <loc>http://127.0.0.1:8000/speakers/karl-w-feilder</loc>
-        <lastmod>2023-03-15T15:12:24+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-        </url>
-    <url>
-        <loc>http://127.0.0.1:8000/speakers/joy-baldridge</loc>
-        <lastmod>2023-03-15T15:12:24+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
+        <loc>http://localhost:8000/storage/2/Screenshot-from-2023-04-06-02-44-38.png</loc>
+        <lastmod>2023-04-13T17:17:44+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
         </url>
     <url>
-        <loc>http://127.0.0.1:8000/speakers/baker-atyani</loc>
-        <lastmod>2023-03-15T15:12:24+00:00</lastmod>
+        <loc>http://localhost:8000/blogs/kldfbmdklbneklbm</loc>
+        <lastmod>2023-04-14T12:27:17+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
         </url>
     <url>
-        <loc>http://127.0.0.1:8000/speakers/nabil-al-busaidi</loc>
-        <lastmod>2023-03-15T15:12:24+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-        </url>
-    <url>
-        <loc>http://127.0.0.1:8000/speakers/abdullah-al-qassab</loc>
-        <lastmod>2023-03-15T15:12:24+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-        </url>
-    <url>
-        <loc>http://127.0.0.1:8000/speakers/nasif-kayed</loc>
-        <lastmod>2023-03-15T15:12:24+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-        </url>
-    <url>
-        <loc>http://127.0.0.1:8000/speakers/mogens-kjmpe-jensen</loc>
-        <lastmod>2023-03-15T15:12:24+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-        </url>
-    <url>
-        <loc>http://127.0.0.1:8000/speakers/anita-milovac</loc>
-        <lastmod>2023-03-15T15:12:24+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-        </url>
-    <url>
-        <loc>http://127.0.0.1:8000/speakers/dr-florence-eid-oakden</loc>
-        <lastmod>2023-03-15T15:12:24+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-        </url>
-    <url>
-        <loc>http://127.0.0.1:8000/speakers/cheyenne-kamran</loc>
-        <lastmod>2023-03-15T15:12:24+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-        </url>
-    <url>
-        <loc>http://127.0.0.1:8000/speakers/sara-al-madani</loc>
-        <lastmod>2023-03-15T15:12:24+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-        </url>
-    <url>
-        <loc>http://127.0.0.1:8000/speakers/sue-falcone</loc>
-        <lastmod>2023-03-15T15:12:24+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-        </url>
-    <url>
-        <loc>http://127.0.0.1:8000/speakers/andreea-zoia</loc>
-        <lastmod>2023-03-15T15:12:24+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-        </url>
-    <url>
-        <loc>http://127.0.0.1:8000/speakers/todd-mitchem</loc>
-        <lastmod>2023-03-15T15:12:24+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-        </url>
-    <url>
-        <loc>http://127.0.0.1:8000/speakers/talib-hashim</loc>
-        <lastmod>2023-03-15T15:12:24+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-        </url>
-    <url>
-        <loc>http://127.0.0.1:8000/speakers/erik-saelens</loc>
-        <lastmod>2023-03-15T15:12:24+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-        </url>
-    <url>
-        <loc>http://127.0.0.1:8000/speakers/simerjeet-singh</loc>
-        <lastmod>2023-03-15T15:12:24+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-        </url>
-    <url>
-        <loc>http://127.0.0.1:8000/speakers/dave-crane</loc>
-        <lastmod>2023-03-15T15:12:24+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-        </url>
-    <url>
-        <loc>http://127.0.0.1:8000/speakers/lilli-jahilo</loc>
-        <lastmod>2023-03-15T15:12:24+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-        </url>
-    <url>
-        <loc>http://127.0.0.1:8000/speakers/daniel-weihrauch</loc>
-        <lastmod>2023-03-15T15:12:24+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-        </url>
-    <url>
-        <loc>http://127.0.0.1:8000/speakers/terence-mauri</loc>
-        <lastmod>2023-03-15T15:12:24+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-        </url>
-    <url>
-        <loc>http://127.0.0.1:8000/speakers/strongnatasha-dsouzastrong</loc>
-        <lastmod>2023-03-15T15:12:24+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-        </url>
-    <url>
-        <loc>http://127.0.0.1:8000/speakers/dr-mohamed-ghoneim</loc>
-        <lastmod>2023-03-15T15:12:24+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-        </url>
-    <url>
-        <loc>http://127.0.0.1:8000/speakers/budders-home</loc>
-        <lastmod>2023-03-15T15:12:24+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-        </url>
-    <url>
-        <loc>http://127.0.0.1:8000/speakers/new-speaker</loc>
-        <lastmod>2023-03-15T15:12:24+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-        </url>
-    <url>
-        <loc>http://127.0.0.1:8000/speakers/budders-home-1</loc>
-        <lastmod>2023-03-15T15:12:24+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
+        <loc>http://localhost:8000/storage/3/Screenshot-from-2023-04-11-14-58-56.png</loc>
+        <lastmod>2023-04-14T11:43:25+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
         </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogs/some-data</loc>
-        <lastmod>2023-03-15T15:12:24+00:00</lastmod>
+        <loc>http://localhost:8000/storage/4/Screenshot-from-2023-04-11-15-00-54.png</loc>
+        <lastmod>2023-04-14T12:23:22+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
         </url>
     <url>
-        <loc>http://127.0.0.1:8000/blogs/this-is-new-blog</loc>
-        <lastmod>2023-03-15T15:12:24+00:00</lastmod>
+        <loc>http://localhost:8000/storage/5/Screenshot-from-2023-04-04-17-48-05.png</loc>
+        <lastmod>2023-04-14T12:23:41+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
         </url>

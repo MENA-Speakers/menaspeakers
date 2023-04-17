@@ -4,6 +4,8 @@
 /public/sitemap.xml
 /public/hot
 /public/storage
+/public/speaker-export.csv
+/public/sitemap.xml
 /storage/*.key
 /vendor
 .env
