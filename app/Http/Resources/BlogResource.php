@@ -22,7 +22,7 @@ class BlogResource extends JsonResource
           'content' => $this->content,
           'meta_title' => $this->meta_title,
           'meta_description' => $this->meta_description,
-          'meta_keywords' => $this->meta_keywords,
+          'keywords' => $this->keywords,
           'image' => $this->getFirstMediaUrl('image'),
         ];
     }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\BlogUpdateRequest;
 use App\Http\Requests\StoreBlogRequest;
+use App\Http\Resources\BlogResource;
 use App\Models\Blog;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
@@ -13,28 +14,29 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Redirect;
+use Inertia\Inertia;
 
 class AdminBlogController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return Application|Factory|View
+     * @return \Inertia\Response
      */
     public function index()
     {
       $blogs = Blog::latest()->paginate(12);
-        return view('admin.blogs.index', compact('blogs'));
+        return Inertia::render('Admin/Blogs/Index', [
+          'blogs' => BlogResource::collection($blogs)
+        ]);
     }
 
     /**
      * Show the form for creating a new resource.
-     *
-     * @return Application|Factory|View
      */
     public function create()
     {
-        return view('admin.blogs.create');
+        return Inertia::render('Admin/Blogs/Create');
     }
 
   /**
@@ -49,6 +51,7 @@ class AdminBlogController extends Controller
         $blog = Blog::create([
           'title' => $request->input('title'),
           'content' => $request->input('content'),
+          'keywords' => $request->input('keywords'),
           'excerpt' => $request->input('excerpt'),
           'featured' => boolval($request->input('featured')),
         ]);
@@ -61,27 +64,19 @@ class AdminBlogController extends Controller
         return Redirect::route('admin.blogs.index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
 
   /**
    * Show the form for editing the specified resource.
    *
    * @param Blog $blog
    *
-   * @return Application|Factory|View
+   * @return \Inertia\Response
    */
     public function edit(Blog $blog)
     {
-        return view('admin.blogs.edit', compact('blog'));
+        return Inertia::render('Admin/Blogs/Create', [
+          'blog' => new BlogResource($blog)
+        ]);
     }
 
   /**

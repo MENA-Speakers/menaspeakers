@@ -74,6 +74,7 @@
     Route::get('blogs/create', [AdminBlogController::class, 'create'])->name('blogs.create');
     Route::get('blogs/{blog}/edit', [AdminBlogController::class, 'edit'])->name('blogs.edit');
     Route::post('blogs/{blog}', [AdminBlogController::class, 'update'])->name('blogs.update');
+    Route::post('blogs/{blog}/delete', [AdminBlogController::class, 'destroy'])->name('blogs.delete');
 
     //settings
     Route::get('settings/location', [SettingController::class, 'location'])->name('settings.location');

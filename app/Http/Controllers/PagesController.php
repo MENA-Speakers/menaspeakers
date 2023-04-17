@@ -10,12 +10,12 @@ class PagesController extends Controller
 
 
   public function terms(){
-      return view('pages.terms-condition');
+      return Inertia::render('TermsConditions');
   }
 
 
   public function policy(){
-    return view('pages.refund-policy');
+    return Inertia::render('RefundPolicy');
   }
 
 
