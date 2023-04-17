@@ -17,7 +17,7 @@ function BlogCard({blog}) {
         <img
           className={'w-full object-cover h-60'}
           src={blog.image}
-          alt={'blog.title'}/>
+          alt={blog.image.name}/>
       </Link>
       <div className={'py-4 space-y-4'}>
         <Link className={'font-bold'} href={route('blogs.show', blog.slug)}>{blog.title}</Link>

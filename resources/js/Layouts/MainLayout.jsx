@@ -60,8 +60,8 @@ export default function MainLayout({ children}) {
                  <span className="sr-only">MENA Speakers</span>
                  <img
                    className="h-12 w-auto"
-                   src="/images/logo.png"
-                   alt=""
+                   src="/images/mena-speakers-logo.png"
+                   alt="mena speakers logo"
                  />
                </a>
                <button

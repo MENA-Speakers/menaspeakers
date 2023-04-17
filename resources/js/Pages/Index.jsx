@@ -18,7 +18,7 @@ function Index({blogs, speakers, gallery,news}) {
       {/* Hero Header*/}
       <section className="w-full   relative">
         <div className="w-full h-[600px] lg:h-[800px] ">
-          <img className={'w-full h-full object-cover'} src="/images/mena-spearkers-01.webp" alt=""/>
+          <img className={'w-full h-full object-cover'} src="/images/mena-spearkers-01.webp" alt="speaker from mena speakers wearing abaia in front of people at forume event"/>
           <div className="absolute inset-0 bg-black/40">
             <div
               className={'w-full lg:max-w-4xl mx-auto px-6 lg:px-0 pt-40 lg:pt-0 h-full flex space-y-8 flex-col items-center justify-center z-20'}>
