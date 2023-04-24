@@ -6,8 +6,8 @@ export default function Pagination( {links, metaLinks} ) {
   return (
     metaLinks?.last_page > 1 && (
       // Mobile Pagination
-      <div className={'mx-auto flex items-center justify-center lg:max-w-6xl'}>
-        <nav className={'flex w-full items-center justify-between px-12 lg:hidden '}>
+      <div className={'mx-auto flex items-center justify-center w-full lg:max-w-6xl'}>
+        <nav className={'flex w-full items-center justify-between px-4 lg:hidden '}>
           <div className='flex w-0 md:hidden'>
             {links.previous === null ? (
               <span

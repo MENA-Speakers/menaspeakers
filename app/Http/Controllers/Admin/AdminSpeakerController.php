@@ -28,7 +28,8 @@ class AdminSpeakerController extends Controller
      */
     public function index()
     {
-      $speakers = Speaker::latest()->paginate(12);
+
+      $speakers = Speaker::oldest()->paginate(12);
       return Inertia::render('Admin/Speakers/Index', [
         'speakers' => SpeakerResource::collection($speakers),
       ]);

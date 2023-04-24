@@ -43,7 +43,7 @@
 
   Route::get('profile', [PagesController::class, 'profile'])->name('pages.profile');
   Route::get('profile-arabic', [PagesController::class, 'profileArabic'])->name('pages.profile.arabic');
-  Route::get('/FAQs', [FaqsController::class, 'index'])->name('faqs.index');
+  Route::get('/faqs', [FaqsController::class, 'index'])->name('faqs.index');
   Route::get('page/terms-condition', [PagesController::class, 'terms'])->name('pages.terms');
   Route::get('page/contact', [PagesController::class, 'contact'])->name('pages.contact');
   Route::get('page/refund-policy', [PagesController::class, 'policy'])->name('pages.policy');

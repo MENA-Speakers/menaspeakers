@@ -29,7 +29,7 @@ class SpeakersController extends Controller
       }
 
     }else {
-      $result = Speaker::latest();
+      $result = Speaker::oldest();
     }
 
     $locations = Location::all();

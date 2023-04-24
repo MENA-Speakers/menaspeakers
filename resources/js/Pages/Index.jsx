@@ -58,7 +58,7 @@ function Index({blogs, speakers, gallery,news}) {
             </div>
           </div>
 
-          <div className={'grid grid-cols-2 p-6 lg:px-12'}>
+          <div className={'grid grid-cols-2 px-6 lg:px-12'}>
             <div className={'space-y-4'}>
               <svg className={'w-16 h-16 stroke-1 fill-current text-blue-300'} xmlns="http://www.w3.org/2000/svg"
                    xmlSpace="preserve" viewBox="0 0 512 512">
@@ -89,6 +89,9 @@ function Index({blogs, speakers, gallery,news}) {
               <p className="text-gray-100">Monday - Friday <br/> 9 AM - 6 PM</p>
             </div>
 
+
+          </div>
+          <div className={'w-full flex flex-col md:flex-row px-6 lg:px-12'}>
             <div className="pt-12 lg:pt-0">
               <Link href={route('pages.contact')} className="gradient-btn font-semibold py-3 px-4 px-4 text-white">Book
                 Our Speakers</Link>
@@ -256,7 +259,7 @@ function Index({blogs, speakers, gallery,news}) {
             </div>
 
             <div className={'py-4'}>
-              <p className="text-gray-500">We have a roster of 300 top professionals whose sole purpose is to make an event successful and ensure that your audience is getting engaged, educated and empower.</p>
+              <p className="text-gray-500">We have a roster of 300 top professionals whose sole purpose is to make an event successful and ensure that your audience is getting engaged, educated and empowered.</p>
             </div>
             <div className="py-4">
               <Link href={route('speakers.index')} className="gradient-btn hover:-gradient-btn font-semibold py-3 px-4 px-6 text-white">

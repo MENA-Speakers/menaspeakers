@@ -27,6 +27,8 @@ class BlogsController extends Controller
 
 
     public function show(Blog $blog){
-      return view('blogs.show', compact('blog'));
+      return Inertia::render('Blogs/Show', [
+        'blog' => new BlogResource($blog)
+      ]);
     }
 }
