@@ -30,7 +30,7 @@ function Index({speakers, query, locations}) {
         <title>Speakers</title>
       </Head>
       <section className="relative h-[550px]">
-        <img src="https://images.unsplash.com/photo-1561489396-888724a1543d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8Y29uZnJlbmNlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=1000&q=60" alt="" className="w-full h-full object-cover"/>
+        <img src="https://images.unsplash.com/photo-1561489396-888724a1543d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8Y29uZnJlbmNlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=1000&q=60" alt="groupe of mena speakers in front of people at forume event" className="w-full h-full object-cover"/>
 
         <div className="absolute inset-0 z-0">
           <div className="w-full h-full z-20 bg-black/50">

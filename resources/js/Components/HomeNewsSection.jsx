@@ -17,7 +17,7 @@ function HomeNewsSection({news}) {
           <div className="z-20 w-full flex justify-end ">
             <div className=" lg:w-[70%]">
               <div className="relative">
-                <img className={'w-full h-full object-cover'} src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2012&q=80" alt=""/>
+                <img className={'w-full h-full object-cover'} src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2012&q=80" alt="groupe of mena speakers in front of people at forume event"/>
                 <div className="absolute inset-0 bg-mena-300/70">
                   <div className=" w-full h-full flex items-center justify-center">
                     <button onClick={() => setPlayVideo(true)} className={'ml-32 z-10'}>
