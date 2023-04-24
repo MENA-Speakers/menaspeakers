@@ -22,7 +22,7 @@ function Index({blogs, query}) {
       </section>
 
       <section className="py-12">
-        <div className="max-w-7xl mx-auto px-4 sm px-6 lg px-8 py-12 px-6 lg:px-0">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 px-6 lg:px-0">
 
 
           {/* Display Speakers*/}

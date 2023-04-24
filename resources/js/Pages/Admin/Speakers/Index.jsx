@@ -48,7 +48,7 @@ function Index( {speakers, query} ) {
                   className="max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
                   <a href={route('admin.speakers.show', speaker.slug)}>
                     <img className="rounded-t-lg h-60 w-full object-cover" src={ speaker.image }
-                         alt="" />
+                         alt="" loading='lazy'/>
                   </a>
                   <div className="p-5">
                     <a href={ route('speakers.show', speaker.slug) }>

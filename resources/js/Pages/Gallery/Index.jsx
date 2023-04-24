@@ -37,7 +37,7 @@ function Index({gallery}) {
               >
                 <Masonry gutter="0.5rem">
                   {gallery.map((image, index) => (
-                    <img key={index} src={image.url} alt={image.name}/>
+                    <img key={index} src={image.url} alt={image.name} loading='lazy'/>
                   ))}
                 </Masonry>
               </ResponsiveMasonry>

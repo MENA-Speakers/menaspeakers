@@ -25,7 +25,7 @@ export default function MainLayout({ children}) {
                <img
                  className="h-12 w-auto"
                  src="/images/Mena-logo-white.png"
-                 alt=""
+                 alt="mena speakers logo"
                />
              </Link>
            </div>
@@ -105,7 +105,7 @@ export default function MainLayout({ children}) {
       <footer className="bg-black  pt-12 text-gray-400 p-6">
         <div className="max-w-7xl mx-auto py-8 grid grid-cols-2 lg:grid-cols-6 gap-8">
           <div className="col-span-2">
-            <img className={'h-20'} src="/images/Mena-logo-white.png" alt=""/>
+            <img className={'h-20'} src="/images/Mena-logo-white.png" alt="mena speakers logo"/>
           </div>
 
           <div className="">
