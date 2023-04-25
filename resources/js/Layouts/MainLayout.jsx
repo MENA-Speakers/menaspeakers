@@ -162,7 +162,7 @@ export default function MainLayout({ children}) {
 
         </div>
         <div className="max-w-7xl mx-auto p-6 text-gray-300">
-          <p>© Copyright MENA SPEAKERS All rights reserved.</p>
+          <p>© Copyright MENA Speakers All rights reserved.</p>
         </div>
       </footer>
     </div>

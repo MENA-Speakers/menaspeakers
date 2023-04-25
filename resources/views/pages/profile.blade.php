@@ -229,7 +229,7 @@
             <div class="imgtext wow fadeInUp">
               <img src="{{ asset('/images/img2new.jpg')}}" class="img-responsive" alt="">
               <h4>The Largest Pool of Speakers in the Middle East</h4>
-              <p>We have a roster of 100 professionals whose sole purpose is to make an event successful and ensure that your audience is getting engaged, educated and empower.</p>
+              <p>We have a roster of 100 professionals whose sole purpose is to make an event successful and ensure that your audience is getting engaged, educated and empowered.</p>
             </div>
           </div>
           <div class="col-md-3">
