@@ -256,7 +256,7 @@ function Index({blogs, speakers, gallery,news}) {
             </div>
 
             <div className={'py-4'}>
-              <p className="text-gray-500">We have a roster of 300 top professionals whose sole purpose is to make an event successful and ensure that your audience is getting engaged, educated and empower.</p>
+              <p className="text-gray-500">We have a roster of 300 top professionals whose sole purpose is to make an event successful and ensure that your audience is getting engaged, educated and empowered.</p>
             </div>
             <div className="py-4">
               <Link href={route('speakers.index')} className="gradient-btn hover:-gradient-btn font-semibold py-3 px-4 px-6 text-white">
