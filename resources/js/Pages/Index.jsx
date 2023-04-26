@@ -58,50 +58,52 @@ function Index({blogs, speakers, gallery,news}) {
             </div>
           </div>
 
-          <div className={'grid grid-cols-2 px-6 lg:px-12'}>
-            <div className={'space-y-4'}>
-              <svg className={'w-16 h-16 stroke-1 fill-current text-blue-300'} xmlns="http://www.w3.org/2000/svg"
-                   xmlSpace="preserve" viewBox="0 0 512 512">
-                <path
-                  d="M508.622 1.925c-2.444-1.824-5.335-2.391-8.26-1.533l-161.375 47.5L177.551.392c-.17-.049-.314-.047-.484-.087a9.319 9.319 0 0 0-1.099-.191 9.529 9.529 0 0 0-1.092-.069c-.368 0-.726.027-1.094.069a9.52 9.52 0 0 0-1.109.191c-.172.04-.344.038-.514.087L7.434 48.694C3.321 49.906 0 53.675 0 57.963V502.34c0 3.043 1.934 5.91 4.377 7.737C6.066 511.341 8.345 512 10.411 512c.915 0 1.955-.127 2.852-.391l161.564-47.499 161.531 47.499c.266.079.554.123.825.177.151.031.307.074.46.098a9.78 9.78 0 0 0 1.467.117c.49 0 .981-.042 1.467-.117.153-.024.302-.067.453-.098.271-.054.542-.098.811-.177l163.726-48.302c4.113-1.211 6.434-4.981 6.434-9.269V9.661c-.001-3.041-.935-5.909-3.379-7.736zM164.226 446.811 19.321 489.429V65.189l144.906-42.618v424.24zm164.227-248.534c0 .994-1.078 2.106-1.302 3.327-.453 2.452 1.302 4.837 1.302 6.804v281.021l-144.906-42.618V203.237c12.075 4.106 24.234 7.161 36.745 8.986.472.065 1.194.098 1.656.098 4.717 0 8.974-3.462 9.672-8.268.774-5.279-2.825-10.184-8.099-10.954-12.253-1.783-24.609-4.815-35.807-9.013-1.217-.457-1.752-.644-4.167-.601V22.571l144.906 42.618v133.088zm164.226 248.534-144.906 42.618V216.103c7.245 2.321 14.106 5.37 19.717 9.134 1.651 1.107 3.769 1.637 5.618 1.637 3.113 0 6.295-1.5 8.153-4.279 2.972-4.433 1.354-10.433-3.078-13.406-8.653-5.804-18.335-10.211-30.41-13.198V65.189l144.906-42.618v424.24z"/>
-                <path
-                  d="M308.84 200.755c-.283-5.33-5-9.42-10.151-9.146-6.047.311-12.349.877-18.736 1.674a234.99 234.99 0 0 1-19.651 1.637c-5.33.212-9.481 4.708-9.264 10.039.208 5.197 4.491 9.272 9.642 9.272.132 0 .264-.004.396-.009a253.1 253.1 0 0 0 21.274-1.768 242.333 242.333 0 0 1 17.339-1.553c5.33-.273 9.424-4.82 9.151-10.146zM418.047 282.232c-1.293-15.143-4.953-28.817-10.887-40.643-2.377-4.759-8.179-6.673-12.962-4.307-4.764 2.393-6.698 8.199-4.302 12.968 4.821 9.623 7.821 20.938 8.906 33.623.425 5.038 4.651 8.839 9.613 8.839a9.658 9.658 0 0 0 9.632-10.48zM104.472 115.774C92.566 97.887 87.425 83.816 87.378 83.681c-1.811-5.02-7.359-7.618-12.359-5.822a9.65 9.65 0 0 0-5.83 12.335c.236.656 5.887 16.283 19.189 36.278a9.673 9.673 0 0 0 8.057 4.312c1.84 0 3.698-.524 5.34-1.618 4.442-2.953 5.65-8.953 2.697-13.392zM155.821 167.581c-10.019-6.594-19.509-14.41-28.208-23.236-3.726-3.801-9.84-3.844-13.66-.104-3.802 3.745-3.84 9.863-.094 13.661 9.642 9.792 20.189 18.48 31.34 25.82a9.622 9.622 0 0 0 5.302 1.59c3.142 0 6.226-1.527 8.076-4.349 2.933-4.458 1.697-10.447-2.756-13.382zM447.07 384.111l19.844-19.846a9.657 9.657 0 0 0 0-13.661 9.656 9.656 0 0 0-13.66 0L433.41 370.45l-19.844-19.846a9.656 9.656 0 0 0-13.66 0 9.657 9.657 0 0 0 0 13.661l19.844 19.846-19.844 19.847a9.657 9.657 0 0 0 0 13.661 9.632 9.632 0 0 0 6.83 2.829 9.63 9.63 0 0 0 6.83-2.829l19.844-19.847 19.844 19.847a9.632 9.632 0 0 0 6.83 2.829 9.63 9.63 0 0 0 6.83-2.829 9.657 9.657 0 0 0 0-13.661l-19.844-19.847z"/>
-              </svg>
+          <div className={' px-6 lg:px-12'}>
+           <div className="grid grid-cols-2">
+             <div className={'space-y-4'}>
+               <svg className={'w-16 h-16 stroke-1 fill-current text-blue-300'} xmlns="http://www.w3.org/2000/svg"
+                    xmlSpace="preserve" viewBox="0 0 512 512">
+                 <path
+                   d="M508.622 1.925c-2.444-1.824-5.335-2.391-8.26-1.533l-161.375 47.5L177.551.392c-.17-.049-.314-.047-.484-.087a9.319 9.319 0 0 0-1.099-.191 9.529 9.529 0 0 0-1.092-.069c-.368 0-.726.027-1.094.069a9.52 9.52 0 0 0-1.109.191c-.172.04-.344.038-.514.087L7.434 48.694C3.321 49.906 0 53.675 0 57.963V502.34c0 3.043 1.934 5.91 4.377 7.737C6.066 511.341 8.345 512 10.411 512c.915 0 1.955-.127 2.852-.391l161.564-47.499 161.531 47.499c.266.079.554.123.825.177.151.031.307.074.46.098a9.78 9.78 0 0 0 1.467.117c.49 0 .981-.042 1.467-.117.153-.024.302-.067.453-.098.271-.054.542-.098.811-.177l163.726-48.302c4.113-1.211 6.434-4.981 6.434-9.269V9.661c-.001-3.041-.935-5.909-3.379-7.736zM164.226 446.811 19.321 489.429V65.189l144.906-42.618v424.24zm164.227-248.534c0 .994-1.078 2.106-1.302 3.327-.453 2.452 1.302 4.837 1.302 6.804v281.021l-144.906-42.618V203.237c12.075 4.106 24.234 7.161 36.745 8.986.472.065 1.194.098 1.656.098 4.717 0 8.974-3.462 9.672-8.268.774-5.279-2.825-10.184-8.099-10.954-12.253-1.783-24.609-4.815-35.807-9.013-1.217-.457-1.752-.644-4.167-.601V22.571l144.906 42.618v133.088zm164.226 248.534-144.906 42.618V216.103c7.245 2.321 14.106 5.37 19.717 9.134 1.651 1.107 3.769 1.637 5.618 1.637 3.113 0 6.295-1.5 8.153-4.279 2.972-4.433 1.354-10.433-3.078-13.406-8.653-5.804-18.335-10.211-30.41-13.198V65.189l144.906-42.618v424.24z"/>
+                 <path
+                   d="M308.84 200.755c-.283-5.33-5-9.42-10.151-9.146-6.047.311-12.349.877-18.736 1.674a234.99 234.99 0 0 1-19.651 1.637c-5.33.212-9.481 4.708-9.264 10.039.208 5.197 4.491 9.272 9.642 9.272.132 0 .264-.004.396-.009a253.1 253.1 0 0 0 21.274-1.768 242.333 242.333 0 0 1 17.339-1.553c5.33-.273 9.424-4.82 9.151-10.146zM418.047 282.232c-1.293-15.143-4.953-28.817-10.887-40.643-2.377-4.759-8.179-6.673-12.962-4.307-4.764 2.393-6.698 8.199-4.302 12.968 4.821 9.623 7.821 20.938 8.906 33.623.425 5.038 4.651 8.839 9.613 8.839a9.658 9.658 0 0 0 9.632-10.48zM104.472 115.774C92.566 97.887 87.425 83.816 87.378 83.681c-1.811-5.02-7.359-7.618-12.359-5.822a9.65 9.65 0 0 0-5.83 12.335c.236.656 5.887 16.283 19.189 36.278a9.673 9.673 0 0 0 8.057 4.312c1.84 0 3.698-.524 5.34-1.618 4.442-2.953 5.65-8.953 2.697-13.392zM155.821 167.581c-10.019-6.594-19.509-14.41-28.208-23.236-3.726-3.801-9.84-3.844-13.66-.104-3.802 3.745-3.84 9.863-.094 13.661 9.642 9.792 20.189 18.48 31.34 25.82a9.622 9.622 0 0 0 5.302 1.59c3.142 0 6.226-1.527 8.076-4.349 2.933-4.458 1.697-10.447-2.756-13.382zM447.07 384.111l19.844-19.846a9.657 9.657 0 0 0 0-13.661 9.656 9.656 0 0 0-13.66 0L433.41 370.45l-19.844-19.846a9.656 9.656 0 0 0-13.66 0 9.657 9.657 0 0 0 0 13.661l19.844 19.846-19.844 19.847a9.657 9.657 0 0 0 0 13.661 9.632 9.632 0 0 0 6.83 2.829 9.63 9.63 0 0 0 6.83-2.829l19.844-19.847 19.844 19.847a9.632 9.632 0 0 0 6.83 2.829 9.63 9.63 0 0 0 6.83-2.829 9.657 9.657 0 0 0 0-13.661l-19.844-19.847z"/>
+               </svg>
 
-              <h3 className="text sm font-semibold text-blue-400">
-                Where
-              </h3>
-              <p className="text-white">The Citadel Tower <br />
-                Dubai - UAE</p>
+               <h3 className="text sm font-semibold text-blue-400">
+                 Where
+               </h3>
+               <p className="text-white">The Citadel Tower <br />
+                 Dubai - UAE</p>
+             </div>
+             <div className={'space-y-4'}>
+
+               <svg className={'w-16 h-16 stroke-1'} xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#000"
+                    viewBox="0 0 24 24">
+                 <g stroke="#93c5fd">
+                   <circle cx="12" cy="12" r="8.5"/>
+                   <path strokeLinecap="round" d="M16.5 12h-4.25a.25.25 0 0 1-.25-.25V8.5"/>
+                 </g>
+               </svg>
+               <h3 className="text sm font-semibold text-blue-400">
+                 When
+               </h3>
+               <p className="text-gray-100">Monday - Friday <br/> 9 AM - 6 PM</p>
+             </div>
+           </div>
+
+            <div className={'w-full grid grid-cols-1 lg:grid-cols-2 mt-12 pt-12'}>
+              <div className="pt-12 lg:pt-0">
+                <Link href={route('pages.contact')} className="gradient-btn font-semibold py-3 px-4 text-white">Book
+                  Our Speakers</Link>
+              </div>
+              <div className="pt-12 lg:pt-0">
+                <Link href={route('speakers.index')}
+                      className="underline hover:text-mena-200 font-semibold py-3 px-4  text-white">View All
+                  Speakers</Link>
+              </div>
             </div>
-            <div className={'space-y-4'}>
-
-              <svg className={'w-16 h-16 stroke-1'} xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#000"
-                   viewBox="0 0 24 24">
-                <g stroke="#93c5fd">
-                  <circle cx="12" cy="12" r="8.5"/>
-                  <path strokeLinecap="round" d="M16.5 12h-4.25a.25.25 0 0 1-.25-.25V8.5"/>
-                </g>
-              </svg>
-              <h3 className="text sm font-semibold text-blue-400">
-                When
-              </h3>
-              <p className="text-gray-100">Monday - Friday <br/> 9 AM - 6 PM</p>
-            </div>
-
-
           </div>
-          <div className={'w-full flex flex-col md:flex-row px-6 lg:px-12'}>
-            <div className="pt-12 lg:pt-0">
-              <Link href={route('pages.contact')} className="gradient-btn font-semibold py-3 px-4 px-4 text-white">Book
-                Our Speakers</Link>
-            </div>
-            <div className="pt-12 lg:pt-0">
-              <Link href={route('speakers.index')}
-                    className="underline hover:text-mena-200 font-semibold py-3 px-4 px-4 text-white">View All
-                Speakers</Link>
-            </div>
-          </div>
+
 
         </div>
       </section>
@@ -139,9 +141,7 @@ function Index({blogs, speakers, gallery,news}) {
             <a href="https://mena-speakers.com/profile" className={'p-6 lg:px-20 space-y-4'}>
               <h3 className="text-white text-2xl font-bold">SPEAKERS MANAGEMENT
               </h3>
-              <p className={'text-gray-100'}>MENA Speakers provide you with first class speakers Our aim is to
-                facilitate the interaction between speaker and different forums and to make sure that the right voice is
-                matched to the right audience.
+              <p className={'text-gray-100'}>At MENA Speakers, we believe that effective communication can transform an event from mundane to unforgettable. That's why we specialize in connecting you with world-class speakers who have the ability to engage, educate, and inspire your audience.
               </p>
             </a>
           </div>
@@ -175,7 +175,7 @@ function Index({blogs, speakers, gallery,news}) {
             </div>
             <a href="https://mena-speakers-5847879.hs-sites.com/public-speaking" className={'p-6 lg:px-20 space-y-4'}>
               <h3 className="text-white text-2xl font-bold">PUBLIC SPEAKING TRAINING </h3>
-              <p className={'text-gray-100'}>Small organizations with 100 employees have to bear the same cost as leaders are spending 17 hours a week clarifying previous communications. On the other hand, leaders reap the benefit of effective communication by demonstrating a 47% increase in return on investment.</p>
+              <p className={'text-gray-100'}>At our company, we help organizations of all sizes improve their communication processes, which can lead to better employee productivity, reduced costs, and increased profitability. Let us help you streamline your communication and achieve the success you deserve.</p>
             </a>
           </div>
           <div className="py-12 bg-mena-300 flex flex-col">

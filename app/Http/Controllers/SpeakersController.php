@@ -24,20 +24,14 @@ class SpeakersController extends Controller
       'location',
     ])){
       $result = Speaker::search($request->input('query'));
-      if($request->has('location')) {
-        $result->where('location_id', intval($request->input('location')));
-      }
-
     }else {
       $result = Speaker::oldest();
     }
 
-    $locations = Location::all();
 
     return Inertia::render('Speakers/Index', [
       'speakers' => SpeakerResource::collection($result->paginate(12)->withQueryString()),
       'query' => $request->input('query'),
-      'locations' => $locations
     ]);
   }
 

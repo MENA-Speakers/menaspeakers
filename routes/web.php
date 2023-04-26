@@ -84,8 +84,6 @@
     Route::get('settings/location', [SettingController::class, 'location'])->name('settings.location');
     Route::post('settings/location', [SettingController::class, 'store'])->name('settings.location.store');
 
-
-
   });
 
 

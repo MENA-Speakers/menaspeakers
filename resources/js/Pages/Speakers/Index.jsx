@@ -54,13 +54,6 @@ function Index({speakers, query, locations}) {
                  <PrimaryButton type="submit">Search</PrimaryButton>
                </div>
              </div>
-              <div className="mt-4 space-x-2 ">
-                {
-                  locations.map((location, index) => (
-                    <button className={'text-xs py-1 px-3 rounded border'} type={'button'} onClick={() => handleLocationChange(location)}>{location.name}</button>
-                  ))
-                }
-              </div>
             </form>
           </div>
 
