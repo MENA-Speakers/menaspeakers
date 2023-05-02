@@ -42,7 +42,7 @@ function Index({speakers, query, locations, location}) {
             <form onSubmit={formik.handleSubmit} className={''}>
               <div className={'flex space-x-6 items-center'}>
                 <div className="flex-grow">
-                  <TextInput name="query" placeholder={`Search ${location.name} in Speakers`}
+                  <TextInput name="query" placeholder={`Search Speakers in ${location.name}`}
                              label="Search" className={'w-full'} value={formik.values.query} onChange={formik.handleChange} />
                 </div>
                 <div>
