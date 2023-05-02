@@ -16,7 +16,7 @@ function Create( {blog} ) {
     initialValues: {
       title: blog?.title ? blog.title : '',
       meta_title: blog?.meta_title ? blog.meta_title : '',
-      keywords: blog?.keywords ? blog.keywords : '',
+      keywords: blog?.keywords ? blog.keywords : 'Public speaking, Communication skills, Keynote speaker, Public speaking trainer, Serial entrepreneur, Forbes contributor, Career advancement, Personal branding, Overcoming fear of public speaking, Effective communication, Impactful speeches',
       featured: blog?.featured ? blog.featured : '',
       content: blog?.content ? blog.content : '',
       excerpt: blog?.excerpt ? blog.excerpt : '',
