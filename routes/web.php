@@ -11,6 +11,7 @@
   use App\Http\Controllers\FaqsController;
   use App\Http\Controllers\GalleryController;
   use App\Http\Controllers\HomeController;
+  use App\Http\Controllers\LocationController;
   use App\Http\Controllers\PagesController;
   use App\Http\Controllers\SpeakersController;
   use App\Models\Speaker;
@@ -34,6 +35,9 @@
     Route::get('/speakers', 'index')->name('speakers.index');
     Route::get('/speakers/{speaker}', 'show')->name('speakers.show');
   });
+
+  Route::get('/location/{location}', [LocationController::class, 'show'])->name('location.show');
+  Route::get('/location/{location}/search', [LocationController::class, 'search'])->name('location.speakers.search');
 
 
   Route::get('/gallery/', [GalleryController::class, 'index'])->name('gallery.index');
