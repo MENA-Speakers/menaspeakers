@@ -124,7 +124,7 @@
     <!-- Wrapper for slides -->
     <div class="carousel-inner slider" role="listbox">
       <div class="item active">
-        <img src="{{asset("/images/slider2.jpg")}}" alt="">
+        <img src="{{asset("/images/blond-hair-wonan-speaking-in-front-of-public-and-raising-her-hands.jpg")}}" alt="MENA Speakers">
         <div class="carousel-caption">
 
           <h3>أبرز المتحدثين في الشرق الاوسط</h3>
@@ -135,7 +135,7 @@
         </div>
       </div>
       <div class="item">
-        <img src="{{asset("/images/slider4.jpg")}}" alt="Flower">
+        <img src="{{asset("/images/black-man-with-suite-raising-his-hand-and-speaking-in-front-of-people.jpg")}}" alt="MENA Speakers">
         <div class="carousel-caption">
           <h3>أبرز المتحدثين في الشرق الاوسط</h3>
           <p>.متحدثين و محاورين على المسرح. مدربين لاداري الشركات. مكان واحد يجمعهم</p>
@@ -146,7 +146,7 @@
       </div>
 
       <div class="item">
-        <img src="{{asset("/images/slider1.jpg")}}" alt="Flower">
+        <img src="{{asset("/images/blond-hair-speaker-with-nice-pink-jaket-speaking-in-front-of-public.jpg")}}" alt="MENA Speakers">
         <div class="carousel-caption">
           <h3>أبرز المتحدثين في الشرق الاوسط</h3>
           <p>.متحدثين و محاورين على المسرح. مدربين لاداري الشركات. مكان واحد يجمعهم</p>
