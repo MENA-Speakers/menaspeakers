@@ -53,6 +53,7 @@ function Index({speakers, query, locations, location}) {
             <div className={'py-4 '}>
               <h3 className={'text-gray-900'}>Locations</h3>
               <div className={'py-2 text-sm flex space-x-4'}>
+                <Link href={route('speakers.index')} className={'text-gray-500 hover:text-gray-900 text-sm border py-1.5 hover:bg-gray-50 px-3 rounded'}>All</Link>
                 {
                   locations.map(location => (
                     <Link key={location.id}
