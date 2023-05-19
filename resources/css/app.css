@@ -4,7 +4,7 @@
 
 /* style all links */
 a {
-  @apply text-mena-500 hover:text-mena-600;
+  @apply text-mena-300;
 }
 
 
