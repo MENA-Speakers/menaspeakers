@@ -1,12 +1,30 @@
 import React from 'react';
 import MainLayout from "@/Layouts/MainLayout";
 import {Head} from "@inertiajs/react";
-import BlogCard from "@/Components/BlogCard";
-import Pagination from "@/Components/Pagination";
+import truncateText from "@/Utils/truncateText";
 
 function Index({blog}) {
+
+  const blogStructuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: blog.title,
+    url: window.location.href,
+    Keywords: blog.keywords,
+    datePublished: blog.created_at,
+    dateModified: blog.updated_at,
+    author: {
+      '@type': 'Organization',
+      name: 'MENA Speakers',
+      url: 'https://menaspeakers.com',
+    },
+    image: blog.image,
+    description: blog.excerpt ? blog.excerpt : truncateText( blog.content, 150 ),
+  };
+
   return (
     <MainLayout>
+      <script type='application/ld+json'>{JSON.stringify( blogStructuredData )}</script>
       <Head>
         <title>{blog.title}</title>
         <meta name={'description'} content={blog.excerpt} />
@@ -25,6 +43,7 @@ function Index({blog}) {
       </section>
 
       <section className="py-12">
+
         <div dangerouslySetInnerHTML={{__html: blog.content}} className="max-w-7xl mx-auto px-4 sm px-6 lg px-8 py-12 px-6 lg:px-0">
 
         </div>

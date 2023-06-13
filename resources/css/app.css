@@ -7,6 +7,11 @@ a {
   @apply text-mena-300;
 }
 
+/* style all links in #footer white */
+#footer a {
+  @apply text-gray-300;
+}
+
 
 .gradient-btn {
   @apply bg-gradient-to-r from-mena-200 to-mena-300;
