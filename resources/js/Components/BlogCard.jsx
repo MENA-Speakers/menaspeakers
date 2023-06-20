@@ -10,7 +10,7 @@ function BlogCard({ blog }) {
           Latest
         </span>
         <span className={'text-xs text-gray-400'}>
-          January 12, 2021
+          {blog.published_at}
         </span>
       </div>
       <Link href={route('blogs.show', blog.slug)}>
