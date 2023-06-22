@@ -59,7 +59,8 @@ function Index( {speakers, query} ) {
                     <Link href={ route('admin.speakers.delete', speaker.slug) } method="post">
                       <button type="submit" className="text-sm px-3 py-2 text-red-600">Delete</button>
                     </Link>
-                    <a href={ route('admin.speakers.edit', speaker.slug ) } className="text-sm px-3 py-2">Edit</a>
+                    <Link href={ route('admin.speakers.videos', speaker.slug ) } className="text-sm px-3 py-2 text-lime-600">Videos</Link>
+                    <Link href={ route('admin.speakers.edit', speaker.slug ) } className="text-sm px-3 py-2">Edit</Link>
                   </div>
                 </div>
               ))
