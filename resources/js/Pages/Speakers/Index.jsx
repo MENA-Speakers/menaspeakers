@@ -10,7 +10,7 @@ import Pagination from "@/Components/Pagination";
 function Index({speakers, query, locations}) {
   const formik = useFormik({
     initialValues: {
-      query: query,
+      query: query ? query : ''
     },
     onSubmit: (values) => {
       router.get(route('speakers.index'), values)
