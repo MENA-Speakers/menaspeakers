@@ -22,24 +22,24 @@ class AdminSpeakerVideoController extends Controller
 
   public function store(Request $request, Speaker $speaker)
   {
-
     //Validate
     $request->validate([
-      'link' => 'required|url'
+      'link' => 'required|url',
+      'videoSource' => 'required',
     ]);
 
     //extract video id
-    $videoId = explode('=', $request->link)[1];
-
+    $videoId = $request->videoSource === 'youtube' ?
+      explode('=', $request->link)[1] : explode('.com/', $request->link)[1];
     $speaker->videos()->create([
       'url' => $videoId
     ]);
 
     return $speaker->videos;
-
   }
 
-  public function destroy(Video $video){
+  public function destroy(Video $video)
+  {
 
     $video->delete();
     return redirect()->back();
