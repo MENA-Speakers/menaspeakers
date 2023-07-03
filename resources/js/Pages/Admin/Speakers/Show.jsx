@@ -69,7 +69,9 @@ function Show( {speaker, videos} ) {
         </div>
       }
     >
-      <Head title="Speaker "/>
+     <Head>
+        <title>Speaker - {speaker.name}</title>
+     </Head>
 
       <div className="py-12">
         <div className="max-w-7xl mx-auto sm:p-6 lg:p-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">

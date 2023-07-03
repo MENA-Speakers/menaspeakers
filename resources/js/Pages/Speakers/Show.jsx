@@ -21,7 +21,7 @@ function Show( {speaker} ) {
     <MainLayout>
       <script type='application/ld+json'>{JSON.stringify( speakerStructuredData )}</script>
       <Head>
-        <title>{speaker.name}</title>
+        <title>{`Speaker - ${speaker.name}`}</title>
         <meta name={'description'} content={speaker.excerpt}/>
         <meta name={'keywords'} content={speaker.keywords}/>
       </Head>
