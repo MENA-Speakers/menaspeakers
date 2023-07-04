@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Laravel\Scout\Searchable;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 
@@ -34,6 +35,13 @@ class Speaker extends Model implements HasMedia
   public function registerMediaCollections(): void
   {
     $this->addMediaCollection('avatar')->singleFile();
+  }
+
+  public function registerMediaConversions(Media $media = null): void
+  {
+    $this->addMediaConversion('webp')
+      ->format('webp')
+      ->performOnCollections('avatar');
   }
 
 

@@ -37,7 +37,7 @@ function HomeNewsSection({news}) {
                     </p>
                     <p className="">The workshop provided valuable insights and practical tips for delivering powerful presentations, engaging the audience, and developing a strong personal brand. Participants had the opportunity to practice their speaking skills and receive feedback from both Saana and their peers.
                     </p>
-                    <p>The next public speaking masterclass is scheduled for April 29, 2023, and early bird offers are available for a limited time.</p>
+                    <p>The next public speaking masterclass is scheduled for August 26, 2023, and early bird offers are available for a limited time.</p>
                   </div>
                 </div>
                 <div>

@@ -17,7 +17,7 @@ class ImageResource extends JsonResource
         return [
           'id' => $this->id,
           'name' => $this->name,
-          'url' => $this->getFirstMediaUrl('image'),
+          'url' => $this->getFirstMediaUrl('image', 'webp'),
         ];
     }
 }

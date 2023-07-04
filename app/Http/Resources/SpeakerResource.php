@@ -17,7 +17,7 @@ class SpeakerResource extends JsonResource
         return [
           'id' => $this->id,
           'name' => $this->name,
-          'image' => $this->getFirstMediaUrl('avatar'),
+          'image' => $this->getFirstMediaUrl('avatar', 'webp'),
           'bio' => $this->bio,
           'featured' => $this->featured,
           'meta_title' => $this->meta_title,
