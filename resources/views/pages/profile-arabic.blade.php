@@ -22,14 +22,7 @@
   <!-- <link href="{{ asset('css/font-awesome.min.css')}}" rel="stylesheet" type="text/css"> -->
   <link href="{{ asset('css/animate.css')}}" rel="stylesheet" type="text/css">
   <link href="{{ asset('css/style.css')}}" rel="stylesheet" type="text/css">
-  <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
-  <script>
-    hbspt.forms.create({
-      region: "na1",
-      portalId: "5847879",
-      formId: "fb8b0ab0-0c41-4a33-b8ed-5d4ee5cc4ed4"
-    });
-  </script>
+
   {{--  <!--Start of Zopim Live Chat Script-->--}}
   {{--  <script type="text/javascript">--}}
   {{--    window.$zopim||(function(d,s){var z=$zopim=function(c){--}}
@@ -474,13 +467,11 @@
           <div class="contform" >
             <div id="contactform1">
 
-              <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
-              <script>
-                hbspt.forms.create({
-                  region: "na1",
-                  portalId: "5847879",
-                  formId: "e18db37f-01c2-4076-8e53-14251dc7b396"
-                });
+              <script data-b24-form="inline/15/32sf8u" data-skip-moving="true">
+                (function(w,d,u){
+                  var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);
+                  var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);
+                })(window,document,'https://cdn.bitrix24.com/b25531643/crm/form/loader_15.js');
               </script>
             </div>
           </div>

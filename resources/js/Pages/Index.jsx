@@ -6,14 +6,24 @@ import HomeNewsSection from "@/Components/HomeNewsSection";
 import HomeOurPartners from "@/Components/HomeOurPartners";
 import HomeCountdownSection from "@/Components/HomeCountdownSection";
 import HomeGallerySection from "@/Components/HomeGallerySection";
+import truncateText from "@/Utils/truncateText";
 
 
 function Index({blogs, speakers, gallery,news}) {
+
+  const siteUrl = window.location.href;
   return (
 
     <MainLayout>
       <Head>
-        <title>Home</title>
+        <title>MENA Speakers</title>
+        <meta name={'description'} content={'Offers solutions built to succeed. What makes MENA Speakers trustworthy is more than their track record. We perpetually strive to provide top notch speakers, raising the bar every day'} />
+        <meta name={'keywords'} content={''} />
+        <meta property="og:title" content={'MENA Speakers - Official Website'} />
+        <meta property="og:description" content={'Offers solutions built to succeed. What makes MENA Speakers trustworthy is more than their track record. We perpetually strive to provide top notch speakers, raising the bar every day'} />
+        <meta property="og:image" content={''} />
+        <meta property="og:url" content={siteUrl} />
+        <meta property="og:type" content="website" />
       </Head>
       {/* Hero Header*/}
       <section className="w-full   relative">

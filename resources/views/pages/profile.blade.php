@@ -483,13 +483,11 @@
         <div class="col-md-1"></div>
         <div class="col-md-10 wow fadeInRight" id="con">
           <div class="contform"  >
-            <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
-            <script>
-              hbspt.forms.create({
-                region: "na1",
-                portalId: "5847879",
-                formId: "ed0d0e93-b1d3-410f-9475-43a68a7c82c9"
-              });
+            <script data-b24-form="inline/15/32sf8u" data-skip-moving="true">
+              (function(w,d,u){
+                var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);
+                var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);
+              })(window,document,'https://cdn.bitrix24.com/b25531643/crm/form/loader_15.js');
             </script>
           </div>
         </div>

@@ -17,6 +17,8 @@ function Show({ speaker }) {
     description: speaker.excerpt ? speaker.excerpt : truncateText(speaker.bio, 150),
   };
 
+  const siteUrl = window.location.href;
+
   return (
     <MainLayout>
       <script type='application/ld+json'>{JSON.stringify(speakerStructuredData)}</script>
@@ -24,6 +26,11 @@ function Show({ speaker }) {
         <title>{speaker.name}</title>
         <meta name={'description'} content={speaker.excerpt ? speaker.excerpt : truncateText(speaker.bio, 150)} />
         <meta name={'keywords'} content={speaker.keywords} />
+        <meta property="og:title" content={speaker.name} />
+        <meta property="og:description" content={speaker.excerpt ? speaker.excerpt : truncateText(speaker.bio, 150)} />
+        <meta property="og:image" content={speaker.image} />
+        <meta property="og:url" content={siteUrl} />
+        <meta property="og:type" content="profile" />
       </Head>
 
       <section className="relative h-[350px]">
@@ -32,7 +39,7 @@ function Show({ speaker }) {
           alt="groupe of mena speakers in front of people at forume event" className="w-full h-full object-cover" />
         <div className="absolute inset-0 z-0">
           <div className="w-full h-full z-20 bg-black/50">
-            <div className="max-w-7xl mx-auto flex items-center justify-center h-full  px-4 sm px-6 lg px-8">
+            <div className="max-w-7xl mx-auto flex items-center justify-center h-full  sm px-6 lg px-8">
               <h1 className="text-gray-200 text-5xl font-bold">{speaker.name}</h1>
             </div>
           </div>
