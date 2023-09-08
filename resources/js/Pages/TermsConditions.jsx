@@ -3,6 +3,12 @@ import MainLayout from "@/Layouts/MainLayout";
 import {Head} from "@inertiajs/react";
 
 function TermsCondition() {
+  const bitrixForm = () => {
+    (function(w,d,u){
+      const s = d.createElement( 'script' );s.async=true;s.src=u+'?'+(Date.now()/180000|0);
+      const h = d.getElementsByTagName( 'script' )[ 0 ];h.parentNode.insertBefore(s,h);
+    })(window,document,'https://cdn.bitrix24.com/b25531643/crm/form/loader_53.js');
+  }
   return (
     <MainLayout>
       <Head>
@@ -21,7 +27,14 @@ function TermsCondition() {
       </section>
 
       <section className="py-12 px-6 lg:px-0">
+
+
         <div className={'max-w-6xl mx-auto space-y-3'}>
+
+          <h1>Hey form bere </h1>
+          {bitrixForm()}
+
+          end of form
 
           <p>MENA Speakers maintains the https://mena-speakers.com Website ("Site"). The use of this website (www.mena-speakers.com) is subject to the conditions of use described hereunder.
             The mere use of the website implies the knowledge and the acceptance of these conditions of use and the privacy policy.</p>

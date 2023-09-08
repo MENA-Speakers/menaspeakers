@@ -27,7 +27,7 @@
   @inertia
 </body>
 
-<!-- Scripts -->
+<!-- Scripts GETBEE -->
 <script>
   window.getbeeWidgetConf = {
     tenant:"menaspeakers",

@@ -1,35 +1,26 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useRef} from 'react';
 import MainLayout from "@/Layouts/MainLayout";
-import {Head} from "@inertiajs/react";
+import { Head } from "@inertiajs/react";
 
 function Index() {
 
-  const bitrixForm = () => {
-    (function(w,d,u){
-      const s = d.createElement( 'script' );s.async=true;s.src=u+'?'+(Date.now()/180000|0);
-      const h = d.getElementsByTagName( 'script' )[ 0 ];h.parentNode.insertBefore(s,h);
-    })(window,document,'https://cdn.bitrix24.com/b25531643/crm/form/loader_13.js');
-  }
+  const formRef = useRef(null);
 
-  // useEffect(() => {
-  //   const script = document.createElement('script');
-  //   script.src='https://js.hsforms.net/forms/v2.js';
-  //   document.body.appendChild(script);
-  //
-  //   script.addEventListener('load', () => {
-  //     // @TS-ignore
-  //     if (window.hbspt) {
-  //       // @TS-ignore
-  //       window.hbspt.forms.create({
-  //         portalId: '5847879',
-  //         formId: 'fcd954e7-779b-4047-bb57-310149a2c32c',
-  //         target: '#hubspotForm'
-  //       })
-  //     }
-  //   });
-  // }, []);
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.setAttribute('data-b24-form', 'inline/53/h8olp0');
+    script.setAttribute('data-skip-moving', 'true');
 
+    script.innerHTML = `
+      (function(w,d,u){
+        var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);
+        var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);
+      })(window,document,'https://cdn.bitrix24.com/b25531643/crm/form/loader_53.js');
+    `;
 
+    formRef.current.appendChild(script);
+
+  }, []);
 
   return (
     <MainLayout>
@@ -50,9 +41,9 @@ function Index() {
 
       <section className="py-12">
         <div className="max-w-4xl mx-auto px-4 sm px-6 lg px-8 pb-12  px-6 lg:px-0">
-          <script data-b24-form="inline/13/xdyhef" data-skip-moving="true">
-            {bitrixForm()}
-          </script>
+          <div ref={formRef}>
+            {/* The Bitrix form will load here */}
+          </div>
         </div>
       </section>
     </MainLayout>

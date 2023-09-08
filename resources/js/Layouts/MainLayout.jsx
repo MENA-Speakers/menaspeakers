@@ -108,7 +108,7 @@ export default function MainLayout({ children}) {
             <img className={'h-20'} src="/images/Mena-logo-white.png" alt="mena speakers logo"/>
           </div>
 
-          <div className="">
+          <div className="col-span-2">
             <p className={'font-bold text-white'}>Leave a Message</p>
             <div className="mt-4 space-y-2 flex flex-col">
               <a href="mailto:info@mena-speakers.com" className="hover:text-gray-50">info@mena-speakers.com</a>
@@ -131,7 +131,7 @@ export default function MainLayout({ children}) {
           </div>
 
 
-          <div className="col-span-2">
+          <div className="col-span-2 lg:col-span-1">
             <p className={'font-bold text-white'}>Follow Us</p>
             <div className="mt-4 space-x-6 flex ">
               <a href="https://www.facebook.com/menaspeakers" target="_blank" className={"hover:-translate-y-1.5 hover:duration-200"}>
