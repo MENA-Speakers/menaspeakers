@@ -6,11 +6,10 @@ function Index() {
 
   const bitrixForm = () => {
     (function(w,d,u){
-      let s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);
-      let h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);
-    })(window,document,'https://cdn.bitrix24.com/b25531643/crm/form/loader_51.js');
+      const s = d.createElement( 'script' );s.async=true;s.src=u+'?'+(Date.now()/180000|0);
+      const h = d.getElementsByTagName( 'script' )[ 0 ];h.parentNode.insertBefore(s,h);
+    })(window,document,'https://cdn.bitrix24.com/b25531643/crm/form/loader_13.js');
   }
-
 
   // useEffect(() => {
   //   const script = document.createElement('script');
