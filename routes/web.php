@@ -8,6 +8,7 @@
   use App\Http\Controllers\Admin\SettingController;
   use App\Http\Controllers\AdminGalleryController;
   use App\Http\Controllers\BlogsController;
+  use App\Http\Controllers\ExternalSiteController;
   use App\Http\Controllers\FaqsController;
   use App\Http\Controllers\GalleryController;
   use App\Http\Controllers\HomeController;
@@ -88,6 +89,14 @@
     Route::get('settings/location', [SettingController::class, 'location'])->name('settings.location');
     Route::post('settings/location', [SettingController::class, 'store'])->name('settings.location.store');
 
+  });
+
+
+  //External site routes
+  Route::group(['prefix' => 'external', 'as' => 'external.'], function () {
+    Route::get('sports', [ExternalSiteController::class, 'sports'])->name('sports');
+    Route::get('wellness', [ExternalSiteController::class, 'wellness'])->name('wellness');
+    Route::get('coaching', [ExternalSiteController::class, 'coaching'])->name('coaching');
   });
 
 

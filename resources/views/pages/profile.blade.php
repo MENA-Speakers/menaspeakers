@@ -483,11 +483,11 @@
         <div class="col-md-1"></div>
         <div class="col-md-10 wow fadeInRight" id="con">
           <div class="contform"  >
-            <script data-b24-form="inline/15/32sf8u" data-skip-moving="true">
+            <script data-b24-form="inline/55/a70565" data-skip-moving="true">
               (function(w,d,u){
                 var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);
                 var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);
-              })(window,document,'https://cdn.bitrix24.com/b25531643/crm/form/loader_15.js');
+              })(window,document,'https://cdn.bitrix24.com/b25531643/crm/form/loader_55.js');
             </script>
           </div>
         </div>

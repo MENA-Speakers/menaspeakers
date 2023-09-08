@@ -1,14 +1,20 @@
-import { useState } from 'react'
-import { Dialog } from '@headlessui/react'
+import { Fragment, useState } from 'react'
+import {Dialog, Menu, Transition} from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import {Link} from "@inertiajs/react";
 
 const navigation = [
-  { name: 'Home', route: 'index' },
-  { name: 'Speakers', route: 'speakers.index' },
-  { name: 'Gallery', route: 'gallery.index' },
-  { name: 'Blog', route: 'blogs.index' },
-  { name: 'Contact', route: 'pages.contact' },
+  { name: 'Home', dropdown: false, route: 'index' },
+  { name: 'Speakers', dropdown: false, route: 'speakers.index' },
+  { name: 'Gallery', dropdown: false, route: 'gallery.index' },
+  { name: 'Blog', dropdown: false, route: 'blogs.index' },
+  { name: 'Specials', dropdown: true, route: null, children: [
+      { name: 'Sports', route: null, link: 'https://sports.mena-speakers.com?utm_source=mena-speakers.com&utm_medium=referral&utm_campaign=mena-speakers.com' },
+      { name: 'Wellness', route: null, link: '#' },
+      { name: 'Coaching', route: null,  link: '#' },
+      ]
+  },
+  { name: 'Contact', dropdown: false, route: 'pages.contact' },
 ]
 
 export default function MainLayout({ children}) {
@@ -41,10 +47,50 @@ export default function MainLayout({ children}) {
            </div>
            <div className="hidden lg:flex lg:gap-x-12">
              {navigation.map((item) => (
-               <Link key={item.name} href={route(item.route)} className="text-sm font-semibold leading-6 text-white">
-                 {item.name}
-               </Link>
-             ))}
+              !item.dropdown ? (
+                <Link key={item.name} href={route(item.route)} className="text-sm font-semibold leading-6 text-white">
+                  {item.name}
+                </Link>
+             )
+              : (
+                  <Menu as="div" className="relative inline-block text-left">
+                    <div>
+                      <Menu.Button className="text-sm font-semibold leading-6 text-white">
+                        { item.name}
+                      </Menu.Button>
+                    </div>
+                    <Transition
+                      as={Fragment}
+                      enter="transition ease-out duration-100"
+                      enterFrom="transform opacity-0 scale-95"
+                      enterTo="transform opacity-100 scale-100"
+                      leave="transition ease-in duration-75"
+                      leaveFrom="transform opacity-100 scale-100"
+                      leaveTo="transform opacity-0 scale-95"
+                    >
+                      <Menu.Items className="absolute right-0 mt-2 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                        <div className="px-1 py-1 ">
+                          {
+                            item.children.map((child, index) => (
+                              <Menu.Item key={index}>
+                                <a
+                                  href={ child.route ? route(child.route) : child.link}
+                                  className="group flex w-full hover:bg-mena-300 hover:text-white items-center rounded-md px-2 py-2 text-sm"
+                                  target={child.link ? '_blank' : ''}
+                                >
+                                  {child.name}
+                                </a>
+                              </Menu.Item>
+                            ))
+                          }
+                        </div>
+                      </Menu.Items>
+                    </Transition>
+                  </Menu>
+              )
+
+              ))
+             }
            </div>
            <div className=" hidden lg:flex lg:flex-1 lg:justify-end">
              <Link href={route('pages.contact')} className={"gradient-btn text-sm font-semibold py-2.5 px-4 py-2 px-4 text-white"}>
