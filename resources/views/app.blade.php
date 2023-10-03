@@ -86,4 +86,14 @@
     var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);
   })(window,document,'https://cdn.bitrix24.com/b25531643/crm/tag/call.tracker.js');
 </script>
+
+<script data-b24-form="auto/67/2r08ch" data-skip-moving="true">
+  (function(w,d,u){
+   if ( route('index') ){
+     var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);
+     var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);
+   }
+  })(window,document,'https://cdn.bitrix24.com/b25531643/crm/form/loader_67.js');
+</script>
+
 </html>

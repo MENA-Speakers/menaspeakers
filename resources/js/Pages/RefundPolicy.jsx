@@ -4,6 +4,7 @@ import {Head} from "@inertiajs/react";
 import BlogCard from "@/Components/BlogCard";
 
 function RefundPolicy() {
+
   return (
     <MainLayout>
       <Head>
