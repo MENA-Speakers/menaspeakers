@@ -121,16 +121,28 @@ export default function MainLayout({ children}) {
              </div>
              <div className="mt-6 flow-root">
                <div className="-my-6 divide-y divide-gray-500/10">
-                 <div className="space-y-2 py-6">
+                 <div className="space-y-2 py-6 flex flex-col">
                    {navigation.map((item) => (
-                     <a
-                       key={item.name}
-                       href={route(item.route)}
-                       className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                     >
-                       {item.name}
-                     </a>
-                   ))}
+
+                     !item.dropdown ? (
+                         <Link key={item.name} href={route(item.route)} className="text-sm font-semibold leading-6">
+                           {item.name}
+                         </Link>) : (
+
+                      <div className={'px-2'}>
+                        {
+                          item.children.map((child, index) => (
+                            <a
+                              href={ child.route ? route(child.route) : child.link}
+                              className="group flex w-full hover:bg-mena-300 hover:text-white items-center rounded-md px-2 py-2 text-sm"
+                              target={child.link ? '_blank' : ''}
+                            >
+                              {child.name}
+                            </a>
+                          ))
+                        }
+                      </div>
+                   )))}
                  </div>
                  <div className=" hidden lg:flex lg:flex-1 lg:justify-end">
                    <Link href={route('pages.contact')} className="bg-gradient-to-r from-pink-500 to-rose-500 text-sm font-semibold py-2.5 px-4 py-2 px-4 text-white">
