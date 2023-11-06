@@ -22,7 +22,6 @@ function Index() {
 
   }, []);
 
-
   return (
     <MainLayout>
       <Head>

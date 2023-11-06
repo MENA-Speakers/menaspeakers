@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import MainLayout from "@/Layouts/MainLayout";
 import {Head, Link} from "@inertiajs/react";
 import BlogCard from "@/Components/BlogCard";
@@ -12,7 +12,6 @@ import truncateText from "@/Utils/truncateText";
 function Index({blogs, speakers, gallery,news}) {
 
   const siteUrl = window.location.href;
-
   return (
 
     <MainLayout>
@@ -378,7 +377,6 @@ function Index({blogs, speakers, gallery,news}) {
           </div>
         </div>
       </section>
-
 
     </MainLayout>
   );

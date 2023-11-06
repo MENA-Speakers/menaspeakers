@@ -4,7 +4,6 @@ import {Head} from "@inertiajs/react";
 import BlogCard from "@/Components/BlogCard";
 
 function FAQs() {
-
   return (
     <MainLayout>
       <Head>
@@ -80,7 +79,6 @@ function FAQs() {
 
       </div>
       </section>
-
     </MainLayout>
   );
 }
