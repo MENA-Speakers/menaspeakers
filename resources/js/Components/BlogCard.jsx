@@ -13,7 +13,7 @@ function BlogCard({ blog }) {
           {blog.published_at}
         </span>
       </div>
-      <Link href={route('blogs.show', blog.slug)}>
+      <Link href={route('blogs.show', blog.slug)} aria-label={'Read blog details'}>
         <img
           className={'w-full object-cover h-60'}
           src={blog.image}
@@ -26,7 +26,7 @@ function BlogCard({ blog }) {
         </p>
 
         <div>
-          <Link href={route('blogs.show', blog.slug)} className="text-mena-200 text-sm font-semibold"  aria-label={blog.title}  >
+          <Link href={route('blogs.show', blog.slug)} className="text-mena-200 text-sm font-semibold"  aria-label={'Read blog details'}  >
             Read More
           </Link>
         </div>

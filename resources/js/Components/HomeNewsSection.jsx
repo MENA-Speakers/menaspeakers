@@ -42,7 +42,7 @@ function HomeNewsSection({news}) {
                 </div>
                 <div>
                   <div className={'bg-gray-50 p-6'}>
-                      <Link href={route('pages.contact')} className={'underline text-sm text-gray-500 hover:text-mena-200'}>Learn More</Link>
+                      <Link href={route('pages.contact')} aria-label={'Contact Us'} className={'underline text-sm text-gray-500 hover:text-mena-200'}>Learn More</Link>
                   </div>
                 </div>
               </div>
