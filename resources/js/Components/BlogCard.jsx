@@ -17,16 +17,16 @@ function BlogCard({ blog }) {
         <img
           className={'w-full object-cover h-60'}
           src={blog.image}
-          alt={blog.image.name} loading='lazy' />
+          alt={blog.title} loading='lazy' />
       </Link>
       <div className={'py-4 space-y-4'}>
-        <Link className={'font-bold'} href={route('blogs.show', blog.slug)}>{blog.title}</Link>
+        <Link className={'font-bold'} href={route('blogs.show', blog.slug)} aria-label={blog.title}>{blog.title}</Link>
         <p>
           {truncateText(blog.excerpt, 120)}
         </p>
 
         <div>
-          <Link href={route('blogs.show', blog.slug)} className="text-mena-200 text-sm font-semibold">
+          <Link href={route('blogs.show', blog.slug)} className="text-mena-200 text-sm font-semibold"  aria-label={blog.title}  >
             Read More
           </Link>
         </div>

@@ -12,6 +12,7 @@ function RefundPolicy() {
       </Head>
       <section className="relative h-[550px]">
         <img
+          aria-label={'Return Policy header image'}
           src="https://images.unsplash.com/photo-1522199755839-a2bacb67c546?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2072&q=80"
           alt="" className="w-full h-full object-cover"/>
 

@@ -29,7 +29,7 @@ function Index({blogs, speakers, gallery,news}) {
       {/* Hero Header*/}
       <section className="w-full   relative">
         <div className="w-full h-[600px] lg:h-[800px] ">
-          <img className={'w-full h-full object-cover'} src="/images/speaker-from-mena-spearkers-having-an-event.webp" alt="speaker from mena speakers wearing abaia in front of people at forume event"/>
+          <img className={'w-full h-full object-cover'} aria-label={'Speakers from MENA Speakers'} src="/images/speaker-from-mena-spearkers-having-an-event.webp" alt="speaker from mena speakers wearing abaia in front of people at forume event"/>
           <div className="absolute inset-0 bg-black/40">
             <div
               className={'w-full lg:max-w-4xl mx-auto px-6 lg:px-0 pt-40 lg:pt-0 h-full flex space-y-8 flex-col items-center justify-center z-20'}>
@@ -149,7 +149,7 @@ function Index({blogs, speakers, gallery,news}) {
                   d="M134.1 134.1c17.3-17.3 17.3-45.3 0-62.6s-45.3-17.3-62.6 0-17.3 45.3 0 62.6c17.2 17.2 45.3 17.2 62.6 0zM88.4 88.4c7.9-7.9 20.7-7.9 28.6 0s7.9 20.7 0 28.6-20.7 7.9-28.6 0c-7.9-7.8-7.9-20.7 0-28.6z"/>
               </svg>
             </div>
-            <a href="https://mena-speakers.com/profile" className={'p-6 lg:px-20 space-y-4'}>
+            <a href="https://mena-speakers.com/profile" aria-label={'SPEAKERS MANAGEMENT'} className={'p-6 lg:px-20 space-y-4'}>
               <h3 className="text-white text-2xl font-bold">SPEAKERS MANAGEMENT
               </h3>
               <p className={'text-gray-100'}>At MENA Speakers, we believe that effective communication can transform an event from mundane to unforgettable. That's why we specialize in connecting you with world-class speakers who have the ability to engage, educate, and inspire your audience.
@@ -184,7 +184,7 @@ function Index({blogs, speakers, gallery,news}) {
                   d="M134.1 134.1c17.3-17.3 17.3-45.3 0-62.6s-45.3-17.3-62.6 0-17.3 45.3 0 62.6c17.2 17.2 45.3 17.2 62.6 0zM88.4 88.4c7.9-7.9 20.7-7.9 28.6 0s7.9 20.7 0 28.6-20.7 7.9-28.6 0c-7.9-7.8-7.9-20.7 0-28.6z"/>
               </svg>
             </div>
-            <a href="https://mena-speakers-5847879.hs-sites.com/public-speaking" className={'p-6 lg:px-20 space-y-4'}>
+            <a href="https://mena-speakers-5847879.hs-sites.com/public-speaking" aria-label={'PUBLIC SPEAKING TRAINING'} className={'p-6 lg:px-20 space-y-4'}>
               <h3 className="text-white text-2xl font-bold">PUBLIC SPEAKING TRAINING </h3>
               <p className={'text-gray-100'}>At our company, we help organizations of all sizes improve their communication processes, which can lead to better employee productivity, reduced costs, and increased profitability. Let us help you streamline your communication and achieve the success you deserve.</p>
             </a>
@@ -217,7 +217,7 @@ function Index({blogs, speakers, gallery,news}) {
                   d="M134.1 134.1c17.3-17.3 17.3-45.3 0-62.6s-45.3-17.3-62.6 0-17.3 45.3 0 62.6c17.2 17.2 45.3 17.2 62.6 0zM88.4 88.4c7.9-7.9 20.7-7.9 28.6 0s7.9 20.7 0 28.6-20.7 7.9-28.6 0c-7.9-7.8-7.9-20.7 0-28.6z"/>
               </svg>
             </div>
-            <a href="https://mena-speakers-5847879.hs-sites.com/speakers-fast-track-programme" className={'p-6 lg:px-20 space-y-4'}>
+            <a href="https://mena-speakers-5847879.hs-sites.com/speakers-fast-track-programme" aria-label={'SPEAKER FAST TRACK'} className={'p-6 lg:px-20 space-y-4'}>
               <h3 className="text-white text-2xl font-bold">SPEAKER FAST TRACK </h3>
               <p className={'text-gray-100'}>The speaker fast track program helps launch your career as a speaker as well as positions speakers to get more speaking engagements around the world. Clients demand that the speakers’ kit is professional, congruent, and appealing.</p>
             </a>
@@ -250,7 +250,7 @@ function Index({blogs, speakers, gallery,news}) {
                   <div
                     className={` ${index === 0 && 'lg:mt-40'}  ${index === 1 && 'lg:mt-20'} lg:h-96`}>
                     <div className={'shadow-2xl'}>
-                      <Link href={route('speakers.show', speaker.slug)}>
+                      <Link href={route('speakers.show', speaker.slug)} aria-label={`View ${speaker.name}`} >
                         <img src={speaker.image} alt={speaker.name} className={'w-full object-cover lg:h-96'} loading='lazy'/>
                       </Link>
                     </div>
@@ -282,7 +282,7 @@ function Index({blogs, speakers, gallery,news}) {
       </section>
 
       <section className={'bg-gradient-to-r from-mena-100 to-mena-300 py-12 mt-12 lg: mt-24'}>
-        <a href="https://g.page/r/CUmLQ8-Do9XOEAI/review" className="max-w-7xl mx-auto px-4 sm px-6 lg px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <a href="https://g.page/r/CUmLQ8-Do9XOEAI/review" aria-label={'Mena Speakers'} className="max-w-7xl mx-auto px-4 sm px-6 lg px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div className="relative">
             <div className="absolute opacity-10 -top-6 -left-4">
               <svg className={'h-16 w-16 -rotate-25'} xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#fff"
@@ -374,7 +374,7 @@ function Index({blogs, speakers, gallery,news}) {
           </div>
 
           <div className="flex items-center justify-center mt-12 pb-8 py-4">
-            <Link href={route('blogs.index')} className="bg-gray-900 hover:bg-gray-700 py-2.5 px-8 text-white">View all post</Link>
+            <Link href={route('blogs.index')} aria-label={'View all post'} className="bg-gray-900 hover:bg-gray-700 py-2.5 px-8 text-white">View all post</Link>
           </div>
         </div>
       </section>

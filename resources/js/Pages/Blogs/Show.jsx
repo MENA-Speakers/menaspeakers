@@ -31,7 +31,7 @@ function Index({blog}) {
         <meta name={'keywords'} content={blog.keywords} />
       </Head>
       <section className="relative h-[550px]">
-        <img src={blog.image} alt="" className="w-full h-full object-cover"/>
+        <img src={blog.image} alt={blog.title} className="w-full h-full object-cover"/>
 
         <div className="absolute inset-0 z-0">
           <div className="w-full h-full z-20 bg-black/50">

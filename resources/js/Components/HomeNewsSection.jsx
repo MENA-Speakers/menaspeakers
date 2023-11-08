@@ -20,7 +20,7 @@ function HomeNewsSection({news}) {
                 <img className={'w-full h-full object-cover'} src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2012&q=80" alt="groupe of mena speakers in front of people at forume event"/>
                 <div className="absolute inset-0 bg-mena-300/70">
                   <div className=" w-full h-full flex items-center justify-center">
-                    <button onClick={() => setPlayVideo(true)} className={'ml-32 z-10'}>
+                    <button onClick={() => setPlayVideo(true)} aria-label={'play video'} className={'ml-32 z-10'}>
                       <svg className={'w-16 h-16'} xmlns="http://www.w3.org/2000/svg" xmlSpace="preserve" fill="#ededed" stroke="#ededed" viewBox="0 0 1800 1800"><g fill="#fff"><path d="m1407.629 872.813-714.547-412.54a31.387 31.387 0 0 0-47.078 27.182v631.583c0 17.33 14.051 31.385 31.385 31.385s31.385-14.055 31.385-31.385V541.814l620.392 358.18-555.918 320.967c-15.014 8.669-20.154 27.864-11.489 42.874 5.815 10.07 16.363 15.692 27.213 15.692a31.308 31.308 0 0 0 15.662-4.203l602.995-348.148a31.39 31.39 0 0 0 0-54.363z"/><path d="M899.993 5.324c-493.322 0-894.67 401.352-894.67 894.679 0 493.322 401.348 894.674 894.67 894.674 493.331 0 894.683-401.352 894.683-894.674 0-493.327-401.352-894.679-894.683-894.679zm0 1726.582c-458.71 0-831.899-373.188-831.899-831.903S441.283 68.095 899.993 68.095c458.719 0 831.912 373.193 831.912 831.908s-373.193 831.903-831.912 831.903z"/></g></svg>
                     </button>
                   </div>
