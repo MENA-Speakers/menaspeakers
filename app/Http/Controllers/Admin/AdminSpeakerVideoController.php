@@ -47,13 +47,13 @@ class AdminSpeakerVideoController extends Controller
         throw  ValidationException::withMessages([
           'link' => 'Please enter a valid youtube link'
         ]);
-      } else if($request->videoSource === 'vimeo') {
-        $videoId = explode('.com/', $request->link)[1];
-        if( strlen($videoId) !== 9 ) {
-          throw  ValidationException::withMessages([
-            'link' => 'Please enter a valid vimeo link'
-          ]);
-        }
+      }
+    } else if($request->videoSource === 'vimeo') {
+      $videoId = explode('.com/', $request->link)[1];
+      if( strlen($videoId) !== 9 ) {
+        throw  ValidationException::withMessages([
+          'link' => 'Please enter a valid vimeo link'
+        ]);
       }
     }
 

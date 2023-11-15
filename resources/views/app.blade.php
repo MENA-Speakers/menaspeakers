@@ -87,13 +87,40 @@
   })(window,document,'https://cdn.bitrix24.com/b25531643/crm/tag/call.tracker.js');
 </script>
 
-<script data-b24-form="auto/67/2r08ch" data-skip-moving="true">
-  (function(w,d,u){
-   if ( route('index') ){
-     var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);
-     var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);
-   }
-  })(window,document,'https://cdn.bitrix24.com/b25531643/crm/form/loader_67.js');
+<script>
+  // Function to check if a cookie exists
+  function getCookie(name) {
+    var match = document.cookie.match(new RegExp(name + '=([^;]+)'));
+    return match ? match[1] : undefined;
+  }
+
+  // Function to set a cookie
+  function setCookie(name, value, days) {
+    var expires = '';
+    if (days) {
+      var date = new Date();
+      date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+      expires = '; expires=' + date.toUTCString();
+    }
+    document.cookie = name + '=' + value + expires + '; path=/';
+  }
+
+  // Check if the cookie exists
+  if (!getCookie('subscription_cookie')) {
+    // Your original script here
+    (function(w, d, u){
+      if (route('index')){
+        var s = d.createElement('script');
+        s.async = true;
+        s.src = u + '?' + (Date.now() / 180000 | 0);
+        var h = d.getElementsByTagName('script')[0];
+        h.parentNode.insertBefore(s, h);
+      }
+    })(window, document, 'https://cdn.bitrix24.com/b25531643/crm/form/loader_67.js');
+
+    // Set the cookie to mark that the script has run
+    setCookie('subscription_cookie', 'true', 365);  // Set to expire in 365 days (adjust as needed)
+  }
 </script>
 
 </html>
