@@ -2,10 +2,10 @@ import React from 'react';
 import {Link} from "@inertiajs/react";
 import {useCountdown} from "@/Hooks/useCountDownDate";
 
-function HomeCountdownSection({targetDate}) {
+function HomeCountdownSection() {
 
   //write countdown function return array of days, hours, minutes, seconds
-  const [days, hours, minutes, seconds] = useCountdown('November 24, 2023, 00:09:00');
+  const [days, hours, minutes, seconds] = useCountdown('January 27, 2024, 00:09:00');
 
   const [isFinished, setIsFinished] = React.useState(false);
 

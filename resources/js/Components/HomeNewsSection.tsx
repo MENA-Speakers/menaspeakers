@@ -1,9 +1,9 @@
 import { Fragment, useRef, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
-import { ExclamationTriangleIcon } from '@heroicons/react/24/outline'
 import {Link} from "@inertiajs/react";
+import React from 'react';
 
-function HomeNewsSection({news}) {
+function HomeNewsSection() {
   const [playVideo, setPlayVideo] = useState(false);
 
   return (

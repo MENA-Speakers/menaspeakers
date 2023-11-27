@@ -1,5 +1,5 @@
 //truncate text and strip html tags
-export default function truncateText(text, length) {
+export default function truncateText(text : string, length : number) : string {
   //null check
   if (text == null) {
     return '';

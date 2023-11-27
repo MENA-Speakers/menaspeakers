@@ -1,6 +1,4 @@
-//write date countdown function return date in days, hours, minutes, seconds
-
-function dateCountdown(date) {
+function dateCountdown(date: string): { days: number; hours: string; minutes: string; seconds: string } {
     let now = new Date();
     let eventDate = new Date(date);
     let currentTime = now.getTime();
@@ -16,14 +14,12 @@ function dateCountdown(date) {
     m %= 60;
     s %= 60;
 
-    h = (h < 10) ? "0" + h : h;
-    m = (m < 10) ? "0" + m : m;
-    s = (s < 10) ? "0" + s : s;
+    const formatNumber = (num: number): string => (num < 10 ? "0" + num : String(num));
 
     return {
-        "days": d,
-        "hours": h,
-        "minutes": m,
-        "seconds": s
+        days: d,
+        hours: formatNumber(h),
+        minutes: formatNumber(m),
+        seconds: formatNumber(s),
     };
 }
