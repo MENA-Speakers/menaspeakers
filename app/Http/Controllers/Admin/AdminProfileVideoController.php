@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\ProfileResource;
-use App\Models\Profile;
+use App\Models\Speaker;
 use App\Models\Video;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
@@ -13,7 +13,7 @@ use Inertia\Inertia;
 class AdminProfileVideoController extends Controller
 {
 
-  public function index(Profile $profile)
+  public function index(Speaker $profile)
   {
     return Inertia::render('Admin/Profiles/Show', [
         'profile' => ProfileResource::make($profile),
@@ -29,7 +29,7 @@ class AdminProfileVideoController extends Controller
     return $matches[1] ?? null;
   }
 
-  public function store(Request $request, Profile $profile)
+  public function store(Request $request, Speaker $profile)
   {
     //Validate
     $request->validate([

@@ -23,7 +23,7 @@ class Location extends Model
 
   public function speakers(): HasMany
     {
-        return $this->hasMany(Profile::class);
+        return $this->hasMany(Speaker::class);
     }
 
     public function getRouteKeyName(): string

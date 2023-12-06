@@ -15,7 +15,7 @@ class Bio extends Model
 
     public function profile(): BelongsTo
     {
-        return $this->belongsTo(Profile::class);
+        return $this->belongsTo(Speaker::class);
     }
 
   public function registerMediaCollections(): void

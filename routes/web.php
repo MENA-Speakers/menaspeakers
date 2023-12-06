@@ -17,7 +17,7 @@
   use App\Http\Controllers\PagesController;
   use App\Http\Controllers\ProposalController;
   use App\Http\Controllers\ProfilesController;
-  use App\Models\Profile;
+  use App\Models\Speaker;
   use Illuminate\Support\Facades\Route;
   use Spatie\Sitemap\Sitemap;
 
@@ -72,7 +72,7 @@
       ->add(route('blogs.index'))
       ->add(route('pages.profile'));
 
-    Profile::all()->each(function($speaker) use ($sitemap) {
+    Speaker::all()->each(function($speaker) use ($sitemap) {
       $sitemap->add(route('speakers.show', $speaker->slug));
     });
 

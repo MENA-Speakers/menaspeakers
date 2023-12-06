@@ -6,6 +6,7 @@ import {useFormik} from "formik";
 import TextInput from "@/Components/TextInput";
 import PrimaryButton from "@/Components/PrimaryButton";
 import Pagination from "@/Components/Pagination";
+import {Input} from "@/Components/ui/input";
 
 function Index({speakers, query, locations}) {
   const formik = useFormik({
@@ -44,7 +45,7 @@ function Index({speakers, query, locations}) {
             <form onSubmit={formik.handleSubmit} className={'space-y-4'}>
              <div className={'flex space-x-6 items-center'}>
                <div className="flex-grow">
-                 <TextInput name="query" placeholder={'Search'} label="Search" className={'w-full'} value={formik.values.query} onChange={formik.handleChange} />
+                 <Input name="query" placeholder={'Search'} label="Search" className={'w-full'} value={formik.values.query} onChange={formik.handleChange} />
                </div>
                <div>
                  <PrimaryButton type="submit">Search</PrimaryButton>

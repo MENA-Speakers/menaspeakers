@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Resources\ProfileResource;
 use App\Models\Location;
-use App\Models\Profile;
+use App\Models\Speaker;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
@@ -29,7 +29,7 @@ class LocationController extends Controller
       });
 
       //Search speakers and filter by location
-      $speakers = Profile::search($request->input('query'))
+      $speakers = Speaker::search($request->input('query'))
         ->where('location_id', $location->id)
         ->paginate(12)->withQueryString();
 

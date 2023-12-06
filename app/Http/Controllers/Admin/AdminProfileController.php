@@ -7,7 +7,7 @@ use App\Http\Requests\SpeakerUpdateRequest;
 use App\Http\Requests\StoreSpeakerRequest;
 use App\Http\Resources\ProfileResource;
 use App\Models\Location;
-use App\Models\Profile;
+use App\Models\Speaker;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -29,14 +29,14 @@ class AdminProfileController extends Controller
     public function index()
     {
 
-      $profiles = Profile::oldest()->paginate(12);
+      $profiles = Speaker::oldest()->paginate(12);
       return Inertia::render('Admin/Profiles/Index', [
           'profiles' => ProfileResource::collection($profiles),
       ]);
     }
 
     public function search(Request $request){
-      $profiles = Profile::search($request->input('query'))->paginate(12)->withQueryString();
+      $profiles = Speaker::search($request->input('query'))->paginate(12)->withQueryString();
       return Inertia::render('Admin/Profiles/Index', [
           'profiles' => ProfileResource::collection($profiles),
           'query' => $request->input('query')
@@ -77,7 +77,7 @@ class AdminProfileController extends Controller
         'keywords' => 'required',
       ]);
 
-      $speaker = Profile::create([
+      $speaker = Speaker::create([
         'name' => $request->input('name'),
         'bio' => $request->input('bio'),
         'meta_title' => $request->input('meta_title'),
@@ -97,7 +97,7 @@ class AdminProfileController extends Controller
     }
 
 
-    public function show(Profile $speaker)
+    public function show(Speaker $speaker)
     {
         return Inertia::render('Admin/Profiles/Show', [
             'speaker' => ProfileResource::make($speaker),
@@ -109,11 +109,11 @@ class AdminProfileController extends Controller
   /**
    * Show the form for editing the specified resource.
    *
-   * @param Profile $speaker
+   * @param Speaker $speaker
    *
    * @return \Inertia\Response
    */
-    public function edit(Profile $speaker)
+    public function edit(Speaker $speaker)
     {
         return Inertia::render('Admin/Profiles/Create', [
             'speaker' => ProfileResource::make($speaker),
@@ -125,13 +125,13 @@ class AdminProfileController extends Controller
    * Update the specified resource in storage.
    *
    * @param SpeakerUpdateRequest $request
-   * @param Profile $speaker
+   * @param Speaker $speaker
    *
    * @return RedirectResponse
    * @throws FileDoesNotExist
    * @throws FileIsTooBig
    */
-    public function update(SpeakerUpdateRequest $request, Profile $speaker)
+    public function update(SpeakerUpdateRequest $request, Speaker $speaker)
     {
         $speaker->update([
           'name' => $request->input('name'),
@@ -155,11 +155,11 @@ class AdminProfileController extends Controller
   /**
    * Remove the specified resource from storage.
    *
-   * @param Profile $speaker
+   * @param Speaker $speaker
    *
    * @return RedirectResponse
    */
-    public function destroy(Profile $speaker)
+    public function destroy(Speaker $speaker)
     {
         $speaker->delete();
 

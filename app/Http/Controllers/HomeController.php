@@ -7,7 +7,7 @@ use App\Http\Resources\ImageResource;
 use App\Http\Resources\ProfileResource;
 use App\Models\Blog;
 use App\Models\Image;
-use App\Models\Profile;
+use App\Models\Speaker;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
@@ -15,7 +15,7 @@ class HomeController extends Controller
 {
 
     public function index(){
-        $speakers = Profile::inRandomOrder()->limit(3)->get();
+        $speakers = Speaker::inRandomOrder()->limit(3)->get();
         $blogs = Blog::latest()->limit(3)->get();
         return Inertia::render('Index', [
             'speakers' => ProfileResource::collection($speakers),

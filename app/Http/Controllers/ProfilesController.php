@@ -6,7 +6,7 @@ use App\Http\Resources\ProfileResource;
 use App\Imports\BlogImport;
 use App\Imports\SpeakerImport;
 use App\Models\Location;
-use App\Models\Profile;
+use App\Models\Speaker;
 use Artesaos\SEOTools\Facades\JsonLdMulti;
 use Artesaos\SEOTools\Facades\SEOTools;
 use Illuminate\Http\Request;
@@ -22,9 +22,9 @@ class ProfilesController extends Controller
     if($request->hasAny([
       'query',
     ])){
-      $result = Profile::search($request->input('query'));
+      $result = Speaker::search($request->input('query'));
     }else {
-      $result = Profile::oldest();
+      $result = Speaker::oldest();
     }
 
     $locations = Location::all();
@@ -36,7 +36,7 @@ class ProfilesController extends Controller
     ]);
   }
 
-  public function show(Profile $speaker){
+  public function show(Speaker $speaker){
 
     SEOTools::setTitle($speaker->meta_title);
     SEOTools::setDescription($speaker->meta_description);
