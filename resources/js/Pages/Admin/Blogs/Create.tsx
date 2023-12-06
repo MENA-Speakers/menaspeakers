@@ -8,9 +8,12 @@ import 'react-quill/dist/quill.snow.css';
 import {useDropzone} from 'react-dropzone';
 import axios from "axios";
 import PrimaryButton from "@/Components/PrimaryButton";
-import InputLabel from "@/Components/InputLabel";
+import AdminLayout from "@/Layouts/AdminLayout";
+import {Input} from "@/Components/ui/input";
+import {Textarea} from "@/Components/ui/textarea";
+import {Label} from "@/Components/ui/label";
 
-function Create( {blog} ) {
+function Create( {blog} : {blog: BlogType} ) {
 
   const formik = useFormik( {
     initialValues: {
@@ -80,19 +83,21 @@ function Create( {blog} ) {
 
 
   return (
-    <AuthenticatedLayout
-      header={<h2 className="font-semibold text-xl text-gray-800 leading-tight">Add Blog</h2>}
-    >
+    <AdminLayout>
       <Head title="New Blog"/>
 
-      <div className="py-12">
-        <div className="max-w-7xl mx-auto sm:p-6 lg:p-4 bg-white overflow-hidden shadow-sm sm:rounded-lg">
+      <div className="py-4">
+        <div className="max-w-7xl mx-auto sm:p-6 lg:p-4 bg-white overflow-hidden">
+          <div className={'py-4'}>
+            <h1 className="text-2xl text-gray-800">New Blog </h1>
+
+          </div>
           <form onSubmit={formik.handleSubmit}
                 className=" max-w-4xl space-y-8 mx-auto py-8 px-8">
             <div>
               <label htmlFor="name" className="block text-sm font-medium text-gray-700">Title</label>
               <div className="mt-1">
-                <input type="text"
+                <Input type="text"
                        name="title"
                        id="title"
                        value={formik.values.title}
@@ -112,11 +117,11 @@ function Create( {blog} ) {
             <div>
               <label htmlFor="excerpt" className="block text-sm font-medium text-gray-700">Keywords </label>
               <div className="mt-1">
-                <textarea rows="2" name="keywords"
+                <Textarea rows="2" name="keywords"
                           value={formik.values.keywords}
                           onChange={formik.handleChange}
                           id="keywords"
-                          className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"></textarea>
+                          className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"></Textarea>
               </div>
 
               {
@@ -130,11 +135,11 @@ function Create( {blog} ) {
             <div>
               <label htmlFor="excerpt" className="block text-sm font-medium text-gray-700">Excerpt </label>
               <div className="mt-1">
-                <textarea rows="2" name="excerpt"
+                <Textarea rows="2" name="excerpt"
                           value={formik.values.excerpt}
                           onChange={formik.handleChange}
                           id="excerpt"
-                          className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"></textarea>
+                          className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"></Textarea>
               </div>
 
               {
@@ -165,7 +170,7 @@ function Create( {blog} ) {
 
             <div>
               <div className='w-full lg:w-1/2 '>
-                <InputLabel htmlFor={'file'}>Featured Image</InputLabel>
+                <Label htmlFor={'file'}>Featured Image</Label>
                 <div {...getRootProps( {className: 'border-dashed border-2 rounded-lg mt-2 py-4 px-4'} )}>
                   <input {...getInputProps()} />
                   <p className={'text-sm'}>Drag 'n' Cover Image, or click to select files</p>
@@ -205,7 +210,7 @@ function Create( {blog} ) {
           </form>
         </div>
       </div>
-    </AuthenticatedLayout>
+    </AdminLayout>
   );
 }
 

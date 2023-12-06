@@ -5,9 +5,9 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\SpeakerUpdateRequest;
 use App\Http\Requests\StoreSpeakerRequest;
-use App\Http\Resources\SpeakerResource;
+use App\Http\Resources\ProfileResource;
 use App\Models\Location;
-use App\Models\Speaker;
+use App\Models\Profile;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -19,7 +19,7 @@ use Inertia\Inertia;
 use Spatie\MediaLibrary\MediaCollections\Exceptions\FileDoesNotExist;
 use Spatie\MediaLibrary\MediaCollections\Exceptions\FileIsTooBig;
 
-class AdminSpeakerController extends Controller
+class AdminProfileController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -29,17 +29,17 @@ class AdminSpeakerController extends Controller
     public function index()
     {
 
-      $speakers = Speaker::oldest()->paginate(12);
-      return Inertia::render('Admin/Speakers/Index', [
-        'speakers' => SpeakerResource::collection($speakers),
+      $profiles = Profile::oldest()->paginate(12);
+      return Inertia::render('Admin/Profiles/Index', [
+          'profiles' => ProfileResource::collection($profiles),
       ]);
     }
 
     public function search(Request $request){
-      $speakers = Speaker::search($request->input('query'))->paginate(12)->withQueryString();
-      return Inertia::render('Admin/Speakers/Index', [
-        'speakers' => SpeakerResource::collection($speakers),
-        'query' => $request->input('query')
+      $profiles = Profile::search($request->input('query'))->paginate(12)->withQueryString();
+      return Inertia::render('Admin/Profiles/Index', [
+          'profiles' => ProfileResource::collection($profiles),
+          'query' => $request->input('query')
       ]);
     }
 
@@ -52,7 +52,7 @@ class AdminSpeakerController extends Controller
      */
     public function create()
     {
-        return Inertia::render('Admin/Speakers/Create', [
+        return Inertia::render('Admin/Profiles/Create', [
           'locations' => Location::all(),
         ]);
     }
@@ -77,7 +77,7 @@ class AdminSpeakerController extends Controller
         'keywords' => 'required',
       ]);
 
-      $speaker = Speaker::create([
+      $speaker = Profile::create([
         'name' => $request->input('name'),
         'bio' => $request->input('bio'),
         'meta_title' => $request->input('meta_title'),
@@ -93,15 +93,15 @@ class AdminSpeakerController extends Controller
           ->toMediaCollection('avatar');
       }
 
-      return Redirect::route('admin.speakers.index');
+      return Redirect::route('admin.profiles.index');
     }
 
 
-    public function show(Speaker $speaker)
+    public function show(Profile $speaker)
     {
-        return Inertia::render('Admin/Speakers/Show', [
-          'speaker' => SpeakerResource::make($speaker),
-          'videos' => $speaker->videos
+        return Inertia::render('Admin/Profiles/Show', [
+            'speaker' => ProfileResource::make($speaker),
+            'videos' => $speaker->videos
         ]);
     }
 
@@ -109,15 +109,15 @@ class AdminSpeakerController extends Controller
   /**
    * Show the form for editing the specified resource.
    *
-   * @param Speaker $speaker
+   * @param Profile $speaker
    *
    * @return \Inertia\Response
    */
-    public function edit(Speaker $speaker)
+    public function edit(Profile $speaker)
     {
-        return Inertia::render('Admin/Speakers/Create', [
-          'speaker' => SpeakerResource::make($speaker),
-          'locations' => Location::all(),
+        return Inertia::render('Admin/Profiles/Create', [
+            'speaker' => ProfileResource::make($speaker),
+            'locations' => Location::all(),
         ]);
     }
 
@@ -125,13 +125,13 @@ class AdminSpeakerController extends Controller
    * Update the specified resource in storage.
    *
    * @param SpeakerUpdateRequest $request
-   * @param Speaker $speaker
+   * @param Profile $speaker
    *
    * @return RedirectResponse
    * @throws FileDoesNotExist
    * @throws FileIsTooBig
    */
-    public function update(SpeakerUpdateRequest $request, Speaker $speaker)
+    public function update(SpeakerUpdateRequest $request, Profile $speaker)
     {
         $speaker->update([
           'name' => $request->input('name'),
@@ -149,20 +149,20 @@ class AdminSpeakerController extends Controller
           ->toMediaCollection('avatar');
       }
 
-      return Redirect::route('admin.speakers.index');
+      return Redirect::route('admin.profiles.index');
     }
 
   /**
    * Remove the specified resource from storage.
    *
-   * @param Speaker $speaker
+   * @param Profile $speaker
    *
    * @return RedirectResponse
    */
-    public function destroy(Speaker $speaker)
+    public function destroy(Profile $speaker)
     {
         $speaker->delete();
 
-        return Redirect::route('admin.speakers.index');
+        return Redirect::route('admin.profiles.index');
     }
 }

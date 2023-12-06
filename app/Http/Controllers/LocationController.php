@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Resources\SpeakerResource;
+use App\Http\Resources\ProfileResource;
 use App\Models\Location;
-use App\Models\Speaker;
+use App\Models\Profile;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
@@ -16,9 +16,9 @@ class LocationController extends Controller
         return $value->id != $location->id;
       })->values();
       return Inertia::render('Locations/Show', [
-        'speakers' => SpeakerResource::collection($location->speakers()->paginate(12)),
-        'locations' => $locations,
-        'location' => $location
+          'speakers' => ProfileResource::collection($location->speakers()->paginate(12)),
+          'locations' => $locations,
+          'location' => $location
       ]);
     }
 
@@ -29,14 +29,14 @@ class LocationController extends Controller
       });
 
       //Search speakers and filter by location
-      $speakers = Speaker::search($request->input('query'))
+      $speakers = Profile::search($request->input('query'))
         ->where('location_id', $location->id)
         ->paginate(12)->withQueryString();
 
       return Inertia::render('Locations/Show', [
-        'locations' => $locations,
-        'location' => $location,
-        'speakers' => SpeakerResource::collection($speakers),
+          'locations' => $locations,
+          'location' => $location,
+          'speakers' => ProfileResource::collection($speakers),
       ]);
     }
 }

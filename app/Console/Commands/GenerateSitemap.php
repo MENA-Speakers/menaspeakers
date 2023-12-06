@@ -4,7 +4,7 @@ namespace App\Console\Commands;
 
 use App\Models\Image;
 use App\Models\Blog;
-use App\Models\Speaker;
+use App\Models\Profile;
 use Illuminate\Console\Command;
 use Spatie\Sitemap\Sitemap;
 use Spatie\Sitemap\Tags\Url;
@@ -49,7 +49,7 @@ class GenerateSitemap extends Command
       ->add(Url::create('/profile-arabic'));
 
     // Get all speakers
-    Speaker::all()->each(function ($speaker) use ($sitemap) {
+    Profile::all()->each(function ($speaker) use ($sitemap) {
       $sitemap->add(Url::create('/speakers/' . $speaker->slug));
       $images = $speaker->getMedia('avatar');
       foreach ($images as $image) {

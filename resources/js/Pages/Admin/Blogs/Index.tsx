@@ -3,6 +3,9 @@ import PrimaryButton from "@/Components/PrimaryButton";
 import {Head, Link, router} from "@inertiajs/react";
 import {useFormik} from "formik";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
+import AdminLayout from "@/Layouts/AdminLayout";
+import {Input} from "@/Components/ui/input";
+import {Button} from "@/Components/ui/button";
 
 function Index( {blogs, query} ) {
 
@@ -17,27 +20,29 @@ function Index( {blogs, query} ) {
 
   return (
 
-  <AuthenticatedLayout
-    header={
-    <div className="flex justify-between items-center">
-      <h2 className="font-semibold text-xl text-gray-800 leading-tight">Blogs</h2>
-      <Link href={ route( 'admin.blogs.create' ) } className="bg-gray-600 hover:bg-gray-800 text-white py-1 px-4 rounded">
-        Add Blog
-      </Link>
-    </div>
-  }
+  <AdminLayout
+
   >
     <Head title="Blogs" />
 
-    <div className="py-12">
+    <div className="py-4">
       <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
-        <form onSubmit={formik.handleSubmit} className="flex space-x-8 mb-8 mt-4">
-          <input type="search" name="query"
+        <form onSubmit={formik.handleSubmit} className="flex space-x-8 w-1/2 mb-8 mt-4">
+          <Input type="search" name="query"
                  value={formik.values.query}
                   onChange={formik.handleChange}
                  className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"/>
           <PrimaryButton type="submit">Search</PrimaryButton>
         </form>
+
+        <div className="py-4 flex flex-col md:flex-row justify-between items-center">
+          <h1 className="text-2xl text-gray-800">Blogs </h1>
+            <Link href={route('admin.blogs.create')}>
+                <Button className="bg-slate-100 text-gray-900 hover:bg-slate-200">
+                Add Blog
+                </Button>
+            </Link>
+        </div>
 
         <div className="overflow-hidden sm:rounded-lg">
           <div className="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 sm:gap-x-6 lg:grid-cols-3 xl:gap-x-8">
@@ -74,7 +79,7 @@ function Index( {blogs, query} ) {
         </div>
       </div>
     </div>
-  </AuthenticatedLayout>
+  </AdminLayout>
   );
 }
 

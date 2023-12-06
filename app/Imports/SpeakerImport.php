@@ -2,7 +2,7 @@
 
   namespace App\Imports;
 
-  use App\Models\Speaker;
+  use App\Models\Profile;
   use Illuminate\Support\Collection;
   use Maatwebsite\Excel\Concerns\ToCollection;
   use Maatwebsite\Excel\Concerns\WithBatchInserts;
@@ -17,7 +17,7 @@
       foreach ($rows as $row)
       {
 
-        $speaker = Speaker::create([
+        $speaker = Profile::create([
           'name' => $row['name'],
           'bio' => $row['bio'],
           'meta_title' =>  $row['name'],
