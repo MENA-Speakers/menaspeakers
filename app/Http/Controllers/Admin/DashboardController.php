@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\LocationResource;
 use App\Models\Blog;
 use App\Models\Location;
-use App\Models\Speaker;
+use App\Models\Profile;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
@@ -14,7 +14,7 @@ use Inertia\Inertia;
 class DashboardController extends Controller
 {
     public function dashboard(){
-      $speaker_count = Speaker::count();
+      $speaker_count = Profile::count();
       $blog_count   = Blog::count();
       $user_count  = User::count();
       return Inertia::render('Admin/Dashboard', [

@@ -5,13 +5,13 @@ import { useFormik } from "formik";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import { useDropzone } from "react-dropzone";
 import DangerButton from "@/Components/DangerButton";
+import AdminLayout from "@/Layouts/AdminLayout";
+import {Button} from "@/Components/ui/button";
 
 function Index(props) {
 
   const [gallery, setGallery] = useState(props.images);
   const [isOpen, setIsOpen] = useState(false);
-
-  console.log(gallery);
 
   const uploadGallery = () => {
     setIsOpen(true);
@@ -81,20 +81,17 @@ function Index(props) {
 
   return (
 
-    <AuthenticatedLayout
-      header={
-        <div className="flex justify-between items-center">
-          <h2 className="font-semibold text-xl text-gray-800 leading-tight">Gallery</h2>
-          <PrimaryButton onClick={uploadGallery} className="bg-gray-600 hover:bg-gray-800 text-white py-1 px-4 rounded">
-            Upload Gallery
-          </PrimaryButton>
-        </div>
-      }
-    >
+    <AdminLayout>
       <Head title="Gallery" />
 
-      <div className="py-12">
+      <div className="py-4">
         <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center">
+            <h2 className="font-semibold text-xl text-gray-800 leading-tight">Gallery</h2>
+            <Button onClick={uploadGallery} className="bg-gray-600 hover:bg-gray-800 text-white py-1 px-4 rounded">
+              Upload Gallery
+            </Button>
+          </div>
 
           {
             isOpen && (
@@ -162,7 +159,7 @@ function Index(props) {
           </div>
         </div>
       </div>
-    </AuthenticatedLayout>
+    </AdminLayout>
   );
 }
 

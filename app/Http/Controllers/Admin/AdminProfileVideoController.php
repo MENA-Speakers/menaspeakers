@@ -3,21 +3,21 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\SpeakerResource;
-use App\Models\Speaker;
+use App\Http\Resources\ProfileResource;
+use App\Models\Profile;
 use App\Models\Video;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
 use Inertia\Inertia;
 
-class AdminSpeakerVideoController extends Controller
+class AdminProfileVideoController extends Controller
 {
 
-  public function index(Speaker $speaker)
+  public function index(Profile $profile)
   {
-    return Inertia::render('Admin/Speakers/Show', [
-      'speaker' => SpeakerResource::make($speaker),
-      'videos' => $speaker->videos
+    return Inertia::render('Admin/Profiles/Show', [
+        'profile' => ProfileResource::make($profile),
+        'videos' => $profile->videos
     ]);
   }
 
@@ -26,10 +26,10 @@ class AdminSpeakerVideoController extends Controller
   {
     $pattern = '/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/ ]{11})/';
     preg_match($pattern, $url, $matches);
-    return isset($matches[1]) ? $matches[1] : null;
+    return $matches[1] ?? null;
   }
 
-  public function store(Request $request, Speaker $speaker)
+  public function store(Request $request, Profile $profile)
   {
     //Validate
     $request->validate([
@@ -39,7 +39,7 @@ class AdminSpeakerVideoController extends Controller
 
     $videoId = null;
 
-    //if video is youtube extract the id
+    //if video is YouTube extract the id
     if($request->videoSource === 'youtube') {
       $videoId = $this->extractYouTubeId($request->input('link'));
       //throw error if link is not valid
@@ -57,16 +57,15 @@ class AdminSpeakerVideoController extends Controller
       }
     }
 
-    $speaker->videos()->create([
+    $profile->videos()->create([
       'url' => $videoId
     ]);
 
-    return $speaker->videos;
+    return $profile->videos;
   }
 
   public function destroy(Video $video)
   {
-
     $video->delete();
     return redirect()->back();
   }

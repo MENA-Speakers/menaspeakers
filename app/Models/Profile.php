@@ -13,7 +13,7 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 
-class Speaker extends Model implements HasMedia
+class Profile extends Model implements HasMedia
 {
     use HasFactory, Searchable, HasSlug, InteractsWithMedia;
 

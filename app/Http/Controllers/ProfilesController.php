@@ -2,18 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Resources\SpeakerResource;
+use App\Http\Resources\ProfileResource;
 use App\Imports\BlogImport;
 use App\Imports\SpeakerImport;
 use App\Models\Location;
-use App\Models\Speaker;
+use App\Models\Profile;
 use Artesaos\SEOTools\Facades\JsonLdMulti;
 use Artesaos\SEOTools\Facades\SEOTools;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Maatwebsite\Excel\Facades\Excel;
 
-class SpeakersController extends Controller
+class ProfilesController extends Controller
 {
 
   public function index(Request $request){
@@ -22,21 +22,21 @@ class SpeakersController extends Controller
     if($request->hasAny([
       'query',
     ])){
-      $result = Speaker::search($request->input('query'));
+      $result = Profile::search($request->input('query'));
     }else {
-      $result = Speaker::oldest();
+      $result = Profile::oldest();
     }
 
     $locations = Location::all();
 
     return Inertia::render('Speakers/Index', [
-      'speakers' => SpeakerResource::collection($result->paginate(12)->withQueryString()),
-      'query' => $request->input('query'),
-      'locations' => $locations
+        'speakers' => ProfileResource::collection($result->paginate(12)->withQueryString()),
+        'query' => $request->input('query'),
+        'locations' => $locations
     ]);
   }
 
-  public function show(Speaker $speaker){
+  public function show(Profile $speaker){
 
     SEOTools::setTitle($speaker->meta_title);
     SEOTools::setDescription($speaker->meta_description);
@@ -45,7 +45,7 @@ class SpeakersController extends Controller
     SEOTools::twitter()->setSite('@menaspeakers');
     SEOTools::jsonLd()->addImage($speaker->getFirstMediaUrl('avatar'));
     return Inertia::render('Speakers/Show', [
-      'speaker' => new SpeakerResource($speaker)
+      'speaker' => new ProfileResource($speaker)
     ]);
   }
 
