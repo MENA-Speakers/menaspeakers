@@ -61,14 +61,14 @@ export function SideBar({ className }: SidebarProps) {
               route().current('admin.contacts.*') && 'bg-slate-100 rounded-lg text-gray-900'
             )}>
               <Contact className="mr-2 h-5 w-5" />
-              Contacts
+              Referrals
             </Link>
 
             <Link href={route('admin.companies.index')} className={ cn("w-full flex justify-start items-center px-3 py-2 text-gray-600 hover:bg-slate-100 hover:text-gray-900 rounded-lg",
               route().current('admin.companies.*') && 'bg-slate-100 rounded-lg text-gray-900'
             )}>
               <Contact2 className="mr-2 h-5 w-5" />
-              Companies
+              Sales Team
             </Link>
           </div>
         </div>
