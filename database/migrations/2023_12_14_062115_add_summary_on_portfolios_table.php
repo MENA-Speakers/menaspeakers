@@ -6,15 +6,13 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-
-
     /**
      * Run the migrations.
      */
     public function up(): void
     {
-        Schema::table('videos', function (Blueprint $table) {
-          $table->renameColumn('profile_id', 'speaker_id');
+        Schema::table('portfolios', function (Blueprint $table) {
+            $table->text('summary')->nullable()->after('body');
         });
     }
 
@@ -23,8 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('videos', function (Blueprint $table) {
-          $table->renameColumn('speaker_id', 'profile_id');
+        Schema::table('portfolios', function (Blueprint $table) {
+            $table->dropColumn('summary');
         });
     }
 };

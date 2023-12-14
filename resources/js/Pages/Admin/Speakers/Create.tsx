@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import {Head, router} from "@inertiajs/react";
 import {useFormik} from "formik";
@@ -8,25 +8,32 @@ import 'react-quill/dist/quill.snow.css';
 import {useDropzone} from 'react-dropzone';
 import axios from "axios";
 import PrimaryButton from "@/Components/PrimaryButton";
-import InputLabel from "@/Components/InputLabel";
 import AdminLayout from "@/Layouts/AdminLayout";
-import {SpeakerType} from "@/types/admin_speakers";
 import {Textarea} from "@/Components/ui/textarea";
 import {LocationType} from "@/types/location";
 import {Input} from "@/Components/ui/input";
+import {SpeakerType} from "@/types/speaker-type";
 import {Label} from "@/Components/ui/label";
+
 
 function Create( {speaker, locations} : { speaker: SpeakerType, locations: LocationType[]} ) {
 
 
   const [ imagePreview, setImagePreview ] = React.useState( speaker?.image ? speaker.image : null );
+  const [isEditing, setIsEditing] = React.useState(false);
 
+  useEffect(() => {
+    if (speaker) {
+      setIsEditing(true);
+    }
+  }, [speaker])
 
   const formik = useFormik( {
     initialValues: {
       name: speaker?.name ? speaker.name : '',
       meta_title: speaker?.meta_title ? speaker.meta_title : '',
       keywords: speaker?.keywords ? speaker.keywords : '',
+      slug: speaker?.slug ? speaker.slug : '',
       excerpt: speaker?.excerpt ? speaker.excerpt : '',
       bio: speaker?.bio ? speaker.bio : '',
       location: speaker?.location_id ? speaker.location_id : '',
@@ -53,15 +60,18 @@ function Create( {speaker, locations} : { speaker: SpeakerType, locations: Locat
       let url = route( 'admin.speakers.store' );
       let method = 'post';
 
-      if ( speaker ) {
+      if ( isEditing ) {
         url = route( 'admin.speakers.update', speaker.id );
-        method = 'put';
       }
+
 
       axios( {
         method: method,
         url: url,
         data: values,
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        }
       } ).then( ( response ) => {
         formik.setSubmitting( false );
         router.visit( route( 'admin.speakers.index' ) );
@@ -95,7 +105,7 @@ function Create( {speaker, locations} : { speaker: SpeakerType, locations: Locat
   return (
     <AdminLayout
     >
-      <Head title="Dashboard"/>
+      <Head title="Speaker "/>
 
       <div className="">
         <div className="sm:px-6 lg:px-8">
@@ -163,6 +173,31 @@ function Create( {speaker, locations} : { speaker: SpeakerType, locations: Locat
 
             </div>
 
+            {
+              isEditing &&
+
+              <div>
+                <Label htmlFor="keywords" className="block text-sm font-medium text-gray-700">Slug (speaker url)</Label>
+                <div className="mt-1">
+                  <Input type="text"
+                         name="slug"
+                         value={formik.values.slug}
+                         onChange={formik.handleChange}
+                         id="slug"
+                         className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                         placeholder="saana-azzam"/>
+                </div>
+
+                {
+                  formik.touched.slug && formik.errors.slug ? (
+                    <div className="text-red-500 text-xs italic">{formik.errors.slug}</div>
+                  ) : null
+                }
+
+              </div>
+
+
+            }
 
 
             <div>
@@ -192,15 +227,16 @@ function Create( {speaker, locations} : { speaker: SpeakerType, locations: Locat
                        value={formik.values.location}
                        onChange={formik.handleChange}
                        id="location"
-                       className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                       className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
                        placeholder="Meta title">
                   <option disabled value="">Select Location</option>
                   {
                     locations.map( ( location ) => {
-                      return <option key={location.id} value={location.id}>{location.name}</option>;
+                      return <option key={location.id} value={location.id} selected={location.id === formik.values.location} >{location.name}</option>;
                     } )
                   }
                 </select>
+
               </div>
               {
                 formik.touched.location && formik.errors.location ? (

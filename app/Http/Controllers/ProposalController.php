@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreProposalRequest;
+use App\Http\Resources\ProposalResource;
+use App\Models\Proposal;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class ProposalController extends Controller
 {
@@ -11,7 +15,9 @@ class ProposalController extends Controller
      */
     public function index()
     {
-        //
+        $proposals = Proposal::latest()->paginate(12);
+
+        return Inertia::render('Admin/Proposals/Index');
     }
 
     /**
@@ -25,9 +31,11 @@ class ProposalController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreProposalRequest $request)
     {
-        //
+
+
+
     }
 
     /**

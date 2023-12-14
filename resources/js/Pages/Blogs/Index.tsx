@@ -3,8 +3,33 @@ import MainLayout from "@/Layouts/MainLayout";
 import {Head} from "@inertiajs/react";
 import BlogCard from "@/Components/BlogCard";
 import Pagination from "@/Components/Pagination";
+import {BlogType} from "@/types/blog-type";
 
-function Index({blogs, query}) {
+interface blogData {
+  data: BlogType[],
+  links: {
+    first: string,
+    last: string,
+    prev: string,
+    next: string
+  },
+  meta: {
+    current_page: number,
+    from: number,
+    last_page: number,
+    links: {
+      url: string,
+      label: string,
+      active: boolean
+    }[],
+    path: string,
+    per_page: number,
+    to: number,
+    total: number
+  }
+}
+
+function Index({blogs, query}: {blogs: blogData, query: string}) {
   return (
     <MainLayout>
       <Head>

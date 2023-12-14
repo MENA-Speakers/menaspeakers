@@ -1,15 +1,14 @@
 import React from 'react';
-import PrimaryButton from "@/Components/PrimaryButton";
 import {Head, Link, router} from "@inertiajs/react";
 import {useFormik} from "formik";
 import AdminLayout from "@/Layouts/AdminLayout";
-import SpeakerCard from "@/Components/Admin/SpeakerCard";
 import {Button} from "@/Components/ui/button";
 import {Input} from "@/Components/ui/input";
-import {SpeakerType} from "@/types/speaker-type";
+import {PortfolioType} from "@/types/portfolio-type";
+import {PortfolioCard} from "@/Components/Admin/PortfolioCard";
 
-interface SpeakerData {
-  data: SpeakerType[],
+interface portfolioData {
+  data: PortfolioType[],
   links: {
     first: string,
     last: string,
@@ -31,7 +30,8 @@ interface SpeakerData {
     total: number
   }
 }
-function Index( {speakers, query} : {speakers: SpeakerData, query: string} ) {
+
+function Index( {portfolios, query} : {portfolios: portfolioData, query: string} ) {
 
 
   const formik = useFormik( {
@@ -39,22 +39,22 @@ function Index( {speakers, query} : {speakers: SpeakerData, query: string} ) {
       query: query ? query : '',
     },
     onSubmit: values => {
-      router.post( route( 'admin.speakers.search' ), values)
+      router.post( route( 'admin.portfolios.search' ), values)
     },
   } );
 
   return (
 
   <AdminLayout>
-    <Head title="Public Profiles" />
+    <Head title="Speaker's Rate Cards" />
 
     <div className="">
       <div className="sm:px-6 lg:px-8">
         <div className="flex justify-between">
-          <h2 className="text-2xl text-gray-900">Front page speakers </h2>
-          <Link href={route('admin.speakers.create')}>
+          <h2 className="text-2xl text-gray-900">Rate Cards</h2>
+          <Link href={route('admin.portfolios.create')}>
             <Button className="bg-slate-100 text-gray-900 hover:bg-slate-200">
-              Add Speaker
+              Add Rate
             </Button>
           </Link>
         </div>
@@ -70,18 +70,20 @@ function Index( {speakers, query} : {speakers: SpeakerData, query: string} ) {
         </div>
 
         <div className="overflow-hidden sm:rounded-lg">
-          <div className="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 sm:gap-x-6 lg:grid-cols-5 xl:gap-x-8">
+          <div className="grid grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-3 xl:gap-x-8">
 
-            {
-              speakers.data.map( (speaker: SpeakerType, index : number) => (
-                <SpeakerCard key={index} speaker={speaker} />
-              ))
-            }
+              {
+                portfolios.data.map( (portfolio: PortfolioType, index : number) => (
+                  <PortfolioCard key={index} portfolio={portfolio} />
+                ))
+              }
+
+
 
           </div>
 
           {/*<div className="mt-12 px-6 w-full">*/}
-          {/*  {{$speakers->links()}}*/}
+          {/*  {{$profiles->links()}}*/}
           {/*</div>*/}
 
         </div>

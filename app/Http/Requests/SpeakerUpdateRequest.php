@@ -29,6 +29,7 @@ class SpeakerUpdateRequest extends FormRequest
           'meta_title' => 'required',
           'excerpt' => 'required',
           'keywords' => 'required',
+          'slug' => ['required', 'regex:/^[a-z0-9-]+$/i', 'unique:speakers,slug,' . $this->id],
         ];
     }
 }

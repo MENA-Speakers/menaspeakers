@@ -4,9 +4,11 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\SpeakerUpdateRequest;
+use App\Http\Requests\StoreProfileRequest;
 use App\Http\Requests\StoreSpeakerRequest;
 use App\Http\Resources\ProfileResource;
 use App\Models\Location;
+use App\Models\Profile;
 use App\Models\Speaker;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
@@ -28,8 +30,8 @@ class AdminProfileController extends Controller
      */
     public function index()
     {
-
-      $profiles = Speaker::oldest()->paginate(12);
+      $profile = Profile::first();
+      $profiles = Profile::latest()->paginate(12);
       return Inertia::render('Admin/Profiles/Index', [
           'profiles' => ProfileResource::collection($profiles),
       ]);
@@ -60,32 +62,25 @@ class AdminProfileController extends Controller
   /**
    * Store a newly created resource in storage.
    *
-   * @param StoreSpeakerRequest $request
+   * @param StoreProfileRequest $request
    *
    * @return RedirectResponse
    */
-    public function store(StoreSpeakerRequest $request)
+    public function store(StoreProfileRequest $request)
     {
 
-      $request->validated([
-        'name' => 'required',
-        'bio' => 'required',
-        'image' => 'required',
-        'featured' => 'required',
-        'meta_title' => 'required',
-        'excerpt' => 'required',
-        'keywords' => 'required',
-      ]);
 
-      $speaker = Speaker::create([
-        'name' => $request->input('name'),
-        'bio' => $request->input('bio'),
-        'meta_title' => $request->input('meta_title'),
-        'location_id' => $request->input('location'),
-        'excerpt' => $request->input('excerpt'),
-        'featured' => boolval($request->input('featured')),
-        'meta_description' => $request->input('excerpt'),
-        'keywords' => $request->input('keywords'),
+      $speaker = Profile::create([
+        'first_name' => $request->input('first_name'),
+        'last_name' => $request->input('last_name'),
+        'about' => $request->input('about'),
+        'email' => $request->input('email'),
+        'phone' => $request->input('location'),
+        'job_title' => $request->input('job_title'),
+        'fee' => boolval($request->input('fee')),
+        'linkedin' => $request->input('linkedin'),
+        'website' => $request->input('website'),
+        'twitter' => $request->input('twitter'),
       ]);
 
       if($request->hasFile('image')){
@@ -93,15 +88,16 @@ class AdminProfileController extends Controller
           ->toMediaCollection('avatar');
       }
 
+
       return Redirect::route('admin.profiles.index');
     }
 
 
-    public function show(Speaker $speaker)
+    public function show(Profile $profile)
     {
         return Inertia::render('Admin/Profiles/Show', [
-            'speaker' => ProfileResource::make($speaker),
-            'videos' => $speaker->videos
+            'profile' => ProfileResource::make($profile),
+            'videos' => $profile->videos
         ]);
     }
 

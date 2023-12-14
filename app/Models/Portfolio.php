@@ -2,20 +2,21 @@
 
 namespace App\Models;
 
+use App\Traits\HashId;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
-class Bio extends Model
+class Portfolio extends Model
 {
-    use HasFactory;
+    use HasFactory, HashId;
 
     protected $guarded = ['id'];
 
     public function profile(): BelongsTo
     {
-        return $this->belongsTo(Speaker::class);
+        return $this->belongsTo(Profile::class);
     }
 
   public function registerMediaCollections(): void
@@ -29,7 +30,6 @@ class Bio extends Model
         ->format('webp')
         ->performOnCollections('gallery');
   }
-
 
 
 }

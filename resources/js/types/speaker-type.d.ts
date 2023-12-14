@@ -1,17 +1,24 @@
-// Speaker interface
-export interface ProfileType {
+//Speaker interface
+
+
+import {PortfolioType} from "@/types/portfolio-type";
+
+export interface SpeakerType {
   id: number;
-  full_name: string;
-  excerpt: string;
+  first_name: string;
+  last_name: string;
+  portfolios: PortfolioType[];
   meta_title: string;
   meta_description: string;
+  bio: string;
+  excerpt: string;
   keywords: string;
   location_id: number;
   name: string;
   slug: string;
   company: string;
   position: string;
-  bio: string;
+  about: string;
   featured: boolean;
   image: string;
   created_at: string;

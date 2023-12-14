@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class SpeakerController extends Controller
+class ReferralController extends Controller
 {
     /**
      * Display a listing of the resource.

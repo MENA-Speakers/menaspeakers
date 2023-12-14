@@ -24,9 +24,13 @@ class StoreSpeakerRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
-            'image' => 'required',
-            'bio' => 'required'
+          'name' => 'required',
+          'bio' => 'required',
+          'image' => 'required',
+          'featured' => 'required',
+          'meta_title' => 'required',
+          'excerpt' => 'required',
+          'keywords' => 'required',
         ];
     }
 }

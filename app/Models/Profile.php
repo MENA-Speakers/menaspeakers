@@ -2,39 +2,39 @@
 
 namespace App\Models;
 
+use App\Traits\HashId;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Laravel\Scout\Searchable;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
-use Spatie\Sluggable\HasSlug;
-use Spatie\Sluggable\SlugOptions;
+use Illuminate\Support\Str;
 
-class Speaker extends Model implements HasMedia
+class Profile extends Model implements HasMedia
 {
-    use HasFactory, Searchable, HasSlug, InteractsWithMedia;
+    use HasFactory, HashId, InteractsWithMedia;
 
     protected $guarded = ['id'];
 
-    public function getSlugOptions (): SlugOptions
+    // Add the boot method to hash id on model creation
+
+
+    public function getRouteKeyName(): string
     {
-      return SlugOptions::create()
-        ->generateSlugsFrom('name')
-        ->saveSlugsTo('slug')
-        ->doNotGenerateSlugsOnUpdate();
+        return 'hash_id';
     }
 
-    public function getRouteKeyName (): string
+
+    public function getFullNameAttribute(): string
     {
-      return 'slug';
+        return "{$this->first_name} {$this->last_name}";
     }
 
   public function registerMediaCollections(): void
   {
     $this->addMediaCollection('avatar')->singleFile();
+    $this->addMediaCollection('gallery');
   }
 
   public function registerMediaConversions(Media $media = null): void
@@ -50,16 +50,10 @@ class Speaker extends Model implements HasMedia
     return $this->hasMany(Video::class);
   }
 
-  public function location(): BelongsTo
-  {
-    return $this->belongsTo(Location::class);
-  }
 
-  public function toSearchableArray(): array
+  public function portfolios(): HasMany
   {
-    $array = $this->toArray();
-    $array['location'] = $this->location?->name;
-    return $array;
+    return $this->hasMany(Portfolio::class);
   }
 
 }

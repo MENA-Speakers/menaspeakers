@@ -17,17 +17,28 @@ class ProfileResource extends JsonResource
      */
     public function toArray($request)
     {
+        $gallery = $this->getMedia('gallery')->map(function ($item) {
+            return [
+                'id' => $item->id,
+                'url' => $item->getUrl(),
+            ];
+        });
+
         return [
-          'id' => $this->id,
-          'name' => $this->name,
+          'id' => $this->hash_id,
+          'first_name' => $this->first_name,
+          'last_name' => $this->last_name,
+          'full_name' => $this->full_name,
           'image' => $this->getFirstMediaUrl('avatar', 'webp'),
-          'bio' => $this->bio,
-          'featured' => $this->featured,
-          'meta_title' => $this->meta_title,
-          'excerpt' => $this->excerpt,
-          'slug' => $this->slug,
-          'keywords' => $this->keywords,
-          'videos' => $this->videos,
+          'about' => $this->about,
+          'phone' => $this->phone,
+          'email' => $this->email,
+          'website' => $this->website,
+          'linkedin' => $this->linkedin,
+          'twitter' => $this->twitter,
+          'job_title' => $this->job_title,
+          'fee' => $this->fee,
+          'gallery' => $gallery,
         ];
     }
 }

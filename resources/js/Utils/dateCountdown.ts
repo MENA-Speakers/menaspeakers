@@ -1,3 +1,12 @@
+/**
+ * Calculates the countdown from the current date to the given event date.
+ * @param {string} date - The event date in string format.
+ * @return {Object} An object containing the countdown details:
+ *                  - days: The number of remaining days until the event.
+ *                  - hours: The remaining hours formatted as a two-digit string (e.g. "03").
+ *                  - minutes: The remaining minutes formatted as a two-digit string (e.g. "08").
+ *                  - seconds: The remaining seconds formatted as a two-digit string (e.g. "12").
+ */
 function dateCountdown(date: string): { days: number; hours: string; minutes: string; seconds: string } {
     let now = new Date();
     let eventDate = new Date(date);

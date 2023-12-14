@@ -18,7 +18,6 @@ function Index({speakers, query, locations}) {
     }
   })
 
-
   return (
     <MainLayout>
       <Head>

@@ -9,9 +9,11 @@ import PrimaryButton from "@/Components/PrimaryButton";
 import InputLabel from "@/Components/InputLabel";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import AdminYoutubeVideo from "@/Components/AdminYoutubeVideo";
-import {ProfileType} from "@/types/admin_profiles";
+import {SpeakerType} from "@/types/speaker-type";
+import {VideoType} from "@/types/media";
+import AdminLayout from "@/Layouts/AdminLayout";
 
-function Show({ speaker, videos } : {speaker: ProfileType, videos: VideoType[]} ) {
+function Show({ speaker, videos } : {speaker: SpeakerType, videos: VideoType[]} ) {
 
   const [video, setVideo] = useState(null);
   const [open, setOpen] = useState(false);
@@ -64,21 +66,20 @@ function Show({ speaker, videos } : {speaker: ProfileType, videos: VideoType[]} 
 
 
   return (
-    <AuthenticatedLayout
-      header={
+    <AdminLayout
+
+    >
+      <Head title="Speaker " />
+
+      <div className="py-4">
         <div className="flex justify-between">
           <h2 className="font-semibold text-xl text-gray-800 leading-tight">Speaker - {speaker.name}</h2>
           <PrimaryButton onClick={() => setOpen(true)}>Add Video</PrimaryButton>
         </div>
-      }
-    >
-      <Head title="Speaker " />
-
-      <div className="py-12">
         <div className="max-w-7xl mx-auto sm:p-6 lg:p-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {
             allVideos?.map((video, index) => (
-              <AdminYoutubeVideo key={index} video={video} />
+              <AdminYoutubeVideo key={index} video={video}/>
             ))
           }
 
@@ -187,7 +188,7 @@ function Show({ speaker, videos } : {speaker: ProfileType, videos: VideoType[]} 
         </Dialog>
       </Transition.Root>
 
-    </AuthenticatedLayout>
+    </AdminLayout>
   );
 }
 

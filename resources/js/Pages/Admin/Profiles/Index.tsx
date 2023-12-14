@@ -1,17 +1,38 @@
 import React from 'react';
-import PrimaryButton from "@/Components/PrimaryButton";
 import {Head, Link, router} from "@inertiajs/react";
 import {useFormik} from "formik";
 import AdminLayout from "@/Layouts/AdminLayout";
 import SpeakerCard from "@/Components/Admin/SpeakerCard";
-import {ProfileType} from "@/types/admin_profiles";
 import {Button} from "@/Components/ui/button";
 import {Input} from "@/Components/ui/input";
+import {ProfileType} from "@/types/admin-profiles";
+import ProfileCard from "@/Components/Admin/ProfileCard";
 
-interface SpeakerData {
-  data: ProfileType[]
+interface profileData {
+  data: ProfileType[],
+  links: {
+    first: string,
+    last: string,
+    prev: string,
+    next: string
+  },
+  meta: {
+    current_page: number,
+    from: number,
+    last_page: number,
+    links: {
+      url: string,
+      label: string,
+      active: boolean
+    }[],
+    path: string,
+    per_page: number,
+    to: number,
+    total: number
+  }
 }
-function Index( {profiles, query} : {profiles: SpeakerData[]} ) {
+
+function Index( {profiles, query} : {profiles: profileData, query: string} ) {
 
 
   const formik = useFormik( {
@@ -23,6 +44,7 @@ function Index( {profiles, query} : {profiles: SpeakerData[]} ) {
     },
   } );
 
+  console.log(profiles.data)
   return (
 
   <AdminLayout>
@@ -31,7 +53,7 @@ function Index( {profiles, query} : {profiles: SpeakerData[]} ) {
     <div className="">
       <div className="sm:px-6 lg:px-8">
         <div className="flex justify-between">
-          <h2 className="text-2xl text-gray-900">Front page Profiles </h2>
+          <h2 className="text-2xl text-gray-900">Speaker Profiles for proposals</h2>
           <Link href={route('admin.profiles.create')}>
             <Button className="bg-slate-100 text-gray-900 hover:bg-slate-200">
               Add Profile
@@ -50,11 +72,11 @@ function Index( {profiles, query} : {profiles: SpeakerData[]} ) {
         </div>
 
         <div className="overflow-hidden sm:rounded-lg">
-          <div className="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 sm:gap-x-6 lg:grid-cols-4 xl:gap-x-8">
+          <div className="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 sm:gap-x-6 lg:grid-cols-5 xl:gap-x-8">
 
             {
-              profiles.data.map( (speaker: ProfileType, index : number) => (
-                <SpeakerCard key={index} speaker={speaker} />
+              profiles.data.map( (profile: ProfileType, index : number) => (
+                <ProfileCard key={index} profile={profile} />
               ))
             }
 
