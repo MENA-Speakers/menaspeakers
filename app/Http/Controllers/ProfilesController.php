@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\ProfileResource;
+use App\Http\Resources\SpeakerResource;
 use App\Imports\BlogImport;
 use App\Imports\SpeakerImport;
 use App\Models\Location;
@@ -30,7 +31,7 @@ class ProfilesController extends Controller
     $locations = Location::all();
 
     return Inertia::render('Speakers/Index', [
-        'speakers' => ProfileResource::collection($result->paginate(12)->withQueryString()),
+        'speakers' => SpeakerResource::collection($result->paginate(12)->withQueryString()),
         'query' => $request->input('query'),
         'locations' => $locations
     ]);
