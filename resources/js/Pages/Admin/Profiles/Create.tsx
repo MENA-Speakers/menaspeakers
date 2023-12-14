@@ -11,7 +11,7 @@ import AdminLayout from "@/Layouts/AdminLayout";
 import {Textarea} from "@/Components/ui/textarea";
 import {LocationType} from "@/types/location";
 import {Input} from "@/Components/ui/input";
-import {Label} from "@/components/ui/label";
+import {Label} from "@/Components/ui/label";
 import {ProfileType} from "@/types/admin-profiles";
 
 function Create( {profile} : { profile: ProfileType }) {

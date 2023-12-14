@@ -8,9 +8,8 @@ import axios from "axios";
 import PrimaryButton from "@/Components/PrimaryButton";
 import AdminLayout from "@/Layouts/AdminLayout";
 import {Textarea} from "@/Components/ui/textarea";
-import {LocationType} from "@/types/location";
 import {Input} from "@/Components/ui/input";
-import {Label} from "@/components/ui/label";
+import {Label} from "@/Components/ui/label";
 import {PortfolioType} from "@/types/portfolio-type";
 import {ProfileType} from "@/types/admin-profiles";
 
