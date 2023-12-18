@@ -1,5 +1,4 @@
 import React from 'react';
-import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import {Head, router} from "@inertiajs/react";
 import {useFormik} from "formik";
 import * as Yup from "yup";
@@ -19,7 +18,8 @@ function Create( {blog} : {blog: BlogType} ) {
     initialValues: {
       title: blog?.title ? blog.title : '',
       meta_title: blog?.meta_title ? blog.meta_title : '',
-      keywords: blog?.keywords ? blog.keywords : 'Public speaking, Communication skills, Keynote speaker, Public speaking trainer, Serial entrepreneur, Forbes contributor, Career advancement, Personal branding, Overcoming fear of public speaking, Effective communication, Impactful speeches',
+      keywords: blog?.keywords ? blog.keywords :
+        'Public speaking, Communication skills, Keynote speaker, Public speaking trainer, Serial entrepreneur, Forbes contributor, Career advancement, Personal branding, Overcoming fear of public speaking, Effective communication, Impactful speeches',
       featured: blog?.featured ? blog.featured : '',
       content: blog?.content ? blog.content : '',
       excerpt: blog?.excerpt ? blog.excerpt : '',
@@ -184,8 +184,6 @@ function Create( {blog} : {blog: BlogType} ) {
                 )}
 
               </div>
-
-
             </div>
             <div className="relative flex items-start">
               <div className="flex h-5 items-center">
@@ -196,8 +194,6 @@ function Create( {blog} : {blog: BlogType} ) {
                 <label htmlFor="featured" className="font-medium text-gray-700">Featured</label>
               </div>
             </div>
-
-
             <div>
               <div className="mt-1 flex justify-end">
                 <PrimaryButton disabled={formik.isSubmitting} type="submit">

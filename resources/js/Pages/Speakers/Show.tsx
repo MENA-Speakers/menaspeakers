@@ -19,6 +19,7 @@ function Show({ speaker }) {
 
   const siteUrl = window.location.href;
 
+  console.log('speaker', speaker)
   return (
     <MainLayout>
       <script type='application/ld+json'>{JSON.stringify(speakerStructuredData)}</script>

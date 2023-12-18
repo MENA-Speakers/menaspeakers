@@ -27,9 +27,9 @@ class AdminSpeakerController extends Controller
 
 
   public function search(Request $request){
-    $profiles = Speaker::search($request->input('query'))->paginate(12)->withQueryString();
+    $speakers = Speaker::search($request->input('query'))->paginate(12)->withQueryString();
     return Inertia::render('Admin/Speakers/Index', [
-      'profiles' => SpeakerResource::collection($profiles),
+      'speakers' => SpeakerResource::collection($speakers),
       'query' => $request->input('query')
     ]);
   }
