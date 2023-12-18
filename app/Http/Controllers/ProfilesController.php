@@ -46,7 +46,7 @@ class ProfilesController extends Controller
     SEOTools::twitter()->setSite('@menaspeakers');
     SEOTools::jsonLd()->addImage($speaker->getFirstMediaUrl('avatar'));
     return Inertia::render('Speakers/Show', [
-      'speaker' => new ProfileResource($speaker)
+      'speaker' => new SpeakerResource($speaker)
     ]);
   }
 
