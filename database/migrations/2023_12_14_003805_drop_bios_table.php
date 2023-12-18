@@ -10,14 +10,17 @@ return new class extends Migration
      * Run the migrations.
      */
     public function up(): void
+
     {
+      Schema::table('videos', function (Blueprint $table) {
+        $table->dropForeign(['bio_id']);
+        $table->dropColumn(['bio_id']);
+      });
+
         Schema::dropIfExists('bios');
 
         //drop bio_id on videos table
-        Schema::table('videos', function (Blueprint $table) {
-            $table->dropForeign(['bio_id']);
-            $table->dropColumn(['bio_id']);
-        });
+
     }
 
     /**
