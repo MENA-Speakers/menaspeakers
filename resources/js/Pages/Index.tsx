@@ -184,7 +184,7 @@ function Index({blogs, speakers, gallery,news}) {
                   d="M134.1 134.1c17.3-17.3 17.3-45.3 0-62.6s-45.3-17.3-62.6 0-17.3 45.3 0 62.6c17.2 17.2 45.3 17.2 62.6 0zM88.4 88.4c7.9-7.9 20.7-7.9 28.6 0s7.9 20.7 0 28.6-20.7 7.9-28.6 0c-7.9-7.8-7.9-20.7 0-28.6z"/>
               </svg>
             </div>
-            <a href="https://mena-speakers-5847879.hs-sites.com/public-speaking" aria-label={'PUBLIC SPEAKING TRAINING'} className={'p-6 lg:px-20 space-y-4'}>
+            <a href="https://publicspeaking.bitrix24.site" aria-label={'PUBLIC SPEAKING TRAINING'} className={'p-6 lg:px-20 space-y-4'}>
               <h3 className="text-white text-2xl font-bold">PUBLIC SPEAKING TRAINING </h3>
               <p className={'text-gray-100'}>At our company, we help organizations of all sizes improve their communication processes, which can lead to better employee productivity, reduced costs, and increased profitability. Let us help you streamline your communication and achieve the success you deserve.</p>
             </a>
@@ -217,7 +217,7 @@ function Index({blogs, speakers, gallery,news}) {
                   d="M134.1 134.1c17.3-17.3 17.3-45.3 0-62.6s-45.3-17.3-62.6 0-17.3 45.3 0 62.6c17.2 17.2 45.3 17.2 62.6 0zM88.4 88.4c7.9-7.9 20.7-7.9 28.6 0s7.9 20.7 0 28.6-20.7 7.9-28.6 0c-7.9-7.8-7.9-20.7 0-28.6z"/>
               </svg>
             </div>
-            <a href="https://mena-speakers-5847879.hs-sites.com/speakers-fast-track-programme" aria-label={'SPEAKER FAST TRACK'} className={'p-6 lg:px-20 space-y-4'}>
+            <a href="https://menaspeakersfasttrack.bitrix24.site" aria-label={'SPEAKER FAST TRACK'} className={'p-6 lg:px-20 space-y-4'}>
               <h3 className="text-white text-2xl font-bold">SPEAKER FAST TRACK </h3>
               <p className={'text-gray-100'}>The speaker fast track program helps launch your career as a speaker as well as positions speakers to get more speaking engagements around the world. Clients demand that the speakers’ kit is professional, congruent, and appealing.</p>
             </a>
