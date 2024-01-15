@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import MainLayout from "@/Layouts/MainLayout";
 import {Head, Link} from "@inertiajs/react";
 import BlogCard from "@/Components/BlogCard";
@@ -6,30 +6,59 @@ import HomeNewsSection from "@/Components/HomeNewsSection";
 import HomeOurPartners from "@/Components/HomeOurPartners";
 import HomeCountdownSection from "@/Components/HomeCountdownSection";
 import HomeGallerySection from "@/Components/HomeGallerySection";
-import truncateText from "@/Utils/truncateText";
+import {SpeakerType} from "@/types/speaker-type";
+import {GalleryType} from "@/types/media";
+import {OpenGraphDataType} from "@/types/open-grap-data";
 
+interface IndexProps {
+  blogs: BlogType[],
+  speakers: SpeakerType[],
+  gallery: GalleryType[],
+}
 
-function Index({blogs, speakers, gallery,news}) {
+function Index({blogs, speakers, gallery} : IndexProps) {
 
   const siteUrl = window.location.href;
+
+
+  const data = {
+    description: 'What makes MENA Speakers trustworthy is more than their track record. We perpetually strive to provide top notch speakers, raising the bar every day',
+    title: 'MENA Speakers - Official Website',
+    url: siteUrl,
+    type: 'website',
+    twitter: '@menaspeakers',
+    image: "https://mena-speakers.com/images/mena-speakers-logo.png",
+  } as OpenGraphDataType;
 
   return (
 
     <MainLayout>
       <Head>
         <title>MENA Speakers</title>
-        <meta name={'description'} content={'Offers solutions built to succeed. What makes MENA Speakers trustworthy is more than their track record. We perpetually strive to provide top notch speakers, raising the bar every day'} />
-        <meta name={'keywords'} content={''} />
-        <meta property="og:title" content={'MENA Speakers - Official Website'} />
-        <meta property="og:description" content={'Offers solutions built to succeed. What makes MENA Speakers trustworthy is more than their track record. We perpetually strive to provide top notch speakers, raising the bar every day'} />
-        <meta property="og:image" content={''} />
-        <meta property="og:url" content={siteUrl} />
-        <meta property="og:type" content="website" />
+        <meta name={'description'} content={data.description}/>
+        <meta name={'keywords'} content={data.keywords}/>
+        <meta property="og:title" content={data.title}/>
+        <meta property="og:description" content={data.description}/>
+        <meta property="og:image" content={data.image}/>
+        <meta property="og:url" content={data.url}/>
+        <meta property="og:type" content={data.type}/>
+        <meta property="og:locale:alternate" content="en-us"/>
+        <meta property="og:site_name" content="MENA Speakers"/>
+        <meta property="og:image" content={data.image}/>
+        <meta property="og:image:url" content={data.image}/>
+        <meta property="og:image:size" content="300"/>
+
+        <meta name="twitter:card" content={data.description}/>
+        <meta name="twitter:title" content={data.title}/>
+        <meta name="twitter:site" content={data.twitter}/>
+
       </Head>
       {/* Hero Header*/}
       <section className="w-full   relative">
         <div className="w-full h-[600px] lg:h-[800px] ">
-          <img className={'w-full h-full object-cover'} aria-label={'Speakers from MENA Speakers'} src="/images/speaker-from-mena-spearkers-having-an-event.webp" alt="speaker from mena speakers wearing abaia in front of people at forume event"/>
+          <img className={'w-full h-full object-cover'} aria-label={'Speakers from MENA Speakers'}
+               src="/images/speaker-from-mena-spearkers-having-an-event.webp"
+               alt="speaker from mena speakers wearing abaia in front of people at forume event"/>
           <div className="absolute inset-0 bg-black/40">
             <div
               className={'w-full lg:max-w-4xl mx-auto px-6 lg:px-0 pt-40 lg:pt-0 h-full flex space-y-8 flex-col items-center justify-center z-20'}>
@@ -39,7 +68,7 @@ function Index({blogs, speakers, gallery,news}) {
               <p className="text-white lg:text-lg font-semibold  ">Public Speakers. MCs. Corporate Trainers. One Stop
                 Solution!
               </p>
-              <Link className={'text-white mt-8 gradient-btn mt-6 py-2 px-4'} href={route('pages.contact')}>Get a speaker in 5 minutes</Link>
+              <Link className={'text-white mt-8 gradient-btn py-2 px-4'} href={route('pages.contact')}>Get a speaker in 5 minutes</Link>
             </div>
           </div>
         </div>
@@ -105,12 +134,14 @@ function Index({blogs, speakers, gallery,news}) {
             <div className={'w-full grid grid-cols-1 lg:grid-cols-2 mt-12 pt-12'}>
               <div className="pt-12 lg:pt-0">
                 <Link href={route('pages.contact')} className="gradient-btn font-semibold py-3 px-4 text-white">Book
-                  Our Speakers</Link>
+                  Our Speakers
+                </Link>
               </div>
               <div className="pt-12 lg:pt-0">
                 <Link href={route('speakers.index')}
                       className="underline hover:text-mena-200 font-semibold py-3 px-4  text-white">View All
-                  Speakers</Link>
+                  Speakers
+                </Link>
               </div>
             </div>
           </div>

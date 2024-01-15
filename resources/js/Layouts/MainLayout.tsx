@@ -1,4 +1,4 @@
-import { Fragment, useState } from 'react'
+import React, { Fragment, useState } from 'react'
 import {Dialog, Menu, Transition} from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import {Link} from "@inertiajs/react";
@@ -17,7 +17,7 @@ const navigation = [
   { name: 'Contact', dropdown: false, route: 'pages.contact' },
 ]
 
-export default function MainLayout({ children}) {
+export default function MainLayout({ children} : {children: React.ReactNode}) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (

@@ -29,25 +29,25 @@ function HomeCountdownSection() {
 
           <div className="col-span-1  w-full lg:pl-32 lg:pr-6 pt-6">
             <div className="grid grid-cols-2 gap-8 lg:grid-cols-4">
-              <div className="shadow-2xl p-8">
+              <div className="shadow-2xl flex flex-col justify-center items-center p-8">
                 <p className="text-5xl text-mena-200">
                   {days}
                 </p>
                 <p className="text-xs text-center">Days</p>
               </div>
-              <div className="shadow-2xl p-8">
+              <div className="shadow-2xl flex flex-col justify-center items-center p-8">
                 <p className="text-5xl text-mena-200">
                   {hours}
                 </p>
                 <p className="text-xs text-center">Hours</p>
               </div>
-              <div className="shadow-2xl p-8">
+              <div className="shadow-2xl flex flex-col justify-center items-center p-8">
                 <p className="text-5xl text-mena-200">
                   {minutes}
                 </p>
                 <p className="text-xs text-center">Minutes</p>
               </div>
-              <div className="shadow-2xl p-8">
+              <div className="shadow-2xl flex flex-col justify-center items-center p-8">
                 <p className="text-5xl text-mena-200">
                   {seconds}
                 </p>
