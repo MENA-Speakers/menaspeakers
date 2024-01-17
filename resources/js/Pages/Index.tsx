@@ -20,13 +20,13 @@ function Index({blogs, speakers, gallery} : IndexProps) {
 
   const siteUrl = window.location.href;
 
-
   const data = {
-    description: 'What makes MENA Speakers trustworthy is more than their track record. We perpetually strive to provide top notch speakers, raising the bar every day',
+    description: 'The Leading Speakers & MC Corporation in the Middle East - Public Speakers. MCs. Corporate Trainers. One Stop Solution! Get a speaker in 5 minutes',
     title: 'MENA Speakers - Official Website',
     url: siteUrl,
     type: 'website',
     twitter: '@menaspeakers',
+    keywords: "MENA Speakers, Speakers, MCs, Corporate Trainers, One Stop Solution",
     image: "https://mena-speakers.com/images/mena-speakers-logo.png",
   } as OpenGraphDataType;
 
@@ -35,6 +35,7 @@ function Index({blogs, speakers, gallery} : IndexProps) {
     <MainLayout>
       <Head>
         <title>MENA Speakers</title>
+        <link rel={'canonical'} href={data.url}/>
         <meta name={'description'} content={data.description}/>
         <meta name={'keywords'} content={data.keywords}/>
         <meta property="og:title" content={data.title}/>

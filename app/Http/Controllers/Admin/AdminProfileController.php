@@ -93,11 +93,12 @@ class AdminProfileController extends Controller
     }
 
 
-    public function show(Profile $profile)
+    public function show(Profile $profile): \Inertia\Response
     {
         return Inertia::render('Admin/Profiles/Show', [
             'profile' => ProfileResource::make($profile),
-            'videos' => $profile->videos
+            'videos' => $profile->videos,
+            'bios' => $profile->bios,
         ]);
     }
 

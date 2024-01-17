@@ -2,8 +2,12 @@
 
   use App\Http\Controllers\Admin\AdminBlogController;
   use App\Http\Controllers\Admin\AdminHomeController;
+  use App\Http\Controllers\Admin\AdminProfileBioController;
   use App\Http\Controllers\Admin\AdminProfileController;
   use App\Http\Controllers\Admin\AdminProfileVideoController;
+  use App\Http\Controllers\Admin\AdminSpeakerMediaController;
+  use App\Http\Controllers\Admin\AdminSpeakerPortfolioController;
+  use App\Http\Controllers\Admin\AdminSpeakerProposalController;
   use App\Http\Controllers\Admin\PortfolioController;
   use App\Http\Controllers\Admin\ReferralController;
   use App\Http\Controllers\Admin\SettingController;
@@ -16,7 +20,7 @@
   Route::middleware('auth')->name('admin.')->prefix('crm')->group(function() {
     Route::get('/', [AdminHomeController::class, 'index'])->name('dashboard');
 
-    //Speaker Routes Group
+    //Proposal Profiles
     Route::get('profiles', [AdminProfileController::class, 'index'])->name('profiles.index');
     Route::post('profiles/search', [AdminProfileController::class, 'search'])->name('profiles.search');
     Route::get('profiles/create', [AdminProfileController::class, 'create'])->name('profiles.create');
@@ -26,11 +30,36 @@
     Route::post('profiles/{profile}', [AdminProfileController::class, 'update'])->name('profiles.update');
     Route::post('profiles/{profile}/delete', [AdminProfileController::class, 'destroy'])->name('profiles.delete');
 
+    //Profile Videos
     Route::get('profiles/{profile}/videos', [AdminProfileVideoController::class, 'index'])->name('profiles.videos');
     Route::post('profiles/{profile}/videos', [AdminProfileVideoController::class, 'store'])->name('profiles.videos.store');
     Route::post('profiles/videos/{video}/delete', [AdminProfileVideoController::class, 'destroy'])->name('profiles.videos.destroy');
 
+    //Profile Bios
+    Route::get('profiles/{profile}/bios', [AdminProfileBioController::class, 'index'])->name('profiles.bios');
+    Route::post('profiles/{profile}/bios', [AdminProfileBioController::class, 'store'])->name('profiles.bios.store');
+    Route::post('profiles/bios/{bio}/delete', [AdminProfileBioController::class, 'destroy'])->name('profiles.bios.destroy');
+    Route::post('profiles/bios/{bio}/update', [AdminProfileBioController::class, 'update'])->name('profiles.bios.update');
+    Route::get('profiles/bios/{bio}/edit', [AdminProfileBioController::class, 'edit'])->name('profiles.bios.edit');
 
+    //Profile Portfolio AKA Rate Cards
+    Route::get('profiles/{profile}/rate-cards', [AdminSpeakerPortfolioController::class, 'index'])->name('profiles.rate-cards');
+    Route::post('profiles/{profile}/rate-cards', [AdminSpeakerPortfolioController::class, 'store'])->name('profiles.rate-cards.store');
+    Route::post('profiles/rate-cards/{portfolio}/delete', [AdminSpeakerPortfolioController::class, 'destroy'])->name('profiles.rate-cards.destroy');
+    Route::post('profiles/rate-cards/{portfolio}/update', [AdminSpeakerPortfolioController::class, 'update'])->name('profiles.rate-cards.update');
+    Route::get('profiles/rate-cards/{portfolio}/edit', [AdminSpeakerPortfolioController::class, 'edit'])->name('profiles.rate-cards.edit');
+
+
+    //Speaker Proposals
+    Route::get('profile/{profile}/proposals', [AdminSpeakerProposalController::class, 'index'])->name('profiles.proposals');
+
+    //Speaker Profile Media
+    Route::get('profile/{profile}/media', [AdminSpeakerMediaController::class, 'media'])->name('profiles.media');
+
+    //Speaker Profile Portfolios
+    Route::get('profile/{profile}/portfolios', [AdminSpeakerPortfolioController::class, 'index'])->name('profiles.portfolios');
+
+    // Front page speaker routes
     Route::get('speakers', [AdminSpeakerController::class, 'index'])->name('speakers.index');
     Route::post('speakers/search', [AdminSpeakerController::class, 'search'])->name('speakers.search');
     Route::get('speakers/create', [AdminSpeakerController::class, 'create'])->name('speakers.create');
@@ -39,6 +68,11 @@
     Route::get('speakers/{speaker}/edit', [AdminSpeakerController::class, 'edit'])->name('speakers.edit');
     Route::post('speakers/{speaker}', [AdminSpeakerController::class, 'update'])->name('speakers.update');
     Route::post('speakers/{speaker}/delete', [AdminSpeakerController::class, 'destroy'])->name('speakers.delete');
+
+    Route::get('speakers/{speakers}/videos', [AdminProfileVideoController::class, 'index'])->name('speakers.videos');
+    Route::post('speakers/{speakers}/videos', [AdminProfileVideoController::class, 'store'])->name('speakers.videos.store');
+    Route::post('speakers/videos/{video}/delete', [AdminProfileVideoController::class, 'destroy'])->name('speakers.videos.destroy');
+
 
     // Referrals route
     Route::get('referrals', [ReferralController::class, 'index'])->name('referrals.index');
