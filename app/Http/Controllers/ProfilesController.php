@@ -23,15 +23,17 @@ class ProfilesController extends Controller
     if($request->hasAny([
       'query',
     ])){
-      $result = Speaker::search($request->input('query'));
+      $result = Speaker::search($request->input('query'))->paginate(12)->withQueryString();
     }else {
-      $result = Speaker::oldest();
+      // Return all speakers if no query, featured first
+      $result = Speaker::orderBy('featured', "DESC" )->paginate(12)->withQueryString();
+
     }
 
     $locations = Location::all();
 
     return Inertia::render('Speakers/Index', [
-        'speakers' => SpeakerResource::collection($result->paginate(12)->withQueryString()),
+        'speakers' => SpeakerResource::collection($result),
         'query' => $request->input('query'),
         'locations' => $locations
     ]);

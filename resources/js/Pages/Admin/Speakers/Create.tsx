@@ -19,6 +19,7 @@ import {Label} from "@/Components/ui/label";
 function Create( {speaker, locations} : { speaker: SpeakerType, locations: LocationType[]} ) {
 
 
+
   const [ imagePreview, setImagePreview ] = React.useState( speaker?.image ? speaker.image : null );
   const [isEditing, setIsEditing] = React.useState(false);
 
@@ -284,7 +285,10 @@ function Create( {speaker, locations} : { speaker: SpeakerType, locations: Locat
             </div>
             <div className="relative flex items-start">
               <div className="flex h-5 items-center">
-                <Input id="featured" aria-describedby="featured" name="featured" value="1" type="checkbox"
+                <Input
+                        onChange={formik.handleChange}
+                        checked={formik.values.featured}
+                  id="featured" aria-describedby="featured" name="featured" value='1' type="checkbox"
                        className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"/>
               </div>
               <div className="ml-3 text-sm">

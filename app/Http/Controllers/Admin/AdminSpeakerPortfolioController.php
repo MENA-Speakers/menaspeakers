@@ -15,6 +15,7 @@ class AdminSpeakerPortfolioController extends Controller
 
   public function index(Profile $profile): \Inertia\Response
   {
+
     $portfolios = $profile->portfolios;
     return Inertia::render('Admin/Profiles/Portfolios/Index', [
       'profile' => ProfileResource::make($profile),

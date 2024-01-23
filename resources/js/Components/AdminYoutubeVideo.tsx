@@ -1,8 +1,18 @@
 import React from 'react';
-import { Link } from "@inertiajs/react";
+import {Link, router} from "@inertiajs/react";
+import {Button} from "@/Components/ui/button";
+import axios from "axios";
+
+
 
 function AdminYoutubeVideo({ video, height = 200, width = 350 }) {
   const isVimeoVideo = /^\d+$/.test(video.url);
+
+  const deleteVideo = () => {
+    axios.post(route('admin.speakers.videos.destroy', video.id)).then((response) => {
+      router.reload({only: ['']});
+    });
+  }
   return (
     <div>
       {!isVimeoVideo ? (
@@ -28,7 +38,7 @@ function AdminYoutubeVideo({ video, height = 200, width = 350 }) {
       {
         route().current('admin.speakers.*') && (
           <div className="w-full flex justify-end mt-2 px-6">
-            <Link href={route('admin.speakers.videos.destroy', video.id)} method="post" className={'text-sm text-red-600 py-1.5'} >Delete</Link>
+            <Button size={'sm'} variant={'destructive'} className={'text-sm py-2 px-3'} >Delete</Button>
           </div>
         )
       }

@@ -6,6 +6,7 @@ use App\Traits\HashId;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class Portfolio extends Model
@@ -30,6 +31,18 @@ class Portfolio extends Model
         ->format('webp')
         ->performOnCollections('gallery');
   }
+
+  public function rateCards(): HasMany
+  {
+    return $this->hasMany(RateCard::class);
+  }
+
+
+  public function getRouteKeyName(): string
+    {
+      return 'hash_id';
+    }
+
 
 
 }

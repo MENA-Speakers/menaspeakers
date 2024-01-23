@@ -12,6 +12,12 @@ import {Input} from "@/Components/ui/input";
 import {Label} from "@/Components/ui/label";
 import {PortfolioType} from "@/types/portfolio-type";
 import {ProfileType} from "@/types/admin-profiles";
+import {Popover, PopoverContent, PopoverTrigger} from "@/Components/ui/popover";
+import {FormControl} from "@/Components/ui/form";
+import {Button} from "@/Components/ui/button";
+import {Command, CommandEmpty, CommandGroup, CommandInput, CommandItem} from "@/Components/ui/command";
+import {CheckIcon, ChevronsUpDown} from "lucide-react";
+import {cn} from "@/lib/utils";
 
 function Create( {portfolio, profiles} : { portfolio: PortfolioType, profiles: ProfileType[] }) {
 
@@ -23,7 +29,7 @@ function Create( {portfolio, profiles} : { portfolio: PortfolioType, profiles: P
     }
   }, [portfolio]);
 
-  console.log(profiles)
+
   const formik = useFormik( {
     initialValues: {
       title: portfolio?.title ? portfolio.title : '',
@@ -55,6 +61,7 @@ function Create( {portfolio, profiles} : { portfolio: PortfolioType, profiles: P
         url = route( 'admin.portfolios.update', portfolio.id );
       }
 
+
       axios( {
         method: method,
         url: url,
@@ -81,8 +88,8 @@ function Create( {portfolio, profiles} : { portfolio: PortfolioType, profiles: P
       <div className="">
         <div className="sm:px-6 lg:px-8">
           <div className="">
-            <h2 className=" font-semibold text-lg text-gray-900">Add Rate Card</h2>
-            <p className={'text-neutral-500'}>Rate card will be used to populate proposals</p>
+            <h2 className=" font-semibold text-lg text-gray-900">Add Portfolio</h2>
+            <p className={'text-neutral-500'}>Portfolio will be used to populate proposals</p>
           </div>
         </div>
         <div className="sm:p-6 lg:p-4 bg-white overflow-hidden sm:rounded-lg">
@@ -133,21 +140,56 @@ function Create( {portfolio, profiles} : { portfolio: PortfolioType, profiles: P
                 <div className={''}>
                   <Label htmlFor="profile" className="block text-sm font-medium text-gray-700">Speaker</Label>
                   <div className="mt-1">
-                    <select
-                      name="profile"
-                      value={formik.values.profile}
-                      onChange={formik.handleChange}
-                      id="profile"
-                      className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                      placeholder="Choose Speaker">
-                      <option disabled value="">Select Speaker</option>
-                      {
-                        profiles.map((profile) => {
-                          return <option key={profile.id} value={profile.id}
-                                         selected={profile.id === formik.values.profile}>{`${profile.first_name} ${profile.last_name}`}</option>;
-                        })
-                      }
-                    </select>
+
+                    <Popover>
+                      <PopoverTrigger asChild>
+                        <Button
+                          variant="outline"
+                          role="combobox"
+                          className={cn(
+                            "w-full justify-between",
+                            !formik.values.profile && "text-muted-foreground"
+                          )}
+                        >
+                          {formik.values.profile
+                            ? profiles.find(
+                              (profile) => profile.id === formik.values.profile
+                            )?.full_name
+                            : "Select speaker"}
+                          <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+                        </Button>
+                      </PopoverTrigger>
+                      <PopoverContent className="w-full p-0">
+                        <Command>
+                          <CommandInput
+                            placeholder="Search Speakers..."
+                            className="h-9"
+                          />
+                          <CommandEmpty>No framework found.</CommandEmpty>
+                          <CommandGroup>
+                            {profiles.map((profile) => (
+                              <CommandItem
+                                value={profile.full_name}
+                                key={profile.id}
+                                onSelect={() => {
+                                  formik.setFieldValue("profile", profile.id)
+                                }}
+                              >
+                                {profile.full_name}
+                                <CheckIcon
+                                  className={cn(
+                                    "ml-auto h-4 w-4",
+                                    profile.id === formik.values.profile
+                                      ? "opacity-100"
+                                      : "opacity-0"
+                                  )}
+                                />
+                              </CommandItem>
+                            ))}
+                          </CommandGroup>
+                        </Command>
+                      </PopoverContent>
+                    </Popover>
 
                   </div>
                   {
@@ -205,7 +247,7 @@ function Create( {portfolio, profiles} : { portfolio: PortfolioType, profiles: P
               <div className=" flex justify-end">
                 <PrimaryButton disabled={formik.isSubmitting} type="submit">
                   {
-                    portfolio ? 'Update Rate' : 'Add Rate'
+                    portfolio ? 'Update Portfolio' : 'Add Portfolio'
                   }
                 </PrimaryButton>
               </div>

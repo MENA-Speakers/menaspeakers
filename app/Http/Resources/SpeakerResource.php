@@ -19,7 +19,7 @@ class SpeakerResource extends JsonResource
           'name' => $this->name,
           'image' => $this->getFirstMediaUrl('avatar', 'webp'),
           'bio' => $this->bio,
-          'featured' => $this->featured,
+          'featured' => boolval($this->featured),
           'meta_title' => $this->meta_title,
           'excerpt' => $this->meta_description,
           'slug' => $this->slug,

@@ -43,6 +43,8 @@ function Index( {portfolios, query} : {portfolios: portfolioData, query: string}
     },
   } );
 
+  console.log('portfolios', portfolios)
+
   return (
 
   <AdminLayout>
@@ -51,10 +53,10 @@ function Index( {portfolios, query} : {portfolios: portfolioData, query: string}
     <div className="">
       <div className="sm:px-6 lg:px-8">
         <div className="flex justify-between">
-          <h2 className="text-2xl text-gray-900">Rate Cards</h2>
+          <h2 className="text-2xl text-gray-900">Portfolios</h2>
           <Link href={route('admin.portfolios.create')}>
             <Button className="bg-slate-100 text-gray-900 hover:bg-slate-200">
-              Add Rate
+              Add Portfolio
             </Button>
           </Link>
         </div>

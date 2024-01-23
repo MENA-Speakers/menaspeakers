@@ -9,15 +9,17 @@ use App\Http\Resources\SpeakerResource;
 use App\Models\Location;
 use App\Models\Profile;
 use App\Models\Speaker;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
+use Inertia\Response;
 
 class AdminSpeakerController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(): Response
     {
       $speakers = Speaker::latest()->paginate(12);
         return Inertia::render('Admin/Speakers/Index', [
@@ -26,7 +28,8 @@ class AdminSpeakerController extends Controller
     }
 
 
-  public function search(Request $request){
+  public function search(Request $request): Response
+  {
     $speakers = Speaker::search($request->input('query'))->paginate(12)->withQueryString();
     return Inertia::render('Admin/Speakers/Index', [
       'speakers' => SpeakerResource::collection($speakers),
@@ -37,7 +40,7 @@ class AdminSpeakerController extends Controller
   /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(): Response
     {
       return Inertia::render('Admin/Speakers/Create', [
         'locations' => Location::all(),
@@ -47,7 +50,7 @@ class AdminSpeakerController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreSpeakerRequest $request)
+    public function store(StoreSpeakerRequest $request): void
     {
 
       $speaker = Speaker::create([
@@ -91,11 +94,12 @@ class AdminSpeakerController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(SpeakerUpdateRequest $request, string $id)
+    public function update(SpeakerUpdateRequest $request, string $id): RedirectResponse
     {
       $request->validated();
 
       $speaker = Speaker::find($id);
+
       $speaker->update([
         'name' => $request->input('name'),
         'slug' => $request->input('slug'),

@@ -38,7 +38,7 @@ class AdminProfileController extends Controller
     }
 
     public function search(Request $request){
-      $profiles = Speaker::search($request->input('query'))->paginate(12)->withQueryString();
+      $profiles = Profile::search($request->input('query'))->paginate(12)->withQueryString();
       return Inertia::render('Admin/Profiles/Index', [
           'profiles' => ProfileResource::collection($profiles),
           'query' => $request->input('query')

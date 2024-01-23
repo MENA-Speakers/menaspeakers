@@ -5,6 +5,7 @@
   use App\Http\Controllers\Admin\AdminProfileBioController;
   use App\Http\Controllers\Admin\AdminProfileController;
   use App\Http\Controllers\Admin\AdminProfileVideoController;
+  use App\Http\Controllers\Admin\AdminRateCardController;
   use App\Http\Controllers\Admin\AdminSpeakerMediaController;
   use App\Http\Controllers\Admin\AdminSpeakerPortfolioController;
   use App\Http\Controllers\Admin\AdminSpeakerProposalController;
@@ -30,6 +31,25 @@
     Route::post('profiles/{profile}', [AdminProfileController::class, 'update'])->name('profiles.update');
     Route::post('profiles/{profile}/delete', [AdminProfileController::class, 'destroy'])->name('profiles.delete');
 
+
+    //Portfolios Routes
+    Route::get('portfolios', [PortfolioController::class, 'index'])->name('portfolios.index');
+    Route::post('portfolios', [PortfolioController::class, 'store'])->name('portfolios.store');
+    Route::get('portfolios/create', [PortfolioController::class, 'create'])->name('portfolios.create');
+    Route::get('portfolios/{portfolio}/edit', [PortfolioController::class, 'edit'])->name('portfolios.edit');
+    Route::post('portfolios/{portfolio}', [PortfolioController::class, 'update'])->name('portfolios.update');
+    Route::post('portfolios/{portfolio}/delete', [PortfolioController::class, 'destroy'])->name('portfolios.delete');
+
+
+    //Rate Cards Routes
+    Route::get('rate-cards', [AdminRateCardController::class, 'index'])->name('rate-cards.index');
+    Route::post('rate-cards', [AdminRateCardController::class, 'store'])->name('rate-cards.store');
+    Route::get('rate-cards/create', [AdminRateCardController::class, 'create'])->name('rate-cards.create');
+    Route::get('rate-cards/{rateCard}/edit', [AdminRateCardController::class, 'edit'])->name('rate-cards.edit');
+    Route::post('rate-cards/{rateCard}', [AdminRateCardController::class, 'update'])->name('rate-cards.update');
+    Route::post('rate-cards/{rateCard}/delete', [AdminRateCardController::class, 'destroy'])->name('rate-cards.delete');
+
+
     //Profile Videos
     Route::get('profiles/{profile}/videos', [AdminProfileVideoController::class, 'index'])->name('profiles.videos');
     Route::post('profiles/{profile}/videos', [AdminProfileVideoController::class, 'store'])->name('profiles.videos.store');
@@ -43,7 +63,7 @@
     Route::get('profiles/bios/{bio}/edit', [AdminProfileBioController::class, 'edit'])->name('profiles.bios.edit');
 
     //Profile Portfolio AKA Rate Cards
-    Route::get('profiles/{profile}/rate-cards', [AdminSpeakerPortfolioController::class, 'index'])->name('profiles.rate-cards');
+    Route::get('profiles/{profile}/rate-cards', [AdminRateCardController::class, 'index'])->name('profiles.rate-cards');
     Route::post('profiles/{profile}/rate-cards', [AdminSpeakerPortfolioController::class, 'store'])->name('profiles.rate-cards.store');
     Route::post('profiles/rate-cards/{portfolio}/delete', [AdminSpeakerPortfolioController::class, 'destroy'])->name('profiles.rate-cards.destroy');
     Route::post('profiles/rate-cards/{portfolio}/update', [AdminSpeakerPortfolioController::class, 'update'])->name('profiles.rate-cards.update');
@@ -81,15 +101,6 @@
     Route::get('referrals/{referral}/edit', [ReferralController::class, 'edit'])->name('referrals.edit');
     Route::post('referrals/{referral}', [ReferralController::class, 'update'])->name('referrals.update');
     Route::post('referrals/{referral}/delete', [ReferralController::class, 'destroy'])->name('referrals.delete');
-
-
-    //Bio Routes
-    Route::get('rate-cards', [PortfolioController::class, 'index'])->name('portfolios.index');
-    Route::post('rate-cards', [PortfolioController::class, 'store'])->name('portfolios.store');
-    Route::get('rate-cards/create', [PortfolioController::class, 'create'])->name('portfolios.create');
-    Route::get('rate-cards/{portfolio}/edit', [PortfolioController::class, 'edit'])->name('portfolios.edit');
-    Route::post('rate-cards/{portfolio}', [PortfolioController::class, 'update'])->name('portfolios.update');
-    Route::post('rate-cards/{portfolio}/delete', [PortfolioController::class, 'destroy'])->name('portfolios.delete');
 
 
     //Gallery Routes

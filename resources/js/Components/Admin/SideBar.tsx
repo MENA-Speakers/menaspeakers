@@ -1,12 +1,11 @@
 import { cn } from "@/lib/utils"
 import {Button} from "@/Components/ui/button";
 import {
-  Briefcase,
+
   CircleUser,
   Contact,
-  Contact2, DollarSign,
-  Eye,
-  File,
+  DollarSign,
+  File, Files,
   FolderDot,
   FolderKanban,
   Image,
@@ -41,8 +40,8 @@ export function SideBar({ className }: SidebarProps) {
             <Link href={route('admin.portfolios.index')} className={ cn("w-full flex justify-start items-center px-3 py-2 text-gray-600 hover:bg-slate-100 hover:text-gray-900 rounded-lg",
               route().current('admin.portfolios.*') && 'bg-slate-100 rounded-lg text-gray-900'
             )}>
-              <DollarSign className="mr-2 h-5 w-5" />
-              Rate Cards
+              <Files className="mr-2 h-5 w-5" />
+              Portfolios
             </Link>
 
             <Link href={route('admin.profiles.index')} className={ cn("w-full flex justify-start items-center px-3 py-2 text-gray-600 hover:bg-slate-100 hover:text-gray-900 rounded-lg",

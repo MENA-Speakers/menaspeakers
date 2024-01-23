@@ -3,7 +3,7 @@ import {Head, Link, router} from "@inertiajs/react";
 import AdminLayout from "@/Layouts/AdminLayout";
 import {ProfileType} from "@/types/admin-profiles";
 import {VideoType} from "@/types/media";
-import AdminSpeakerHeader from "@/Components/Admin/AdminSpeakerHeader";
+import AdminProfileHeader from "@/Components/Admin/AdminProfileHeader";
 import {PortfolioType} from "@/types/portfolio-type";
 import {ProposalType} from "@/types/proposal-type";
 import {RateCardType} from "@/types/rate-card";
@@ -29,7 +29,7 @@ function ShowProfile({profile, videos, portfolios, proposals, rateCards}: ShowPr
     >
       <Head title="Speaker " />
 
-      <AdminSpeakerHeader profile={profile} />
+      <AdminProfileHeader profile={profile} />
 
       <div className="py-12">
         <div className="max-w-7xl mx-auto sm:p-6 lg:p-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">

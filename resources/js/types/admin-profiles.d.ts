@@ -5,6 +5,7 @@ import {GalleryType, VideoType} from "@/types/media";
 
 export interface ProfileType {
   id?: string;
+  hash_id?: string;
   full_name?: string;
   first_name?: string;
   last_name?: string;

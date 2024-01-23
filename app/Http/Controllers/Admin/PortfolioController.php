@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StorePortfolioRequest;
 use App\Http\Resources\PortfolioResource;
+use App\Http\Resources\ProfileResource;
 use App\Models\Portfolio;
 use App\Models\Profile;
 use Illuminate\Http\Request;
@@ -28,7 +29,7 @@ class PortfolioController extends Controller
     public function create()
     {
         return Inertia::render('Admin/Portfolios/Create', [
-            'profiles' => Profile::all(),
+            'profiles' => ProfileResource::collection(Profile::all()),
         ]
         );
     }
