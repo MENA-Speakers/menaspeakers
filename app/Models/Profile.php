@@ -22,6 +22,10 @@ class Profile extends Model implements HasMedia
     // Add the boot method to hash id on model creation
 
 
+    protected $casts = [
+        'dob' => 'date',
+    ];
+
     public function getRouteKeyName(): string
     {
         return 'hash_id';
@@ -67,4 +71,5 @@ class Profile extends Model implements HasMedia
   {
     return $this->hasMany(RateCard::class);
   }
+
 }

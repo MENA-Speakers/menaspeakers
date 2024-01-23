@@ -11,6 +11,7 @@ export interface ProfileType {
   last_name?: string;
   job_title?: string;
   website?: string;
+  dob?: string;
   phone?: string;
   email?: string;
   twitter?: string;

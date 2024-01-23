@@ -3,19 +3,14 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\SpeakerUpdateRequest;
+use App\Http\Requests\ProfileUpdateRequest;
 use App\Http\Requests\StoreProfileRequest;
-use App\Http\Requests\StoreSpeakerRequest;
 use App\Http\Resources\ProfileResource;
 use App\Models\Location;
 use App\Models\Profile;
-use App\Models\Speaker;
-use Illuminate\Contracts\Foundation\Application;
-use Illuminate\Contracts\View\Factory;
-use Illuminate\Contracts\View\View;
+use Carbon\Carbon;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
 use Spatie\MediaLibrary\MediaCollections\Exceptions\FileDoesNotExist;
@@ -30,7 +25,6 @@ class AdminProfileController extends Controller
      */
     public function index()
     {
-      $profile = Profile::first();
       $profiles = Profile::latest()->paginate(12);
       return Inertia::render('Admin/Profiles/Index', [
           'profiles' => ProfileResource::collection($profiles),
@@ -70,7 +64,7 @@ class AdminProfileController extends Controller
     {
 
 
-      $speaker = Profile::create([
+      $profile = Profile::create([
         'first_name' => $request->input('first_name'),
         'last_name' => $request->input('last_name'),
         'about' => $request->input('about'),
@@ -81,10 +75,11 @@ class AdminProfileController extends Controller
         'linkedin' => $request->input('linkedin'),
         'website' => $request->input('website'),
         'twitter' => $request->input('twitter'),
+        'dob' => Carbon::parse($request->input('dob'))->format('Y-m-d'),
       ]);
 
       if($request->hasFile('image')){
-        $speaker->addMediaFromRequest('image')
+        $profile->addMediaFromRequest('image')
           ->toMediaCollection('avatar');
       }
 
@@ -106,14 +101,14 @@ class AdminProfileController extends Controller
   /**
    * Show the form for editing the specified resource.
    *
-   * @param Speaker $speaker
+   * @param Profile $profile
    *
    * @return \Inertia\Response
    */
-    public function edit(Speaker $speaker)
+    public function edit(Profile $profile)
     {
         return Inertia::render('Admin/Profiles/Create', [
-            'speaker' => ProfileResource::make($speaker),
+            'profile' => ProfileResource::make($profile),
             'locations' => Location::all(),
         ]);
     }
@@ -121,30 +116,36 @@ class AdminProfileController extends Controller
   /**
    * Update the specified resource in storage.
    *
-   * @param SpeakerUpdateRequest $request
-   * @param Speaker $speaker
+   * @param ProfileUpdateRequest $request
+   * @param Profile $profile
    *
    * @return RedirectResponse
    * @throws FileDoesNotExist
    * @throws FileIsTooBig
    */
-    public function update(SpeakerUpdateRequest $request, Speaker $speaker)
+    public function update(ProfileUpdateRequest $request, Profile $profile)
     {
-        $speaker->update([
-          'name' => $request->input('name'),
-          'bio' => $request->input('bio'),
-          'featured' => boolval($request->input('featured')),
-          'meta_title' => $request->input('meta_title'),
-          'location_id' => $request->input('location'),
-          'excerpt' => $request->input('excerpt'),
-          'meta_description' => $request->input('excerpt'),
-          'keywords' => $request->input('keywords'),
+        $profile->update([
+          'first_name' => $request->input('first_name'),
+          'last_name' => $request->input('last_name'),
+          'about' => $request->input('about'),
+          'email' => $request->input('email'),
+          'phone' => $request->input('location'),
+          'job_title' => $request->input('job_title'),
+          'fee' => boolval($request->input('fee')),
+          'linkedin' => $request->input('linkedin'),
+          'website' => $request->input('website'),
+          'twitter' => $request->input('twitter'),
+          'dob' => Carbon::parse($request->input('dob'))->format('Y-m-d'),
         ]);
 
+
       if($request->hasFile('image')){
-        $speaker->addMediaFromRequest('image')
+        $profile->addMediaFromRequest('image')
           ->toMediaCollection('avatar');
       }
+
+
 
       return Redirect::route('admin.profiles.index');
     }
@@ -152,13 +153,13 @@ class AdminProfileController extends Controller
   /**
    * Remove the specified resource from storage.
    *
-   * @param Speaker $speaker
+   * @param Profile $profile
    *
    * @return RedirectResponse
    */
-    public function destroy(Speaker $speaker)
+    public function destroy(Profile $profile)
     {
-        $speaker->delete();
+        $profile->delete();
 
         return Redirect::route('admin.profiles.index');
     }

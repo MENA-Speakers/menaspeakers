@@ -26,6 +26,7 @@ function Create( {profile} : { profile: ProfileType }) {
       last_name: profile?.last_name ? profile.last_name : '',
       about: profile?.about ? profile.about : '',
       email: profile?.email ? profile.email : '',
+      dob: profile?.dob ? profile.dob : '',
       phone: profile?.phone ? profile.phone : '',
       linkedin: profile?.linkedin ? profile.linkedin : '',
       website: profile?.website ? profile.website : '',
@@ -39,10 +40,9 @@ function Create( {profile} : { profile: ProfileType }) {
         .required( 'First Name is required' ),
       last_name: Yup.string()
         .required( 'Last name is required' ),
-      email: Yup.string()
-        .required( 'Email are required' ),
-      phone: Yup.string()
-        .required( 'Phone is required' ),
+      email: Yup.string(),
+      dob: Yup.date(),
+      phone: Yup.string(),
       about: Yup.string()
         .required( 'About is required' ),
     } ),
@@ -225,7 +225,7 @@ function Create( {profile} : { profile: ProfileType }) {
             </div>
             <div className="grid grid-cols-2 gap-6">
               <div>
-                <Label htmlFor="name" className="block text-sm font-medium text-gray-700">Fee</Label>
+                <Label htmlFor="fee" className="block text-sm font-medium text-gray-700">Fee</Label>
                 <div className="mt-1">
                   <Input type="text"
                          name="fee"
@@ -261,6 +261,26 @@ function Create( {profile} : { profile: ProfileType }) {
                 }
               </div>
             </div>
+             <div className="grid grid-cols-2 gap-6">
+                  <div>
+                    <Label htmlFor="dob" className="block text-sm font-medium text-gray-700">Date of Birth</Label>
+                    <div className="mt-1">
+                      <Input type="date"
+                             name="dob"
+                             id="dob"
+                             value={formik.values.dob}
+                             onChange={formik.handleChange}
+                             className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                             placeholder="Job Title"/>
+                    </div>
+
+                    {
+                      formik.touched.dob && formik.errors.dob ? (
+                        <div className="text-red-500 text-xs italic">{formik.errors.dob}</div>
+                      ) : null
+                    }
+                  </div>
+                </div>
 
             <div>
               <Label htmlFor="bio" className="block text-sm font-medium text-gray-700">About</Label>
