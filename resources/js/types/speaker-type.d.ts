@@ -7,6 +7,7 @@ export interface SpeakerType {
   id: number;
   first_name: string;
   last_name: string;
+  full_name: string;
   portfolios: PortfolioType[];
   meta_title: string;
   meta_description: string;

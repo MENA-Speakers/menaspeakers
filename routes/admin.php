@@ -6,10 +6,12 @@
   use App\Http\Controllers\Admin\AdminProfileController;
   use App\Http\Controllers\Admin\AdminProfileVideoController;
   use App\Http\Controllers\Admin\AdminRateCardController;
-  use App\Http\Controllers\Admin\AdminSpeakerMediaController;
+  use App\Http\Controllers\Admin\AdminProfileMediaController;
   use App\Http\Controllers\Admin\AdminSpeakerPortfolioController;
   use App\Http\Controllers\Admin\AdminSpeakerProposalController;
   use App\Http\Controllers\Admin\PortfolioController;
+  use App\Http\Controllers\Admin\ProposalPortfolioController;
+  use App\Http\Controllers\Admin\ProposalRateCardController;
   use App\Http\Controllers\Admin\ReferralController;
   use App\Http\Controllers\Admin\SettingController;
   use App\Http\Controllers\Admin\AdminSpeakerController;
@@ -49,24 +51,16 @@
     Route::post('rate-cards/{rateCard}', [AdminRateCardController::class, 'update'])->name('rate-cards.update');
     Route::post('rate-cards/{rateCard}/delete', [AdminRateCardController::class, 'destroy'])->name('rate-cards.delete');
 
-
     //Profile Videos
     Route::get('profiles/{profile}/videos', [AdminProfileVideoController::class, 'index'])->name('profiles.videos');
     Route::post('profiles/{profile}/videos', [AdminProfileVideoController::class, 'store'])->name('profiles.videos.store');
     Route::post('profiles/videos/{video}/delete', [AdminProfileVideoController::class, 'destroy'])->name('profiles.videos.destroy');
 
-    //Profile Bios
-    Route::get('profiles/{profile}/bios', [AdminProfileBioController::class, 'index'])->name('profiles.bios');
-    Route::post('profiles/{profile}/bios', [AdminProfileBioController::class, 'store'])->name('profiles.bios.store');
-    Route::post('profiles/bios/{bio}/delete', [AdminProfileBioController::class, 'destroy'])->name('profiles.bios.destroy');
-    Route::post('profiles/bios/{bio}/update', [AdminProfileBioController::class, 'update'])->name('profiles.bios.update');
-    Route::get('profiles/bios/{bio}/edit', [AdminProfileBioController::class, 'edit'])->name('profiles.bios.edit');
-
-    //Profile Portfolio AKA Rate Cards
+    //Profile Rate Cards
     Route::get('profiles/{profile}/rate-cards', [AdminRateCardController::class, 'index'])->name('profiles.rate-cards');
     Route::post('profiles/{profile}/rate-cards', [AdminSpeakerPortfolioController::class, 'store'])->name('profiles.rate-cards.store');
-    Route::post('profiles/rate-cards/{portfolio}/delete', [AdminSpeakerPortfolioController::class, 'destroy'])->name('profiles.rate-cards.destroy');
-    Route::post('profiles/rate-cards/{portfolio}/update', [AdminSpeakerPortfolioController::class, 'update'])->name('profiles.rate-cards.update');
+    Route::post('profiles/{portfolio}/rate-cards/delete', [AdminSpeakerPortfolioController::class, 'destroy'])->name('profiles.rate-cards.destroy');
+    Route::post('profiles/{portfolio}/rate-cards/update', [AdminSpeakerPortfolioController::class, 'update'])->name('profiles.rate-cards.update');
     Route::get('profiles/rate-cards/{portfolio}/edit', [AdminSpeakerPortfolioController::class, 'edit'])->name('profiles.rate-cards.edit');
 
 
@@ -74,7 +68,8 @@
     Route::get('profile/{profile}/proposals', [AdminSpeakerProposalController::class, 'index'])->name('profiles.proposals');
 
     //Speaker Profile Media
-    Route::get('profile/{profile}/media', [AdminSpeakerMediaController::class, 'media'])->name('profiles.media');
+    Route::get('profile/{profile}/media', [AdminProfileMediaController::class, 'index'])->name('profiles.media');
+    Route::post('profile/{profile}/media', [AdminProfileMediaController::class, 'imageStore'])->name('profiles.media.store');
 
     //Speaker Profile Portfolios
     Route::get('profile/{profile}/portfolios', [AdminSpeakerPortfolioController::class, 'index'])->name('profiles.portfolios');
@@ -132,6 +127,12 @@
     Route::post('proposals', [ProposalController::class, 'store'])->name('proposals.store');
     Route::get('proposals/create', [ProposalController::class, 'create'])->name('proposals.create');
     Route::get('proposals/{proposal}', [ProposalController::class, 'show'])->name('proposals.show');
+    Route::get('proposals/{proposal}/rate-cards', [ProposalRateCardController::class, 'index'])->name('proposals.rate-cards.index');
+    Route::post('proposals/{proposal}/rate-cards', [ProposalRateCardController::class, 'store'])->name('proposals.rate-cards.store');
+    Route::post('proposals/{proposal}/rate-cards/{rateCard}', [ProposalRateCardController::class, 'update'])->name('proposals.rate-cards.update');
+    Route::delete('proposals/rate-cards/{rateCard}', [ProposalRateCardController::class, 'destroy'])->name('proposals.rate-cards.delete');
+
+    Route::get('proposals/suggest/portfolios', [ProposalPortfolioController::class, 'index'])->name('proposals.portfolios.suggest');
 
     Route::get('proposals/{proposal}/edit', [ProposalController::class, 'edit'])->name('proposals.edit');
     Route::post('proposals/{proposal}', [ProposalController::class, 'update'])->name('proposals.update');

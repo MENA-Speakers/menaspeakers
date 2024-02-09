@@ -29,4 +29,7 @@ class AdminRateCardController extends Controller
       ]
     );
   }
+
+
+
 }

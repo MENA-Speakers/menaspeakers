@@ -174,31 +174,31 @@ function Create( {speaker, locations} : { speaker: SpeakerType, locations: Locat
 
             </div>
 
-            {
-              isEditing &&
+            {/*{*/}
+            {/*  !isEditing &&*/}
 
-              <div>
-                <Label htmlFor="keywords" className="block text-sm font-medium text-gray-700">Slug (speaker url)</Label>
-                <div className="mt-1">
-                  <Input type="text"
-                         name="slug"
-                         value={formik.values.slug}
-                         onChange={formik.handleChange}
-                         id="slug"
-                         className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                         placeholder="saana-azzam"/>
-                </div>
+            {/*  <div>*/}
+            {/*    <Label htmlFor="keywords" className="block text-sm font-medium text-gray-700">Slug (speaker url)</Label>*/}
+            {/*    <div className="mt-1">*/}
+            {/*      <Input type="text"*/}
+            {/*             name="slug"*/}
+            {/*             value={formik.values.slug}*/}
+            {/*             onChange={formik.handleChange}*/}
+            {/*             id="slug"*/}
+            {/*             className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"*/}
+            {/*             placeholder="saana-azzam"/>*/}
+            {/*    </div>*/}
 
-                {
-                  formik.touched.slug && formik.errors.slug ? (
-                    <div className="text-red-500 text-xs italic">{formik.errors.slug}</div>
-                  ) : null
-                }
+            {/*    {*/}
+            {/*      formik.touched.slug && formik.errors.slug ? (*/}
+            {/*        <div className="text-red-500 text-xs italic">{formik.errors.slug}</div>*/}
+            {/*      ) : null*/}
+            {/*    }*/}
 
-              </div>
+            {/*  </div>*/}
 
 
-            }
+            {/*}*/}
 
 
             <div>

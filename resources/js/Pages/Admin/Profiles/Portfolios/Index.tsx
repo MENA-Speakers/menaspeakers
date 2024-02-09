@@ -12,7 +12,6 @@ interface ShowPortfoliosProps {
   profile: ProfileType
 }
 function ShowPortfolios({portfolios, profile} : ShowPortfoliosProps) {
-  console.log('portfolios', portfolios)
   return (
     <AdminLayout
     >

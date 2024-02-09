@@ -182,9 +182,9 @@ function Index({blogs, speakers, gallery} : IndexProps) {
               </svg>
             </div>
             <a href="https://mena-speakers.com/profile" aria-label={'SPEAKERS MANAGEMENT'} className={'p-6 lg:px-20 space-y-4'}>
-              <h3 className="text-white text-2xl font-bold">SPEAKERS MANAGEMENT
+              <h3 className="text-white text-xl uppercase font-bold">Protocol & Speakers Management
               </h3>
-              <p className={'text-gray-100'}>At MENA Speakers, we believe that effective communication can transform an event from mundane to unforgettable. That's why we specialize in connecting you with world-class speakers who have the ability to engage, educate, and inspire your audience.
+              <p className={'text-gray-100'}>Efficiently organizing agendas and securing the right speakers, we ensure flawless delivery on stage according to client specifications. Our expertise extends to managing protocol for high-profile guests, ensuring a memorable experience for speakers and attendees alike.
               </p>
             </a>
           </div>
@@ -217,8 +217,9 @@ function Index({blogs, speakers, gallery} : IndexProps) {
               </svg>
             </div>
             <a href="https://publicspeaking.bitrix24.site" aria-label={'PUBLIC SPEAKING TRAINING'} className={'p-6 lg:px-20 space-y-4'}>
-              <h3 className="text-white text-2xl font-bold">PUBLIC SPEAKING TRAINING </h3>
-              <p className={'text-gray-100'}>At our company, we help organizations of all sizes improve their communication processes, which can lead to better employee productivity, reduced costs, and increased profitability. Let us help you streamline your communication and achieve the success you deserve.</p>
+              <h3 className="text-white text-xl font-bold">PUBLIC SPEAKING TRAINING </h3>
+              <p className={'text-gray-100'}> We offer focused training to refine public speaking skills, ensuring participants can engage audiences and deliver powerful messages effectively.
+              </p>
             </a>
           </div>
           <div className="py-12 bg-mena-300 flex flex-col">
@@ -250,9 +251,11 @@ function Index({blogs, speakers, gallery} : IndexProps) {
               </svg>
             </div>
             <a href="https://menaspeakersfasttrack.bitrix24.site" aria-label={'SPEAKER FAST TRACK'} className={'p-6 lg:px-20 space-y-4'}>
-              <h3 className="text-white text-2xl font-bold">SPEAKER FAST TRACK </h3>
-              <p className={'text-gray-100'}>The speaker fast track program helps launch your career as a speaker as well as positions speakers to get more speaking engagements around the world. Clients demand that the speakers’ kit is professional, congruent, and appealing.</p>
-            </a>
+              <h3 className="text-white text-xl uppercase font-bold"> Speakers Fast Track Program</h3>
+              <p className={'text-gray-100'}>
+                Our Fast Track Program equips new speakers with the necessary tools and exposure for success, focusing on essential skills and professional presentation to navigate the speaking circuit confidently. It transitions speakers from undiscovered to strongly positioned, stage-ready professionals.
+              </p>
+             </a>
           </div>
         </div>
 

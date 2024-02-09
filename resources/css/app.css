@@ -79,10 +79,17 @@
     @apply text-mena-300;
   }
 
+  /* style all ul lists */
+  ul {
+    @apply list-disc pl-6;
+
+  }
+
   /* style all links in #footer white */
   #footer a {
     @apply text-gray-300;
   }
+
 
 
   .gradient-btn {

@@ -1,14 +1,22 @@
 import React from 'react';
-import {Link} from "@inertiajs/react";
+import {Link, router} from "@inertiajs/react";
 import {SpeakerType} from "@/types/speaker-type";
 import {DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger} from "@/Components/ui/dropdown-menu";
 import {MoreVertical} from "lucide-react";
+import axios from "axios";
 
 //Speaker interface
 
 
 
+
 function SpeakerCard({speaker} : {speaker: SpeakerType}) {
+
+  const deleteSpeaker = () => {
+    axios.delete(route('admin.speakers.delete', speaker.slug)).then(response => {
+      router.reload()
+    })
+  }
   return (
     <div className={ 'space-y-3'}>
      <div className="rounded-2xl overflow-hidden">
@@ -34,7 +42,9 @@ function SpeakerCard({speaker} : {speaker: SpeakerType}) {
               </Link>
             </DropdownMenuItem>
             <DropdownMenuItem>
-
+              <span onClick={() => deleteSpeaker()}>
+                Delete
+              </span>
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>

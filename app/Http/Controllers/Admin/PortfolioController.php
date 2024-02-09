@@ -8,6 +8,7 @@ use App\Http\Resources\PortfolioResource;
 use App\Http\Resources\ProfileResource;
 use App\Models\Portfolio;
 use App\Models\Profile;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
@@ -37,13 +38,13 @@ class PortfolioController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StorePortfolioRequest $request)
+    public function store(StorePortfolioRequest $request): RedirectResponse
     {
 
-        $portfolio = Portfolio::create([
+        Portfolio::create([
             'title' => $request->input('title'),
             'summary' => $request->input('summary'),
-            'body' => $request->input('content'),
+            'body' => $request->input('body'),
             'profile_id' => $request->input('profile'),
             'fee' => $request->input('fee'),
         ]);
@@ -51,13 +52,6 @@ class PortfolioController extends Controller
         return redirect()->route('admin.portfolios.index')->with('success', 'Portfolio created.');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
 
     /**
      * Show the form for editing the specified resource.

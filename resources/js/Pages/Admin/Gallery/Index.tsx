@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import PrimaryButton from "@/Components/PrimaryButton";
-import { Head, Link, router } from "@inertiajs/react";
+import { Head, Link } from "@inertiajs/react";
 import { useFormik } from "formik";
-import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import { useDropzone } from "react-dropzone";
 import DangerButton from "@/Components/DangerButton";
 import AdminLayout from "@/Layouts/AdminLayout";
 import {Button} from "@/Components/ui/button";
+import axios from "axios";
 
 function Index(props) {
 
@@ -70,7 +70,6 @@ function Index(props) {
   });
 
   const cancelUpload = () => {
-    console.log('cancel upload')
     setIsOpen(false);
     setImagesPreview([])
 
@@ -95,13 +94,13 @@ function Index(props) {
 
           {
             isOpen && (
-              <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg mb-6">
-                <div className="p-6 bg-white border-b border-gray-200">
+              <div className="bg-white overflow-hidden mt-3 sm:rounded-lg mb-6">
+                <div className="">
                   <form onSubmit={formik.handleSubmit}
                     className=" max-w-4xl space-y-8 mx-auto py-8 px-8">
                     <div>
-                      <label htmlFor="images" className="block text-sm font-medium text-gray-700">Images</label>
-                      <div {...getRootProps({ className: 'border-dashed border-2 rounded-lg mt-2 py-4 mb-6 px-4' })}>
+                      <label htmlFor="images" className="block text-sm font-medium text-gray-700 sr-only">Images</label>
+                      <div {...getRootProps({ className: 'border-dashed border-2 bg-slate-50 rounded-lg mt-2 py-10 mb-6 px-10' })}>
                         <input {...getInputProps()} />
                         <p className={'text-sm'}>Drag 'n' Images, or click to select files</p>
                       </div>
@@ -119,9 +118,9 @@ function Index(props) {
                       ))}
                     </div>
                     <div className="flex justify-between">
-                      <DangerButton type={'button'} disabled={formik.isSubmitting} onClick={() => cancelUpload()} className="">
-                        Clear
-                      </DangerButton>
+                      <Button variant={'destructive'} type={'button'} disabled={formik.isSubmitting} onClick={() => cancelUpload()} className="">
+                        Cancel
+                      </Button>
                       <PrimaryButton disabled={formik.isSubmitting} type="submit" className="">
                         {
                           formik.isSubmitting ? 'Uploading...' : 'Upload'

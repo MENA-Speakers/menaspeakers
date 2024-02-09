@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreProposalRequest extends FormRequest
+class UpdateRateCardRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,7 +22,10 @@ class StoreProposalRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => ['required', 'string', 'max:255'],
+            'title' => ['required', 'string'],
+            'fee' => ['required', 'numeric'],
+            'body' => ['required', 'string'],
+            'summary' => ['required', 'string'],
         ];
     }
 }

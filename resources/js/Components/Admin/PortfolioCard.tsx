@@ -8,6 +8,7 @@ import {
 } from "@/Components/ui/dropdown-menu";
 import {MoreVertical} from "lucide-react";
 import {PortfolioType} from "@/types/portfolio-type";
+import {Link} from "@inertiajs/react";
 
 export function PortfolioCard({portfolio}: { portfolio: PortfolioType}) {
   return (
@@ -37,7 +38,11 @@ export function PortfolioCard({portfolio}: { portfolio: PortfolioType}) {
             </DropdownMenuTrigger>
             <DropdownMenuContent>
               <DropdownMenuItem>View</DropdownMenuItem>
-              <DropdownMenuItem onClick={() => console.log('edit mode')}>Edit</DropdownMenuItem>
+              <DropdownMenuItem >
+                {/*<Link href={route('portfolio.edit', portfolio.id)}>*/}
+                  Edit
+                {/*</Link>*/}
+              </DropdownMenuItem>
               <DropdownMenuItem>Delete</DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
