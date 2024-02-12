@@ -14,10 +14,12 @@ function BlogCard({ blog }) {
         </span>
       </div>
       <Link href={route('blogs.show', blog.slug)} aria-label={'Read blog details'}>
-        <img
-          className={'w-full object-cover h-60'}
-          src={blog.image}
-          alt={blog.title} loading='lazy' />
+        <div className={'overflow-hidden'}>
+          <img
+            className={'w-full object-cover h-60 transition duration-300 ease-in-out hover:scale-105'}
+            src={blog.image}
+            alt={blog.title} loading='lazy'/>
+        </div>
       </Link>
       <div className={'py-4 space-y-4'}>
         <Link className={'font-bold'} href={route('blogs.show', blog.slug)} aria-label={blog.title}>{blog.title}</Link>

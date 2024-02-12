@@ -153,7 +153,7 @@ function Index({blogs, speakers, gallery} : IndexProps) {
 
       <section className={'lg:-mt-40 mt-12 '}>
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-y-8 lg:gap-y-0 px-6">
-          <div className="py-12 bg-mena-100 flex flex-col">
+          <div className="py-12 transition duration-300 ease-in-out hover:scale-105 bg-mena-100 flex flex-col">
             <div className={'w-full px-6 lg:px-20'}>
               <svg className={'w-12 h-12'} xmlns="http://www.w3.org/2000/svg" xmlSpace="preserve" fill="#fff"
                    stroke="#fff" viewBox="0 0 488 488">
@@ -188,7 +188,7 @@ function Index({blogs, speakers, gallery} : IndexProps) {
               </p>
             </a>
           </div>
-          <div className="py-12 bg-mena-200 flex flex-col">
+          <div className="py-12 transition duration-300 ease-in-out hover:scale-105 bg-mena-200 flex flex-col">
             <div className={'w-full px-6 lg:px-20'}>
               <svg className={'w-12 h-12'} xmlns="http://www.w3.org/2000/svg" xmlSpace="preserve" fill="#fff"
                    stroke="#fff" viewBox="0 0 488 488">
@@ -222,7 +222,7 @@ function Index({blogs, speakers, gallery} : IndexProps) {
               </p>
             </a>
           </div>
-          <div className="py-12 bg-mena-300 flex flex-col">
+          <div className="py-12 transition duration-300 ease-in-out hover:scale-105 bg-mena-300 flex flex-col">
             <div className={'w-full px-6 lg:px-20'}>
               <svg className={'w-12 h-12'} xmlns="http://www.w3.org/2000/svg" xmlSpace="preserve" fill="#fff"
                    stroke="#fff" viewBox="0 0 488 488">
@@ -286,7 +286,10 @@ function Index({blogs, speakers, gallery} : IndexProps) {
                     className={` ${index === 0 && 'lg:mt-40'}  ${index === 1 && 'lg:mt-20'} lg:h-96`}>
                     <div className={'shadow-2xl'}>
                       <Link href={route('speakers.show', speaker.slug)} aria-label={`View ${speaker.name}`} >
-                        <img src={speaker.image} alt={speaker.name} className={'w-full object-cover lg:h-96'} loading='lazy'/>
+                        <div className="overflow-hidden">
+                          <img src={speaker.image} alt={speaker.name} className={'w-full object-cover transition duration-300 ease-in-out hover:scale-110 lg:h-96'}
+                               loading='lazy'/>
+                        </div>
                       </Link>
                     </div>
                     <div className=" mt-3">
@@ -370,7 +373,7 @@ function Index({blogs, speakers, gallery} : IndexProps) {
           </div>
           <div className="relative">
             <div className="absolute opacity-10 -top-6 -left-4">
-              <svg className={'h-14 w-14 stroke-1 rotate-25'} xmlns="http://www.w3.org/2000/svg" xml:space="preserve"
+              <svg className={'h-14 w-14 stroke-1 rotate-25'} xmlns="http://www.w3.org/2000/svg" xmlSpace="preserve"
                    fill="#fff" stroke="#fff" viewBox="0 0 23 32"><g fill="#808184"><path d="M11.5 4.727c-3.584 0-6.5 2.916-6.5 6.5s2.916 6.5 6.5 6.5 6.5-2.916 6.5-6.5-2.916-6.5-6.5-6.5zm0 12c-3.032 0-5.5-2.467-5.5-5.5s2.468-5.5 5.5-5.5 5.5 2.467 5.5 5.5-2.468 5.5-5.5 5.5z"/><path
                 d="M21.617 7.226c.22-.921.116-1.727-.306-2.349-.419-.617-1.121-1.008-2.045-1.145-.277-1.862-1.624-2.797-3.493-2.35C14.794-.255 13.108-.602 11.5.531c-1.609-1.133-3.293-.786-4.273.852-1.873-.447-3.217.488-3.494 2.35-.923.137-1.626.528-2.045 1.144-.421.622-.525 1.428-.305 2.349C.578 7.707.072 8.343-.09 9.084c-.168.769.047 1.598.622 2.416-.575.818-.79 1.647-.622 2.416.162.741.668 1.377 1.473 1.858-.22.921-.116 1.727.306 2.349.419.617 1.121 1.008 2.045 1.145.276 1.862 1.621 2.796 3.493 2.35.982 1.638 2.666 1.985 4.273.851.638.449 1.275.677 1.899.677.95 0 1.782-.539 2.374-1.528 1.869.446 3.216-.488 3.493-2.35.924-.137 1.626-.528 2.045-1.145.422-.622.525-1.427.306-2.349.805-.481 1.311-1.117 1.473-1.858.168-.769-.047-1.598-.622-2.416.575-.818.79-1.647.622-2.416-.162-.741-.668-1.377-1.473-1.858zm-.164 4.591c.554.675.781 1.327.659 1.886-.148.681-.791 1.123-1.304 1.373a.5.5 0 0 0-.257.605c.18.547.313 1.318-.068 1.88-.379.558-1.135.717-1.702.751a.5.5 0 0 0-.469.468c-.055.889-.384 1.949-1.642 1.949-.299 0-.632-.06-.99-.177a.496.496 0 0 0-.605.256c-.298.61-.83 1.337-1.676 1.337-.483 0-1.03-.239-1.582-.692a.499.499 0 0 0-.634 0c-.552.453-1.099.691-1.582.692-.846 0-1.378-.727-1.676-1.337a.498.498 0 0 0-.605-.256 3.196 3.196 0 0 1-.99.177c-1.258 0-1.587-1.06-1.642-1.949a.5.5 0 0 0-.469-.468c-.567-.035-1.323-.193-1.702-.751-.382-.562-.248-1.333-.068-1.88a.5.5 0 0 0-.257-.605c-.513-.25-1.155-.692-1.304-1.373-.122-.559.105-1.211.659-1.886a.5.5 0 0 0 0-.634C.993 10.508.766 9.856.888 9.297c.148-.681.791-1.123 1.304-1.373a.5.5 0 0 0 .257-.605c-.18-.547-.313-1.318.068-1.88.379-.558 1.135-.717 1.702-.751a.5.5 0 0 0 .469-.468c.054-.89.383-1.949 1.641-1.949.299 0 .632.06.99.177a.501.501 0 0 0 .605-.256c.298-.61.83-1.337 1.676-1.337.483 0 1.03.239 1.582.692a.502.502 0 0 0 .635 0c.552-.453 1.099-.692 1.582-.692.846 0 1.378.727 1.676 1.337a.5.5 0 0 0 .605.256c.358-.118.691-.177.99-.177 1.258 0 1.587 1.06 1.642 1.949a.5.5 0 0 0 .469.468c.567.035 1.323.193 1.702.751.382.562.248 1.333.068 1.88a.5.5 0 0 0 .257.605c.513.25 1.155.692 1.304 1.373.122.559-.105 1.211-.659 1.886a.5.5 0 0 0 0 .634z"/><path
                 d="M5 23a.5.5 0 0 0-.5.5v6.946c0 .571.324 1.088.86 1.35a1.661 1.661 0 0 0 1.768-.179l4.337-3.39 4.378 3.422c.299.234.658.354 1.023.354.252 0 .517-.058.757-.175.536-.261.878-.779.878-1.35V23.5a.5.5 0 0 0-1 0v6.977c0 .272-.224.406-.317.452a.655.655 0 0 1-.704-.068l-1.98-1.558V25.57a.5.5 0 0 0-1 0v2.952l-1.712-1.324a.5.5 0 0 0-.617 0L9.5 28.501V25.57a.5.5 0 0 0-1 0v3.713l-1.985 1.546a.67.67 0 0 1-.713.068c-.093-.045-.302-.18-.302-.451V23.5A.5.5 0 0 0 5 23zM14.297 8.355l-3.458 4.598-2.15-2.206a.5.5 0 0 0-.717.698l2.558 2.513c.094.098.223.042.358.042h.032c.146 0 .279.027.367-.089l3.809-5.01a.467.467 0 0 0-.099-.672c-.219-.167-.534-.096-.7.126z"/></g></svg>
@@ -392,7 +395,6 @@ function Index({blogs, speakers, gallery} : IndexProps) {
 
 
       {/*  Blog section */}
-
 
       <section className={'py-12 mt-20'}>
         <div className={'max-w-7xl mx-auto  '}>
