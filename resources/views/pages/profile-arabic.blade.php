@@ -117,7 +117,7 @@
     <!-- Wrapper for slides -->
     <div class="carousel-inner slider" role="listbox">
       <div class="item active">
-        <img src="{{asset("/images/blond-hair-wonan-speaking-in-front-of-public-and-raising-her-hands.jpg")}}" alt="MENA Speakers">
+        <img src="{{asset("/images/blond-hair-woman-speaking-in-front-of-public-and-raising-her-hands.jpg")}}" alt="MENA Speakers">
         <div class="carousel-caption">
 
           <h3>أبرز المتحدثين في الشرق الاوسط</h3>

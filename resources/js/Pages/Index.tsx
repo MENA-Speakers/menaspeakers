@@ -416,7 +416,6 @@ function Index({blogs, speakers, gallery} : IndexProps) {
         </div>
       </section>
 
-
     </MainLayout>
   );
 }
