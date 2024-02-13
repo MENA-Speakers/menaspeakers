@@ -259,34 +259,34 @@
       </div>
     </div>
   </div>
-  <div class="container-fluid detailbg">
-    <div class="container">
-      <div class="row flex-row">
-        <div class="col-lg-5 col-md-4">
-          <div class="detailtext wow fadeInLeft">
-            <h6  style="text-align: right;">أبرز المتحدثين في الشرق الاوسط
-              <br>
-              احصل على استشارة مجانيه</h6>
-          </div>
-        </div>
-        <div class="col-lg-7 col-md-8">
-          <div class="details wow fadeInRight">
-            <ul>
-              <li><a href="tel:971559832756"><img src="{{asset("/images/reciver.png")}}" alt=""> +971 55 983 2756</a></li>
-              <li class="change"><a href="mailto:info@mena-speakers.com"><img src="{{asset("/images/mail.png")}}" alt=""> info@mena-speakers.com</a></li>
-            </ul>
-          </div>
+{{--  <div class="container-fluid detailbg">--}}
+{{--    <div class="container">--}}
+{{--      <div class="row flex-row">--}}
+{{--        <div class="col-lg-5 col-md-4">--}}
+{{--          <div class="detailtext wow fadeInLeft">--}}
+{{--            <h6  style="text-align: right;">أبرز المتحدثين في الشرق الاوسط--}}
+{{--              <br>--}}
+{{--              احصل على استشارة مجانيه</h6>--}}
+{{--          </div>--}}
+{{--        </div>--}}
+{{--        <div class="col-lg-7 col-md-8">--}}
+{{--          <div class="details wow fadeInRight">--}}
+{{--            <ul>--}}
+{{--              <li><a href="tel:971559832756"><img src="{{asset("/images/reciver.png")}}" alt=""> +971 55 983 2756</a></li>--}}
+{{--              <li class="change"><a href="mailto:info@mena-speakers.com"><img src="{{asset("/images/mail.png")}}" alt=""> info@mena-speakers.com</a></li>--}}
+{{--            </ul>--}}
+{{--          </div>--}}
 
-          <div class="details wow fadeInRight">
-            <ul>
-              <li><a href="javascript:;" target="_self" onclick="livechat();"><img src="{{asset("/images/wechat.png")}}" alt=""> محادثة فوريه</a></li>
-              <li class="sch"><a href="javascript:;"><img src="{{asset("/images/calendar.png")}}" alt=""> احجز موعدك معنا</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+{{--          <div class="details wow fadeInRight">--}}
+{{--            <ul>--}}
+{{--              <li><a href="javascript:;" target="_self" onclick="livechat();"><img src="{{asset("/images/wechat.png")}}" alt=""> محادثة فوريه</a></li>--}}
+{{--              <li class="sch"><a href="javascript:;"><img src="{{asset("/images/calendar.png")}}" alt=""> احجز موعدك معنا</a></li>--}}
+{{--            </ul>--}}
+{{--          </div>--}}
+{{--        </div>--}}
+{{--      </div>--}}
+{{--    </div>--}}
+{{--  </div>--}}
   <div class="container-fluid serbg" id="approach">
     <div class="container">
       <div class="row">
@@ -498,11 +498,22 @@
         </div>
         <div class="col-md-6">
           <div class="socialicon">
-            <a href="https://www.facebook.com/menaspeakers" target="_blank"><p><i class="fa fa-facebook" aria-hidden="true"></i></p></a>
-            <a href="https://twitter.com/menaspeakers" target="_blank"><p><i class="fa fa-twitter" aria-hidden="true"></i></p></a>
-            <a href="https://www.linkedin.com/company/10342646" target="_blank"><p><i class="fa fa-linkedin" aria-hidden="true"></i></p></a>
-            <a href="skype:mena-speakers?call" target="_blank"><p><i class="fa fa-skype" aria-hidden="true"></i></p></a>
-            <a href="http://www.instagram.com/menaspeakers" target="_blank"><p><i class="fa fa-instagram" aria-hidden="true"></i></p></a>
+            <a href="https://www.facebook.com/menaspeakers" target="_blank">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-facebook"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+            <a href="https://twitter.com/menaspeakers" target="_blank">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-twitter"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/>
+              </svg>
+            </a>
+            <a href="https://www.linkedin.com/company/10342646" target="_blank">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-linkedin"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+            <a href="skype:mena-speakers?call" target="_blank">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            </a>
+            <a href="http://www.instagram.com/menaspeakers" target="_blank">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-instagram"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+            </a>
           </div>
         </div>
       </div>

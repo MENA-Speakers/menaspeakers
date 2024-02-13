@@ -11230,10 +11230,12 @@ margin-top: 0;
 	float:right;
 	margin-bottom:10px;
 }
-.socialicon p
+.socialicon a
 {
 		display:inline-block;
+  margin-right: 7px;
 }
+
 .socialicon p i
 {
 	border:#FFFFFF 1px solid;
