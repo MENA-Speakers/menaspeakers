@@ -166,15 +166,17 @@
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="#home" id="hometop">الصفحه الرئيسيه <span class="sr-only">(current)</span></a></li>
-            <li><a href="#philosophy" id="our">اسلوبنا </a></li>
-            <!-- <li><a href="#">Locations </a></li>-->
-            <li><a href="#approach" id="our1">من نحن </a></li>
-            <li><a href="#speaker" id="best">أبرز المتحدثين</a></li>
+          <div class="main-menu">
+            <ul class="nav navbar-nav nav-heading">
+              <li class="active"><a href="#home" id="hometop">الصفحه الرئيسيه <span class="sr-only">(current)</span></a></li>
+              <li><a href="#philosophy" id="our">اسلوبنا </a></li>
+              <!-- <li><a href="#">Locations </a></li>-->
+              <li><a href="#approach" id="our1">من نحن </a></li>
+              <li><a href="#speaker" id="best">أبرز المتحدثين</a></li>
 
-          </ul>
-          <a href="#con" class="getfree" id="get">احصل على استشارة مجانيه</a>
+            </ul>
+            <a href="#con" class="getfree" id="get">احصل على استشارة مجانيه</a>
+          </div>
 
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
@@ -184,8 +186,8 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <div class="text">
-            <p>أبرز شركاء مينا سبيكرز</p>
+          <div class="ar-heading ">
+            <h2 class="text-center">أبرز شركاء مينا سبيكرز</h2>
           </div>
         </div>
         <div class="col-md-12 bxsli">
@@ -259,7 +261,7 @@
   </div>
   <div class="container-fluid detailbg">
     <div class="container">
-      <div class="row">
+      <div class="row flex-row">
         <div class="col-lg-5 col-md-4">
           <div class="detailtext wow fadeInLeft">
             <h6  style="text-align: right;">أبرز المتحدثين في الشرق الاوسط
@@ -274,7 +276,8 @@
               <li class="change"><a href="mailto:info@mena-speakers.com"><img src="{{asset("/images/mail.png")}}" alt=""> info@mena-speakers.com</a></li>
             </ul>
           </div>
-          <div class="detail2 wow fadeInRight">
+
+          <div class="details wow fadeInRight">
             <ul>
               <li><a href="javascript:;" target="_self" onclick="livechat();"><img src="{{asset("/images/wechat.png")}}" alt=""> محادثة فوريه</a></li>
               <li class="sch"><a href="javascript:;"><img src="{{asset("/images/calendar.png")}}" alt=""> احجز موعدك معنا</a></li>
@@ -325,7 +328,7 @@
   </div>
   <div class="container-fluid detailbg">
     <div class="container">
-      <div class="row">
+      <div class="row flex-row">
         <div class="col-lg-5 col-md-4">
           <div class="detailtext wow fadeInUp">
             <h6 style="text-align: right;">أبرز المتحدثين في الشرق الاوسط
@@ -340,7 +343,8 @@
               <a href="mailto:info@mena-speakers.com"><li class="change ch2"><img src="{{asset("/images/mail.png")}}" alt=""> info@mena-speakers.com</li></a>
             </ul>
           </div>
-          <div class="detail2 wow fadeInRight">
+
+          <div class="details wow fadeInLeft">
             <ul>
               <li><a href="javascript:;" target="_self" onclick="livechat();"><img src="{{asset("/images/wechat.png")}}" alt=""> محادثة فوريه</a></li>
               <li class="sch"><img src="{{asset("/images/calendar.png")}}" alt=""> احجز موعدك معنا</li>
