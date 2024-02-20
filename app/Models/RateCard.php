@@ -6,10 +6,13 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Ramsey\Uuid\Uuid;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
-class RateCard extends Model
+class RateCard extends Model implements HasMedia
 {
-    use HasFactory;
+    use HasFactory, InteractsWithMedia;
 
     protected $guarded = [
         'id',
@@ -28,6 +31,21 @@ class RateCard extends Model
     {
         return 'hash_id';
     }
+
+
+
+  public function registerMediaCollections(): void
+  {
+    $this->addMediaCollection('gallery');
+  }
+
+  public function registerMediaConversions(Media $media = null): void
+  {
+    $this->addMediaConversion('jpg')
+      ->format('jpg')
+      ->performOnCollections('gallery');
+  }
+
 
     public function proposal(): BelongsTo
     {

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreRateCardRequest;
 use App\Http\Requests\UpdateRateCardRequest;
 use App\Http\Resources\RateCardResource;
+use App\Models\Portfolio;
 use App\Models\Proposal;
 use App\Models\RateCard;
 use Illuminate\Http\JsonResponse;
@@ -39,37 +40,54 @@ class ProposalRateCardController extends Controller
    * @return AnonymousResourceCollection
    */
 
-  public function store(Request $request, Proposal $proposal): AnonymousResourceCollection
-  {
+public function store(Request $request, Proposal $proposal): AnonymousResourceCollection
+{
 
     // return if no portfolios
-    if (empty($request->portfolios)) {
-      return RateCardResource::collection($proposal->rateCards);
+    if (empty($request->rates)) {
+        return RateCardResource::collection($proposal->rateCards);
     }
 
+
+    // Get all existing portfolio ids for the proposal
+    $existingPortfolioIds = $proposal->rateCards()->pluck('portfolio_id')->toArray();
+
+
     //Loop and create rate card from request cards array
-    foreach ($request->portfolios as $portfolio) {
+    foreach ($request->rates as $rate) {
 
-      //Check if portfolio already exists
-      if ($proposal->rateCards()->where('portfolio_id', $portfolio['id'])->exists()) {
-        continue;
-      }
+        //Check if portfolio already exists
+        if (in_array($rate['id'], $existingPortfolioIds)) {
+            continue;
+        }
 
-      $proposal->rateCards()->create([
-        'title' => $portfolio['title'],
-        'body' => $portfolio['body'],
-        'fee' => $portfolio['fee'],
-        'profile_id' => $portfolio['profile_id'],
-        'portfolio_id' => $portfolio['id'],
-        'summary' => $portfolio['summary'],
-        'proposal_id' => $proposal->id,
-      ]);
+        // Find portfolio and continue if not found
+        $portfolio = Portfolio::find($rate['id']);
+        if (!$portfolio) {
+            continue;
+        }
 
+
+        // Create rate card
+        $currentRate = $proposal->rateCards()->create([
+            'title' => $rate['title'],
+            'fee' => $rate['fee'],
+            'profile_id' => $rate['profile_id'],
+            'portfolio_id' => $rate['id'],
+            'summary' => $rate['summary'],
+            'proposal_id' => $proposal->id,
+        ]);
+
+        //check if portfolio has media library files, then copy to rate card
+        if($portfolio->hasMedia('gallery')){
+            foreach ($portfolio->getMedia('gallery') as $media) {
+              $media->copy($currentRate, 'gallery');
+            }
+        }
     }
 
     return RateCardResource::collection($proposal->rateCards);
-  }
-
+}
 
   /**
    * Update Rate Card and return.
@@ -85,11 +103,18 @@ class ProposalRateCardController extends Controller
   {
 
     $rateCard->update([
-      'title' => $request->title,
-      'body' => $request->body,
       'fee' => $request->fee,
       'summary' => $request->summary,
     ]);
+
+    // check if request has file delete media library files
+    if ($request->hasFile('gallery')) {
+      $rateCard->clearMediaCollection('gallery');
+      // add multiple files to media library
+      $rateCard->addMultipleMediaFromRequest(['gallery'])->each(function ($fileAdder) {
+        $fileAdder->toMediaCollection('gallery');
+      });
+    }
 
     return new RateCardResource($rateCard);
   }

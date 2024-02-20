@@ -7,11 +7,14 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Laravel\Scout\Searchable;
+use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
+use Spatie\MediaLibrary\InteractsWithMedia;
 
-class Portfolio extends Model
+class Portfolio extends Model implements HasMedia
 {
-    use HasFactory, HashId;
+    use HasFactory, HashId, InteractsWithMedia, Searchable;
 
     protected $guarded = ['id'];
 
@@ -27,8 +30,8 @@ class Portfolio extends Model
 
   public function registerMediaConversions(Media $media = null): void
   {
-    $this->addMediaConversion('webp')
-        ->format('webp')
+    $this->addMediaConversion('jpg')
+        ->format('jpg')
         ->performOnCollections('gallery');
   }
 

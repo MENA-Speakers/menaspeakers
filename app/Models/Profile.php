@@ -45,8 +45,8 @@ class Profile extends Model implements HasMedia
 
   public function registerMediaConversions(Media $media = null): void
   {
-    $this->addMediaConversion('webp')
-      ->format('webp')
+    $this->addMediaConversion('jpg')
+      ->format('jpg')
       ->performOnCollections('avatar');
   }
 

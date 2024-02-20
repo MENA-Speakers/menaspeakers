@@ -9,6 +9,7 @@ import {Input} from "@/Components/ui/input";
 import {Button} from "@/Components/ui/button";
 import {Textarea} from "@/Components/ui/textarea";
 import {ProposalType} from "@/types/proposal-type";
+import truncateText from "@/Utils/truncateText";
 
 interface SelectSpeakerSlideProps {
   isOpen: boolean,
@@ -63,7 +64,7 @@ function SelectSpeakerSlide({isOpen, setIsOpen, params, updatedSelectedSpeakers,
 
     setIsSubmitting(true)
     axios.post(route('admin.proposals.rate-cards.store', proposal.hash_id), {
-      portfolios: selectedPortfolios,
+      rates: selectedPortfolios,
       proposal_id: proposal.id
     })
       .then( response => {
@@ -80,76 +81,67 @@ function SelectSpeakerSlide({isOpen, setIsOpen, params, updatedSelectedSpeakers,
         <SheetTrigger>
           <Button variant={'outline'} size={'sm'} className={'text-sm'}> Add Rate Cards</Button>
         </SheetTrigger>
-        <SheetContent className={'md:w-[85%] h-screen flex flex-col'}>
-          <form className="py-4 px-6 flex items-center">
-            <Input type={'text'} placeholder={'Search for speaker'} className={'w-1/3 mr-4'}/>
-            <Button type={'submit'}>Search</Button>
-          </form>
-          <div className="grid grid-cols-2 gap-4 h-full">
-            <ScrollArea className={'px-4 h-full'}>
-
-              <div className="space-y-4 h-full">
-                {
-                  portfolios.map((portfolio: any, index: number) => {
-                    return (
-                      <div key={index} className={cn('grid grid-cols-7 gap-2 border rounded-lg overflow-hidden', isSpeakerSelected(portfolio) && 'border-green-700 bg-blue-50')}>
-                        <div className={'col-span-2'}>
-                          <img
-                            className={'w-full h-56 object-cover'}
-                            src={portfolio.profile.image}
-                            alt=""/>
+        <SheetContent className={'md:w-[50%] h-screen flex pb-6 flex-col'}>
+          <div className="flex px-6 justify-between items-center">
+            <form className="py-4 flex-grow flex items-center">
+              <Input type={'text'} placeholder={'Search for speaker'} className={'w-1/3 mr-4'}/>
+              <Button type={'submit'}>Search</Button>
+            </form>
+            <div className="pr-4">
+              <Button onClick={() => createRateCard()} disabled={isSubmitting} className={'flex items-center'}>
+                <span className="text-sm">Create Rate Card</span>
+              </Button>
+            </div>
+          </div>
+          <ScrollArea>
+            <div className="px-6 space-y-4 pb 6">
+              {
+                portfolios.map((portfolio: any, index: number) => {
+                  return (
+                    <div key={index}
+                         className={cn('grid grid-cols-7 gap-2 border rounded-lg overflow-hidden', isSpeakerSelected(portfolio) && 'border-green-700 bg-blue-50')}>
+                      <div className={'col-span-2'}>
+                        <img
+                          className={'w-full h-56 object-cover'}
+                          src={portfolio.profile.image}
+                          alt=""/>
+                      </div>
+                      <div className={'col-span-5 p-2 flex flex-col justify-between'}>
+                        <div className={'flex-1'}>
+                          <h3 className={' font-semibold'}>{portfolio.profile.full_name}</h3>
+                          <h4 className={'text-sm italic text-neutral-500'}>{portfolio.title}</h4>
+                          <p className={'text-gray-500 mt-2 text-sm'}>
+                            {truncateText(portfolio.summary, 180)}
+                          </p>
                         </div>
-                        <div className={'col-span-5 p-2 flex flex-col justify-between'}>
-                          <div className={'flex-1'}>
-                            <h3 className={' font-semibold'}>{portfolio.profile.full_name}</h3>
-                            <h4 className={'text-sm italic text-neutral-500'}>{portfolio.title}</h4>
-                            <p className={'text-gray-500 mt-2 text-sm'}>
-                              {portfolio.summary}
+
+                        <div className={'flex justify-between items-center'}>
+
+                          <div className="flex items-center">
+                            <p className="text-sm">
+                              Fee: ${portfolio.fee}
                             </p>
                           </div>
 
-                          <div className={'flex justify-between items-center'}>
-
-                            <div className="flex items-center">
-                                  <p className="text-sm">
-                                    Fee: ${portfolio.fee}
-                                  </p>
-                            </div>
-
-                            <button onClick={() => {
-                              if (isSpeakerSelected(portfolio)) {
-                                removeSpeaker(portfolio)
-                              } else {
-                                addSpeaker(portfolio)
-                              }
-                            }} className="flex items-center justify-center ">
-                              <UserPlus className={'w-5 h-5 mr-2'}/>
-                              <span className="text-sm">Add to list</span>
-                            </button>
-                          </div>
-
+                          <button onClick={() => {
+                            if (isSpeakerSelected(portfolio)) {
+                              removeSpeaker(portfolio)
+                            } else {
+                              addSpeaker(portfolio)
+                            }
+                          }} className="flex items-center justify-center ">
+                            <UserPlus className={'w-5 h-5 mr-2'}/>
+                            <span className="text-sm">Add to list</span>
+                          </button>
                         </div>
-                      </div>
-                    )
-                  })
-                }
-              </div>
-            </ScrollArea>
 
-            <div className="flex flex-col h-full">
-              <div className="flex-grow">
-              </div>
-              <div className={'flex justify-between items-center pb-6 px-4'}>
-                <Textarea rows={1} placeholder={'Chat with AI'} className={'w-full mr-4'}/>
-                <div className={'flex space-x-3'}>
-                  <Button size={'icon'} type={'submit'}>
-                    <Send className={'w-5 h-5 stroke-1'}/>
-                  </Button>
-                  <Button disabled={isSubmitting} onClick={createRateCard} type={'submit'}>Add to proposal</Button>
-                </div>
-              </div>
+                      </div>
+                    </div>
+                  )
+                })
+              }
             </div>
-          </div>
+          </ScrollArea>
         </SheetContent>
       </Sheet>
     </div>

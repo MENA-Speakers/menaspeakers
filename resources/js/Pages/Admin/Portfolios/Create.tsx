@@ -18,7 +18,8 @@ import {Button} from "@/Components/ui/button";
 import {Command, CommandEmpty, CommandGroup, CommandInput, CommandItem} from "@/Components/ui/command";
 import {CheckIcon, ChevronsUpDown} from "lucide-react";
 import {cn} from "@/lib/utils";
-
+import {useDropzone} from "react-dropzone";
+type PreviewFile = File & { preview: string };
 function Create( {portfolio, profiles} : { portfolio: PortfolioType, profiles: ProfileType[] }) {
 
   const [isEditing, setIsEditing] = React.useState( false );
@@ -34,7 +35,7 @@ function Create( {portfolio, profiles} : { portfolio: PortfolioType, profiles: P
     initialValues: {
       title: portfolio?.title ? portfolio.title : '',
       fee: portfolio?.fee ? portfolio.fee : '',
-      body: portfolio?.body ? portfolio.body : '',
+      gallery: portfolio?.gallery ? portfolio.gallery : '',
       summary: portfolio?.summary ? portfolio.summary : '',
       profile: portfolio?.profile_id ? portfolio.profile_id : '',
     },
@@ -46,11 +47,8 @@ function Create( {portfolio, profiles} : { portfolio: PortfolioType, profiles: P
         .required( 'Summary is required' ),
       profile: Yup.string()
         .required( 'Speaker is required' ),
-      body: Yup.string()
-        .required( 'Content are required' ),
       fee: Yup.string()
-        .required( 'Fee is required' ),
-      about: Yup.string()
+        .required( 'Fee is required' )
     } ),
 
     onSubmit: values => {
@@ -61,11 +59,13 @@ function Create( {portfolio, profiles} : { portfolio: PortfolioType, profiles: P
         url = route( 'admin.portfolios.update', portfolio.id );
       }
 
-
       axios( {
         method: method,
         url: url,
         data: values,
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        }
       } ).then( ( response ) => {
         formik.setSubmitting( false );
         router.visit( route( 'admin.portfolios.index' ) );
@@ -78,6 +78,29 @@ function Create( {portfolio, profiles} : { portfolio: PortfolioType, profiles: P
       } );
     },
   } );
+
+
+  const [galleryPreview, setGalleryPreview] = React.useState<PreviewFile[]>([]);
+
+  const {
+  acceptedFiles,
+  getRootProps,
+  getInputProps,
+} = useDropzone({
+  maxFiles: 6, // Increase maxFiles to allow multiple files
+  accept: 'image/*', // Remove the empty array
+  onDrop: (acceptedFiles: File[]) => {
+    // Map through the acceptedFiles to create the previews
+    setGalleryPreview(
+      acceptedFiles.map(file => ({
+        ...file,
+        preview: URL.createObjectURL(file),
+      }))
+    );
+    formik.setFieldValue('gallery', acceptedFiles);
+  },
+});
+
 
 
   return (
@@ -156,7 +179,7 @@ function Create( {portfolio, profiles} : { portfolio: PortfolioType, profiles: P
                               (profile) => profile.id === formik.values.profile
                             )?.full_name
                             : "Select speaker"}
-                          <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+                          <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50"/>
                         </Button>
                       </PopoverTrigger>
                       <PopoverContent className="w-full p-0">
@@ -223,40 +246,43 @@ function Create( {portfolio, profiles} : { portfolio: PortfolioType, profiles: P
               }
 
             </div>
+              <div className='w-full  '>
+                <Label htmlFor={'file'}>Featured Image</Label>
+                <div {...getRootProps({className: 'border-dashed border-2 rounded-lg mt-2 py-4 px-4'})}>
+                  <input {...getInputProps()} />
+                  <p className={'text-sm'}>Drag 'n' Cover Image, or click to select files</p>
+                </div>
 
-            <div>
-              <Label htmlFor="body" className="block text-sm font-medium text-gray-700">What the speaker can deliver</Label>
-
-              <div className="mt-1">
-                <ReactQuill
-                  theme='snow'
-                  style={{height: '200px'}}
-                  value={formik.values.body}
-                  onChange={(e) => formik.setFieldValue('body', e)}
-                />
-
-              </div>
-
-              {formik.touched.body && formik.errors.body ? (
-                <div className='m-0.5 text-sm text-red-500'>{formik.errors.body}</div>
-              ) : null}
-
-            </div>
-
-            <div className={'pt-8'}>
-              <div className=" flex justify-end">
-                <PrimaryButton disabled={formik.isSubmitting} type="submit">
+                {/*    display preview */}
+                <div className={'flex mt-4'}>
                   {
-                    portfolio ? 'Update Portfolio' : 'Add Portfolio'
+                    galleryPreview.map((file: any, index: number) => {
+                      return (
+                        <div key={index} className={'w-24 h-24 mr-4'}>
+                          <img src={file.preview} alt=""/>
+                        </div>
+                      )
+                    })
                   }
-                </PrimaryButton>
+
+                </div>
+
               </div>
-            </div>
+
+              <div className={'pt-8'}>
+                <div className=" flex justify-end">
+                  <PrimaryButton disabled={formik.isSubmitting} type="submit">
+                    {
+                      portfolio ? 'Update Portfolio' : 'Add Portfolio'
+                    }
+                  </PrimaryButton>
+                </div>
+              </div>
           </form>
         </div>
       </div>
     </AdminLayout>
-  );
+);
 }
 
 export default Create;

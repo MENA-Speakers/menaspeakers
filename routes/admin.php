@@ -135,6 +135,7 @@
     Route::get('proposals/suggest/portfolios', [ProposalPortfolioController::class, 'index'])->name('proposals.portfolios.suggest');
 
     Route::get('proposals/{proposal}/edit', [ProposalController::class, 'edit'])->name('proposals.edit');
+    Route::get('proposals/{proposal}/preview', [ProposalController::class, 'preview'])->name('proposals.preview');
     Route::post('proposals/{proposal}', [ProposalController::class, 'update'])->name('proposals.update');
 
     Route::post('proposals/{proposal}/delete', [ProposalController::class, 'destroy'])->name('proposals.delete');

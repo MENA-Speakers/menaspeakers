@@ -75,6 +75,26 @@ class ProposalController extends Controller
         //
     }
 
+
+    public function preview(Proposal $proposal)
+    {
+
+        return Inertia::render('Admin/Proposals/Preview', [
+            'data' => [
+                'defaultPages' => [
+                  '1' => asset('images/proposals/0.png'),
+                  '2' => asset('images/proposals/1.png'),
+                  '3' => asset('images/proposals/2.png'),
+                  '4' => asset('images/proposals/3.png'),
+                  '5' => asset('images/proposals/4.png'),
+                  '6' => asset('images/proposals/5.png'),
+                ],
+                'proposal' => new ProposalResource($proposal),
+                'rateCards' => RateCardResource::collection($proposal->rateCards),
+            ],
+        ]);
+    }
+
     /**
      * Remove the specified resource from storage.
      */

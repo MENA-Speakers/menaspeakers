@@ -22,8 +22,8 @@ class StorePortfolioRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => 'required|string|max:255',
-            'summary' => 'required|string|max:255',
+            'title' => 'required|string|max:120',
+            'summary' => 'required|string|max:1200',
             'profile' => 'required|exists:profiles,id',
             'fee' => 'required|numeric',
         ];

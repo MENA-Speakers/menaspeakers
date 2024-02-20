@@ -1,5 +1,5 @@
 import React from 'react';
-import {Head} from "@inertiajs/react";
+import {Head, Link} from "@inertiajs/react";
 import AdminLayout from "@/Layouts/AdminLayout"
 import {ProposalType} from "@/types/proposal-type";
 import SelectSpeakerSlide from "@/Pages/Admin/Profiles/SelectSpeakerSlide";
@@ -162,14 +162,12 @@ function ShowProposal( {data} : ShowProposalProps ) {
               </DragDropContext>
 
               <div className="flex justify-end space-x-4 items-center">
-                <Button onClick={() => DownloadProposal()} >
-                  <FileText size={16} className={'mr-2'}/>
-                  Download Proposal
-                </Button>
-                <Button onClick={() => sendProposal()} >
-                  <Link2 size={16} className={'mr-2'}/>
-                  Send Proposal
-                </Button>
+                <Link href={route('admin.proposals.preview', proposal.hash_id)}  >
+                  <Button variant={'outline'}>
+                    <FileText size={16} className={'mr-2'}/>
+                    Preview
+                  </Button>
+                </Link>
               </div>
 
             </div>

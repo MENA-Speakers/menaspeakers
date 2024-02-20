@@ -30,7 +30,7 @@ class ProfileResource extends JsonResource
           'first_name' => $this->first_name,
           'last_name' => $this->last_name,
           'full_name' => $this->full_name,
-          'image' => $this->getFirstMediaUrl('avatar', 'webp'),
+          'image' => $this->getFirstMediaUrl('avatar'),
           'about' => $this->about,
           'phone' => $this->phone,
           'email' => $this->email,

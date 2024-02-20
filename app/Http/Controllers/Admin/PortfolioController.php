@@ -41,13 +41,18 @@ class PortfolioController extends Controller
     public function store(StorePortfolioRequest $request): RedirectResponse
     {
 
-        Portfolio::create([
+        $portfolio =Portfolio::create([
             'title' => $request->input('title'),
             'summary' => $request->input('summary'),
-            'body' => $request->input('body'),
             'profile_id' => $request->input('profile'),
             'fee' => $request->input('fee'),
         ]);
+
+        //if request has media
+        if ($request->hasFile('gallery')) {
+            $portfolio->addMediaFromRequest('gallery')
+                ->toMediaCollection('gallery');
+        }
 
         return redirect()->route('admin.portfolios.index')->with('success', 'Portfolio created.');
     }

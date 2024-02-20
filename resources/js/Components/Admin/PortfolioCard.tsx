@@ -9,6 +9,7 @@ import {
 import {MoreVertical} from "lucide-react";
 import {PortfolioType} from "@/types/portfolio-type";
 import {Link} from "@inertiajs/react";
+import truncateText from "@/Utils/truncateText";
 
 export function PortfolioCard({portfolio}: { portfolio: PortfolioType}) {
   return (
@@ -24,7 +25,7 @@ export function PortfolioCard({portfolio}: { portfolio: PortfolioType}) {
           <h3 className={' font-semibold'}>{portfolio.profile.full_name}</h3>
           <h4 className={'text-sm italic text-neutral-500'}>{portfolio.title}</h4>
           <p className={'text-gray-500 mt-2 text-sm'}>
-            {portfolio.summary}
+            { truncateText(portfolio.summary, 180)}
           </p>
         </div>
 

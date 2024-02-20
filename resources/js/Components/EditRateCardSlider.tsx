@@ -10,6 +10,7 @@ import {Label} from "@/Components/ui/label";
 import ReactQuill from "react-quill";
 import * as Yup from "yup";
 import axios from "axios";
+import {useDropzone} from "react-dropzone";
 
 interface EditRateCardSliderProps {
   isOpen: boolean,
@@ -17,7 +18,7 @@ interface EditRateCardSliderProps {
   rateCard: RateCardType,
   updateCard: (rateCard: RateCardType) => void
 }
-
+type PreviewFile = File & { preview: string };
 function EditRateCardSlider({isOpen, setIsOpen, rateCard, updateCard}: EditRateCardSliderProps) {
 
   const formik = useFormik({
@@ -39,8 +40,12 @@ function EditRateCardSlider({isOpen, setIsOpen, rateCard, updateCard}: EditRateC
     onSubmit: values => {
         axios.post(route('admin.proposals.rate-cards.update', {
           rateCard: rateCard.hash_id,
-          proposal: rateCard.proposal_id
-        }), values).then(
+          proposal: rateCard.proposal_id,
+        }), values, {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+          }
+        } ).then(
           response => {
             setIsOpen(false)
             updateCard(response.data)
@@ -48,7 +53,27 @@ function EditRateCardSlider({isOpen, setIsOpen, rateCard, updateCard}: EditRateC
     },
   });
 
+  const [galleryPreview, setGalleryPreview] = React.useState<PreviewFile[]>([]);
 
+  const {
+    acceptedFiles,
+    getRootProps: getRootProps,
+    getInputProps: getInputProps,
+  } = useDropzone( {
+    maxFiles: 1,
+    accept: {
+      'image/*': [],
+    },
+    onDrop: (acceptedFiles: File[]) => {
+      setGalleryPreview(
+        acceptedFiles.map(file => ({
+          ...file,
+          preview: URL.createObjectURL(file),
+        }))
+      );
+      formik.setFieldValue('image', acceptedFiles);
+    },
+  } );
 
   return (
     <div>
@@ -88,23 +113,28 @@ function EditRateCardSlider({isOpen, setIsOpen, rateCard, updateCard}: EditRateC
             </div>
 
             <div>
-              <Label htmlFor="bio" className="block text-sm font-medium text-gray-700">More details</Label>
+              <div className='w-full  '>
+                <Label htmlFor={'file'}>Featured Image</Label>
+                <div {...getRootProps({className: 'border-dashed border-2 rounded-lg mt-2 py-4 px-4'})}>
+                  <input {...getInputProps()} />
+                  <p className={'text-sm'}>Drag 'n' Cover Image, or click to select files</p>
+                </div>
 
-              <div className="mt-1">
-                <ReactQuill
-                  theme='snow'
-                  value={formik.values.body}
-                  onChange={(e) => formik.setFieldValue('body', e)}
-                />
+                {/*    display preview */}
+                <div className={'flex mt-4'}>
+                  {
+                    galleryPreview.map((file: any, index: number) => {
+                      return (
+                        <div key={index} className={'w-24 h-24 mr-4'}>
+                          <img src={file.preview} alt=""/>
+                        </div>
+                      )
+                    })
+                  }
 
               </div>
-
-              {formik.touched.body && formik.errors.body ? (
-                <div className='m-0.5 text-sm text-red-500'>{formik.errors.body}</div>
-              ) : null}
-
             </div>
-
+            </div>
             <div className="flex justify-end">
               <Button type={'submit'}>Update</Button>
             </div>

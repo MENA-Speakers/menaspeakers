@@ -22,9 +22,7 @@ class UpdateRateCardRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => ['required', 'string'],
             'fee' => ['required', 'numeric'],
-            'body' => ['required', 'string'],
             'summary' => ['required', 'string'],
         ];
     }

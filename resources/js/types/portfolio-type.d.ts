@@ -4,7 +4,7 @@ export interface PortfolioType {
     id: string;
     title?: string;
     hash_id?: string;
-    body?: string;
+    gallery?: string;
     summary?: string;
     profile: ProfileType;
     profile_id?: string;
