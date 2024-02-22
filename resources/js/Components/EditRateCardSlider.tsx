@@ -26,7 +26,6 @@ function EditRateCardSlider({isOpen, setIsOpen, rateCard, updateCard}: EditRateC
       title: rateCard.title || '',
       fee: rateCard.fee,
       summary: rateCard.summary,
-      body: rateCard.body
     },
 
     validationSchema: Yup.object( {
@@ -57,23 +56,23 @@ function EditRateCardSlider({isOpen, setIsOpen, rateCard, updateCard}: EditRateC
 
   const {
     acceptedFiles,
-    getRootProps: getRootProps,
-    getInputProps: getInputProps,
-  } = useDropzone( {
-    maxFiles: 1,
-    accept: {
-      'image/*': [],
-    },
+    getRootProps,
+    getInputProps,
+  } = useDropzone({
+    maxFiles: 6, // Increase maxFiles to allow multiple files
+    accept: 'image/*', // Remove the empty array
     onDrop: (acceptedFiles: File[]) => {
+      // Map through the acceptedFiles to create the previews
       setGalleryPreview(
         acceptedFiles.map(file => ({
           ...file,
           preview: URL.createObjectURL(file),
         }))
       );
-      formik.setFieldValue('image', acceptedFiles);
+      formik.setFieldValue('gallery', acceptedFiles);
     },
-  } );
+  });
+
 
   return (
     <div>
@@ -112,29 +111,29 @@ function EditRateCardSlider({isOpen, setIsOpen, rateCard, updateCard}: EditRateC
 
             </div>
 
-            <div>
-              <div className='w-full  '>
-                <Label htmlFor={'file'}>Featured Image</Label>
-                <div {...getRootProps({className: 'border-dashed border-2 rounded-lg mt-2 py-4 px-4'})}>
-                  <input {...getInputProps()} />
-                  <p className={'text-sm'}>Drag 'n' Cover Image, or click to select files</p>
-                </div>
+            {/*<div>*/}
+            {/*  <div className='w-full  '>*/}
+            {/*    <Label htmlFor={'file'}>Featured Image</Label>*/}
+            {/*    <div {...getRootProps({className: 'border-dashed border-2 rounded-lg mt-2 py-4 px-4'})}>*/}
+            {/*      <input {...getInputProps()} />*/}
+            {/*      <p className={'text-sm'}>Drag 'n' Cover Image, or click to select files</p>*/}
+            {/*    </div>*/}
 
-                {/*    display preview */}
-                <div className={'flex mt-4'}>
-                  {
-                    galleryPreview.map((file: any, index: number) => {
-                      return (
-                        <div key={index} className={'w-24 h-24 mr-4'}>
-                          <img src={file.preview} alt=""/>
-                        </div>
-                      )
-                    })
-                  }
+            {/*    /!*    display preview *!/*/}
+            {/*    <div className={'flex mt-4'}>*/}
+            {/*      {*/}
+            {/*        galleryPreview.map((file: any, index: number) => {*/}
+            {/*          return (*/}
+            {/*            <div key={index} className={'w-24 h-24 mr-4'}>*/}
+            {/*              <img src={file.preview} alt=""/>*/}
+            {/*            </div>*/}
+            {/*          )*/}
+            {/*        })*/}
+            {/*      }*/}
 
-              </div>
-            </div>
-            </div>
+            {/*    </div>*/}
+            {/*</div>*/}
+            {/*</div>*/}
             <div className="flex justify-end">
               <Button type={'submit'}>Update</Button>
             </div>

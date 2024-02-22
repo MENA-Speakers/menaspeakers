@@ -24,6 +24,7 @@ function ShowProposal( {data} : ShowProposalProps ) {
   const [proposal, setProposal] = React.useState(data.proposal)
   const [rateCards, setRateCards] = React.useState(data.rateCards)
 
+  console.log(rateCards)
 
   const updatedSelectedSpeakers = (selectedSpeakers: any) => {
     setRateCards(selectedSpeakers)

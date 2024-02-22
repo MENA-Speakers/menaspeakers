@@ -59,9 +59,6 @@ function ProposalRateCard({rateCard, removeRateCard}: ProposalRateCardProps) {
         </div>
 
       </div>
-      <div className="mt-4" dangerouslySetInnerHTML={{__html: cardData.body}}>
-
-      </div>
 
     </div>
   );

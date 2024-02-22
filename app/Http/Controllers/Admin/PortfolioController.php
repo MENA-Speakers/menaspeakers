@@ -50,8 +50,11 @@ class PortfolioController extends Controller
 
         //if request has media
         if ($request->hasFile('gallery')) {
-            $portfolio->addMediaFromRequest('gallery')
-                ->toMediaCollection('gallery');
+            //add multiple media to the gallery collection
+            $portfolio->addMultipleMediaFromRequest(['gallery'])
+                ->each(function ($fileAdder) {
+                    $fileAdder->toMediaCollection('gallery');
+                });
         }
 
         return redirect()->route('admin.portfolios.index')->with('success', 'Portfolio created.');

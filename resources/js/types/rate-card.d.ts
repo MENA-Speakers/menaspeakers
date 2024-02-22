@@ -9,7 +9,7 @@ export interface RateCardType {
     profile?: ProfileType;
     title?: string;
     proposal_id?: string,
-    body?: string;
+    gallery: Array<string>;
     summary?: string;
     fee?: string;
     price_type?: string;

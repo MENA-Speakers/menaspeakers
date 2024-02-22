@@ -19,6 +19,8 @@ import PageSeven from "@/Components/Proposal/PageSeven";
 import PageSix from "@/Components/Proposal/PageSix";
 import PageFive from "@/Components/Proposal/PageFive";
 import AboutPage from "@/Components/Proposal/AboutPage";
+import ClientsPage from "@/Components/Proposal/ClientsPage";
+import IntroPage from "@/Components/Proposal/IntroPage";
 
 interface PreviewProposalProps {
   data: {
@@ -83,6 +85,7 @@ const styles = StyleSheet.create({
   detailsBlockRight: {
     width: '35%',
     flexDirection: 'column',
+    marginTop: -15,
     flexWrap: 'wrap',
     alignItems: 'center',
   },
@@ -98,11 +101,13 @@ const styles = StyleSheet.create({
 
   galleryItem: {
     height: '30%',
+    width: '100%',
     padding: 3,
   },
 
   galleryImage: {
     height: '100%',
+    width: '240px',
     objectFit: 'cover',
   },
   header: {
@@ -152,9 +157,9 @@ const styles = StyleSheet.create({
     paddingBottom: 10,
     paddingLeft: 15,
     paddingRight: 10,
-    fontSize: 14,
+    fontSize: 12,
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'flex-end',
     alignItems: 'center',
   },
 
@@ -206,7 +211,10 @@ function PreviewProposal( {data} : PreviewProposalProps ) {
           creator={'Joshua Fomubod'}
           subject={'Proposal'}
         >
-          {/*<PageOne />*/}
+
+          <IntroPage />
+          <ClientsPage />
+
           <AboutPage />
           <PageFive />
 
@@ -231,16 +239,15 @@ function PreviewProposal( {data} : PreviewProposalProps ) {
                       </View>
                       <View style={styles.detailsBlockRight}>
 
-                        <View style={styles.galleryItem}>
-                          <Image style={styles.galleryImage} src={'https://images.unsplash.com/photo-1528605105345-5344ea20e269?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'} />
-                        </View>
-
-                        <View style={styles.galleryItem}>
-                          <Image style={styles.galleryImage} src={'https://images.unsplash.com/photo-1560439513-74b037a25d84?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'} />
-                        </View>
-                        <View style={styles.galleryItem}>
-                          <Image style={styles.galleryImage} src={'https://images.unsplash.com/photo-1708133244400-8037fac6addb?q=80&w=3465&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'} />
-                        </View>
+                        {
+                          rateCard.gallery?.map((image: string, index: number) => {
+                            return (
+                              <View style={styles.galleryItem} key={index}>
+                                <Image style={styles.galleryImage} src={image.url} />
+                              </View>
+                            )
+                          })
+                        }
                       </View>
 
                     </View>
@@ -249,9 +256,6 @@ function PreviewProposal( {data} : PreviewProposalProps ) {
                         <Text>
                           Residing in UAE | {useMoneyValue(rateCard.fee)} + UAE VAT
                         </Text>
-                      </View>
-                      <View>
-                        <Text>Footer</Text>
                       </View>
                     </View>
                   </View>

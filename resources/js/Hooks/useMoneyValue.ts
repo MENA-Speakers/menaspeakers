@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-function useMoneyValue(value: number): string {
+function useMoneyValue(value: string | undefined): string {
   const [formattedValue, setFormattedValue] = useState('');
 
   useEffect(() => {

@@ -26,15 +26,18 @@ function SelectSpeakerSlide({isOpen, setIsOpen, params, updatedSelectedSpeakers,
   const [isSubmitting, setIsSubmitting] = useState(false)
 
 
-  const getSpeakers = () => {
+  const getPortfolios = () => {
     axios.get(route('admin.proposals.portfolios.suggest'))
       .then( response => {
         setPortfolios(response.data)
       })
   }
 
+
+  //
+
   useEffect(() => {
-    getSpeakers()
+    getPortfolios()
   }, [])
 
 

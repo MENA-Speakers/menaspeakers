@@ -51,6 +51,7 @@ class ProposalController extends Controller
      */
     public function show(Proposal $proposal)
     {
+
         return Inertia::render('Admin/Proposals/Show', [
             'data' => [
                 'proposal' => new ProposalResource($proposal),
