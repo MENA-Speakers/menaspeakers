@@ -10,6 +10,8 @@ import {Button} from "@/Components/ui/button";
 import {Textarea} from "@/Components/ui/textarea";
 import {ProposalType} from "@/types/proposal-type";
 import truncateText from "@/Utils/truncateText";
+import {useFormik} from "formik";
+import {router} from "@inertiajs/react";
 
 interface SelectSpeakerSlideProps {
   isOpen: boolean,
@@ -24,15 +26,39 @@ function SelectSpeakerSlide({isOpen, setIsOpen, params, updatedSelectedSpeakers,
   const [portfolios, setPortfolios] = useState<PortfolioType[]>([])
   const [selectedPortfolios, setSelectedPortfolios] = useState<PortfolioType[]>([])
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [noResults, setNoResults] = useState(false)
 
 
   const getPortfolios = () => {
-    axios.get(route('admin.proposals.portfolios.suggest'))
+    axios.post(route('admin.proposals.portfolios.suggest'))
       .then( response => {
         setPortfolios(response.data)
+        formik.setSubmitting(false)
       })
+    formik.setSubmitting(false)
   }
 
+
+
+  const formik = useFormik( {
+    initialValues: {
+      query: '',
+    },
+    onSubmit: values => {
+      setNoResults(false)
+      axios.post(route('admin.proposals.portfolios.suggest'), values).then(response => {
+        setPortfolios(response.data)
+        formik.setSubmitting(false)
+
+        if (response.data.length === 0) {
+          setNoResults(true)
+        }
+      }).catch(error => {
+        formik.setSubmitting(false)
+      })
+     },
+
+  } );
 
   //
 
@@ -86,9 +112,9 @@ function SelectSpeakerSlide({isOpen, setIsOpen, params, updatedSelectedSpeakers,
         </SheetTrigger>
         <SheetContent className={'md:w-[50%] h-screen flex pb-6 flex-col'}>
           <div className="flex px-6 justify-between items-center">
-            <form className="py-4 flex-grow flex items-center">
-              <Input type={'text'} placeholder={'Search for speaker'} className={'w-1/3 mr-4'}/>
-              <Button type={'submit'}>Search</Button>
+            <form onSubmit={formik.handleSubmit} className="py-4 flex-grow flex items-center">
+                  <Input name={'query'} value={formik.values.query} onChange={formik.handleChange} type={'text'} placeholder={'Search for speaker'} className={'w-1/3 mr-4'}/>
+              <Button type={'submit'} disabled={formik.isSubmitting}>Search</Button>
             </form>
             <div className="pr-4">
               <Button onClick={() => createRateCard()} disabled={isSubmitting} className={'flex items-center'}>
@@ -98,6 +124,13 @@ function SelectSpeakerSlide({isOpen, setIsOpen, params, updatedSelectedSpeakers,
           </div>
           <ScrollArea>
             <div className="px-6 space-y-4 pb 6">
+              {
+                noResults && (
+                  <div className={'flex justify-center items-center h-24'}>
+                    <p className={'text-gray-500'}>No results found for <span className={'italic text-mena-300'}>{ formik.values.query}</span></p>
+                  </div>
+                )
+              }
               {
                 portfolios.map((portfolio: any, index: number) => {
                   return (

@@ -44,7 +44,7 @@ function Index( {profiles, query} : {profiles: profileData, query: string} ) {
     },
   } );
 
-  console.log(profiles.data)
+
   return (
 
   <AdminLayout>

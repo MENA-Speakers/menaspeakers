@@ -47,5 +47,17 @@ class Portfolio extends Model implements HasMedia
     }
 
 
+    public function toSearchableArray(): array
+    {
+        return [
+            'id' => $this->id,
+            'title' => $this->title,
+            'summary' => $this->summary,
+            'first_name' => $this->profile->first_name,
+            'last_name' => $this->profile->last_name,
+            'fee' => $this->profile->fee,
+        ];
+    }
+
 
 }

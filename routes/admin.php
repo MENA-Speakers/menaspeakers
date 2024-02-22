@@ -132,7 +132,7 @@
     Route::post('proposals/{proposal}/rate-cards/{rateCard}', [ProposalRateCardController::class, 'update'])->name('proposals.rate-cards.update');
     Route::delete('proposals/rate-cards/{rateCard}', [ProposalRateCardController::class, 'destroy'])->name('proposals.rate-cards.delete');
 
-    Route::get('proposals/suggest/portfolios', [ProposalPortfolioController::class, 'index'])->name('proposals.portfolios.suggest');
+    Route::post('proposals/suggest/portfolios', [ProposalPortfolioController::class, 'index'])->name('proposals.portfolios.suggest');
 
     Route::get('proposals/{proposal}/edit', [ProposalController::class, 'edit'])->name('proposals.edit');
     Route::get('proposals/{proposal}/preview', [ProposalController::class, 'preview'])->name('proposals.preview');

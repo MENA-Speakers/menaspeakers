@@ -13,8 +13,8 @@ class ProposalPortfolioController extends Controller
     {
 
       //Search for portfolios take 8 from the database
-      if($request->has('search')){
-        return PortfolioResource::collection(Portfolio::search($request->input('search'))->take(8)->get());
+      if($request->has('query')){
+        return PortfolioResource::collection(Portfolio::search($request->input('query'))->take(8)->get());
       }
 
       return PortfolioResource::collection(Portfolio::take(8)->get());
