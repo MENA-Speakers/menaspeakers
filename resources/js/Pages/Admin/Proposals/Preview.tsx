@@ -216,6 +216,8 @@ function PreviewProposal( {data} : PreviewProposalProps ) {
           <ClientsPage />
 
           <AboutPage />
+
+          {/*<EventTitlePage title={proposal.title} />*/}
           <PageFive />
 
           {

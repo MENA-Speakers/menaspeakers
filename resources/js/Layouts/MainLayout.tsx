@@ -51,7 +51,7 @@ export default function MainLayout({ children} : {children: React.ReactNode}) {
            <div className="hidden lg:flex lg:gap-x-12">
              {navigation.map((item) => (
               !item.dropdown ? (
-                <Link key={item.name} href={route(item.route)} className="text-sm font-semibold leading-6 text-white">
+                <Link key={item.name} href={route(item?.route)} className="text-sm font-semibold leading-6 text-white">
                   {item.name}
                 </Link>
              )
@@ -128,13 +128,13 @@ export default function MainLayout({ children} : {children: React.ReactNode}) {
                    {navigation.map((item) => (
 
                      !item.dropdown ? (
-                         <Link key={item.name} href={route(item.route)} className="text-sm font-semibold leading-6">
+                         <Link key={item.name} href={route(item?.route)} className="text-sm font-semibold leading-6">
                            {item.name}
                          </Link>) : (
 
                       <div className={'px-2'}>
                         {
-                          item.children.map((child, index) => (
+                          item?.children.map((child, index) => (
                             <a
                               href={ child.route ? route(child.route) : child.link}
                               className="group flex w-full hover:bg-mena-300 hover:text-white items-center rounded-md px-2 py-2 text-sm"
@@ -174,7 +174,7 @@ export default function MainLayout({ children} : {children: React.ReactNode}) {
               <p className={'font-bold text-white'}>Leave a Message</p>
               <div className="mt-4 space-y-2 flex flex-col">
                 <a href="mailto:info@mena-speakers.com" className="hover:text-gray-50">info@mena-speakers.com</a>
-                <a href="tel:+971559832756" className={'hover:text-gray-50'}>+971 55 98 32 756</a>
+                <a href="tel:+971526306673" className={'hover:text-gray-50'}>+971 52 630 6673</a>
               </div>
             </div>
 

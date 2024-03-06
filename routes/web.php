@@ -17,6 +17,8 @@
   use App\Http\Controllers\PagesController;
   use App\Http\Controllers\ProposalController;
   use App\Http\Controllers\ProfilesController;
+  use App\Mail\BirthdayEmail;
+  use App\Models\Profile;
   use App\Models\Speaker;
   use Illuminate\Support\Facades\Route;
   use Spatie\Sitemap\Sitemap;
@@ -39,7 +41,26 @@
     Route::get('/speakers/{speaker}', 'show')->name('speakers.show');
   });
 
-  Route::get('/location/{location}', [LocationController::class, 'show'])->name('location.show');
+  Route::get('/test-birthday-email', function () {
+
+    //temporal profile object
+    $profile = new Profile();
+    $profile->id = 1;
+    $profile->first_name = 'Karim';
+    $profile->email = 'karimyaman07@gmail.com';
+    $profile->last_name = 'Doe';
+    $profile->headline = 'CEO at Company';
+    $profile->avatar = 'https://via.placeholder.com/150';
+    $profile->location = 'Dubai, UAE';
+    $profile->dob = '1980-01-01';
+
+//        dd(asset('images/mini-logo.png'));
+
+    Mail::to($profile->email)->send(new BirthdayEmail($profile));
+  });
+
+
+    Route::get('/location/{location}', [LocationController::class, 'show'])->name('location.show');
   Route::get('/location/{location}/search', [LocationController::class, 'search'])->name('location.speakers.search');
 
 

@@ -7,8 +7,9 @@ import {RateCardType} from "@/types/rate-card";
 import ProposalRateCard from "@/Components/Admin/ProposalRateCard";
 import axios from "axios";
 import {Button} from "@/Components/ui/button";
-import {FileText, Link2} from "lucide-react";
+import {FileText, Link2, Pencil} from "lucide-react";
 import {DragDropContext, Droppable} from "@hello-pangea/dnd";
+import EditProposal from "@/Pages/Admin/Proposals/EditProposal";
 
 
 interface ShowProposalProps {
@@ -24,7 +25,6 @@ function ShowProposal( {data} : ShowProposalProps ) {
   const [proposal, setProposal] = React.useState(data.proposal)
   const [rateCards, setRateCards] = React.useState(data.rateCards)
 
-  console.log(rateCards)
 
   const updatedSelectedSpeakers = (selectedSpeakers: any) => {
     setRateCards(selectedSpeakers)
@@ -102,12 +102,22 @@ function ShowProposal( {data} : ShowProposalProps ) {
           <div className="flex justify-between items-center">
             <h2 className="text-2xl text-gray-900">{proposal.title}</h2>
 
-            <SelectSpeakerSlide
-              isOpen={openSelectSpeaker}
-              setIsOpen={setOpenSelectSpeaker}
-              updatedSelectedSpeakers={updatedSelectedSpeakers}
-              proposal={proposal}
-            />
+            <div className="flex space-x-4 items-center">
+
+              <EditProposal
+                proposal={proposal}
+                setProposal={setProposal}
+              />
+
+              <SelectSpeakerSlide
+                isOpen={openSelectSpeaker}
+                setIsOpen={setOpenSelectSpeaker}
+                updatedSelectedSpeakers={updatedSelectedSpeakers}
+                proposal={proposal}
+              />
+
+            </div>
+
           </div>
 
           <div className="overflow-hidden sm:rounded-lg">
