@@ -60,7 +60,7 @@
   Route::get('contact', [PagesController::class, 'contact'])->name('pages.contact');
   Route::get('page/refund-policy', [PagesController::class, 'policy'])->name('pages.policy');
 
-  Route::post('api/proposals', [ApiProposalController::class, 'store'])->name('api.new-proposal');
+  Route::post('api/bitrix/proposals', [ApiProposalController::class, 'store'])->name('api.new-proposal');
 
 
   //External site routes
