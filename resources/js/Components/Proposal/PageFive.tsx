@@ -225,7 +225,7 @@ function PageFive() {
         </View>
 
         <View style={styles.rightBlock}>
-          <Image src={'/images/proposals/page5.png'} style={styles.heroImage} />
+          <Image src={'/images/proposals/page5_.png'} style={styles.heroImage} />
         </View>
 
       </View>

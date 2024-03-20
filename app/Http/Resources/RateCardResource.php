@@ -35,6 +35,7 @@ class RateCardResource extends JsonResource
       'portfolio' => new PortfolioResource($this->portfolio),
       'portfolio_id' => $this->portfolio_id,
       'proposal_id' => $this->proposal_id,
+      'currency' => $this->currency,
       'profile' => new ProfileResource($this->profile),
       'title' => $this->title,
       'gallery' => $gallery,

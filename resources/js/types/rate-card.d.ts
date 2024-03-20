@@ -6,8 +6,9 @@ import {ProfileType} from "@/types/admin-profiles";
 export interface RateCardType {
     id: number;
     hash_id?: string;
-    profile?: ProfileType;
-    title?: string;
+    profile: ProfileType;
+    currency: string,
+    title: string;
     proposal_id?: string,
     gallery: Array<string>;
     summary?: string;

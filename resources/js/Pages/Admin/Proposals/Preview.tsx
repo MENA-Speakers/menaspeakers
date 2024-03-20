@@ -256,7 +256,7 @@ function PreviewProposal( {data} : PreviewProposalProps ) {
                     <View style={styles.footer}>
                       <View>
                         <Text>
-                          Residing in UAE | {useMoneyValue(rateCard.fee)} + UAE VAT
+                          Residing in UAE | {useMoneyValue(rateCard.fee, rateCard.currency)} + UAE VAT
                         </Text>
                       </View>
                     </View>

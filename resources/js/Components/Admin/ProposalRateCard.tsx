@@ -3,6 +3,7 @@ import {RateCardType} from "@/types/rate-card";
 import EditRateCardSlider from "@/Components/EditRateCardSlider";
 import {Button} from "@/Components/ui/button";
 import axios from "axios";
+import useMoneyValue from "@/Hooks/useMoneyValue";
 
 
 interface ProposalRateCardProps {
@@ -27,6 +28,8 @@ function ProposalRateCard({rateCard, removeRateCard}: ProposalRateCardProps) {
     setCardData(updatedRateCard)
   }
 
+  console.log(cardData, 'cardData')
+
   return (
     <div className={'border p-4 rounded-md'}>
       <div className={'flex'}>
@@ -36,7 +39,7 @@ function ProposalRateCard({rateCard, removeRateCard}: ProposalRateCardProps) {
            <div>
              <h3 className={'font-semibold text-lg'}>{cardData.profile?.full_name}</h3>
              <h4 className={'italic'}>{cardData.title}</h4>
-             <p className="text-sm">Fee: <span className="font-semibold">${cardData.fee}</span></p>
+             <p className="text-sm">Fee: <span className="font-semibold">{ useMoneyValue(cardData.fee, cardData.currency)}</span></p>
            </div>
 
            <div className="flex items-center">
