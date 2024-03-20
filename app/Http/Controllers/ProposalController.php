@@ -6,6 +6,7 @@ use App\Http\Requests\StoreProposalRequest;
 use App\Http\Resources\ProposalResource;
 use App\Http\Resources\RateCardResource;
 use App\Models\Proposal;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
@@ -38,9 +39,8 @@ class ProposalController extends Controller
     {
        Proposal::create([
             'title' => $request->input('title'),
-            'summary' => $request->input('summary'),
-            'profile_id' => $request->input('profile'),
-            'fee' => $request->input('fee'),
+            'type' => $request->input('proposal_type'),
+            'event_date' => Carbon::parse($request->input('event_date')),
         ]);
 
         return redirect()->route('admin.proposals.index')->with('success', 'Proposal created.');
@@ -71,10 +71,24 @@ class ProposalController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Proposal $proposal): ProposalResource
     {
-        //
+
+        $request->validate([
+            'title' => 'required',
+            'proposal_type' => 'required',
+        ]);
+
+        $proposal->update([
+            'title' => $request->input('title'),
+            'type' => $request->input('proposal_type'),
+            'event_date' => Carbon::parse($request->input('event_date')),
+        ]);
+
+        return ProposalResource::make($proposal->refresh());
     }
+
+
 
 
     public function preview(Proposal $proposal)
@@ -101,6 +115,6 @@ class ProposalController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+
     }
 }

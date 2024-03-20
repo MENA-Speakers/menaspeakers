@@ -84,11 +84,8 @@ function ShowProposal( {data} : ShowProposalProps ) {
       const newRateCards = Array.from(rateCards)
       const [removed] = newRateCards.splice(source.index, 1)
       newRateCards.splice(destination.index, 0, removed)
-
       setRateCards(newRateCards)
     }
-
-
   }
 
 
@@ -100,7 +97,13 @@ function ShowProposal( {data} : ShowProposalProps ) {
       <div className="">
         <div className="sm:px-6 lg:px-8">
           <div className="flex justify-between items-center">
-            <h2 className="text-2xl text-gray-900">{proposal.title}</h2>
+            <div>
+              <h2 className="text-2xl text-gray-900">{proposal.title}</h2>
+              {
+                proposal.event_date &&
+                <p className={'text-sm mt-1.5'}>Event Date : {proposal.event_date}</p>
+              }
+            </div>
 
             <div className="flex space-x-4 items-center">
 

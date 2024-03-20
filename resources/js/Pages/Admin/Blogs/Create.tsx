@@ -117,11 +117,14 @@ function Create( {blog} : {blog: BlogType} ) {
             <div>
               <label htmlFor="excerpt" className="block text-sm font-medium text-gray-700">Keywords </label>
               <div className="mt-1">
-                <Textarea rows="2" name="keywords"
-                          value={formik.values.keywords}
-                          onChange={formik.handleChange}
-                          id="keywords"
-                          className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"></Textarea>
+                <Textarea
+                  rows="2"
+                  name="keywords"
+                  value={formik.values.keywords}
+                  onChange={formik.handleChange}
+                  id="keywords"
+                  className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                </Textarea>
               </div>
 
               {

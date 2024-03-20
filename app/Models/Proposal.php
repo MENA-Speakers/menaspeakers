@@ -23,6 +23,11 @@
     }
 
 
+    //Date casting
+    protected $casts = [
+      'event_date' => 'date',
+    ];
+
     public function getRouteKeyName(): string
     {
       return 'hash_id';

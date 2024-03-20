@@ -20,6 +20,7 @@ class ProposalResource extends JsonResource
             'deal_id' => $this->deal_id,
             'title' => $this->title,
             'status' => ucfirst($this->status),
+            'event_date' => $this->event_date?->format('F j, Y'),
             'slug' => $this->slug,
             'responsible_id' => $this->responsible_id,
             'created_at' => $this->created_at,

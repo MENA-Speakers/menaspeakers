@@ -9,6 +9,7 @@
   use App\Http\Controllers\Admin\AdminProfileMediaController;
   use App\Http\Controllers\Admin\AdminSpeakerPortfolioController;
   use App\Http\Controllers\Admin\AdminSpeakerProposalController;
+  use App\Http\Controllers\Admin\EmployeeController;
   use App\Http\Controllers\Admin\PortfolioController;
   use App\Http\Controllers\Admin\ProposalPortfolioController;
   use App\Http\Controllers\Admin\ProposalRateCardController;
@@ -32,6 +33,11 @@
     Route::get('profiles/{profile}/edit', [AdminProfileController::class, 'edit'])->name('profiles.edit');
     Route::post('profiles/{profile}', [AdminProfileController::class, 'update'])->name('profiles.update');
     Route::post('profiles/{profile}/delete', [AdminProfileController::class, 'destroy'])->name('profiles.delete');
+
+
+    //Employees Routes
+    Route::get('employees', [EmployeeController::class, 'index'])->name('employees.index');
+    Route::get('employees/create', [EmployeeController::class, 'create'])->name('employees.create');
 
 
     //Portfolios Routes

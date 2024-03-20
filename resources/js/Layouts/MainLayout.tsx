@@ -148,7 +148,7 @@ export default function MainLayout({ children} : {children: React.ReactNode}) {
                    )))}
                  </div>
                  <div className=" hidden lg:flex lg:flex-1 lg:justify-end">
-                   <Link href={route('pages.contact')} className="bg-gradient-to-r from-pink-500 to-rose-500 text-sm font-semibold py-2.5 px-4 py-2 px-4 text-white">
+                   <Link href={route('pages.contact')} aria-label={'Contact us'} className="bg-gradient-to-r from-pink-500 to-rose-500 text-sm font-semibold py-2.5 px-4 py-2 px-4 text-white">
                      Book Now <span aria-hidden="true">&rarr;</span>
                    </Link>
                  </div>
@@ -166,7 +166,7 @@ export default function MainLayout({ children} : {children: React.ReactNode}) {
       <footer className="bg-black  pt-12 text-gray-400 p-6" id={'footer'}>
         <div className="max-w-7xl mx-auto py-8 grid grid-cols-2 lg:grid-cols-5 gap-8">
           <div className="col-span-1">
-            <img className={'h-20'} width={237} height={80} src="/images/Mena-logo-white.png" alt="mena speakers logo"/>
+            <img  width={237} height={80} src="/images/Mena-logo-white.png" alt="mena speakers logo"/>
           </div>
 
           <div className="col-span-1 grid grid-cols-1 lg:grid-cols-2 lg:col-span-2">

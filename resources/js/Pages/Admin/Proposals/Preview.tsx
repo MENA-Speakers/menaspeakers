@@ -14,13 +14,13 @@ import {
 import ApplicationLogo from "@/Components/ApplicationLogo";
 import {Button} from "@/Components/ui/button";
 import useMoneyValue from "@/Hooks/useMoneyValue";
-import PageOne from "@/Components/Proposal/PageOne";
 import PageSeven from "@/Components/Proposal/PageSeven";
 import PageSix from "@/Components/Proposal/PageSix";
 import PageFive from "@/Components/Proposal/PageFive";
 import AboutPage from "@/Components/Proposal/AboutPage";
 import ClientsPage from "@/Components/Proposal/ClientsPage";
 import IntroPage from "@/Components/Proposal/IntroPage";
+import EventTitlePage from "@/Components/Proposal/EventTitlePage";
 
 interface PreviewProposalProps {
   data: {
@@ -217,7 +217,7 @@ function PreviewProposal( {data} : PreviewProposalProps ) {
 
           <AboutPage />
 
-          {/*<EventTitlePage title={proposal.title} />*/}
+          <EventTitlePage proposal={proposal} />
           <PageFive />
 
           {

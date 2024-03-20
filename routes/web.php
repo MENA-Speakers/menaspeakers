@@ -7,6 +7,7 @@
   use App\Http\Controllers\Admin\AdminProfileController;
   use App\Http\Controllers\Admin\SettingController;
   use App\Http\Controllers\AdminGalleryController;
+  use App\Http\Controllers\Api\ApiProposalController;
   use App\Http\Controllers\BlogsController;
   use App\Http\Controllers\DealController;
   use App\Http\Controllers\ExternalSiteController;
@@ -41,27 +42,10 @@
     Route::get('/speakers/{speaker}', 'show')->name('speakers.show');
   });
 
-  Route::get('/test-birthday-email', function () {
-
-    //temporal profile object
-    $profile = new Profile();
-    $profile->id = 1;
-    $profile->first_name = 'Karim';
-    $profile->email = 'karimyaman07@gmail.com';
-    $profile->last_name = 'Doe';
-    $profile->headline = 'CEO at Company';
-    $profile->avatar = 'https://via.placeholder.com/150';
-    $profile->location = 'Dubai, UAE';
-    $profile->dob = '1980-01-01';
-
-//        dd(asset('images/mini-logo.png'));
-
-    Mail::to($profile->email)->send(new BirthdayEmail($profile));
-  });
 
 
     Route::get('/location/{location}', [LocationController::class, 'show'])->name('location.show');
-  Route::get('/location/{location}/search', [LocationController::class, 'search'])->name('location.speakers.search');
+    Route::get('/location/{location}/search', [LocationController::class, 'search'])->name('location.speakers.search');
 
 
   Route::get('/gallery/', [GalleryController::class, 'index'])->name('gallery.index');
@@ -75,6 +59,8 @@
   Route::get('page/terms-condition', [PagesController::class, 'terms'])->name('pages.terms');
   Route::get('contact', [PagesController::class, 'contact'])->name('pages.contact');
   Route::get('page/refund-policy', [PagesController::class, 'policy'])->name('pages.policy');
+
+  Route::get('api/proposals', [ApiProposalController::class, 'store'])->name('api.new-proposal');
 
 
   //External site routes

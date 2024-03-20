@@ -69,7 +69,10 @@ function Index({blogs, speakers, gallery} : IndexProps) {
               <p className="text-white lg:text-lg font-semibold  ">Public Speakers. MCs. Corporate Trainers. One Stop
                 Solution!
               </p>
-              <Link className={'text-white mt-8 gradient-btn py-2 px-4'} href={route('pages.contact')}>Get a speaker in 5 minutes</Link>
+              <Link className={'text-white mt-8 gradient-btn py-2 px-4'} aria-label={'Contact us'} href={route('pages.contact')}>
+                <span className={'sr-only'}>Contact us</span>
+                Get a speaker in 5 minutes
+              </Link>
             </div>
           </div>
         </div>
@@ -134,12 +137,13 @@ function Index({blogs, speakers, gallery} : IndexProps) {
 
             <div className={'w-full grid grid-cols-1 lg:grid-cols-2 mt-12 pt-12'}>
               <div className="pt-12 lg:pt-0">
-                <Link href={route('pages.contact')} className="gradient-btn font-semibold py-3 px-4 text-white">Book
+                <Link href={route('pages.contact')} aria-label={'Contact us'} className="gradient-btn font-semibold py-3 px-4 text-white">Book
                   Our Speakers
                 </Link>
               </div>
               <div className="pt-12 lg:pt-0">
                 <Link href={route('speakers.index')}
+                      aria-label={'Our Speakers'}
                       className="underline hover:text-mena-200 font-semibold py-3 px-4  text-white">View All
                   Speakers
                 </Link>
@@ -311,7 +315,7 @@ function Index({blogs, speakers, gallery} : IndexProps) {
               <p className="text-gray-500">We have a roster of 300 top professionals whose sole purpose is to make an event successful and ensure that your audience is getting engaged, educated and empowered.</p>
             </div>
             <div className="py-4">
-              <Link href={route('speakers.index')} className="gradient-btn hover:-gradient-btn font-semibold py-3 px-4 px-6 text-white">
+              <Link href={route('speakers.index')} aria-label={'Our Speakers'} className="gradient-btn hover:-gradient-btn font-semibold py-3 px-4 px-6 text-white">
                 All Speakers
               </Link>
             </div>
