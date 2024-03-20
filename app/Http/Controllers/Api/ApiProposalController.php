@@ -16,7 +16,8 @@ class ApiProposalController extends Controller
   public function store(Request $request)
   {
 
-//    dd($request->all());
+    Log::info('Creating proposal');
+
     $user = User::where('email', $request->input('responsible_email'))->first();
     $proposal = Proposal::create([
       'hash_id' => $request->input('hash_id'),
@@ -35,7 +36,7 @@ class ApiProposalController extends Controller
       'responsible_id' => $user->id,
     ]);
 
-    Log::class('New proposal created', ['proposal' => $proposal]);
+    Log::info('New proposal created', ['proposal' => $proposal]);
 
 
     //Send notification to responsible user
