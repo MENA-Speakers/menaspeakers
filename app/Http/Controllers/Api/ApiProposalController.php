@@ -8,6 +8,7 @@ use App\Models\Proposal;
 use App\Models\User;
 use App\Notifications\NewProposalNotification;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class ApiProposalController extends Controller
 {
@@ -33,6 +34,8 @@ class ApiProposalController extends Controller
       'date' => $request->input('event_date'),
       'responsible_id' => $user->id,
     ]);
+
+    Log::class('New proposal created', ['proposal' => $proposal]);
 
 
     //Send notification to responsible user
