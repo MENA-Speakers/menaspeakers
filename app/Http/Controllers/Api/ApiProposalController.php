@@ -42,5 +42,6 @@ class ApiProposalController extends Controller
     //Send notification to responsible user
 //    $user->notify(new NewProposalNotification($proposal));
 
+    return response()->json(['proposal' => $proposal]);
   }
 }

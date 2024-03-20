@@ -105,6 +105,7 @@ public function store(Request $request, Proposal $proposal): AnonymousResourceCo
     $rateCard->update([
       'fee' => $request->fee,
       'summary' => $request->summary,
+      'currency' => $request->currency,
     ]);
 
     // check if request has file delete media library files

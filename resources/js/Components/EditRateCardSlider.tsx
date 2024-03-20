@@ -26,6 +26,7 @@ function EditRateCardSlider({isOpen, setIsOpen, rateCard, updateCard}: EditRateC
       title: rateCard.title || '',
       fee: rateCard.fee,
       summary: rateCard.summary,
+      currency: rateCard.currency,
     },
 
     validationSchema: Yup.object( {
@@ -110,6 +111,18 @@ function EditRateCardSlider({isOpen, setIsOpen, rateCard, updateCard}: EditRateC
               />
 
             </div>
+
+            <div>
+              <Label htmlFor="summary" className="block text-sm font-medium mb-1 text-gray-700">Currency</Label>
+
+              <Input
+                value={formik.values.currency}
+                name={'currency'}
+                onChange={formik.handleChange}
+                placeholder={''}/>
+
+            </div>
+
 
             {/*<div>*/}
             {/*  <div className='w-full  '>*/}
