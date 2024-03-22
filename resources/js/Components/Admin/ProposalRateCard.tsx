@@ -16,6 +16,8 @@ function ProposalRateCard({rateCard, removeRateCard}: ProposalRateCardProps) {
   const [isOpen, setIsOpen] = React.useState(false)
   const [cardData, setCardData] = React.useState(rateCard)
 
+  const [videos, setVideos] = React.useState(rateCard.videos)
+
   // Delete rate card
   const deleteRateCard = () => {
     axios.delete(route('admin.proposals.rate-cards.delete', cardData.hash_id))
@@ -26,9 +28,9 @@ function ProposalRateCard({rateCard, removeRateCard}: ProposalRateCardProps) {
 
   const updateCard = (updatedRateCard: RateCardType) => {
     setCardData(updatedRateCard)
+    setVideos(updatedRateCard.videos)
   }
 
-  console.log(cardData, 'cardData')
 
   return (
     <div className={'border p-4 rounded-md'}>
@@ -58,6 +60,14 @@ function ProposalRateCard({rateCard, removeRateCard}: ProposalRateCardProps) {
          </div>
           <div className="mt-4">
             <p className="">{cardData.summary}</p>
+          </div>
+          <div className="flex space-x-3 text-sm mt-3">
+            Videos Links: {
+
+            videos?.map((video, index) => (
+              <a href={video.link} key={index} className={'text-blue-500'}>{video.link}</a>
+            ))
+          }
           </div>
         </div>
 

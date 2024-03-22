@@ -39,6 +39,16 @@ function AdminProfileHeader({profile}: { profile: ProfileType}) {
               </span>
           </Link>
 
+          <Link href={route('admin.profiles.videos', profile.hash_id)}
+                className={cn(
+                  'flex px-4 py-2 text-sm border-b-2 border-t-2 border-transparent hover:border-mena-300 hover:bg-slate-50',
+                  route().current('admin.profiles.videos', profile.hash_id) && 'border-mena-300 bg-slate-50'
+                )}>
+              <span>
+                Videos
+              </span>
+          </Link>
+
           {/*<Link href={route('admin.profiles.rate-cards', profile.hash_id)}*/}
           {/*      className={cn(*/}
           {/*        'flex px-4 py-2 text-sm border-b-2 border-t-2 border-transparent hover:border-mena-300 hover:bg-slate-50',*/}

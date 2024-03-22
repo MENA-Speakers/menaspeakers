@@ -5,8 +5,11 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\ProfileResource;
 use App\Http\Resources\RateCardResource;
+use App\Http\Resources\VideoLinkResource;
 use App\Models\Profile;
+use App\Models\RateCard;
 use Illuminate\Http\Request;
+use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use Inertia\Inertia;
 
 class AdminRateCardController extends Controller
@@ -31,5 +34,10 @@ class AdminRateCardController extends Controller
   }
 
 
+  public function destroy(RateCard $rateCard): AnonymousResourceCollection
+  {
+    $rateCard->delete();
+    return VideoLinkResource::collection($rateCard->videoLinks);
+  }
 
 }

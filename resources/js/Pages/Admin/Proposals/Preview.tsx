@@ -26,7 +26,8 @@ interface PreviewProposalProps {
   data: {
     proposal: ProposalType,
     rateCards: RateCardType[],
-    defaultPages: any[]
+    defaultPages: any[],
+    agent: any
   }
 }
 
@@ -66,6 +67,12 @@ const styles = StyleSheet.create({
   },
 
 
+  headerSubText: {
+    fontSize: 10,
+    color: '#29499b',
+    fontFamily: 'Poppins',
+    fontWeight: 'bold',
+  },
 
   detailsBlock: {
     flexDirection: 'row',
@@ -175,13 +182,7 @@ function PreviewProposal( {data} : PreviewProposalProps ) {
   const proposal = data.proposal
   const rateCards = data.rateCards
 
-  const agent = {
-    name: 'Joshua Fomubod',
-    email: 'tech@mena-speakers.com',
-    phone: '+971 58 500 8960'
-  }
-
-  console.log(rateCards)
+  const agent = data.agent
 
   return (
 
@@ -234,6 +235,12 @@ function PreviewProposal( {data} : PreviewProposalProps ) {
                     </View>
                     <View style={styles.headerTextBlock}>
                       <Text style={styles.headerText}>{rateCard.profile?.full_name}</Text>
+                      <Text style={styles.headerSubText}>{rateCard.title}</Text>
+                      <View>
+                        <Text style={styles.headerSubText}>
+                          Residing in UAE | {useMoneyValue(rateCard.fee, rateCard.currency)} + UAE VAT
+                        </Text>
+                      </View>
                     </View>
                     <View style={styles.detailsBlock}>
                       <View style={styles.detailsBlockLeft}>
@@ -256,7 +263,13 @@ function PreviewProposal( {data} : PreviewProposalProps ) {
                     <View style={styles.footer}>
                       <View>
                         <Text>
-                          Residing in UAE | {useMoneyValue(rateCard.fee, rateCard.currency)} + UAE VAT
+                          Videos: {rateCard.videos?.map((video, index) => {
+                          return (
+                            <a href={video.link} key={index} style={{color: '#29499b'}}>
+                              {video.link}
+                            </a>
+                          )
+                        })}
                         </Text>
                       </View>
                     </View>

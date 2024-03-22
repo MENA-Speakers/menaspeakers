@@ -38,6 +38,7 @@ class RateCardResource extends JsonResource
       'currency' => $this->currency,
       'profile' => new ProfileResource($this->profile),
       'title' => $this->title,
+      'videos' => VideoLinkResource::collection($this->videoLinks),
       'gallery' => $gallery,
       'summary' => $this->summary,
       'fee' => $this->fee,

@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Laravel\Scout\Searchable;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
@@ -40,6 +41,10 @@ class Portfolio extends Model implements HasMedia
     return $this->hasMany(RateCard::class);
   }
 
+  public function videoLinks(): MorphMany
+  {
+    return $this->morphMany(VideoLink::class, 'video_linkable');
+  }
 
   public function getRouteKeyName(): string
     {

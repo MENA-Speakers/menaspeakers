@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\ProfileResource;
+use App\Http\Resources\VideoLinkResource;
+use App\Models\Profile;
 use App\Models\Speaker;
 use App\Models\Video;
 use Illuminate\Http\Request;
@@ -13,55 +15,28 @@ use Inertia\Inertia;
 class AdminProfileVideoController extends Controller
 {
 
-  public function index(Speaker $profile)
+  public function index(Profile $profile)
   {
-    return Inertia::render('Admin/Profiles/Show', [
+    return Inertia::render('Admin/Profiles/Videos', [
         'profile' => ProfileResource::make($profile),
-        'videos' => $profile->videos
+        'videos' => VideoLinkResource::collection($profile->videoLinks),
     ]);
   }
 
 
-  private function extractYouTubeId($url)
-  {
-    $pattern = '/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/ ]{11})/';
-    preg_match($pattern, $url, $matches);
-    return $matches[1] ?? null;
-  }
 
-  public function store(Request $request, Speaker $profile)
+  public function store(Request $request, Profile $profile)
   {
     //Validate
     $request->validate([
       'link' => 'required|url',
-      'videoSource' => 'required',
     ]);
 
-    $videoId = null;
-
-    //if video is YouTube extract the id
-    if($request->videoSource === 'youtube') {
-      $videoId = $this->extractYouTubeId($request->input('link'));
-      //throw error if link is not valid
-      if( strlen($videoId) !== 11 ) {
-        throw  ValidationException::withMessages([
-          'link' => 'Please enter a valid youtube link'
-        ]);
-      }
-    } else if($request->videoSource === 'vimeo') {
-      $videoId = explode('.com/', $request->link)[1];
-      if( strlen($videoId) !== 9 ) {
-        throw  ValidationException::withMessages([
-          'link' => 'Please enter a valid vimeo link'
-        ]);
-      }
-    }
-
-    $profile->videos()->create([
-      'url' => $videoId
+    $link = $profile->videoLinks()->create([
+      'link' => $request->link
     ]);
 
-    return $profile->videos;
+    return VideoLinkResource::make($link);
   }
 
   public function destroy(Video $video)

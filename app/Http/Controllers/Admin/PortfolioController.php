@@ -31,8 +31,7 @@ class PortfolioController extends Controller
     {
         return Inertia::render('Admin/Portfolios/Create', [
             'profiles' => ProfileResource::collection(Profile::all()),
-        ]
-        );
+        ]);
     }
 
     /**
@@ -41,11 +40,14 @@ class PortfolioController extends Controller
     public function store(StorePortfolioRequest $request): RedirectResponse
     {
 
-        $portfolio =Portfolio::create([
+      $profile = Profile::find($request->input('profile'));
+
+        $portfolio = Portfolio::create([
             'title' => $request->input('title'),
             'summary' => $request->input('summary'),
             'profile_id' => $request->input('profile'),
             'fee' => $request->input('fee'),
+            'location' => $profile->location,
         ]);
 
         //if request has media
@@ -75,16 +77,38 @@ class PortfolioController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Portfolio $portfolio)
     {
-        //
+
+        $profile = Profile::find($request->input('profile'));
+
+        $portfolio->update([
+            'title' => $request->input('title'),
+            'summary' => $request->input('summary'),
+            'profile_id' => $request->input('profile'),
+            'fee' => $request->input('fee'),
+            'location' => $profile->location,
+        ]);
+
+        //if request has media
+        if ($request->hasFile('gallery')) {
+            //add multiple media to the gallery collection
+            $portfolio->addMultipleMediaFromRequest(['gallery'])
+                ->each(function ($fileAdder) {
+                    $fileAdder->toMediaCollection('gallery');
+                });
+        }
+
+        return redirect()->route('admin.portfolios.index')->with('success', 'Portfolio updated.');
+
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Portfolio $portfolio)
     {
-        //
+        $portfolio->delete();
+        return redirect()->route('admin.portfolios.index')->with('success', 'Portfolio deleted.');
     }
 }

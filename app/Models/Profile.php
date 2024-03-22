@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Laravel\Scout\Searchable;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
@@ -37,11 +38,17 @@ class Profile extends Model implements HasMedia
         return "{$this->first_name} {$this->last_name}";
     }
 
-  public function registerMediaCollections(): void
-  {
-    $this->addMediaCollection('avatar')->singleFile();
-    $this->addMediaCollection('gallery');
-  }
+    public function registerMediaCollections(): void
+    {
+      $this->addMediaCollection('avatar')->singleFile();
+      $this->addMediaCollection('gallery');
+    }
+
+    public function videoLinks(): MorphMany
+    {
+      return $this->morphMany(VideoLink::class, 'video_linkable');
+    }
+
 
   public function registerMediaConversions(Media $media = null): void
   {

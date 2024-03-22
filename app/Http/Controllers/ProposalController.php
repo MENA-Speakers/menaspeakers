@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreProposalRequest;
 use App\Http\Resources\ProposalResource;
 use App\Http\Resources\RateCardResource;
+use App\Http\Resources\UserResource;
 use App\Models\Proposal;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -106,6 +107,7 @@ class ProposalController extends Controller
                 ],
                 'proposal' => new ProposalResource($proposal),
                 'rateCards' => RateCardResource::collection($proposal->rateCards),
+                'agent' => UserResource::make($proposal->responsible),
             ],
         ]);
     }

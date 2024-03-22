@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Ramsey\Uuid\Uuid;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
@@ -32,6 +33,11 @@ class RateCard extends Model implements HasMedia
         return 'hash_id';
     }
 
+
+  public function videoLinks(): MorphMany
+  {
+    return $this->morphMany(VideoLink::class, 'video_linkable');
+  }
 
 
   public function registerMediaCollections(): void

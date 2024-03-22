@@ -13,11 +13,19 @@ import {LocationType} from "@/types/location";
 import {Input} from "@/Components/ui/input";
 import {Label} from "@/Components/ui/label";
 import {ProfileType} from "@/types/admin-profiles";
-
+import {Popover, PopoverContent, PopoverTrigger} from "@/Components/ui/popover";
+import {Button} from "@/Components/ui/button";
+import {Command, CommandEmpty, CommandGroup, CommandInput, CommandItem} from "@/Components/ui/command";
+import {Check, ChevronsUpDown} from "lucide-react";
+import {cn} from "@/Utils/cn";
+import localCountries from "@/Utils/countries";
 function Create( {profile} : { profile: ProfileType }) {
 
 
   const [ imagePreview, setImagePreview ] = React.useState( profile?.image ? profile.image : null );
+  const [ open, setOpen ] = React.useState( false );
+
+  const countries = localCountries
 
 
   const formik = useFormik( {
@@ -28,6 +36,7 @@ function Create( {profile} : { profile: ProfileType }) {
       email: profile?.email ? profile.email : '',
       dob: profile?.dob ? profile.dob : '',
       phone: profile?.phone ? profile.phone : '',
+      location: profile?.location ? profile.location : '',
       linkedin: profile?.linkedin ? profile.linkedin : '',
       website: profile?.website ? profile.website : '',
       fee: profile?.fee ? profile.fee : '',
@@ -94,6 +103,7 @@ function Create( {profile} : { profile: ProfileType }) {
 
 
   return (
+
     <AdminLayout
     >
       <Head title="Add Profile"/>
@@ -261,26 +271,77 @@ function Create( {profile} : { profile: ProfileType }) {
                 }
               </div>
             </div>
-             <div className="grid grid-cols-2 gap-6">
-                  <div>
-                    <Label htmlFor="dob" className="block text-sm font-medium text-gray-700">Date of Birth</Label>
-                    <div className="mt-1">
-                      <Input type="date"
-                             name="dob"
-                             id="dob"
-                             value={formik.values.dob}
-                             onChange={formik.handleChange}
-                             className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                             placeholder="Job Title"/>
-                    </div>
-
-                    {
-                      formik.touched.dob && formik.errors.dob ? (
-                        <div className="text-red-500 text-xs italic">{formik.errors.dob}</div>
-                      ) : null
-                    }
-                  </div>
+            <div className="grid grid-cols-2 gap-6">
+              <div>
+                <Label htmlFor="dob" className="block text-sm font-medium text-gray-700">Date of Birth</Label>
+                <div className="mt-1">
+                  <Input type="date"
+                         name="dob"
+                         id="dob"
+                         value={formik.values.dob}
+                         onChange={formik.handleChange}
+                         className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                         placeholder="Job Title"/>
                 </div>
+
+                {
+                  formik.touched.dob && formik.errors.dob ? (
+                    <div className="text-red-500 text-xs italic">{formik.errors.dob}</div>
+                  ) : null
+                }
+              </div>
+              <div>
+                <Label htmlFor="dob" className="block text-sm font-medium text-gray-700">Location</Label>
+                <div className="mt-1">
+                  <Popover open={open} onOpenChange={setOpen}>
+                    <PopoverTrigger asChild>
+                      <Button
+                        variant="outline"
+                        role="combobox"
+                        aria-expanded={open}
+                        className="w-full justify-between"
+                      >
+                        {formik.values.location
+                          ? countries.find((country) => country.name === formik.values.location)?.name
+                          : "Select Country..."}
+                        <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+                      </Button>
+                    </PopoverTrigger>
+                    <PopoverContent className="w-full p-0">
+                      <Command>
+                        <CommandInput placeholder="Search country..." />
+                        <CommandEmpty>No country found.</CommandEmpty>
+                        <CommandGroup>
+                          {countries.map((country) => (
+                            <CommandItem
+                              key={country.code}
+                              value={country.name}
+                              onSelect={() => {
+                                formik.setFieldValue("location", country.name)
+                              }}
+                            >
+                              <Check
+                                className={cn(
+                                  "mr-2 h-4 w-4",
+                                  formik.values.location === country.name ? "opacity-100" : "opacity-0"
+                                )}
+                              />
+                              {country.name}
+                            </CommandItem>
+                          ))}
+                        </CommandGroup>
+                      </Command>
+                    </PopoverContent>
+                  </Popover>
+                </div>
+
+                {
+                  formik.touched.dob && formik.errors.dob ? (
+                    <div className="text-red-500 text-xs italic">{formik.errors.dob}</div>
+                  ) : null
+                }
+              </div>
+            </div>
 
             <div>
               <Label htmlFor="bio" className="block text-sm font-medium text-gray-700">About</Label>
@@ -290,7 +351,7 @@ function Create( {profile} : { profile: ProfileType }) {
                   theme='snow'
                   style={{height: '200px'}}
                   value={formik.values.about}
-                  onChange={( e ) => formik.setFieldValue( 'about', e )}
+                  onChange={(e) => formik.setFieldValue('about', e)}
                 />
 
               </div>
@@ -303,8 +364,8 @@ function Create( {profile} : { profile: ProfileType }) {
 
             <div>
               <div className='w-full lg:w-1/2 pt-6 '>
-                <Label htmlFor={'file'} >Avatar</Label>
-                <div {...getRootProps( {className: 'border-dashed border-2 rounded-lg mt-2 py-4 px-4'} )}>
+                <Label htmlFor={'file'}>Avatar</Label>
+                <div {...getRootProps({className: 'border-dashed border-2 rounded-lg mt-2 py-4 px-4'})}>
                   <Input {...getInputProps()} />
                   <p className={'text-sm'}>Drag 'n' Avatar Image, or click to select files</p>
                 </div>
