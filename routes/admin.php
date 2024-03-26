@@ -56,7 +56,7 @@
     Route::get('rate-cards/create', [AdminRateCardController::class, 'create'])->name('rate-cards.create');
     Route::get('rate-cards/{rateCard}/edit', [AdminRateCardController::class, 'edit'])->name('rate-cards.edit');
     Route::post('rate-cards/{rateCard}', [AdminRateCardController::class, 'update'])->name('rate-cards.update');
-    Route::post('rate-cards/{rateCard}/vidoes', [AdminRateCardController::class, 'update'])->name('rate-cards.store');
+    Route::post('rate-cards/{rateCard}/vidoes', [AdminRateCardController::class, 'update'])->name('rate-cards.videos.store');
     Route::post('rate-cards/{rateCard}/delete', [AdminRateCardController::class, 'destroy'])->name('rate-cards.delete');
 
     //Profile Videos
