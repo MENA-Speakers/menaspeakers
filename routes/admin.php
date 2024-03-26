@@ -13,6 +13,7 @@
   use App\Http\Controllers\Admin\PortfolioController;
   use App\Http\Controllers\Admin\ProposalPortfolioController;
   use App\Http\Controllers\Admin\ProposalRateCardController;
+  use App\Http\Controllers\Admin\RateCardVideoController;
   use App\Http\Controllers\Admin\ReferralController;
   use App\Http\Controllers\Admin\SettingController;
   use App\Http\Controllers\Admin\AdminSpeakerController;
@@ -55,6 +56,7 @@
     Route::get('rate-cards/create', [AdminRateCardController::class, 'create'])->name('rate-cards.create');
     Route::get('rate-cards/{rateCard}/edit', [AdminRateCardController::class, 'edit'])->name('rate-cards.edit');
     Route::post('rate-cards/{rateCard}', [AdminRateCardController::class, 'update'])->name('rate-cards.update');
+    Route::post('rate-cards/{rateCard}/vidoes', [AdminRateCardController::class, 'update'])->name('rate-cards.update');
     Route::post('rate-cards/{rateCard}/delete', [AdminRateCardController::class, 'destroy'])->name('rate-cards.delete');
 
     //Profile Videos
@@ -137,6 +139,8 @@
     Route::post('proposals/{proposal}/rate-cards', [ProposalRateCardController::class, 'store'])->name('proposals.rate-cards.store');
     Route::post('proposals/{proposal}/rate-cards/{rateCard}', [ProposalRateCardController::class, 'update'])->name('proposals.rate-cards.update');
     Route::delete('proposals/rate-cards/{rateCard}', [ProposalRateCardController::class, 'destroy'])->name('proposals.rate-cards.delete');
+    Route::post('proposals/rate-cards/{rateCard:hash_id}/videos', [RateCardVideoController::class, 'store'])->name('proposals.rate-cards.videos.store');
+    Route::delete('proposals/rate-cards/{rateCard:hash_id}/videos/{video}', [RateCardVideoController::class, 'destroy'])->name('proposals.rate-cards.videos.delete');
 
     Route::post('proposals/suggest/portfolios', [ProposalPortfolioController::class, 'index'])->name('proposals.portfolios.suggest');
 

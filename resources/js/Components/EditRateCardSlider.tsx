@@ -16,7 +16,8 @@ import {Command, CommandEmpty, CommandGroup, CommandInput, CommandItem} from "@/
 import {cn} from "@/Utils/cn";
 import localCountries from "@/Utils/countries";
 import {Button} from "@/Components/ui/button";
-import AddVideoLinkDialog from "@/Components/AddVideoLinkDialog";
+import AddVideoLink from "@/Components/AddVideoLink";
+import {ScrollArea} from "@/Components/ui/scroll-area";
 
 interface EditRateCardSliderProps {
   isOpen: boolean,
@@ -35,8 +36,10 @@ function EditRateCardSlider({isOpen, setIsOpen, rateCard, updateCard}: EditRateC
 
   const [openCurrency, setOpenCurrency] = React.useState(false)
   const [addVideo, setAddVideo] = React.useState(false)
-  const handleVideoAdded = (items: VideoLinks[]) => {
-    setVideos(items)
+  const handleVideoAdded = (data: any) => {
+    setVideos(data.videos)
+    updateCard(data)
+    setAddVideo(false)
   }
 
   const formik = useFormik({
@@ -107,34 +110,51 @@ function EditRateCardSlider({isOpen, setIsOpen, rateCard, updateCard}: EditRateC
   });
 
   const deleteVideo = (video: VideoLinks) => {
-    axios.delete(route('admin.rate-cards.videos.delete', video.id)).then((response) => {
-      setVideos(response.data)
+    axios.delete(route('admin.proposals.rate-cards.videos.delete', {
+      rateCard: rateCard.hash_id,
+      video: video.id,
+    })).then((response) => {
+      setVideos(response.data.videos)
+      updateCard(response.data)
     })
   }
 
 
   return (
     <div>
-      <Sheet open={isOpen} onOpenChange={setIsOpen}>
+      <Sheet open={isOpen} onOpenChange={setIsOpen}  >
         <SheetTrigger>
           <Button variant={'outline'} size={'sm'} className={'text-sm'}> Edit</Button>
         </SheetTrigger>
 
-        <SheetContent className={'md:w-[60%] h-screen flex flex-col'}>
+        <SheetContent className={'md:w-[60%] h-screen flex flex-col'} side={'left'}>
           <div>
-            <SheetHeader className={'p-6 flex justify-between'}>
+            <SheetHeader className={'px-6 pt-6 flex justify-between'}>
               <SheetTitle>Edit Rate Card - {rateCard.title}</SheetTitle>
               <div>
                 <div className="mt-1 flex justify-end">
-                  <Button onClick={() => setAddVideo(true)} variant={'outline'} size={'sm'}>Add Video</Button>
+                  <Button onClick={() => setAddVideo(!addVideo)} variant={'outline'} size={'sm'}>Add Video</Button>
                 </div>
               </div>
             </SheetHeader>
           </div>
-          <form onSubmit={formik.handleSubmit} className="h-full flex-1 flex flex-col">
+
+
+          {
+            addVideo && (
+             <div className="px-8">
+               <AddVideoLink
+                 handleLinkAdded={handleVideoAdded}
+                 id={rateCard.hash_id}/>
+             </div>
+            )
+          }
+
+
+          <form onSubmit={formik.handleSubmit} className="flex flex-1 overflow-y-auto flex-col">
 
             <div className="flex-1 overflow-y-auto py-4 px-6 space-y-6 h-full  items-center">
-            <div>
+            <ScrollArea>
                 <Label htmlFor="fee" className="block text-sm font-medium text-gray-700">Fees</Label>
                 <Input
                   value={formik.values.fee}
@@ -144,7 +164,7 @@ function EditRateCardSlider({isOpen, setIsOpen, rateCard, updateCard}: EditRateC
                   placeholder={''}
                 />
 
-              </div>
+              </ScrollArea>
               <div>
                 <Label htmlFor="summary" className="block text-sm font-medium mb-1 text-gray-700">Highlights</Label>
                 <Textarea
@@ -252,13 +272,13 @@ function EditRateCardSlider({isOpen, setIsOpen, rateCard, updateCard}: EditRateC
                 </div>
 
               </div>
-              <div className="py-4 ">
+              <div className="py-4 space-y-2 ">
                 <h4 className="font-semibold">Videos</h4>
                 {
                   videos?.map((video, index) => (
                     <div key={index} className={'flex justify-between items-center'}>
-                      <a href={video.link} className={'text-blue-500'}>{video.link}</a>
-                      <Button onClick={() => deleteVideo(video)} variant={'destructive'} size={'sm'}>Delete</Button>
+                      <a href={video.link} className={'text-blue-500'}target={'_blank'}>{video.link}</a>
+                      <Button className={'ml-3'} onClick={() => deleteVideo(video)} variant={'destructive'} size={'sm'}>Delete</Button>
                     </div>
                   ))
                 }
@@ -273,8 +293,6 @@ function EditRateCardSlider({isOpen, setIsOpen, rateCard, updateCard}: EditRateC
             </div>
 
           </form>
-
-          <AddVideoLinkDialog handleLinkAdded={handleVideoAdded} type={'rate-card'} isOpen={addVideo} setIsOpen={setAddVideo} id={rateCard.id} />
 
 
         </SheetContent>

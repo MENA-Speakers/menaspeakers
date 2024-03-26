@@ -175,7 +175,7 @@ function ShowProposal( {data} : ShowProposalProps ) {
                 </div>
               </DragDropContext>
 
-              <div className="flex justify-end space-x-4 items-center">
+              <div className="flex justify-start space-x-4 items-center">
                 <Link href={route('admin.proposals.preview', proposal.hash_id)}  >
                   <Button variant={'outline'}>
                     <FileText size={16} className={'mr-2'}/>

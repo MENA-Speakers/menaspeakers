@@ -65,7 +65,7 @@ function ProposalRateCard({rateCard, removeRateCard}: ProposalRateCardProps) {
             Videos Links: {
 
             videos?.map((video, index) => (
-              <a href={video.link} key={index} className={'text-blue-500'}>{video.link}</a>
+              <a href={video.link} key={index} className={'text-blue-500'}>Link</a>
             ))
           }
           </div>

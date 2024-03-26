@@ -11,7 +11,7 @@ import {Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, Table
 import {Button} from "@/Components/ui/button";
 import {Dialog, Transition} from '@headlessui/react';
 import {CheckIcon} from "lucide-react";
-import AddVideoLinkDialog from "@/Components/AddVideoLinkDialog";
+import AddVideoLink from "@/Components/AddVideoLink";
 
 interface ShowProfileProps {
   profile: ProfileType,
@@ -66,7 +66,7 @@ function ShowProfile({profile, videos}: ShowProfileProps) {
         </Table>
       </div>
 
-      <AddVideoLinkDialog
+      <AddVideoLink
         isOpen={open}
         setIsOpen={setOpen}
         handleLinkAdded={handleLinkAdded}

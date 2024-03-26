@@ -83,16 +83,16 @@ const styles = StyleSheet.create({
 
   detailsBlockLeft: {
     width: '65%',
-    paddingTop: 20,
     color: '#29499b',
     paddingLeft: 20,
+    height: '100%',
     paddingRight: 20,
     fontSize: 12,
   },
   detailsBlockRight: {
     width: '35%',
+    height: '100%',
     flexDirection: 'column',
-    marginTop: -15,
     flexWrap: 'wrap',
     alignItems: 'center',
   },
@@ -114,7 +114,6 @@ const styles = StyleSheet.create({
 
   galleryImage: {
     height: '100%',
-    width: '240px',
     objectFit: 'cover',
   },
   header: {
@@ -137,9 +136,6 @@ const styles = StyleSheet.create({
 
   headerTextBlock: {
     flexDirection: 'column',
-    justifyContent: 'center',
-    paddingLeft: 20,
-    flexGrow: 1,
   },
 
   heading: {
@@ -164,9 +160,10 @@ const styles = StyleSheet.create({
     paddingBottom: 10,
     paddingLeft: 15,
     paddingRight: 10,
+    marginTop: -20,
     fontSize: 12,
     flexDirection: 'row',
-    justifyContent: 'flex-end',
+    justifyContent: 'flex-start',
     alignItems: 'center',
   },
 
@@ -174,6 +171,19 @@ const styles = StyleSheet.create({
     width: window.innerWidth, //the pdf viewer will take up all of the width and height
     height: window.innerHeight,
   },
+
+  summary: {
+    marginTop: 12,
+  },
+
+  videoLinks: {
+    paddingLeft: 4,
+    paddingRight: 4,
+  },
+
+  videoLinkItem: {
+    marginRight: 4,
+  }
 });
 
 
@@ -181,6 +191,8 @@ function PreviewProposal( {data} : PreviewProposalProps ) {
 
   const proposal = data.proposal
   const rateCards = data.rateCards
+
+  console.log(rateCards)
 
   const agent = data.agent
 
@@ -213,13 +225,13 @@ function PreviewProposal( {data} : PreviewProposalProps ) {
           subject={'Proposal'}
         >
 
-          <IntroPage />
-          <ClientsPage />
+          {/*<IntroPage />*/}
+          {/*<ClientsPage />*/}
 
-          <AboutPage />
+          {/*<AboutPage />*/}
 
-          <EventTitlePage proposal={proposal} />
-          <PageFive />
+          {/*<EventTitlePage proposal={proposal} />*/}
+          {/*<PageFive />*/}
 
           {
             rateCards.map((rateCard: RateCardType, index: number) => {
@@ -233,18 +245,19 @@ function PreviewProposal( {data} : PreviewProposalProps ) {
 
                       <Image src={'/images/proposals/square_logo.jpeg'} style={styles.profileImage} />
                     </View>
-                    <View style={styles.headerTextBlock}>
-                      <Text style={styles.headerText}>{rateCard.profile?.full_name}</Text>
-                      <Text style={styles.headerSubText}>{rateCard.title}</Text>
-                      <View>
-                        <Text style={styles.headerSubText}>
-                          Residing in UAE | {useMoneyValue(rateCard.fee, rateCard.currency)} + UAE VAT
-                        </Text>
-                      </View>
-                    </View>
+
                     <View style={styles.detailsBlock}>
                       <View style={styles.detailsBlockLeft}>
-                        <Text>{rateCard.summary}</Text>
+                        <View style={styles.headerTextBlock}>
+                          <Text style={styles.headerText}>{rateCard.profile?.full_name}</Text>
+                          <Text style={styles.headerSubText}>{rateCard.title}</Text>
+                          <View>
+                            <Text style={styles.headerSubText}>
+                              Residing in UAE | {useMoneyValue(rateCard.fee, rateCard.currency)} + UAE VAT
+                            </Text>
+                          </View>
+                        </View>
+                        <Text style={styles.summary}>{rateCard.summary}</Text>
                       </View>
                       <View style={styles.detailsBlockRight}>
 
@@ -261,13 +274,15 @@ function PreviewProposal( {data} : PreviewProposalProps ) {
 
                     </View>
                     <View style={styles.footer}>
-                      <View>
-                        <Text>
-                          Videos: {rateCard.videos?.map((video, index) => {
+                      <View style={styles.videoLinks}>
+                        <Text >
+                          Videos: {" "}{rateCard.videos?.map((video, index) => {
                           return (
-                            <a href={video.link} key={index} style={{color: '#29499b'}}>
-                              {video.link}
-                            </a>
+                            <Link href={video.link}  key={index} style={{color: '#29499b'}}>
+                              <Text style={styles.videoLinkItem}>
+                                Link {index} {" "}
+                              </Text>
+                            </Link>
                           )
                         })}
                         </Text>

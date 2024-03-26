@@ -60,9 +60,9 @@ class Portfolio extends Model implements HasMedia
             'summary' => $this->summary,
             'first_name' => $this->profile->first_name,
             'last_name' => $this->profile->last_name,
+            'profile' => $this->profile->toArray(),
             'fee' => $this->profile->fee,
         ];
     }
-
 
 }

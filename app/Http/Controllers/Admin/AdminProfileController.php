@@ -83,8 +83,8 @@ class AdminProfileController extends Controller
           ->toMediaCollection('avatar');
       }
 
-
       return Redirect::route('admin.profiles.index');
+
     }
 
 

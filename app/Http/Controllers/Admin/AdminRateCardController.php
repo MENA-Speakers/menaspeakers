@@ -34,6 +34,9 @@ class AdminRateCardController extends Controller
   }
 
 
+
+
+
   public function destroy(RateCard $rateCard): AnonymousResourceCollection
   {
     $rateCard->delete();

@@ -118,7 +118,7 @@ function SelectSpeakerSlide({isOpen, setIsOpen, params, updatedSelectedSpeakers,
             </form>
             <div className="pr-4">
               <Button onClick={() => createRateCard()} disabled={isSubmitting} className={'flex items-center'}>
-                <span className="text-sm">Create Rate Card</span>
+                <span className="text-sm">Add to Proposal</span>
               </Button>
             </div>
           </div>
