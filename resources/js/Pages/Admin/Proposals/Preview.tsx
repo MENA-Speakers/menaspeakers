@@ -225,13 +225,13 @@ function PreviewProposal( {data} : PreviewProposalProps ) {
           subject={'Proposal'}
         >
 
-          {/*<IntroPage />*/}
-          {/*<ClientsPage />*/}
+          <IntroPage />
+          <ClientsPage />
 
-          {/*<AboutPage />*/}
+          <AboutPage />
 
-          {/*<EventTitlePage proposal={proposal} />*/}
-          {/*<PageFive />*/}
+          <EventTitlePage proposal={proposal} />
+          <PageFive />
 
           {
             rateCards.map((rateCard: RateCardType, index: number) => {

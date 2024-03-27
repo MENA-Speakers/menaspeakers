@@ -8,10 +8,16 @@ import {
 } from "@/Components/ui/dropdown-menu";
 import {MoreVertical} from "lucide-react";
 import {PortfolioType} from "@/types/portfolio-type";
-import {Link} from "@inertiajs/react";
+import {Link, router} from "@inertiajs/react";
 import truncateText from "@/Utils/truncateText";
+import axios from "axios";
 
 export function PortfolioCard({portfolio}: { portfolio: PortfolioType}) {
+  const deletePortfolio = () => {
+    axios.post(route('admin.portfolios.delete', portfolio.hash_id)).then(response => {
+      router.reload()
+    })
+  }
   return (
     <div className={'grid grid-cols-5 gap-2 border rounded-lg overflow-hidden'}>
       <div className={'col-span-2'}>
@@ -44,7 +50,7 @@ export function PortfolioCard({portfolio}: { portfolio: PortfolioType}) {
                   Edit
                 {/*</Link>*/}
               </DropdownMenuItem>
-              <DropdownMenuItem>Delete</DropdownMenuItem>
+              <DropdownMenuItem onClick={deletePortfolio}>Delete</DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
 

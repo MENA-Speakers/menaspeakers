@@ -55,6 +55,11 @@ class Profile extends Model implements HasMedia
     $this->addMediaConversion('jpg')
       ->format('jpg')
       ->performOnCollections('avatar');
+
+    $this->addMediaConversion('webp')
+      ->width(1000)
+      ->height(600)
+      ->format('webp')->performOnCollections('gallery');
   }
 
 

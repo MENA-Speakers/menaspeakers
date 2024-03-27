@@ -110,7 +110,7 @@ function SelectSpeakerSlide({isOpen, setIsOpen, params, updatedSelectedSpeakers,
         <SheetTrigger>
           <Button variant={'outline'} size={'sm'} className={'text-sm'}> Add Rate Cards</Button>
         </SheetTrigger>
-        <SheetContent className={'md:w-[50%] h-screen flex pb-6 flex-col'}>
+        <SheetContent className={'md:w-[93%] h-screen flex pb-6 flex-col'}>
           <div className="flex px-6 justify-between items-center">
             <form onSubmit={formik.handleSubmit} className="py-4 flex-grow flex items-center">
                   <Input name={'query'} value={formik.values.query} onChange={formik.handleChange} type={'text'} placeholder={'Search for speaker'} className={'w-1/3 mr-4'}/>

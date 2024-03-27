@@ -20,7 +20,7 @@ class ProfileResource extends JsonResource
         $gallery = $this->getMedia('gallery')->map(function ($item) {
             return [
                 'id' => $item->id,
-                'url' => $item->getUrl(),
+                'url' => $item->getUrl('webp'),
             ];
         });
 
