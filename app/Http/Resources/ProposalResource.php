@@ -21,6 +21,7 @@ class ProposalResource extends JsonResource
             'title' => $this->title,
             'status' => ucfirst($this->status),
             'event_date' => $this->event_date?->format('F j, Y'),
+            'rateCards' => RateCardResource::collection($this->rateCards),
             'slug' => $this->slug,
             'responsible_id' => $this->responsible_id,
             'created_at' => $this->created_at,

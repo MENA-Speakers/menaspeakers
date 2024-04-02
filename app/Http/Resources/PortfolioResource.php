@@ -33,6 +33,7 @@ class PortfolioResource extends JsonResource
             'id' => $this->id,
             'hash_id' => $this->hash_id,
             'title' => $this->title,
+            'location' => $this->location,
             'summary' => $this->summary,
             'gallery' => $gallery,
             'profile_id' => $this->profile_id,

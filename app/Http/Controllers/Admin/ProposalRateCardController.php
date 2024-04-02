@@ -73,6 +73,7 @@ public function store(Request $request, Proposal $proposal): AnonymousResourceCo
             'title' => $rate['title'],
             'fee' => $rate['fee'],
             'profile_id' => $rate['profile_id'],
+            'location' => $portfolio->location,
             'portfolio_id' => $rate['id'],
             'summary' => $rate['summary'],
             'proposal_id' => $proposal->id,

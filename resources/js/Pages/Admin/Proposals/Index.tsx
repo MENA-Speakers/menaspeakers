@@ -14,6 +14,18 @@ import {
   TableHeader,
   TableRow,
 } from "@/Components/ui/table"
+import {
+  DropdownMenu,
+  DropdownMenuContent, DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger
+} from "@/Components/ui/dropdown-menu";
+import {ProfileType} from "@/types/admin-profiles";
+import axios from "axios";
+import ConfirmPortfolioSlide from "@/Pages/Admin/Proposals/ConfirmPortfolioSlide";
+import {RateCardType} from "@/types/rate-card";
+
 
 
 interface proposalData {
@@ -52,7 +64,66 @@ function Index( {proposals, query} : {proposals: proposalData, query: string} ) 
     },
   } );
 
-  console.log(proposals)
+  const [proposalData, setProposalData] = React.useState<ProposalType[]>(proposals.data)
+  const [confirmedStatus, setConfirmedStatus] = React.useState<string>('')
+  const [selectedProposal, setSelectedProposal] = React.useState<ProposalType | null>(null)
+  const [showConfirmSheet, setShowConfirmSheet] = React.useState<boolean>(false)
+
+
+  //changing the status of the proposal
+  const changeStatus = (status: string, proposal: ProposalType) => {
+    setConfirmedStatus(status)
+    submitStatusChange(proposal)
+
+  }
+
+
+  //submitting the status change to the backend to update the status
+  const submitStatusChange = (proposal: ProposalType) => {
+    if (confirmedStatus === 'Sent') {
+      axios.post(route('admin.proposals.update-status', proposal.hash_id), {status: confirmedStatus}).then((response) => {
+        //find the proposal in the proposalData array and update the status
+        let newProposals = proposalData.map((item) => {
+          if (item.hash_id === proposal.hash_id) {
+            return {...item, status: confirmedStatus}
+          }
+          return item
+        })
+
+        setProposalData(newProposals)
+        setConfirmedStatus('')
+      })
+    }
+
+    if (confirmedStatus === 'Confirmed') {
+      setSelectedProposal(proposal)
+    }
+  }
+
+
+  //confirming the selected portfolio and opening the confirmation portfolio slide
+  const confirmingPortfolio = (proposal: ProposalType) => {
+    setShowConfirmSheet(true)
+    setSelectedProposal(proposal)
+  }
+
+
+
+//submitting the selected portfolio to the backend
+  const submitProfileConfirmation = (portfolio: RateCardType) => {
+    axios.post(route('admin.proposals.confirm-portfolio', selectedProposal?.hash_id), {portfolio_id: portfolio.id}).then((response) => {
+      let newProposals = proposalData.map((proposal) => {
+        if (proposal.hash_id === selectedProposal?.hash_id) {
+          return {...proposal, confirmedPortfolio: portfolio}
+        }
+        return proposal
+      })
+      setProposalData(newProposals)
+      setShowConfirmSheet(false)
+    })
+  }
+
+
 
   return (
 
@@ -80,25 +151,36 @@ function Index( {proposals, query} : {proposals: proposalData, query: string} ) 
                   <TableHead className="">Name</TableHead>
                   <TableHead>Status</TableHead>
                   <TableHead>Responsible</TableHead>
-                  <TableHead className="text-right">Amount</TableHead>
+                  <TableHead className="text-right">Speaker</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {proposals.data.map((proposal) => (
+                {proposalData.map((proposal) => (
                   <TableRow key={proposal.hash_id}>
                     <TableCell className="font-medium">
                       <Link href={route('admin.proposals.show', proposal.hash_id)}>{proposal.title}</Link>
                     </TableCell>
                     <TableCell>
-                      <span className={`px-2 inline-flex text-sm leading-5 rounded
+                      <DropdownMenu>
+                        <DropdownMenuTrigger
+                          className={`px-2 inline-flex text-sm leading-5 rounded
                       ${proposal.status === 'Accepted' && 'bg-green-50 text-green-800'}
                       ${proposal.status === 'Draft' && 'bg-blue-50 text-blue-800'}
-                      `}>
-                        {proposal.status}
-                      </span>
+                      `}
+                        > {proposal.status}</DropdownMenuTrigger>
+                        <DropdownMenuContent>
+                          <DropdownMenuItem
+                            onClick={() => changeStatus('Sent', proposal)}
+
+                          >Sent</DropdownMenuItem>
+                          <DropdownMenuItem
+                            onClick={() => confirmingPortfolio(proposal)}
+                          >Confirmed</DropdownMenuItem>
+                        </DropdownMenuContent>
+                      </DropdownMenu>
+
                     </TableCell>
-                    <TableCell>{proposal.paymentMethod}</TableCell>
-                    <TableCell className="text-right">{proposal.totalAmount}</TableCell>
+                    <TableCell>{proposal.confirmedPortfolio?.name}</TableCell>
                   </TableRow>
                 ))}
               </TableBody>
@@ -108,6 +190,15 @@ function Index( {proposals, query} : {proposals: proposalData, query: string} ) 
           </div>
         </div>
       </div>
+      {
+        selectedProposal && (
+          <ConfirmPortfolioSlide
+            isOpen={showConfirmSheet}
+            setIsOpen={setShowConfirmSheet}
+            updatedSelectedPortfolio={submitProfileConfirmation}
+            portfolios={selectedProposal?.rateCards}
+          />)
+      }
     </AdminLayout>
   );
 }

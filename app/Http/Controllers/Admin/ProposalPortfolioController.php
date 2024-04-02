@@ -19,4 +19,38 @@ class ProposalPortfolioController extends Controller
 
       return PortfolioResource::collection(Portfolio::take(8)->get());
     }
+
+
+
+    //Update the status of the portfolio
+
+    public function updateStatus(Request $request, Portfolio $portfolio): PortfolioResource
+    {
+      $portfolio->update([
+        'status' => $request->input('status')
+      ]);
+
+      return PortfolioResource::make($portfolio->refresh());
+    }
+
+
+    //confirm speaker on the proposal
+  public function confirmPortfolio(Request $request, Portfolio $portfolio): PortfolioResource
+  {
+    $portfolio->update([
+      'confirmed' => $request->input('confirmed')
+    ]);
+
+    //send notifications to the confirmed speaker
+
+
+    //send notifications to the proposal owner
+
+
+    //send notification to unconfirmed speakers
+
+
+
+    return PortfolioResource::make($portfolio->refresh());
+  }
 }

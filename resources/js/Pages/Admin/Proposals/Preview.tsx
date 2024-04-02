@@ -107,15 +107,18 @@ const styles = StyleSheet.create({
   },
 
   galleryItem: {
-    height: '30%',
-    width: '100%',
-    padding: 3,
+    height: '160px',
+    width: '90%',
+    paddingTop: 1.5,
+    paddingBottom: 1.5,
   },
 
   galleryImage: {
     height: '100%',
+    width: '100%',
     objectFit: 'cover',
   },
+
   header: {
     paddingTop: 4,
     paddingBottom: 4,
@@ -192,8 +195,6 @@ function PreviewProposal( {data} : PreviewProposalProps ) {
   const proposal = data.proposal
   const rateCards = data.rateCards
 
-  console.log(rateCards)
-
   const agent = data.agent
 
   return (
@@ -253,7 +254,7 @@ function PreviewProposal( {data} : PreviewProposalProps ) {
                           <Text style={styles.headerSubText}>{rateCard.title}</Text>
                           <View>
                             <Text style={styles.headerSubText}>
-                              Residing in UAE | {useMoneyValue(rateCard.fee, rateCard.currency)} + UAE VAT
+                              {rateCard.location && `Residing in ${rateCard.location}` } {useMoneyValue(rateCard.fee, rateCard.currency)} + UAE VAT
                             </Text>
                           </View>
                         </View>
@@ -263,6 +264,7 @@ function PreviewProposal( {data} : PreviewProposalProps ) {
 
                         {
                           rateCard.gallery?.map((image: string, index: number) => {
+                           //loop only 3 images
                             return (
                               <View style={styles.galleryItem} key={index}>
                                 <Image style={styles.galleryImage} src={image.url} />
@@ -276,11 +278,11 @@ function PreviewProposal( {data} : PreviewProposalProps ) {
                     <View style={styles.footer}>
                       <View style={styles.videoLinks}>
                         <Text >
-                          Videos: {" "}{rateCard.videos?.map((video, index) => {
+                          {rateCard.videos?.map((video, index) => {
                           return (
                             <Link href={video.link}  key={index} style={{color: '#29499b'}}>
                               <Text style={styles.videoLinkItem}>
-                                Link {index} {" "}
+                                Video {index} {" &space; &space;"}
                               </Text>
                             </Link>
                           )

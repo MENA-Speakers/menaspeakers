@@ -123,10 +123,10 @@ function SelectSpeakerSlide({isOpen, setIsOpen, params, updatedSelectedSpeakers,
             </div>
           </div>
           <ScrollArea>
-            <div className="px-6 space-y-4 pb 6">
+            <div className="px-6 grid grid-cols-2 gap-4 space-y-4 pb 6">
               {
                 noResults && (
-                  <div className={'flex justify-center items-center h-24'}>
+                  <div className={'col-span-2 flex justify-center items-center h-24'}>
                     <p className={'text-gray-500'}>No results found for <span className={'italic text-mena-300'}>{ formik.values.query}</span></p>
                   </div>
                 )
