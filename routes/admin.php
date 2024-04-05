@@ -18,6 +18,7 @@
   use App\Http\Controllers\Admin\SettingController;
   use App\Http\Controllers\Admin\AdminSpeakerController;
   use App\Http\Controllers\AdminGalleryController;
+  use App\Http\Controllers\AdminSpeakerVideoController;
   use App\Http\Controllers\DealController;
   use App\Http\Controllers\ProposalController;
   use Illuminate\Support\Facades\Route;
@@ -93,7 +94,7 @@
     Route::post('speakers/{speaker}/delete', [AdminSpeakerController::class, 'destroy'])->name('speakers.delete');
 
     Route::get('speakers/{speakers}/videos', [AdminProfileVideoController::class, 'index'])->name('speakers.videos');
-    Route::post('speakers/{speakers}/videos', [AdminProfileVideoController::class, 'store'])->name('speakers.videos.store');
+    Route::post('speakers/{speakers}/videos', [AdminSpeakerVideoController::class, 'store'])->name('speakers.videos.store');
     Route::post('speakers/videos/{video}/delete', [AdminProfileVideoController::class, 'destroy'])->name('speakers.videos.destroy');
 
 

@@ -25,7 +25,7 @@ class AdminProfileVideoController extends Controller
 
 
 
-  public function store(Request $request, Profile $profile)
+  public function store(Request $request, Speaker $profile)
   {
     //Validate
     $request->validate([

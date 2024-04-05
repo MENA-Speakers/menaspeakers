@@ -171,7 +171,7 @@ const styles = StyleSheet.create({
   },
 
   viewer: {
-    width: window.innerWidth, //the pdf viewer will take up all of the width and height
+    width: window.innerWidth, //the pdf viewer will take up all the width and height
     height: window.innerHeight,
   },
 

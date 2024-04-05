@@ -38,7 +38,7 @@ function AdminYoutubeVideo({ video, height = 200, width = 350 }) {
       {
         route().current('admin.speakers.*') && (
           <div className="w-full flex justify-end mt-2 px-6">
-            <Button size={'sm'} variant={'destructive'} className={'text-sm py-2 px-3'} >Delete</Button>
+            <Button onClick={() => deleteVideo()} size={'sm'} variant={'destructive'} className={'text-sm py-2 px-3'} >Delete</Button>
           </div>
         )
       }

@@ -9,6 +9,7 @@ use App\Http\Resources\SpeakerResource;
 use App\Models\Location;
 use App\Models\Profile;
 use App\Models\Speaker;
+use App\Models\Video;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
@@ -75,8 +76,10 @@ class AdminSpeakerController extends Controller
      */
     public function show(Speaker $speaker)
     {
+
       return Inertia::render('Admin/Speakers/Show', [
         'speaker' => new SpeakerResource($speaker),
+        'videos'  => $speaker->videos,
       ]);
     }
 
@@ -123,8 +126,8 @@ class AdminSpeakerController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy( Speaker $speaker): void
     {
-        //
+        $speaker->delete();
     }
 }

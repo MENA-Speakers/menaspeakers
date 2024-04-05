@@ -12,9 +12,13 @@ import AdminYoutubeVideo from "@/Components/AdminYoutubeVideo";
 import {SpeakerType} from "@/types/speaker-type";
 import {VideoType} from "@/types/media";
 import AdminLayout from "@/Layouts/AdminLayout";
+import {Input} from "@/Components/ui/input";
+import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "@/Components/ui/select";
 
 function Show({ speaker, videos } : {speaker: SpeakerType, videos: VideoType[]} ) {
 
+  console.log('vidoes', videos)
+  console.log('speaker', speaker)
   const [video, setVideo] = useState(null);
   const [open, setOpen] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
@@ -30,7 +34,7 @@ function Show({ speaker, videos } : {speaker: SpeakerType, videos: VideoType[]} 
   const formik = useFormik({
     initialValues: {
       link: '',
-      videoSource: 0,
+      videoSource: 'youtube',
     },
 
     validationSchema: Yup.object({
@@ -42,9 +46,9 @@ function Show({ speaker, videos } : {speaker: SpeakerType, videos: VideoType[]} 
     }),
 
     onSubmit: values => {
-      let postUrl = route('admin.profiles.videos.store', speaker.slug);
+      let postUrl = route('admin.speakers.videos.store', speaker.slug);
       if (isEditing) {
-        postUrl = route('admin.profiles.videos.update', video.id);
+        postUrl = route('admin.speaker.videos.update', video.id);
       }
 
       axios.post(postUrl, values
@@ -132,17 +136,19 @@ function Show({ speaker, videos } : {speaker: SpeakerType, videos: VideoType[]} 
                           className=" max-w-4xl space-y-8 mx-auto py-8 px-8">
                           <div>
                             <label htmlFor="link" className="block text-sm font-medium text-gray-700">Video source</label>
-                            <select
-                              id="videoSource"
-                              name="videoSource"
-                              value={formik.values.videoSource}
-                              onChange={formik.handleChange}
-                              className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                            >
-                              <option value="">Select a video source</option>
-                              <option value="youtube">YouTube</option>
-                              <option value="vimeo">Vimeo</option>
-                            </select>
+                            <Select onValueChange={
+                              (value) => {
+                                formik.setFieldValue('videoSource', value);
+                              }
+                            } defaultValue={formik.values.videoSource}>
+                              <SelectTrigger className="">
+                                <SelectValue placeholder="Video source" />
+                              </SelectTrigger>
+                              <SelectContent>
+                                <SelectItem value="youtube">YouTube</SelectItem>
+                                <SelectItem value="vimeo">vimeo</SelectItem>
+                              </SelectContent>
+                            </Select>
                             {
                               formik.touched.videoSource && formik.errors.videoSource ? (
                                 <div className="text-red-500 text-xs italic">{formik.errors.videoSource}</div>
@@ -152,12 +158,11 @@ function Show({ speaker, videos } : {speaker: SpeakerType, videos: VideoType[]} 
                           <div>
                             <label htmlFor="link" className="block text-sm font-medium text-gray-700">Video Link</label>
                             <div className="mt-1">
-                              <input type="text"
+                              <Input type="text"
                                 name="link"
                                 value={formik.values.link}
                                 onChange={formik.handleChange}
                                 id="link"
-                                className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                                 placeholder={formik.values.videoSource === 'youtube' ? "https://www.youtube.com/watch?v=T-K9eo6L4UE" : "https://vimeo.com/524933864"} />
                             </div>
                             {
