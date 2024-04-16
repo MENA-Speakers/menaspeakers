@@ -8,8 +8,6 @@ import {useDropzone} from 'react-dropzone';
 import axios from "axios";
 import PrimaryButton from "@/Components/PrimaryButton";
 import AdminLayout from "@/Layouts/AdminLayout";
-import {Textarea} from "@/Components/ui/textarea";
-import {LocationType} from "@/types/location";
 import {Input} from "@/Components/ui/input";
 import {Label} from "@/Components/ui/label";
 import {ProfileType} from "@/types/admin-profiles";
@@ -19,11 +17,14 @@ import {Command, CommandEmpty, CommandGroup, CommandInput, CommandItem} from "@/
 import {Check, ChevronsUpDown} from "lucide-react";
 import {cn} from "@/Utils/cn";
 import localCountries from "@/Utils/countries";
+
 function Create( {profile} : { profile: ProfileType }) {
 
 
   const [ imagePreview, setImagePreview ] = React.useState( profile?.image ? profile.image : null );
   const [ open, setOpen ] = React.useState( false );
+  const [videoError, setVideoError] = React.useState( '' );
+  const [ videoUrl, setVideoUrl ] = React.useState( '' );
 
   const countries = localCountries
 
@@ -41,6 +42,7 @@ function Create( {profile} : { profile: ProfileType }) {
       website: profile?.website ? profile.website : '',
       fee: profile?.fee ? profile.fee : '',
       job_title: profile?.job_title ? profile.job_title : '',
+      videos: profile?.videos ? profile.videos : [],
       image: null,
     },
 
@@ -101,6 +103,17 @@ function Create( {profile} : { profile: ProfileType }) {
     },
   } );
 
+  const handleVideoAdded = ( video: string ) => {
+   if ( video ) {
+     //validate youtube link and set videoError
+      if ( !video.includes( 'youtube.com' ) ) {
+        setVideoError( 'Invalid youtube link' );
+        return;
+      }
+      formik.setFieldValue( 'videos', [ ...formik.values.videos, video ] );
+      setVideoUrl( '' );
+    }
+  }
 
   return (
 
@@ -304,12 +317,12 @@ function Create( {profile} : { profile: ProfileType }) {
                         {formik.values.location
                           ? countries.find((country) => country.name === formik.values.location)?.name
                           : "Select Country..."}
-                        <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+                        <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50"/>
                       </Button>
                     </PopoverTrigger>
                     <PopoverContent className="w-full p-0">
                       <Command>
-                        <CommandInput placeholder="Search country..." />
+                        <CommandInput placeholder="Search country..."/>
                         <CommandEmpty>No country found.</CommandEmpty>
                         <CommandGroup>
                           {countries.map((country) => (
@@ -373,7 +386,7 @@ function Create( {profile} : { profile: ProfileType }) {
                 {/*    display preview */}
                 {imagePreview && (
                   <div className='mx-auto mt-3'>
-                    <img src={imagePreview} className={'h-40 w-40 object-cover'} alt='' />
+                    <img src={imagePreview} className={'h-40 w-40 object-cover'} alt=''/>
                   </div>
                 )}
 
@@ -381,6 +394,57 @@ function Create( {profile} : { profile: ProfileType }) {
 
 
             </div>
+
+            <div>
+              Videos
+              <div className="py-4 space-y-4">
+                <div className="py-4 space-y-4">
+                  <div className="flex items-center flex-col space-y-3 w-full">
+                    {
+                      formik.values.videos.map((video, index) => (
+                        <div key={index} className="w-full">
+                          <div className="flex items-center space-x-4">
+                            <div className="flex-1">
+                              <p>
+                                {video}
+                              </p>
+                            </div>
+                            <div>
+                              <Button type={'button'} onClick={() => {
+                                formik.setFieldValue('videos', formik.values.videos.filter((v, i) => i !== index))
+                              }} size={'sm'} variant={'destructive'}>
+                                Delete
+                              </Button>
+                            </div>
+                          </div>
+                        </div>
+                      ))
+                    }
+                  </div>
+                </div>
+
+                <div className="flex items-center space-x-4">
+                  <div className="flex-1">
+                    <Input type="text"
+                           name={`video`}
+                           value={videoUrl}
+                           onChange={(e) => {
+                             setVideoUrl(e.target.value)
+                           }}
+                           className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                           placeholder="Video URL"/>
+                  </div>
+                  <div>
+                    <Button type={'button'} onClick={() => handleVideoAdded(videoUrl)} size={'sm'}>
+                      Add video
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
 
             <div>
               <div className="mt-1 flex justify-end">

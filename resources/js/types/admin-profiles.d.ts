@@ -9,6 +9,7 @@ export interface ProfileType {
   full_name?: string;
   first_name?: string;
   last_name?: string;
+  location?: string;
   job_title?: string;
   website?: string;
   dob?: string;
@@ -16,9 +17,9 @@ export interface ProfileType {
   email?: string;
   twitter?: string;
   image?: string;
-  linkedin?: string;
-  gallery?:GalleryType[];
+  linkedin: string;
+  gallery:GalleryType[];
   videos?: VideoType[];
-  fee?: string;
+  fee: string;
   about?: string;
 }

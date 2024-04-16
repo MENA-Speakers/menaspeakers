@@ -4,10 +4,10 @@ import {Link} from "@inertiajs/react";
 
 function SpeakerCard({speaker}) {
   return (
-    <div className={'shadow-md'}>
+    <div className={'border rounded-2xl overflow-hidden'}>
       <div className="overflow-hidden">
         <Link href={route('speakers.show', speaker.slug)} className={'overflow-hidden'}>
-          <img className={'w-full object-cover h-80 transition duration-300 ease-in-out hover:scale-105'} src={speaker.image} alt={speaker.name} loading='lazy'/>
+          <img className={'w-full object-cover h-96 transition duration-300 ease-in-out hover:scale-105'} src={speaker.image} alt={speaker.name} loading='lazy'/>
         </Link>
       </div>
       <div className="p-4">
