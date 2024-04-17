@@ -61,7 +61,7 @@ function Index({blogs, speakers, gallery} : IndexProps) {
             MOBILE VIEW
           */}
 
-        <div className="w-full pt-12">
+        <div className="lg:hidden w-full pt-12">
           <div className={'grid grid-cols-3 gap-2'}>
             <div className={'px-2'}>
               <div className={'bg-[#F25A29] h-96 mt-12 rounded-t-full overflow-hidden rounded-b-full'}>
@@ -102,7 +102,7 @@ function Index({blogs, speakers, gallery} : IndexProps) {
 
         </div>
 
-        <div className="absolute bg-gradient-to-t from-black to-transparent inset-0">
+        <div className="absolute lg:hidden bg-gradient-to-t from-black to-transparent inset-0">
           <div
             className={'w-full h-full flex space-y-8 flex-col px-6 justify-center -mt-[20%] items-center z-20'}>
             <h1 className="text-xl text-center font-semibold text-white">
