@@ -83,6 +83,4 @@ class Profile extends Model implements HasMedia
   {
     return $this->hasMany(RateCard::class);
   }
-
-
 }

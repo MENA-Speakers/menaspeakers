@@ -24,6 +24,7 @@ class ProfileResource extends JsonResource
             ];
         });
 
+
         return [
           'id' => $this->id,
           'hash_id' => $this->hash_id,
@@ -34,6 +35,9 @@ class ProfileResource extends JsonResource
           'about' => $this->about,
           'phone' => $this->phone,
           'email' => $this->email,
+          'videos' => $this->videoLinks?->map(function ($video) {
+            return new VideoLinkResource($video);
+          }),
           'website' => $this->website,
           'linkedin' => $this->linkedin,
           'twitter' => $this->twitter,

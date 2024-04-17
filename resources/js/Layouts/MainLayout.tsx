@@ -23,29 +23,30 @@ export default function MainLayout({ children} : {children: React.ReactNode}) {
 
   return (
     <div className="bg-white">
-      <header className="absolute inset-x-0 top-0 z-50 bg-black/30">
-       <div className="max-w-7xl mx-auto">
-         <nav className="flex items-center justify-between p-3 lg:px-8" aria-label="Global">
-           <div className="flex lg:flex-1">
-             <Link href="/" className="-m-1.5 p-1.5" aria-label={'MENA Speakers Logo'}>
-               <span className="sr-only">MENA Speakers</span>
-               <img
-                 className="h-12 w-auto"
-                 src="/images/Mena-logo-white.png"
-                 alt="mena speakers logo"
-                 width={'142'}
-                  height={'48'}
-               />
-             </Link>
+      <header className="absolute inset-x-0 top-0 z-50 ">
+       <div className="max-w-7xl justify-between lg:justify-start flex pt-4 mx-auto">
+         <Link href="/" className=" p-1.5" aria-label={'MENA Speakers Logo'}>
+           <span className="sr-only">MENA Speakers</span>
+           <img
+             className="h-12 w-auto"
+             src="/images/Mena-logo-white.png"
+             alt="mena speakers logo"
+             width={'142'}
+             height={'48'}
+           />
+         </Link>
+         <nav className="flex items-center  pl-6 p-3" aria-label="Global">
+           <div className="flex">
+
            </div>
-           <div className="flex lg:hidden">
+           <div className="flex  lg:hidden">
              <button
                type="button"
                className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
                onClick={() => setMobileMenuOpen(true)}
              >
                <span className="sr-only">Open main menu</span>
-               <Bars3Icon className="h-6 w-6" aria-hidden="true" />
+               <Bars3Icon className="h-6 w-6 text-white mr-3" aria-hidden="true" />
              </button>
            </div>
            <div className="hidden lg:flex lg:gap-x-12">
@@ -95,11 +96,11 @@ export default function MainLayout({ children} : {children: React.ReactNode}) {
               ))
              }
            </div>
-           <div className=" hidden lg:flex lg:flex-1 lg:justify-end">
-             <Link href={route('pages.contact')} className={"gradient-btn text-sm font-semibold py-2.5 px-4 py-2 px-4 text-white"}>
-               Book Now <span aria-hidden="true">&rarr;</span>
-             </Link>
-           </div>
+           {/*<div className=" hidden lg:flex lg:flex-1 lg:justify-end">*/}
+           {/*  <Link href={route('pages.contact')} className={"gradient-btn text-sm font-semibold py-2.5 px-4 py-2 px-4 text-white"}>*/}
+           {/*    Book Now <span aria-hidden="true">&rarr;</span>*/}
+           {/*  </Link>*/}
+           {/*</div>*/}
          </nav>
          <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
            <div className="fixed inset-0 z-50" />

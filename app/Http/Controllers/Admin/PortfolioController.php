@@ -80,6 +80,8 @@ class PortfolioController extends Controller
     public function update(Request $request, Portfolio $portfolio)
     {
 
+
+
         $profile = Profile::find($request->input('profile'));
 
         $portfolio->update([
@@ -98,6 +100,15 @@ class PortfolioController extends Controller
                     $fileAdder->toMediaCollection('gallery');
                 });
         }
+
+      //add videolinks if there is videos in request
+      if($request->has('videos')){
+        foreach($request->input('videos') as $video){
+          $portfolio->videoLinks()->create([
+            'link' => $video->link
+          ]);
+        }
+      }
 
         return redirect()->route('admin.portfolios.index')->with('success', 'Portfolio updated.');
 

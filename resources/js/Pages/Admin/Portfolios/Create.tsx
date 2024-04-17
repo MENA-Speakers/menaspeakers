@@ -30,6 +30,8 @@ function Create( {portfolio, profiles} : { portfolio: PortfolioType, profiles: P
     }
   }, [portfolio]);
 
+  const [videoLink, setVideoLink] = React.useState('');
+
 
   const formik = useFormik( {
     initialValues: {
@@ -38,6 +40,7 @@ function Create( {portfolio, profiles} : { portfolio: PortfolioType, profiles: P
       gallery: portfolio?.gallery ? portfolio.gallery : '',
       summary: portfolio?.summary ? portfolio.summary : '',
       profile: portfolio?.profile_id ? portfolio.profile_id : '',
+      videos: [],
     },
 
     validationSchema: Yup.object( {
@@ -101,6 +104,9 @@ function Create( {portfolio, profiles} : { portfolio: PortfolioType, profiles: P
   },
 });
 
+  const handleVideoAdded = (video: string) => {
+    formik.setFieldValue('videos', [...formik.values.videos, video]);
+  }
 
 
   return (
@@ -196,6 +202,7 @@ function Create( {portfolio, profiles} : { portfolio: PortfolioType, profiles: P
                                 key={profile.id}
                                 onSelect={() => {
                                   formik.setFieldValue("profile", profile.id)
+                                  formik.setFieldValue("videos", profile.videos);
                                 }}
                               >
                                 {profile.full_name}
@@ -246,43 +253,91 @@ function Create( {portfolio, profiles} : { portfolio: PortfolioType, profiles: P
               }
 
             </div>
-              <div className='w-full  '>
-                <Label htmlFor={'file'}>Featured Image</Label>
-                <div {...getRootProps({className: 'border-dashed border-2 rounded-lg mt-2 py-4 px-4'})}>
-                  <input {...getInputProps()} />
-                  <p className={'text-sm'}>Drag 'n' Cover Image, or click to select files</p>
-                </div>
+            <div className='w-full  '>
+              <Label htmlFor={'file'}>Featured Image</Label>
+              <div {...getRootProps({className: 'border-dashed border-2 rounded-lg mt-2 py-4 px-4'})}>
+                <input {...getInputProps()} />
+                <p className={'text-sm'}>Drag 'n' Cover Image, or click to select files</p>
+              </div>
 
-                {/*    display preview */}
-                <div className={'flex mt-4'}>
-                  {
-                    galleryPreview.map((file: any, index: number) => {
-                      return (
-                        <div key={index} className={'w-24 h-24 mr-4'}>
-                          <img src={file.preview} alt=""/>
-                        </div>
-                      )
-                    })
-                  }
-
-                </div>
+              {/*    display preview */}
+              <div className={'flex mt-4'}>
+                {
+                  galleryPreview.map((file: any, index: number) => {
+                    return (
+                      <div key={index} className={'w-24 h-24 mr-4'}>
+                        <img src={file.preview} alt=""/>
+                      </div>
+                    )
+                  })
+                }
 
               </div>
 
-              <div className={'pt-8'}>
-                <div className=" flex justify-end">
-                  <PrimaryButton disabled={formik.isSubmitting} type="submit">
+            </div>
+
+            <div>
+              Videos
+              <div className="py-4 space-y-4">
+                <div className="py-4 space-y-4">
+                  <div className="flex items-center flex-col space-y-3 w-full">
                     {
-                      portfolio ? 'Update Portfolio' : 'Add Portfolio'
+                      formik.values.videos.map((video, index) => (
+                        <div key={index} className="w-full">
+                          <div className="flex items-center space-x-4">
+                            <div className="flex-1">
+                              <p>
+                                {video.link}
+                              </p>
+                            </div>
+                            <div>
+                              <Button type={'button'} onClick={() => {
+                                formik.setFieldValue('videos', formik.values.videos.filter((v, i) => i !== index))
+                              }} size={'sm'} variant={'destructive'}>
+                                Delete
+                              </Button>
+                            </div>
+                          </div>
+                        </div>
+                      ))
                     }
-                  </PrimaryButton>
+                  </div>
+                </div>
+
+                <div className="flex items-center space-x-4">
+                  <div className="flex-1">
+                    <Input type="text"
+                           name={`video`}
+                           value={videoLink}
+                           onChange={(e) => {
+                             setVideoLink(e.target.value)
+                           }}
+                           className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                           placeholder="Video URL"/>
+                  </div>
+                  <div>
+                    <Button type={'button'} onClick={() => handleVideoAdded(videoLink)} size={'sm'}>
+                      Add video
+                    </Button>
+                  </div>
                 </div>
               </div>
+            </div>
+
+            <div className={'pt-8'}>
+              <div className=" flex justify-end">
+                <PrimaryButton disabled={formik.isSubmitting} type="submit">
+                  {
+                    portfolio ? 'Update Portfolio' : 'Add Portfolio'
+                  }
+                </PrimaryButton>
+              </div>
+            </div>
           </form>
         </div>
       </div>
     </AdminLayout>
-);
+  );
 }
 
 export default Create;
