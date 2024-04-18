@@ -24,7 +24,7 @@ export default function MainLayout({ children} : {children: React.ReactNode}) {
   return (
     <div className="bg-white">
       <header className="absolute inset-x-0 top-0 z-50 ">
-       <div className="max-w-7xl justify-between lg:justify-start flex pt-4 mx-auto">
+       <div className="max-w-7xl justify-start flex pt-4 mx-auto">
          <Link href="/" className=" p-1.5" aria-label={'MENA Speakers Logo'}>
            <span className="sr-only">MENA Speakers</span>
            <img
@@ -42,14 +42,14 @@ export default function MainLayout({ children} : {children: React.ReactNode}) {
            <div className="flex  lg:hidden">
              <button
                type="button"
-               className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
+               className="-m-2.5 inline-flex items-center justify-start rounded-md p-2.5 text-gray-700"
                onClick={() => setMobileMenuOpen(true)}
              >
                <span className="sr-only">Open main menu</span>
-               <Bars3Icon className="h-6 w-6 text-white mr-3" aria-hidden="true" />
+               <Bars3Icon className="h-6 w-6 text-white" aria-hidden="true" />
              </button>
            </div>
-           <div className="hidden lg:flex lg:gap-x-12">
+           <div className="hidden lg:flex lg:gap-x-8">
              {navigation.map((item) => (
               !item.dropdown ? (
                 <Link key={item.name} href={route(item?.route)} className="text-sm font-semibold leading-6 text-white">
