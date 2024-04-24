@@ -9,7 +9,7 @@ function BlogCard({ blog }) {
         <span className="gradient-btn py-1 px-2 text-white font-semibold text-sm">
           Latest
         </span>
-        <span className={'text-xs text-gray-400'}>
+        <span className={'text-xs text-gray-600'}>
           {blog.published_at}
         </span>
       </div>

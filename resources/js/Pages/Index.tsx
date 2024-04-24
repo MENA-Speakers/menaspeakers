@@ -58,211 +58,86 @@ function Index({blogs, speakers, gallery} : IndexProps) {
 
       </Head>
       {/* Hero Header*/}
-      <section className="w-full bg-black  relative">
 
-        {/*
-            MOBILE VIEW
-          */}
+      <section className="relative">
+        <BackgroundGradientAnimation>
+          <div
 
-        {/*<div className="lg:hidden w-full pt-12">*/}
-        {/*  <div className={'grid grid-cols-3 gap-2'}>*/}
-        {/*    <div className={'px-2'}>*/}
-        {/*      <div className={'bg-[#F25A29] h-96 mt-12 rounded-t-full overflow-hidden rounded-b-full'}>*/}
-        {/*        <img src="/images/speakers/amna.png" alt="Amna" className={'h-96 w-full object-cover'}/>*/}
-        {/*      </div>*/}
-        {/*    </div>*/}
+            className="w-full   pointer-events-none  absolute z-10 inset-0"
+          >
+            <div className="lg:hidden w-full pt-12">
+              <div className={'grid grid-cols-3 gap-2'}>
+                <div className={'px-2'}>
+                  <div className={'bg-[#F25A29] h-96 mt-12 rounded-t-full overflow-hidden rounded-b-full'}>
+                    <img src="/images/speakers/amna.png" alt="Amna" className={'h-96 w-full object-cover'}/>
+                  </div>
+                </div>
 
-        {/*    <div className={'px-2'}>*/}
-        {/*      <div className={'bg-[#35ADE4] overflow-hidden h-96 pt-12 rounded-t-full rounded-b-full'}>*/}
-        {/*        <img src="/images/speakers/james.png" alt="Amna" className={'h-96 w-full object-cover'}/>*/}
-        {/*      </div>*/}
-        {/*    </div>*/}
+                <div className={'px-2'}>
+                  <div className={'bg-[#35ADE4] overflow-hidden h-96 pt-12 rounded-t-full rounded-b-full'}>
+                    <img src="/images/speakers/james.png" alt="Amna" className={'h-96 w-full object-cover'}/>
+                  </div>
+                </div>
 
-        {/*    <div className={'px-2'}>*/}
-        {/*      <div className={'bg-[#415CAB] mt-12 h-96 rounded-t-full overflow-hidden pt-12 rounded-b-full'}>*/}
-        {/*        <img src="/images/speakers/thea.png" alt="Amna" className={'h-96 w-full object-cover'}/>*/}
-        {/*      </div>*/}
-        {/*    </div>*/}
+                <div className={'px-2'}>
+                  <div className={'bg-[#415CAB] mt-12 h-96 rounded-t-full overflow-hidden pt-12 rounded-b-full'}>
+                    <img src="/images/speakers/thea.png" alt="Amna" className={'h-96 w-full object-cover'}/>
+                  </div>
+                </div>
 
-        {/*    <div className={'px-2'}>*/}
-        {/*      <div className={'bg-[#A2DEFA] pt-8 mt-12  h-96 rounded-t-full overflow-hidden  rounded-b-full'}>*/}
-        {/*        <img src="/images/speakers/erik.png" alt="Amna" className={'h-96 w-full object-cover'}/>*/}
-        {/*      </div>*/}
-        {/*    </div>*/}
+                <div className={'px-2'}>
+                  <div className={'bg-[#A2DEFA] pt-8 mt-12  h-96 rounded-t-full overflow-hidden  rounded-b-full'}>
+                    <img src="/images/speakers/erik.png" alt="Amna" className={'h-96 w-full object-cover'}/>
+                  </div>
+                </div>
 
-        {/*    <div className={'px-2'}>*/}
-        {/*      <div className={'bg-[#1F4083]  h-96  rounded-t-full overflow-hidden pt-12 rounded-b-full'}>*/}
-        {/*        <img src="/images/speakers/corry.png" alt="Amna" className={'h-96 w-full object-cover'}/>*/}
-        {/*      </div>*/}
-        {/*    </div>*/}
+                <div className={'px-2'}>
+                  <div className={'bg-[#1F4083]  h-96  rounded-t-full overflow-hidden pt-12 rounded-b-full'}>
+                    <img src="/images/speakers/corry.png" alt="Amna" className={'h-96 w-full object-cover'}/>
+                  </div>
+                </div>
 
-        {/*    <div className={'px-2'}>*/}
-        {/*      <div className={'bg-[#F19028] mt-12  h-96 rounded-t-full overflow-hidden pt-12  rounded-b-full'}>*/}
-        {/*        <img src="/images/speakers/david.png" alt="Amna" className={'h-96 w-full object-cover'}/>*/}
-        {/*      </div>*/}
-        {/*    </div>*/}
-        {/*  </div>*/}
-
-        {/*</div>*/}
-
-        {/*<div className="absolute lg:hidden bg-gradient-to-t from-black to-transparent inset-0">*/}
-        {/*  <div*/}
-        {/*    className={'w-full h-full flex space-y-8 flex-col px-6 justify-center -mt-[20%] items-center z-20'}>*/}
-        {/*    <h1 className="text-xl text-center font-semibold text-white">*/}
-        {/*      LEADING SPEAKERS & MC CORPORATION IN THE MIDDLE EAST*/}
-        {/*    </h1>*/}
-        {/*    <p className="text-white lg:text-lg text-center  ">Public Speakers. MCs. Corporate Trainers. One Stop*/}
-        {/*      Solution!*/}
-        {/*    </p>*/}
-        {/*    <div>*/}
-        {/*      <Link className={'text-white mt-8 rounded-r-3xl rounded-tl-3xl bg-[#35ADE2] py-4 px-6'}*/}
-        {/*            aria-label={'Contact us'} href={route('pages.contact')}>*/}
-        {/*        <span className={'sr-only'}>Contact us</span>*/}
-        {/*        Get a speaker in 5 minutes*/}
-        {/*      </Link>*/}
-        {/*    </div>*/}
-        {/*  </div>*/}
-        {/*</div>*/}
-
-
-        {/*<div className="max-w-7xl mx-auto h-[600px] lg:h-[800px] hidden lg:flex ">*/}
-
-
-        {/*  /!* DESKTOP VIEW *!/*/}
-
-        {/*  <div className="w-full lg:w-1/2 ">*/}
-        {/*    <div*/}
-        {/*      className={'w-full lg:max-w-4xl mx-auto pr-12 lg:px-0 pt-40 lg:pt-0 h-full flex space-y-8 flex-col justify-center z-20'}>*/}
-        {/*      <h1 className="text-2xl lg:text-4xl font-semibold text-white">*/}
-        {/*        LEADING SPEAKERS & MC CORPORATION IN THE MIDDLE EAST*/}
-        {/*      </h1>*/}
-        {/*      <p className="text-white lg:text-lg font-semibold  ">Public Speakers. MCs. Corporate Trainers. One Stop*/}
-        {/*        Solution!*/}
-        {/*      </p>*/}
-        {/*      <div>*/}
-        {/*        <Link className={'text-white mt-8 rounded-r-3xl rounded-tl-3xl bg-[#35ADE2] py-4 px-6'}*/}
-        {/*              aria-label={'Contact us'} href={route('pages.contact')}>*/}
-        {/*          <span className={'sr-only'}>Contact us</span>*/}
-        {/*          Get a speaker in 5 minutes*/}
-        {/*        </Link>*/}
-        {/*      </div>*/}
-        {/*    </div>*/}
-        {/*  </div>*/}
-        {/*  <div className="w-full lg:w-1/2 pl-12">*/}
-        {/*    <div className={'grid grid-cols-3 gap-4'}>*/}
-        {/*      <div className={'px-5'}>*/}
-        {/*        <div className={'bg-[#F25A29] h-96 rounded-t-full overflow-hidden rounded-b-full'}>*/}
-        {/*          <img src="/images/speakers/amna.png" alt="Amna" className={'h-96 w-full object-cover'}/>*/}
-        {/*        </div>*/}
-        {/*      </div>*/}
-
-        {/*      <div className={'px-5'}>*/}
-        {/*        <div className={'bg-[#35ADE4] overflow-hidden h-96 -mt-24 pt-24 rounded-t-full rounded-b-full'}>*/}
-        {/*          <img src="/images/speakers/james.png" alt="Amna" className={'h-96 w-full object-cover'}/>*/}
-        {/*        </div>*/}
-        {/*      </div>*/}
-
-        {/*      <div className={'px-5'}>*/}
-        {/*        <div className={'bg-[#415CAB]  h-96 rounded-t-full overflow-hidden pt-12 rounded-b-full'}>*/}
-        {/*          <img src="/images/speakers/thea.png" alt="Amna" className={'h-96 w-full object-cover'}/>*/}
-        {/*        </div>*/}
-        {/*      </div>*/}
-
-        {/*      <div className={'px-5'}>*/}
-        {/*        <div className={'bg-[#A2DEFA] pt-8  h-96 rounded-t-full overflow-hidden  rounded-b-full'}>*/}
-        {/*          <img src="/images/speakers/erik.png" alt="Amna" className={'h-96 w-full object-cover'}/>*/}
-        {/*        </div>*/}
-        {/*      </div>*/}
-
-        {/*      <div className={'px-5'}>*/}
-        {/*        <div className={'bg-[#1F4083]  h-96 -mt-24 rounded-t-full overflow-hidden pt-12 rounded-b-full'}>*/}
-        {/*          <img src="/images/speakers/corry.png" alt="Amna" className={'h-96 w-full object-cover'}/>*/}
-        {/*        </div>*/}
-        {/*      </div>*/}
-
-        {/*      <div className={'px-5'}>*/}
-        {/*        <div className={'bg-[#F19028]  h-96 rounded-t-full overflow-hidden pt-12  rounded-b-full'}>*/}
-        {/*          <img src="/images/speakers/david.png" alt="Amna" className={'h-96 w-full object-cover'}/>*/}
-        {/*        </div>*/}
-        {/*      </div>*/}
-        {/*    </div>*/}
-
-        {/*  </div>*/}
-        {/*</div>*/}
-      </section>
-
-      <BackgroundGradientAnimation>
-        <div
-
-          className="w-full bg-black/60 backdrop-blur-lg pointer-events-none  absolute z-30 inset-0"
-        >
-          <div className="lg:hidden w-full pt-12">
-            <div className={'grid grid-cols-3 gap-2'}>
-              <div className={'px-2'}>
-                <div className={'bg-[#F25A29] h-96 mt-12 rounded-t-full overflow-hidden rounded-b-full'}>
-                  <img src="/images/speakers/amna.png" alt="Amna" className={'h-96 w-full object-cover'}/>
+                <div className={'px-2'}>
+                  <div className={'bg-[#F19028] mt-12  h-96 rounded-t-full overflow-hidden pt-12  rounded-b-full'}>
+                    <img src="/images/speakers/david.png" alt="Amna" className={'h-96 w-full object-cover'}/>
+                  </div>
                 </div>
               </div>
 
-              <div className={'px-2'}>
-                <div className={'bg-[#35ADE4] overflow-hidden h-96 pt-12 rounded-t-full rounded-b-full'}>
-                  <img src="/images/speakers/james.png" alt="Amna" className={'h-96 w-full object-cover'}/>
-                </div>
-              </div>
+            </div>
 
-              <div className={'px-2'}>
-                <div className={'bg-[#415CAB] mt-12 h-96 rounded-t-full overflow-hidden pt-12 rounded-b-full'}>
-                  <img src="/images/speakers/thea.png" alt="Amna" className={'h-96 w-full object-cover'}/>
-                </div>
-              </div>
-
-              <div className={'px-2'}>
-                <div className={'bg-[#A2DEFA] pt-8 mt-12  h-96 rounded-t-full overflow-hidden  rounded-b-full'}>
-                  <img src="/images/speakers/erik.png" alt="Amna" className={'h-96 w-full object-cover'}/>
-                </div>
-              </div>
-
-              <div className={'px-2'}>
-                <div className={'bg-[#1F4083]  h-96  rounded-t-full overflow-hidden pt-12 rounded-b-full'}>
-                  <img src="/images/speakers/corry.png" alt="Amna" className={'h-96 w-full object-cover'}/>
-                </div>
-              </div>
-
-              <div className={'px-2'}>
-                <div className={'bg-[#F19028] mt-12  h-96 rounded-t-full overflow-hidden pt-12  rounded-b-full'}>
-                  <img src="/images/speakers/david.png" alt="Amna" className={'h-96 w-full object-cover'}/>
+            <div className="absolute lg:hidden bg-gradient-to-t z-50 from-black to-transparent inset-0">
+              <div
+                className={'w-full h-full flex space-y-8 flex-col px-6 justify-center -mt-[20%] items-center z-20'}>
+                <h1 className="text-xl text-center font-semibold text-white">
+                  LEADING SPEAKERS & MC CORPORATION IN THE MIDDLE EAST
+                </h1>
+                <p className="text-white lg:text-lg text-center  ">Public Speakers. MCs. Corporate Trainers. One Stop
+                  Solution!
+                </p>
+                <div>
+                  <Link className={'text-white mt-8 rounded-r-3xl rounded-tl-3xl bg-[#35ADE2] py-4 px-6'}
+                        aria-label={'Contact us'} href={route('pages.contact')}>
+                    <span className={'sr-only'}>Contact us</span>
+                    Get a speaker in 5 minutes
+                  </Link>
                 </div>
               </div>
             </div>
 
-          </div>
 
-          <div className="absolute lg:hidden bg-gradient-to-t from-black to-transparent inset-0">
-            <div
-              className={'w-full h-full flex space-y-8 flex-col px-6 justify-center -mt-[20%] items-center z-20'}>
-              <h1 className="text-xl text-center font-semibold text-white">
-                LEADING SPEAKERS & MC CORPORATION IN THE MIDDLE EAST
-              </h1>
-              <p className="text-white lg:text-lg text-center  ">Public Speakers. MCs. Corporate Trainers. One Stop
-                Solution!
-              </p>
-              <div>
-                <Link className={'text-white mt-8 rounded-r-3xl rounded-tl-3xl bg-[#35ADE2] py-4 px-6'}
-                      aria-label={'Contact us'} href={route('pages.contact')}>
-                  <span className={'sr-only'}>Contact us</span>
-                  Get a speaker in 5 minutes
-                </Link>
-              </div>
+            <div className="max-w-7xl mx-auto h-[600px] lg:h-[800px] hidden lg:flex ">
+
+
+              {/* DESKTOP VIEW */}
+
             </div>
           </div>
+        </BackgroundGradientAnimation>
+        <div className="absolute inset-0 backdrop-blur-2xl bg-black/30  ">
 
-
-          <div className="max-w-7xl mx-auto h-[600px] lg:h-[800px] hidden lg:flex ">
-
-
-            {/* DESKTOP VIEW */}
-
-            <div className="w-full lg:w-1/2 ">
+          <div className="max-w-7xl mx-auto flex">
+            <div className="w-full  lg:w-1/2 ">
               <div
                 className={'w-full lg:max-w-4xl mx-auto pr-12 lg:px-0 pt-40 lg:pt-0 h-full flex space-y-8 flex-col justify-center z-20'}>
                 <h1 className="text-2xl lg:text-4xl font-semibold text-white">
@@ -272,7 +147,7 @@ function Index({blogs, speakers, gallery} : IndexProps) {
                   Solution!
                 </p>
                 <div>
-                  <Link className={'text-white mt-8 rounded-r-3xl rounded-tl-3xl bg-[#35ADE2] py-4 px-6'}
+                  <Link className={'text-white mt-8 rounded-r-3xl rounded-tl-3xl bg-mena-300 py-4 px-6'}
                         aria-label={'Contact us'} href={route('pages.contact')}>
                     <span className={'sr-only'}>Contact us</span>
                     Get a speaker in 5 minutes
@@ -322,12 +197,8 @@ function Index({blogs, speakers, gallery} : IndexProps) {
             </div>
           </div>
         </div>
-      </BackgroundGradientAnimation>
-
-      <section className={'bg-gradient-to-t p-2 from-black to-gray-500'}>
-
-
       </section>
+
 
       <section className={'py-12 bg-black w-full lg:pb-72'}>
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -384,7 +255,7 @@ function Index({blogs, speakers, gallery} : IndexProps) {
 
             <div className={'w-full grid grid-cols-1 lg:grid-cols-2 mt-12 pt-12'}>
               <div className="pt-12 lg:pt-0">
-              <Link href={route('pages.contact')} aria-label={'Contact us'} className="gradient-btn font-semibold py-3 px-4 ">Book
+              <Link href={route('pages.contact')} aria-label={'Contact us'} className="gradient-btn text-white rounded-2xl font-semibold py-3 px-4 ">Book
                   Our Speakers
                 </Link>
               </div>
@@ -404,7 +275,7 @@ function Index({blogs, speakers, gallery} : IndexProps) {
 
       <section className={'lg:-mt-40 mt-12 '}>
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-y-8 lg:gap-y-0 px-6">
-          <div className="py-12 transition duration-300 ease-in-out hover:scale-105 bg-mena-100 flex flex-col">
+          <div className="py-12 transition duration-300 ease-in-out hover:scale-105 bg-mena-300 flex flex-col">
             <div className={'w-full px-6 lg:px-20'}>
               <svg className={'w-12 h-12'} xmlns="http://www.w3.org/2000/svg" xmlSpace="preserve" fill="#fff"
                    stroke="#fff" viewBox="0 0 488 488">
@@ -553,7 +424,7 @@ function Index({blogs, speakers, gallery} : IndexProps) {
 
           </div>
           <div className={'lg:pl-36 pt-36 lg:pt-0 flex flex-col justify-center'}>
-            <h3 className="uppercase text-gray-400 text-sm font-semibold">The Best in Growth</h3>
+            <h3 className="uppercase text-gray-700 text-sm font-semibold">The Best in Growth</h3>
             <div className="lg:w-[90%] py-4 mt-3">
               <p className="text-3xl font-semibold text-gray-900">The Largest Pool of Top Speaker in the MENA Region</p>
             </div>
