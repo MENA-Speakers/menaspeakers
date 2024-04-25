@@ -30,7 +30,7 @@ function Index({blogs, speakers, gallery} : IndexProps) {
     type: 'website',
     twitter: '@menaspeakers',
     keywords: "MENA Speakers, Speakers, MCs, Corporate Trainers, One Stop Solution",
-    image: "https://mena-speakers.com/images/mena-speakers-logo.png",
+    image: "https://mena-speakers.com/images/mena-speakers-logo.webp",
   } as OpenGraphDataType;
 
   return (
@@ -69,37 +69,37 @@ function Index({blogs, speakers, gallery} : IndexProps) {
               <div className={'grid grid-cols-3 gap-2'}>
                 <div className={'px-2'}>
                   <div className={'bg-[#F25A29] h-96 mt-12 rounded-t-full overflow-hidden rounded-b-full'}>
-                    <img src="/images/speakers/amna.png" alt="Amna" className={'h-96 w-full object-cover'}/>
+                    <img src="/images/speakers/amna.webp" alt="Amna" className={'h-96 w-full object-cover'}/>
                   </div>
                 </div>
 
                 <div className={'px-2'}>
                   <div className={'bg-[#35ADE4] overflow-hidden h-96 pt-12 rounded-t-full rounded-b-full'}>
-                    <img src="/images/speakers/james.png" alt="Amna" className={'h-96 w-full object-cover'}/>
+                    <img src="/images/speakers/james.webp" alt="Amna" className={'h-96 w-full object-cover'}/>
                   </div>
                 </div>
 
                 <div className={'px-2'}>
                   <div className={'bg-[#415CAB] mt-12 h-96 rounded-t-full overflow-hidden pt-12 rounded-b-full'}>
-                    <img src="/images/speakers/thea.png" alt="Amna" className={'h-96 w-full object-cover'}/>
+                    <img src="/images/speakers/thea.webp" alt="Amna" className={'h-96 w-full object-cover'}/>
                   </div>
                 </div>
 
                 <div className={'px-2'}>
                   <div className={'bg-[#A2DEFA] pt-8 mt-12  h-96 rounded-t-full overflow-hidden  rounded-b-full'}>
-                    <img src="/images/speakers/erik.png" alt="Amna" className={'h-96 w-full object-cover'}/>
+                    <img src="/images/speakers/erik.webp" alt="Amna" className={'h-96 w-full object-cover'}/>
                   </div>
                 </div>
 
                 <div className={'px-2'}>
                   <div className={'bg-[#1F4083]  h-96  rounded-t-full overflow-hidden pt-12 rounded-b-full'}>
-                    <img src="/images/speakers/corry.png" alt="Amna" className={'h-96 w-full object-cover'}/>
+                    <img src="/images/speakers/corry.webp" alt="Amna" className={'h-96 w-full object-cover'}/>
                   </div>
                 </div>
 
                 <div className={'px-2'}>
                   <div className={'bg-[#F19028] mt-12  h-96 rounded-t-full overflow-hidden pt-12  rounded-b-full'}>
-                    <img src="/images/speakers/david.png" alt="Amna" className={'h-96 w-full object-cover'}/>
+                    <img src="/images/speakers/david.webp" alt="Amna" className={'h-96 w-full object-cover'}/>
                   </div>
                 </div>
               </div>
@@ -159,37 +159,37 @@ function Index({blogs, speakers, gallery} : IndexProps) {
               <div className={'grid grid-cols-3 gap-4 gap-y-8'}>
                 <div className={'px-3'}>
                   <div className={'bg-[#F25A29] h-[450px] rounded-t-full overflow-hidden rounded-b-full'}>
-                    <img src="/images/speakers/amna.png" alt="Amna" className={'h-[450px] w-full object-cover'}/>
+                    <img src="/images/speakers/amna.webp" alt="Amna" className={'h-[450px] w-full object-cover'}/>
                   </div>
                 </div>
 
                 <div className={'px-3'}>
                   <div className={'bg-[#35ADE4] overflow-hidden h-[450px] -mt-24 pt-24 rounded-t-full rounded-b-full'}>
-                    <img src="/images/speakers/james.png" alt="Amna" className={'h-[450px] w-full object-cover'}/>
+                    <img src="/images/speakers/james.webp" alt="Amna" className={'h-[450px] w-full object-cover'}/>
                   </div>
                 </div>
 
                 <div className={'px-3'}>
                   <div className={'bg-[#415CAB]  h-[450px] rounded-t-full overflow-hidden pt-12 rounded-b-full'}>
-                    <img src="/images/speakers/thea.png" alt="Amna" className={'h-[450px] w-full object-cover'}/>
+                    <img src="/images/speakers/thea.webp" alt="Amna" className={'h-[450px] w-full object-cover'}/>
                   </div>
                 </div>
 
                 <div className={'px-3'}>
                   <div className={'bg-[#A2DEFA] pt-8  h-[450px] rounded-t-full overflow-hidden  rounded-b-full'}>
-                    <img src="/images/speakers/erik.png" alt="Amna" className={'h-[450px] w-full object-cover'}/>
+                    <img src="/images/speakers/erik.webp" alt="Amna" className={'h-[450px] w-full object-cover'}/>
                   </div>
                 </div>
 
                 <div className={'px-3'}>
                   <div className={'bg-[#1F4083]  h-[450px] -mt-24 rounded-t-full overflow-hidden pt-12 rounded-b-full'}>
-                    <img src="/images/speakers/corry.png" alt="Amna" className={'h-[450px] w-full object-cover'}/>
+                    <img src="/images/speakers/corry.webp" alt="Amna" className={'h-[450px] w-full object-cover'}/>
                   </div>
                 </div>
 
                 <div className={'px-3'}>
                   <div className={'bg-[#F19028]  h-[450px] rounded-t-full overflow-hidden pt-12  rounded-b-full'}>
-                    <img src="/images/speakers/david.png" alt="Amna" className={'h-[450px] w-full object-cover'}/>
+                    <img src="/images/speakers/david.webp" alt="Amna" className={'h-[450px] w-full object-cover'}/>
                   </div>
                 </div>
               </div>
