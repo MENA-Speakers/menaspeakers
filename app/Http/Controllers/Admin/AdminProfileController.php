@@ -63,8 +63,6 @@ class AdminProfileController extends Controller
     public function store(StoreProfileRequest $request)
     {
 
-
-
       $profile = Profile::create([
         'first_name' => $request->input('first_name'),
         'last_name' => $request->input('last_name'),
@@ -79,12 +77,22 @@ class AdminProfileController extends Controller
         'dob' => Carbon::parse($request->input('dob'))->format('Y-m-d'),
       ]);
 
+
       if($request->hasFile('image')){
         $profile->addMediaFromRequest('image')
           ->toMediaCollection('avatar');
       }
 
-      //add videolinks if there is videos in request
+      //add video  links if there is videos in request
+      if($request->has('videos')){
+        foreach($request->input('videos') as $video){
+          $profile->videoLinks()->create([
+            'link' => $video
+          ]);
+        }
+      }
+
+      //add video  links if there is videos in request
       if($request->has('videos')){
         foreach($request->input('videos') as $video){
           $profile->videoLinks()->create([
