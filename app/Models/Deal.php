@@ -10,4 +10,9 @@ class Deal extends Model
     use HasFactory;
 
     protected $guarded = ['id'];
+
+    public function responsible()
+    {
+        return $this->belongsTo(User::class, 'responsible_id');
+    }
 }
