@@ -31,7 +31,7 @@ class SpeakerNotificationController extends Controller
     $speakerString = $request->input('speakers');
 
     $deal = Deal::firstOrCreate([
-      'bitrix_deal_id' => $request->input('bitrix_deal_id')],
+      'bitrix_deal_id' => $request->input('deal_id')],
       [
         'title' => $request->input('title'),
         'date' => $request->input('event_date'),
@@ -49,7 +49,7 @@ class SpeakerNotificationController extends Controller
     foreach($speakers as $speaker){
       $currentSpeaker = Profile::search($speaker)->first();
       if($currentSpeaker){
-        $currentSpeaker->user->notify(new SpeakerPitchedNotification($currentSpeaker, $deal));
+        $currentSpeaker->notify(new SpeakerPitchedNotification($currentSpeaker, $deal));
       } else {
 
         $user->notify(new SpeakerPitchedErrorNotification($speaker, $deal));
