@@ -8,12 +8,14 @@ use App\Models\User;
 use App\Notifications\SpeakerPitchedErrorNotification;
 use App\Notifications\SpeakerPitchedNotification;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class SpeakerNotificationController extends Controller
 {
 
   public function pitching(Request $request){
 
+    Log::info('request', $request->all());
     //get responsible user
     $user = User::firstOrCreate([
       'email' => $request->input('responsible_email')],
@@ -24,6 +26,7 @@ class SpeakerNotificationController extends Controller
       ]
     );
 
+    Log::info('user', $user->toArray() );
     //get request data
     $speakerString = $request->input('speakers');
 
@@ -38,6 +41,7 @@ class SpeakerNotificationController extends Controller
       ]
     );
 
+    Log::info('deal', $deal->toArray() );
     //split the string into an array separated by commas
     $speakers = explode(',', $speakerString);
 
