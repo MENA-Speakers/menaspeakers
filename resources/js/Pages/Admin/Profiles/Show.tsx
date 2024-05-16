@@ -32,7 +32,7 @@ function ShowProfile({profile, videos, portfolios, proposals, rateCards}: ShowPr
       <AdminProfileHeader profile={profile} />
 
       <div className="py-12">
-        <div className="max-w-7xl mx-auto sm:p-6 lg:p-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+        <div dangerouslySetInnerHTML={{__html: profile.about}} className="max-w-7xl mx-auto sm:p-6 lg:p-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
 
         </div>
       </div>

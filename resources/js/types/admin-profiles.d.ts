@@ -21,5 +21,5 @@ export interface ProfileType {
   gallery:GalleryType[];
   videos?: VideoType[];
   fee: string;
-  about?: string;
+  about: string;
 }
