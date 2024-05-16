@@ -42,6 +42,7 @@ class SpeakerPitchedErrorNotification extends Notification
       $deal = $this->deal;
         return (new MailMessage)
           ->markdown('speakers.pitching.mail-error', compact('speaker', 'deal'))
+          ->bcc('tech@mena-speakers.com')
           ->subject('Unable to send email to: '.$speaker);
     }
 

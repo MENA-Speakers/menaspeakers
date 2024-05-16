@@ -41,7 +41,9 @@ class SpeakerPitchedNotification extends Notification
     {
         $speaker = $this->speaker;
         $deal = $this->deal;
-        return (new MailMessage)->markdown('speakers.pitching.mail', compact('speaker', 'deal'))->subject('You have been pitched');
+        return (new MailMessage)->markdown('speakers.pitching.mail', compact('speaker', 'deal'))
+          ->bcc('tech@mena-speakers.com')
+          ->subject('You have been pitched');
     }
 
     /**
