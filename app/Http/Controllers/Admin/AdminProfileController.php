@@ -25,7 +25,7 @@ class AdminProfileController extends Controller
      */
     public function index()
     {
-      $profiles = Profile::latest()->paginate(12);
+      $profiles = Profile::all();
       return Inertia::render('Admin/Profiles/Index', [
           'profiles' => ProfileResource::collection($profiles),
       ]);
