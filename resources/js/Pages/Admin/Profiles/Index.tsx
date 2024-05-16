@@ -9,27 +9,7 @@ import {ProfileType} from "@/types/admin-profiles";
 import ProfileCard from "@/Components/Admin/ProfileCard";
 
 interface profileData {
-  data: ProfileType[],
-  links: {
-    first: string,
-    last: string,
-    prev: string,
-    next: string
-  },
-  meta: {
-    current_page: number,
-    from: number,
-    last_page: number,
-    links: {
-      url: string,
-      label: string,
-      active: boolean
-    }[],
-    path: string,
-    per_page: number,
-    to: number,
-    total: number
-  }
+  profiles: ProfileType[],
 }
 
 function Index( {profiles, query} : {profiles: profileData, query: string} ) {
@@ -75,7 +55,7 @@ function Index( {profiles, query} : {profiles: profileData, query: string} ) {
           <div className="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 sm:gap-x-6 lg:grid-cols-5 xl:gap-x-8">
 
             {
-              profiles.data.map( (profile: ProfileType, index : number) => (
+              profiles.map( (profile: ProfileType, index : number) => (
                 <ProfileCard key={index} profile={profile} />
               ))
             }
