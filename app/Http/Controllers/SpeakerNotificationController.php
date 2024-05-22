@@ -51,7 +51,6 @@ class SpeakerNotificationController extends Controller
       if($currentSpeaker){
         $currentSpeaker->notify(new SpeakerPitchedNotification($currentSpeaker, $deal));
       } else {
-
         $user->notify(new SpeakerPitchedErrorNotification($speaker, $deal));
       }
     }

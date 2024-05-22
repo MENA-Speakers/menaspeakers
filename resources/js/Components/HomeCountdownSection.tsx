@@ -5,7 +5,7 @@ import {useCountdown} from "@/Hooks/useCountDownDate";
 function HomeCountdownSection() {
 
   //write countdown function return array of days, hours, minutes, seconds
-  const [days, hours, minutes, seconds] = useCountdown('April 19, 2024, 00:09:00');
+  const [days, hours, minutes, seconds] = useCountdown('October 04, 2024, 00:09:00');
 
   const [isFinished, setIsFinished] = React.useState(false);
 
