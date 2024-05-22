@@ -24,12 +24,7 @@ class ProfilesController extends Controller
     if($request->hasAny([
       'query',
     ])){
-      PostHog::capture([
-        'event' => 'speaker_searched',
-        'properties' => [
-          'query' => $request->input('query'),
-        ]
-      ]);
+
       $result = Speaker::search($request->input('query'))->paginate(12)->withQueryString();
     }else {
       // Return all speakers if no query, featured first
@@ -54,16 +49,7 @@ class ProfilesController extends Controller
     SEOTools::opengraph()->addProperty('type', 'person');
     SEOTools::twitter()->setSite('@menaspeakers');
     SEOTools::jsonLd()->addImage($speaker->getFirstMediaUrl('avatar'));
-    PostHog::capture([
-      'event' => 'speaker_viewed',
-      'properties' => [
-        'speaker' => [
-          'id' => $speaker->id,
-          'name' => $speaker->name,
-          'keywords' => $speaker->keywords,
-          ],
-      ]
-    ]);
+
     return Inertia::render('Speakers/Show', [
       'speaker' => new SpeakerResource($speaker)
     ]);

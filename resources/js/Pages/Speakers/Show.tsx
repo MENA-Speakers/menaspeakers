@@ -1,8 +1,9 @@
 import React from 'react';
 import MainLayout from "@/Layouts/MainLayout";
-import { Head, Link } from "@inertiajs/react";
+import {Head, Link, router} from "@inertiajs/react";
 import AdminYoutubeVideo from "@/Components/AdminYoutubeVideo";
 import truncateText from "@/Utils/truncateText";
+import posthog from "posthog-js";
 
 
 function Show({ speaker }) {
@@ -17,7 +18,24 @@ function Show({ speaker }) {
     description: speaker.excerpt ? speaker.excerpt : truncateText(speaker.bio, 150),
   };
 
+  posthog.capture('Speaker viewed', { property: [
+    { key: 'name', value: speaker.name },
+    { key: 'title', value: speaker.title },
+    { key: 'image', value: speaker.image },
+    ] })
+
   const siteUrl = window.location.href;
+
+  const bookSpeaker = () => {
+    posthog.capture('want to book', { property: [
+      { key: 'name', value: speaker.name },
+      { key: 'title', value: speaker.title },
+      { key: 'image', value: speaker.image },
+      ] })
+
+    router.visit(route('pages.contact'));
+
+  }
 
   return (
     <MainLayout>
@@ -56,10 +74,10 @@ function Show({ speaker }) {
                 <img className={'w-full h-96 object-cover'} src={speaker.image} alt={speaker.name} />
 
                 {/*  Book Speaker*/}
-                <Link href={route('pages.contact')}
+                <button onClick={bookSpeaker}
                   className="gradient-btn font-semibold py-3 px-4 py-2 px-4 text-white w-full">
                   Book Speaker
-                </Link>
+                </button>
               </div>
 
             </div>

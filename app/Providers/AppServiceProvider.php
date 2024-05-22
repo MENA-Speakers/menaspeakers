@@ -29,11 +29,11 @@ class AppServiceProvider extends ServiceProvider
       JsonResource::withoutWrapping();
       Blade::component('mail.message', 'x-mail');
       Blade::component('mail.button', 'x-mail');
-      PostHog::init(
-        'phc_5O2GnTcnikc0fd7iKLMrPoYdw49KP9nTfe2GcATX2BN',
-        [
-          'host' => "https://us.i.posthog.com"
-        ]
-      );
+//      PostHog::init(
+//        'phc_5O2GnTcnikc0fd7iKLMrPoYdw49KP9nTfe2GcATX2BN',
+//        [
+//          'host' => "https://us.i.posthog.com"
+//        ]
+//      );
     }
 }

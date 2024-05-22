@@ -5,6 +5,9 @@ import { createRoot } from 'react-dom/client';
 import { createInertiaApp } from '@inertiajs/react';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 import React from 'react';
+import posthog from 'posthog-js'
+
+posthog.init('phc_5O2GnTcnikc0fd7iKLMrPoYdw49KP9nTfe2GcATX2BN', { api_host: 'https://us.i.posthog.com' })
 
 const appName = window.document.getElementsByTagName('title')[0]?.innerText || 'MENA Speakers';
 
