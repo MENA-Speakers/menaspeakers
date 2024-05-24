@@ -64,7 +64,7 @@
 
   Route::post('api/bitrix/proposals', [ApiProposalController::class, 'store'])->name('api.new-proposal');
   Route::post('api/bitrix/pitching-speakers', [SpeakerNotificationController::class, 'pitching'])->name('api.pitch-speakers.index');
-  Route::post('api/bitrix/add-speaker', [BitrixSpeakerController::class, 'pitching'])->name('api.speakers.store');
+  Route::post('api/bitrix/add-speaker', [BitrixSpeakerController::class, 'store'])->name('api.speakers.store');
 
   Route::post('pitch-speakers', [SpeakerNotificationController::class, 'pitched'])->name('pitch-speakers.index');
 
