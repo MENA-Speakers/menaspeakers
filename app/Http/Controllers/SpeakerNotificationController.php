@@ -13,7 +13,8 @@ use Illuminate\Support\Facades\Log;
 class SpeakerNotificationController extends Controller
 {
 
-  public function pitching(Request $request){
+  public function pitching(Request $request): void
+  {
 
     Log::info('request', $request->all());
     //get responsible user
@@ -54,6 +55,7 @@ class SpeakerNotificationController extends Controller
         $user->notify(new SpeakerPitchedErrorNotification($speaker, $deal));
       }
     }
-
   }
+
+
 }

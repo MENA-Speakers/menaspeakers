@@ -8,6 +8,7 @@
   use App\Http\Controllers\Admin\SettingController;
   use App\Http\Controllers\AdminGalleryController;
   use App\Http\Controllers\Api\ApiProposalController;
+  use App\Http\Controllers\BitrixSpeakerController;
   use App\Http\Controllers\BlogsController;
   use App\Http\Controllers\DealController;
   use App\Http\Controllers\ExternalSiteController;
@@ -63,6 +64,7 @@
 
   Route::post('api/bitrix/proposals', [ApiProposalController::class, 'store'])->name('api.new-proposal');
   Route::post('api/bitrix/pitching-speakers', [SpeakerNotificationController::class, 'pitching'])->name('api.pitch-speakers.index');
+  Route::post('api/bitrix/add-speaker', [BitrixSpeakerController::class, 'pitching'])->name('api.pitch-speakers.index');
 
   Route::post('pitch-speakers', [SpeakerNotificationController::class, 'pitched'])->name('pitch-speakers.index');
 
