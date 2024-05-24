@@ -11,12 +11,11 @@ class BitrixSpeakerController extends Controller
     {
 
 
-      $profile = Profile::firstOrCreate([
+      $profile = Profile::updateOrCreate([
         'bitrix_id' => $request->input('ID')],
         [
           'name' => $request->input('NAME'),
           'email' => $request->input('EMAIL'),
-          'bitrix_id' => $request->input('ID'),
         ]
       );
 

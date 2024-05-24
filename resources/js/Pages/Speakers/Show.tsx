@@ -5,8 +5,20 @@ import AdminYoutubeVideo from "@/Components/AdminYoutubeVideo";
 import truncateText from "@/Utils/truncateText";
 import posthog from "posthog-js";
 
+interface ShowSpeakerProps {
+  speaker: {
+    name: string,
+    title: string,
+    image: string,
+    excerpt: string,
+    bio: string,
+    keywords: string,
+    videos: any[]
+  }
 
-function Show({ speaker }) {
+}
+
+function Show({ speaker }: ShowSpeakerProps) {
 
   const speakerStructuredData = {
     '@context': 'https://schema.org',
@@ -27,14 +39,13 @@ function Show({ speaker }) {
   const siteUrl = window.location.href;
 
   const bookSpeaker = () => {
-    posthog.capture('want to book', { property: [
+    posthog.capture('trying', { property: [
       { key: 'name', value: speaker.name },
       { key: 'title', value: speaker.title },
       { key: 'image', value: speaker.image },
       ] })
 
     router.visit(route('pages.contact'));
-
   }
 
   return (

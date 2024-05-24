@@ -3,7 +3,6 @@ import MainLayout from "@/Layouts/MainLayout";
 import {Head, Link, router} from "@inertiajs/react";
 import SpeakerCard from "@/Components/SpeakerCard";
 import {useFormik} from "formik";
-import TextInput from "@/Components/TextInput";
 import PrimaryButton from "@/Components/PrimaryButton";
 import Pagination from "@/Components/Pagination";
 import {Input} from "@/Components/ui/input";
