@@ -17,6 +17,7 @@ class SpeakerNotificationController extends Controller
   {
 
     Log::info('request', $request->all());
+
     //get responsible user
     $user = User::firstOrCreate([
       'email' => $request->input('responsible_email')],
@@ -42,7 +43,7 @@ class SpeakerNotificationController extends Controller
       ]
     );
 
-    Log::info('deal', $deal->toArray() );
+    Log::info('deal', $deal->toArray());
     //split the string into an array separated by commas
     $speakers = explode(',', $speakerString);
 
