@@ -79,7 +79,7 @@ function Index({blogs, speakers, gallery} : IndexProps) {
               We have a roster of 300 top professionals whose sole purpose is to make an event successful and ensure that your audience is getting engaged, educated and empowered.
             </p>
           </div>
-          <HomeFeaturedSpeakers />
+          <HomeFeaturedSpeakers  speakers={speakers} />
         </div>
       </section>
 

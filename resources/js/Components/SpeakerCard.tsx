@@ -12,14 +12,14 @@ function SpeakerCard({speaker}: SpeakerCardProps) {
     <div className={'border relative rounded-3xl overflow-hidden h-96'}>
       <img
         className={'h-96 z-0 w-full object-cover'}
-        src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=3387&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        src={speaker.image}
         alt=""
       />
       <div className="absolute bottom-0 z-10 right-0 left-0">
         <div className="w-full px-4 py-4 space-y-1 bg-gradient-to-t from-black/60 to-black/0">
           <Link href={route('speakers.show', speaker.slug)}>
           <h3 className="text-white text-lg font-semibold">
-            Saana Azzam
+            {speaker.name}
           </h3>
           </Link>
 
@@ -31,7 +31,7 @@ function SpeakerCard({speaker}: SpeakerCardProps) {
             </svg>
 
             <p className={'text-white text-xs'}>
-              Performance coach,Psychologist, Author and Keynote speaker
+              Performance coach, Psychologist, Author and Keynote speaker
             </p>
 
           </div>
