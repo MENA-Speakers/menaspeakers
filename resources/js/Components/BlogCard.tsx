@@ -2,17 +2,12 @@ import React from 'react';
 import { Link } from "@inertiajs/react";
 import truncateText from "@/Utils/truncateText";
 
-function BlogCard({ blog }) {
+interface BlogCardProps {
+  blog: BlogType
+}
+function BlogCard({ blog } : BlogCardProps) {
   return (
     <div className=" bg-white p-6 shadow-md">
-      <div className="flex justify-between pb-2 items-center">
-        <span className="gradient-btn py-1 px-2 text-white font-semibold text-sm">
-          Latest
-        </span>
-        <span className={'text-xs text-gray-600'}>
-          {blog.published_at}
-        </span>
-      </div>
       <Link href={route('blogs.show', blog.slug)} aria-label={'Read blog details'}>
         <div className={'overflow-hidden'}>
           <img

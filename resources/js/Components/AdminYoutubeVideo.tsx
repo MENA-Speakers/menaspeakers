@@ -5,7 +5,7 @@ import axios from "axios";
 
 
 
-function AdminYoutubeVideo({ video, height = 200, width = 350 }) {
+function AdminYoutubeVideo({ video, height = 250, width = 450 }) {
   const isVimeoVideo = /^\d+$/.test(video.url);
 
   const deleteVideo = () => {

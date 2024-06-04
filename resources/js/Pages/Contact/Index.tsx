@@ -1,51 +1,100 @@
 import React, {useEffect, useRef} from 'react';
 import MainLayout from "@/Layouts/MainLayout";
 import { Head } from "@inertiajs/react";
+import {Facebook, Instagram, Linkedin, Twitter, Youtube} from "lucide-react";
+import {Input} from "@/Components/ui/input";
+import {Textarea} from "@/Components/ui/textarea";
 
 function Index() {
+  // const formRef = useRef(null);
 
-  const formRef = useRef(null);
-
-  useEffect(() => {
-    const script = document.createElement('script');
-    script.setAttribute('data-b24-form', 'inline/53/h8olp0');
-    script.setAttribute('data-skip-moving', 'true');
-
-    script.innerHTML = `
-      (function(w,d,u){
-        var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);
-        var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);
-      })(window,document,'https://cdn.bitrix24.com/b25531643/crm/form/loader_53.js');
-    `;
-
-    formRef.current.appendChild(script);
-
-  }, []);
-
+  // useEffect(() => {
+  //   const script = document.createElement('script');
+  //   script.setAttribute('data-b24-form', 'inline/53/h8olp0');
+  //   script.setAttribute('data-skip-moving', 'true');
+  //
+  //   script.innerHTML = `
+  //     (function(w,d,u){
+  //       var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);
+  //       var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);
+  //     })(window,document,'https://cdn.bitrix24.com/b25531643/crm/form/loader_53.js');
+  //   `;
+  //
+  //   formRef.current.appendChild(script);
+  //
+  // }, []);
 
   return (
     <MainLayout>
       <Head>
         <title>Contact Us</title>
       </Head>
-      <section className="relative h-[350px]">
-        <img
-          aria-label={'Contact hero image'}
-          src="https://images.unsplash.com/photo-1561489396-888724a1543d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8Y29uZnJlbmNlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=1000&q=60" alt="groupe of mena speakers in front of people at forume event" className="w-full h-full object-cover"/>
-
-        <div className="absolute inset-0 z-0">
-          <div className="w-full h-full z-20 bg-black/50">
-            <div className="max-w-7xl mx-auto flex items-center justify-center h-full  px-4 sm px-6 lg px-8">
-              <h1 className="text-white text-5xl font-bold">Contact Us</h1>
-            </div>
-          </div>
-        </div>
-      </section>
 
       <section className="py-12">
-        <div className="max-w-4xl mx-auto px-4 sm px-6 lg px-8 pb-12  px-6 lg:px-0">
-          <div ref={formRef}>
-            {/* The Bitrix form will load here */}
+        <div className="max-w-7xl flex gap-8 mx-auto  px-6 lg:px-0">
+          {/*<div ref={formRef}>*/}
+          {/*  /!* The Bitrix form will load here *!/*/}
+          {/*</div>*/}
+          <div className="w-full lg:py-24 lg:w-1/2">
+            <h1 className="text-4xl font-semibold text-mena-brand">
+              Connect With Our Team
+            </h1>
+            <p className="mt-6">
+              Need help getting a speaker for your next event? Whether it is a former world-leader or the latest
+              subject-matter-expert we are here to help. We can help you with speaker choices, availability and fees.
+            </p>
+            <div className="py-6 lg:py-12">
+              <h3 className="font-semibold text-lg">
+                Email
+              </h3>
+              <a href={'mailto:info@mena-speakers.com'}>
+                info@mena-speakers.com
+              </a>
+            </div>
+
+            <div className="py-6 lg:py-12">
+              <h3 className="font-semibold text-lg">
+                Socials
+              </h3>
+              <div className={'flex space-x-4 mt-4'}>
+                <a href={'https://www.linkedin.com'} className="p-2 rounded-full border">
+                  <Linkedin className={'h-5 w-5 stroke-1 text-mena-brand'}/>
+                </a>
+
+                <a href={'https://www.twitter.com'} className="p-2 rounded-full border">
+                  <Twitter className={'h-5 w-5 stroke-1 text-mena-brand'}/>
+                </a>
+
+                <a href={'https://www.facebook.com'} className="p-2 rounded-full border">
+                  <Facebook className={'h-5 w-5 stroke-1 text-mena-brand'}/>
+                </a>
+                <a href={'https://www.instagram.com'} className="p-2 rounded-full border">
+                  <Instagram className={'h-5 w-5 stroke-1 text-mena-brand'}/>
+                </a>
+
+                <a href={'https://www.youtube.com'} className="p-2 rounded-full border">
+                  <Youtube className={'h-5 w-5 stroke-1 text-mena-brand'}/>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div className="w-full lg:w-1/2 p-6 lg:p-24">
+            <p>
+              Fill the form so that our team can reach out to you
+            </p>
+
+            <form action="https://formspree.io/f/xnqoqkqk" method="POST" className="mt-6">
+              <div className="space-y-6">
+                <Input type="text" name="name" placeholder="Name" className="w-full border rounded-lg py-3 px-4"/>
+                <Input type="text" name="company_name" placeholder="Comapny Name" className="w-full border rounded-lg py-3 px-4"/>
+                <Input type="email" name="email" placeholder="Email" className="w-full border rounded-lg py-3 px-4"/>
+                <Input type="text" name="phone" placeholder="Phone" className="w-full border rounded-lg py-3 px-4"/>
+                <Textarea name="message" placeholder="Message" className="w-full border rounded-lg py-3 px-4"/>
+                <button type="submit" className="w-full bg-mena-brand text-white py-3 rounded-lg">
+                  Submit
+                </button>
+              </div>
+            </form>
           </div>
         </div>
       </section>
