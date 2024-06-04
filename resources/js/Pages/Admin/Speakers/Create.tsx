@@ -53,8 +53,6 @@ function Create( {speaker, locations} : { speaker: SpeakerType, locations: Locat
         .required( 'Meta description is required' ),
       bio: Yup.string()
         .required( 'Bio is required' ),
-      location: Yup.string()
-        .required( 'Location is required' ),
     } ),
 
     onSubmit: values => {
