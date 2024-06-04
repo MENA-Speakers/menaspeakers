@@ -261,7 +261,7 @@ export default function MainLayout({ children} : {children: React.ReactNode}) {
                   Subscribe to our newsletter
                 </h3>
               </div>
-             <InlineNewsLetterForm />
+             {/*<InlineNewsLetterForm />*/}
             </div>
           </div>
 
