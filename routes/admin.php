@@ -20,6 +20,7 @@
   use App\Http\Controllers\AdminGalleryController;
   use App\Http\Controllers\AdminSpeakerVideoController;
   use App\Http\Controllers\DealController;
+  use App\Http\Controllers\FaqsController;
   use App\Http\Controllers\ProposalController;
   use Illuminate\Support\Facades\Route;
 
@@ -48,6 +49,12 @@
     //Employees Routes
     Route::get('employees', [EmployeeController::class, 'index'])->name('employees.index');
     Route::get('employees/create', [EmployeeController::class, 'create'])->name('employees.create');
+
+    Route::get('/faqs', [FaqsController::class, 'index'])->name('faqs.index');
+    Route::post('/faqs', [FaqsController::class, 'store'])->name('faqs.store');
+    Route::post('/faqs/{faq}', [FaqsController::class, 'destroy'])->name('faqs.delete');
+    Route::post('/faqs/{faq}/update', [FaqsController::class, 'update'])->name('faqs.update');
+
 
 
     //Portfolios Routes
