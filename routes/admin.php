@@ -133,11 +133,11 @@
     Route::post('proposals/{proposal}/delete', [ProposalController::class, 'destroy'])->name('proposals.delete');
 
     // Referrals route
-    Route::get('faqs', [ReferralController::class, 'index'])->name('faqs.index');
-    Route::post('faqs', [ReferralController::class, 'store'])->name('faqs.store');
-    Route::get('faqs/create', [ReferralController::class, 'create'])->name('faqs.create');
-    Route::post('faqs/{faq}', [ReferralController::class, 'update'])->name('faqs.update');
-    Route::post('faqs/{faq}/delete', [ReferralController::class, 'destroy'])->name('faqs.delete');
+//    Route::get('faqs', [ReferralController::class, 'index'])->name('faqs.index');
+//    Route::post('faqs', [ReferralController::class, 'store'])->name('faqs.store');
+//    Route::get('faqs/create', [ReferralController::class, 'create'])->name('faqs.create');
+//    Route::post('faqs/{faq}', [ReferralController::class, 'update'])->name('faqs.update');
+//    Route::post('faqs/{faq}/delete', [ReferralController::class, 'destroy'])->name('faqs.delete');
 
 
     // Front page speaker routes
