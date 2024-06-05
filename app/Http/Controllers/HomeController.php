@@ -19,8 +19,8 @@ class HomeController extends Controller
 {
 
     public function index(){
-        $speakers = Speaker::inRandomOrder()->limit(3)->get();
-        $blogs = Blog::latest()->limit(3)->get();
+        $speakers = Speaker::inRandomOrder()->limit(4)->get();
+        $blogs = Blog::latest()->limit(4)->get();
 
         return Inertia::render('Index', [
             'speakers' => SpeakerResource::collection($speakers),

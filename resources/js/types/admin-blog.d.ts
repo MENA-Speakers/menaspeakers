@@ -10,6 +10,6 @@ interface BlogType {
     content: string;
     image: string;
     created_at: string;
-    updated_at: string;
+    published_at: string;
     comments: Comment[];
 }

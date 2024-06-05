@@ -360,74 +360,17 @@ function Index({blogs, speakers, gallery} : IndexProps) {
           <div className="flex flex-col lg:flex-row justify-between items-center">
             <h2 className="text-2xl lg:text-4xl font-semibold text-mena-brand">Resources</h2>
             <div className="border-b border-[#F15A29] pb-1">
-              <Link href={'/resources'} className="text-[#F15A29] ">View All</Link>
+              <Link href={'/blogs'} className="text-[#F15A29] ">View All</Link>
             </div>
           </div>
 
           <div className="py-6 grid grid-cols-1 md:grid-cols-2 gap-6 lg:grid-cols-4">
-            <div className={'rounded-2xl overflow-hidden border'}>
-              <img className={'h-60 w-full object-cover'}
-                   src="https://plus.unsplash.com/premium_photo-1661265907643-fa672de45ae6?q=80&w=3544&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                   alt=""/>
-              <div className={'p-4'}>
-                <div className="flex items-center pb-2 ">
-                  <p className="text-xs text-slate-500">
-                    August 12, 2021
-                  </p>
-                </div>
-                <p className={'text-xs font-semibold'}>
-                  The Impact of Technology on the Workplace: How Technology is Changing
-                </p>
-              </div>
-            </div>
 
-            <div className={'rounded-2xl overflow-hidden border'}>
-              <img className={'h-60 w-full object-cover'}
-                   src="https://plus.unsplash.com/premium_photo-1661265907643-fa672de45ae6?q=80&w=3544&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                   alt=""/>
-              <div className={'p-4'}>
-                <div className="flex items-center pb-2 ">
-                  <p className="text-xs text-slate-500">
-                    August 12, 2021
-                  </p>
-                </div>
-                <p className={'text-xs font-semibold'}>
-                  The Impact of Technology on the Workplace: How Technology is Changing
-                </p>
-              </div>
-            </div>
-
-            <div className={'rounded-2xl overflow-hidden border'}>
-              <img className={'h-60 w-full object-cover'}
-                   src="https://plus.unsplash.com/premium_photo-1661265907643-fa672de45ae6?q=80&w=3544&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                   alt=""/>
-              <div className={'p-4'}>
-                <div className="flex items-center pb-2 ">
-                  <p className="text-xs text-slate-500">
-                    August 12, 2021
-                  </p>
-                </div>
-                <p className={'text-xs font-semibold'}>
-                  The Impact of Technology on the Workplace: How Technology is Changing
-                </p>
-              </div>
-            </div>
-
-            <div className={'rounded-2xl overflow-hidden border'}>
-              <img className={'h-60 w-full object-cover'}
-                   src="https://plus.unsplash.com/premium_photo-1661265907643-fa672de45ae6?q=80&w=3544&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                   alt=""/>
-              <div className={'p-4'}>
-                <div className="flex items-center pb-2 ">
-                  <p className="text-xs text-slate-500">
-                    August 12, 2021
-                  </p>
-                </div>
-                <p className={'text-xs font-semibold'}>
-                  The Impact of Technology on the Workplace: How Technology is Changing
-                </p>
-              </div>
-            </div>
+            {
+              blogs.map(blog => (
+                <BlogCard key={blog.slug} blog={blog}/>
+              ))
+            }
 
           </div>
         </div>

@@ -7,26 +7,20 @@ interface BlogCardProps {
 }
 function BlogCard({ blog } : BlogCardProps) {
   return (
-    <div className=" bg-white p-6 shadow-md">
+    <div className="rounded-2xl overflow-hidden border">
       <Link href={route('blogs.show', blog.slug)} aria-label={'Read blog details'}>
-        <div className={'overflow-hidden'}>
-          <img
-            className={'w-full object-cover h-60 transition duration-300 ease-in-out hover:scale-105'}
-            src={blog.image}
-            alt={blog.title} loading='lazy'/>
-        </div>
+        <img className={'h-60 w-full object-cover'}
+             src={blog.image}
+             alt={blog.title}/>
       </Link>
-      <div className={'py-4 space-y-4'}>
-        <Link className={'font-bold'} href={route('blogs.show', blog.slug)} aria-label={blog.title}>{blog.title}</Link>
-        <p>
-          {truncateText(blog.excerpt, 120)}
+      <div className={'py-4 space-y-4 p-3'}>
+        <p className="text-xs py-1 text-slate-500">
+          {
+            blog.published_at
+          }
         </p>
+        <Link className={''} href={route('blogs.show', blog.slug)} aria-label={blog.title}>{blog.title}</Link>
 
-        <div>
-          <Link href={route('blogs.show', blog.slug)} className="text-mena-200 text-sm font-semibold"  aria-label={'Read blog details'}  >
-            Read More
-          </Link>
-        </div>
       </div>
 
     </div>
