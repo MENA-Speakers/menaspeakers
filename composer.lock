@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "34cb0e259b0de204211941745baa7871",
+    "content-hash": "18aca5fd7d4e34e578965a442aaa8b65",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -1759,56 +1759,6 @@
             "time": "2024-05-17T22:12:22+00:00"
         },
         {
-            "name": "kkszymanowski/traitor",
-            "version": "1.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/KKSzymanowski/Traitor.git",
-                "reference": "97d12e2b045fcc4e132fed5ddee3b1dcff409989"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/KKSzymanowski/Traitor/zipball/97d12e2b045fcc4e132fed5ddee3b1dcff409989",
-                "reference": "97d12e2b045fcc4e132fed5ddee3b1dcff409989",
-                "shasum": ""
-            },
-            "require": {
-                "nikic/php-parser": "^1.0|^2.0|^3.0|^4.0|^5.0",
-                "php": ">=5.4"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "8.*"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Traitor\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Kuba Szymanowski",
-                    "email": "kuba.szymanowski@inf24.pl"
-                }
-            ],
-            "description": "Add a trait use statement to existing PHP class",
-            "keywords": [
-                "add",
-                "php",
-                "trait"
-            ],
-            "support": {
-                "email": "kuba.szymanowski@inf24.pl",
-                "issues": "https://github.com/kkszymanowski/traitor/issues",
-                "source": "https://github.com/kkszymanowski/traitor"
-            },
-            "time": "2024-01-29T09:23:11+00:00"
-        },
-        {
             "name": "laravel/framework",
             "version": "v11.9.2",
             "source": {
@@ -2985,73 +2935,6 @@
             "time": "2022-12-02T22:17:43+00:00"
         },
         {
-            "name": "masterminds/html5",
-            "version": "2.9.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Masterminds/html5-php.git",
-                "reference": "f5ac2c0b0a2eefca70b2ce32a5809992227e75a6"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Masterminds/html5-php/zipball/f5ac2c0b0a2eefca70b2ce32a5809992227e75a6",
-                "reference": "f5ac2c0b0a2eefca70b2ce32a5809992227e75a6",
-                "shasum": ""
-            },
-            "require": {
-                "ext-dom": "*",
-                "php": ">=5.3.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^4.8.35 || ^5.7.21 || ^6 || ^7 || ^8 || ^9"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.7-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Masterminds\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Matt Butcher",
-                    "email": "technosophos@gmail.com"
-                },
-                {
-                    "name": "Matt Farina",
-                    "email": "matt@mattfarina.com"
-                },
-                {
-                    "name": "Asmir Mustafic",
-                    "email": "goetas@gmail.com"
-                }
-            ],
-            "description": "An HTML5 parser and serializer.",
-            "homepage": "http://masterminds.github.io/html5-php",
-            "keywords": [
-                "HTML5",
-                "dom",
-                "html",
-                "parser",
-                "querypath",
-                "serializer",
-                "xml"
-            ],
-            "support": {
-                "issues": "https://github.com/Masterminds/html5-php/issues",
-                "source": "https://github.com/Masterminds/html5-php/tree/2.9.0"
-            },
-            "time": "2024-03-31T07:05:07+00:00"
-        },
-        {
             "name": "monolog/monolog",
             "version": "3.6.0",
             "source": {
@@ -3405,60 +3288,6 @@
                 "source": "https://github.com/nette/utils/tree/v4.0.4"
             },
             "time": "2024-01-17T16:50:36+00:00"
-        },
-        {
-            "name": "nicmart/tree",
-            "version": "0.8.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/nicmart/Tree.git",
-                "reference": "8d02952acc9779a2c14f7a9c4ac1650c3dacb545"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/nicmart/Tree/zipball/8d02952acc9779a2c14f7a9c4ac1650c3dacb545",
-                "reference": "8d02952acc9779a2c14f7a9c4ac1650c3dacb545",
-                "shasum": ""
-            },
-            "require": {
-                "php": "~8.0.0 || ~8.1.0 || ~8.2.0 || ~8.3.0"
-            },
-            "require-dev": {
-                "ergebnis/composer-normalize": "^2.31.0",
-                "ergebnis/license": "^2.4.0",
-                "ergebnis/php-cs-fixer-config": "^6.13.0",
-                "fakerphp/faker": "^1.23.0",
-                "infection/infection": "~0.26.19",
-                "phpunit/phpunit": "^9.6.14",
-                "psalm/plugin-phpunit": "~0.18.4",
-                "vimeo/psalm": "^5.16.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Tree\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Nicolò Martini",
-                    "email": "nicmartnic@gmail.com"
-                },
-                {
-                    "name": "Andreas Möller",
-                    "email": "am@localheinz.com"
-                }
-            ],
-            "description": "A basic but flexible php tree data structure and a fluent tree builder implementation.",
-            "support": {
-                "issues": "https://github.com/nicmart/Tree/issues",
-                "source": "https://github.com/nicmart/Tree/tree/0.8.0"
-            },
-            "time": "2023-12-02T13:24:56+00:00"
         },
         {
             "name": "nikic/php-parser",
@@ -4606,179 +4435,41 @@
             "time": "2024-04-27T21:32:50+00:00"
         },
         {
-            "name": "santigarcor/laratrust",
-            "version": "8.3.1",
+            "name": "spatie/eloquent-sortable",
+            "version": "4.4.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/santigarcor/laratrust.git",
-                "reference": "9510e60f891a05bb87164666e26150818cb40b3c"
+                "url": "https://github.com/spatie/eloquent-sortable.git",
+                "reference": "7a460c775d29741f42744bac52f993cb5b84be0f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/santigarcor/laratrust/zipball/9510e60f891a05bb87164666e26150818cb40b3c",
-                "reference": "9510e60f891a05bb87164666e26150818cb40b3c",
+                "url": "https://api.github.com/repos/spatie/eloquent-sortable/zipball/7a460c775d29741f42744bac52f993cb5b84be0f",
+                "reference": "7a460c775d29741f42744bac52f993cb5b84be0f",
                 "shasum": ""
             },
             "require": {
-                "kkszymanowski/traitor": "^1.0",
-                "laravel/framework": "^10.0|^11.0",
-                "php": ">=8.1"
+                "illuminate/database": "^9.31|^10.0|^11.0",
+                "illuminate/support": "^9.31|^10.0|^11.0",
+                "nesbot/carbon": "^2.63|^3.0",
+                "php": "^8.1",
+                "spatie/laravel-package-tools": "^1.9"
             },
             "require-dev": {
-                "mockery/mockery": "^1.3.2",
-                "orchestra/testbench": "^8.0|^9.0",
-                "phpunit/phpunit": "^8.4|^9.0|^10.5"
+                "orchestra/testbench": "^7.0|^8.0|^9.0",
+                "phpunit/phpunit": "^9.5|^10.0"
             },
             "type": "library",
             "extra": {
                 "laravel": {
                     "providers": [
-                        "Laratrust\\LaratrustServiceProvider"
-                    ],
-                    "aliases": {
-                        "Laratrust": "Laratrust\\LaratrustFacade"
-                    }
+                        "Spatie\\EloquentSortable\\EloquentSortableServiceProvider"
+                    ]
                 }
             },
             "autoload": {
                 "psr-4": {
-                    "Laratrust\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Santiago Garcia",
-                    "homepage": "http://santigarcor.me"
-                }
-            ],
-            "description": "This package provides a flexible way to add Role-based Permissions to Laravel",
-            "keywords": [
-                "Teams",
-                "acl",
-                "authorization",
-                "laratrust",
-                "laravel",
-                "multiusers",
-                "permissions",
-                "php",
-                "rbac",
-                "roles"
-            ],
-            "support": {
-                "issues": "https://github.com/santigarcor/laratrust/issues",
-                "source": "https://github.com/santigarcor/laratrust/tree/8.3.1"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/santigarcor",
-                    "type": "github"
-                }
-            ],
-            "time": "2024-04-03T22:48:27+00:00"
-        },
-        {
-            "name": "spatie/browsershot",
-            "version": "4.0.4",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/spatie/browsershot.git",
-                "reference": "ae2d458db2594b4fa6676e9859c142ff199db473"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spatie/browsershot/zipball/ae2d458db2594b4fa6676e9859c142ff199db473",
-                "reference": "ae2d458db2594b4fa6676e9859c142ff199db473",
-                "shasum": ""
-            },
-            "require": {
-                "ext-fileinfo": "*",
-                "ext-json": "*",
-                "php": "^8.2",
-                "spatie/temporary-directory": "^2.0",
-                "symfony/process": "^6.0|^7.0"
-            },
-            "require-dev": {
-                "pestphp/pest": "^1.20",
-                "spatie/image": "^3.6",
-                "spatie/phpunit-snapshot-assertions": "^4.2.3"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Spatie\\Browsershot\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Freek Van der Herten",
-                    "email": "freek@spatie.be",
-                    "homepage": "https://github.com/freekmurze",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Convert a webpage to an image or pdf using headless Chrome",
-            "homepage": "https://github.com/spatie/browsershot",
-            "keywords": [
-                "chrome",
-                "convert",
-                "headless",
-                "image",
-                "pdf",
-                "puppeteer",
-                "screenshot",
-                "webpage"
-            ],
-            "support": {
-                "source": "https://github.com/spatie/browsershot/tree/4.0.4"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/spatie",
-                    "type": "github"
-                }
-            ],
-            "time": "2024-05-24T07:55:07+00:00"
-        },
-        {
-            "name": "spatie/crawler",
-            "version": "8.2.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/spatie/crawler.git",
-                "reference": "807d145a3c071dc0e69bb7e6783611e2591f9773"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spatie/crawler/zipball/807d145a3c071dc0e69bb7e6783611e2591f9773",
-                "reference": "807d145a3c071dc0e69bb7e6783611e2591f9773",
-                "shasum": ""
-            },
-            "require": {
-                "guzzlehttp/guzzle": "^7.3",
-                "guzzlehttp/psr7": "^2.0",
-                "illuminate/collections": "^10.0|^11.0",
-                "nicmart/tree": "^0.8.0",
-                "php": "^8.1",
-                "spatie/browsershot": "^3.45|^4.0",
-                "spatie/robots-txt": "^2.0",
-                "symfony/dom-crawler": "^6.0|^7.0"
-            },
-            "require-dev": {
-                "pestphp/pest": "^2.0",
-                "spatie/ray": "^1.37"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Spatie\\Crawler\\": "src"
+                    "Spatie\\EloquentSortable\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -4791,17 +4482,19 @@
                     "email": "freek@spatie.be"
                 }
             ],
-            "description": "Crawl all internal links found on a website",
-            "homepage": "https://github.com/spatie/crawler",
+            "description": "Sortable behaviour for eloquent models",
+            "homepage": "https://github.com/spatie/eloquent-sortable",
             "keywords": [
-                "crawler",
-                "link",
-                "spatie",
-                "website"
+                "behaviour",
+                "eloquent",
+                "laravel",
+                "model",
+                "sort",
+                "sortable"
             ],
             "support": {
-                "issues": "https://github.com/spatie/crawler/issues",
-                "source": "https://github.com/spatie/crawler/tree/8.2.0"
+                "issues": "https://github.com/spatie/eloquent-sortable/issues",
+                "source": "https://github.com/spatie/eloquent-sortable/tree/4.4.0"
             },
             "funding": [
                 {
@@ -4813,20 +4506,20 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-02-15T10:40:48+00:00"
+            "time": "2024-06-04T11:09:54+00:00"
         },
         {
             "name": "spatie/image",
-            "version": "3.6.3",
+            "version": "3.6.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/image.git",
-                "reference": "1d4e9c536f1bf7b88e55555d0a1ae9eee6b76a99"
+                "reference": "324a7bfc7924f8dc7d90777e33097a63f0199b1c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/image/zipball/1d4e9c536f1bf7b88e55555d0a1ae9eee6b76a99",
-                "reference": "1d4e9c536f1bf7b88e55555d0a1ae9eee6b76a99",
+                "url": "https://api.github.com/repos/spatie/image/zipball/324a7bfc7924f8dc7d90777e33097a63f0199b1c",
+                "reference": "324a7bfc7924f8dc7d90777e33097a63f0199b1c",
                 "shasum": ""
             },
             "require": {
@@ -4873,7 +4566,7 @@
                 "spatie"
             ],
             "support": {
-                "source": "https://github.com/spatie/image/tree/3.6.3"
+                "source": "https://github.com/spatie/image/tree/3.6.4"
             },
             "funding": [
                 {
@@ -4885,7 +4578,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-05-24T14:08:59+00:00"
+            "time": "2024-06-03T08:10:31+00:00"
         },
         {
             "name": "spatie/image-optimizer",
@@ -5022,16 +4715,16 @@
         },
         {
             "name": "spatie/laravel-medialibrary",
-            "version": "11.5.2",
+            "version": "11.5.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-medialibrary.git",
-                "reference": "99760ad7865a418708474cf594e736a381b45c0e"
+                "reference": "1272f88ae2aad57ab9362ba180455c437301fc27"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-medialibrary/zipball/99760ad7865a418708474cf594e736a381b45c0e",
-                "reference": "99760ad7865a418708474cf594e736a381b45c0e",
+                "url": "https://api.github.com/repos/spatie/laravel-medialibrary/zipball/1272f88ae2aad57ab9362ba180455c437301fc27",
+                "reference": "1272f88ae2aad57ab9362ba180455c437301fc27",
                 "shasum": ""
             },
             "require": {
@@ -5114,7 +4807,7 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/laravel-medialibrary/issues",
-                "source": "https://github.com/spatie/laravel-medialibrary/tree/11.5.2"
+                "source": "https://github.com/spatie/laravel-medialibrary/tree/11.5.4"
             },
             "funding": [
                 {
@@ -5126,7 +4819,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-05-27T09:07:25+00:00"
+            "time": "2024-06-04T11:38:00+00:00"
         },
         {
             "name": "spatie/laravel-package-tools",
@@ -5189,79 +4882,6 @@
             "time": "2024-03-20T07:29:11+00:00"
         },
         {
-            "name": "spatie/laravel-sitemap",
-            "version": "7.2.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/spatie/laravel-sitemap.git",
-                "reference": "4f79443e76a677731edfb4e89fac8816d11e194b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-sitemap/zipball/4f79443e76a677731edfb4e89fac8816d11e194b",
-                "reference": "4f79443e76a677731edfb4e89fac8816d11e194b",
-                "shasum": ""
-            },
-            "require": {
-                "guzzlehttp/guzzle": "^7.8",
-                "illuminate/support": "^10.0|^11.0",
-                "nesbot/carbon": "^2.71|^3.0",
-                "php": "^8.2",
-                "spatie/crawler": "^8.0.1",
-                "spatie/laravel-package-tools": "^1.16.1",
-                "symfony/dom-crawler": "^6.3.4|^7.0"
-            },
-            "require-dev": {
-                "mockery/mockery": "^1.6.6",
-                "orchestra/testbench": "^8.14|^9.0",
-                "pestphp/pest": "^2.24",
-                "spatie/pest-plugin-snapshots": "^2.1",
-                "spatie/phpunit-snapshot-assertions": "^5.1.2",
-                "spatie/temporary-directory": "^2.2"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Spatie\\Sitemap\\SitemapServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Spatie\\Sitemap\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Freek Van der Herten",
-                    "email": "freek@spatie.be",
-                    "homepage": "https://spatie.be",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Create and generate sitemaps with ease",
-            "homepage": "https://github.com/spatie/laravel-sitemap",
-            "keywords": [
-                "laravel-sitemap",
-                "spatie"
-            ],
-            "support": {
-                "source": "https://github.com/spatie/laravel-sitemap/tree/7.2.0"
-            },
-            "funding": [
-                {
-                    "url": "https://spatie.be/open-source/support-us",
-                    "type": "custom"
-                }
-            ],
-            "time": "2024-02-15T10:50:21+00:00"
-        },
-        {
             "name": "spatie/laravel-sluggable",
             "version": "3.6.0",
             "source": {
@@ -5321,29 +4941,43 @@
             "time": "2024-02-26T08:33:29+00:00"
         },
         {
-            "name": "spatie/robots-txt",
-            "version": "2.2.0",
+            "name": "spatie/laravel-tags",
+            "version": "4.6.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spatie/robots-txt.git",
-                "reference": "02722a0256731e7996bb9d0e544238a408e78bf5"
+                "url": "https://github.com/spatie/laravel-tags.git",
+                "reference": "73944e8bd7a341269c03959fe063d8714adbe5a6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/robots-txt/zipball/02722a0256731e7996bb9d0e544238a408e78bf5",
-                "reference": "02722a0256731e7996bb9d0e544238a408e78bf5",
+                "url": "https://api.github.com/repos/spatie/laravel-tags/zipball/73944e8bd7a341269c03959fe063d8714adbe5a6",
+                "reference": "73944e8bd7a341269c03959fe063d8714adbe5a6",
                 "shasum": ""
             },
             "require": {
-                "php": "^8.1"
+                "laravel/framework": "^8.67|^9.0|^10.0|^11.0",
+                "nesbot/carbon": "^2.63|^3.0",
+                "php": "^8.0",
+                "spatie/eloquent-sortable": "^3.10|^4.0",
+                "spatie/laravel-package-tools": "^1.4",
+                "spatie/laravel-translatable": "^4.6|^5.0|^6.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "^9.0|^10.0"
+                "orchestra/testbench": "^6.13|^7.0|^8.0|^9.0",
+                "pestphp/pest": "^1.22|^2.0",
+                "phpunit/phpunit": "^9.5.2"
             },
             "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Spatie\\Tags\\TagsServiceProvider"
+                    ]
+                }
+            },
             "autoload": {
                 "psr-4": {
-                    "Spatie\\Robots\\": "src"
+                    "Spatie\\Tags\\": "src"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -5352,33 +4986,111 @@
             ],
             "authors": [
                 {
-                    "name": "Brent Roose",
-                    "email": "brent@spatie.be",
+                    "name": "Freek Van der Herten",
+                    "email": "freek@spatie.be",
                     "homepage": "https://spatie.be",
                     "role": "Developer"
                 }
             ],
-            "description": "Determine if a page may be crawled from robots.txt and robots meta tags",
-            "homepage": "https://github.com/spatie/robots-txt",
+            "description": "Add tags and taggable behaviour to your Laravel app",
+            "homepage": "https://github.com/spatie/laravel-tags",
             "keywords": [
-                "robots-txt",
+                "laravel-tags",
                 "spatie"
             ],
             "support": {
-                "issues": "https://github.com/spatie/robots-txt/issues",
-                "source": "https://github.com/spatie/robots-txt/tree/2.2.0"
+                "issues": "https://github.com/spatie/laravel-tags/issues",
+                "source": "https://github.com/spatie/laravel-tags/tree/4.6.1"
             },
             "funding": [
-                {
-                    "url": "https://spatie.be/open-source/support-us",
-                    "type": "custom"
-                },
                 {
                     "url": "https://github.com/spatie",
                     "type": "github"
                 }
             ],
-            "time": "2024-04-22T14:28:40+00:00"
+            "time": "2024-03-01T12:44:53+00:00"
+        },
+        {
+            "name": "spatie/laravel-translatable",
+            "version": "6.7.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/laravel-translatable.git",
+                "reference": "d55384cbcf867b3cf21ff4d062403596d94acf81"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/laravel-translatable/zipball/d55384cbcf867b3cf21ff4d062403596d94acf81",
+                "reference": "d55384cbcf867b3cf21ff4d062403596d94acf81",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/database": "^9.0|^10.0|^11.0",
+                "illuminate/support": "^9.0|^10.0|^11.0",
+                "php": "^8.0",
+                "spatie/laravel-package-tools": "^1.11"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.4",
+                "orchestra/testbench": "^7.0|^8.0|^9.0",
+                "pestphp/pest": "^1.20|^2.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Spatie\\Translatable\\TranslatableServiceProvider"
+                    ]
+                },
+                "aliases": {
+                    "Translatable": "Spatie\\Translatable\\Facades\\Translatable"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\Translatable\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Freek Van der Herten",
+                    "email": "freek@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Sebastian De Deyne",
+                    "email": "sebastian@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A trait to make an Eloquent model hold translations",
+            "homepage": "https://github.com/spatie/laravel-translatable",
+            "keywords": [
+                "eloquent",
+                "i8n",
+                "laravel-translatable",
+                "model",
+                "multilingual",
+                "spatie",
+                "translate"
+            ],
+            "support": {
+                "issues": "https://github.com/spatie/laravel-translatable/issues",
+                "source": "https://github.com/spatie/laravel-translatable/tree/6.7.1"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/spatie",
+                    "type": "github"
+                }
+            ],
+            "time": "2024-05-14T11:35:51+00:00"
         },
         {
             "name": "spatie/temporary-directory",
@@ -5723,73 +5435,6 @@
             "homepage": "https://symfony.com",
             "support": {
                 "source": "https://github.com/symfony/deprecation-contracts/tree/v3.5.0"
-            },
-            "funding": [
-                {
-                    "url": "https://symfony.com/sponsor",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/fabpot",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
-                    "type": "tidelift"
-                }
-            ],
-            "time": "2024-04-18T09:32:20+00:00"
-        },
-        {
-            "name": "symfony/dom-crawler",
-            "version": "v7.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/dom-crawler.git",
-                "reference": "fc26d2e4472df45340e8b8fb43cb708d468eaa84"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/dom-crawler/zipball/fc26d2e4472df45340e8b8fb43cb708d468eaa84",
-                "reference": "fc26d2e4472df45340e8b8fb43cb708d468eaa84",
-                "shasum": ""
-            },
-            "require": {
-                "masterminds/html5": "^2.6",
-                "php": ">=8.2",
-                "symfony/polyfill-ctype": "~1.8",
-                "symfony/polyfill-mbstring": "~1.0"
-            },
-            "require-dev": {
-                "symfony/css-selector": "^6.4|^7.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Symfony\\Component\\DomCrawler\\": ""
-                },
-                "exclude-from-classmap": [
-                    "/Tests/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-            "description": "Eases DOM navigation for HTML and XML documents",
-            "homepage": "https://symfony.com",
-            "support": {
-                "source": "https://github.com/symfony/dom-crawler/tree/v7.1.0"
             },
             "funding": [
                 {

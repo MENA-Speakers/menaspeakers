@@ -14,9 +14,16 @@ import {LocationType} from "@/types/location";
 import {Input} from "@/Components/ui/input";
 import {SpeakerType} from "@/types/speaker-type";
 import {Label} from "@/Components/ui/label";
+import CreatableSelect from 'react-select/creatable';
 
+interface CreateProps {
+  speaker: SpeakerType;
+  locations: LocationType[];
+  categories: string[];
+  tags: string[];
+}
 
-function Create( {speaker, locations} : { speaker: SpeakerType, locations: LocationType[]} ) {
+function Create( {speaker, locations, categories, tags} : CreateProps ) {
 
 
 
@@ -31,7 +38,8 @@ function Create( {speaker, locations} : { speaker: SpeakerType, locations: Locat
 
   const formik = useFormik( {
     initialValues: {
-      name: speaker?.name ? speaker.name : '',
+      first_name: speaker?.first_name ? speaker.first_name : '',
+      last_name: speaker?.last_name ? speaker.last_name : '',
       meta_title: speaker?.meta_title ? speaker.meta_title : '',
       keywords: speaker?.keywords ? speaker.keywords : '',
       slug: speaker?.slug ? speaker.slug : '',
@@ -40,11 +48,15 @@ function Create( {speaker, locations} : { speaker: SpeakerType, locations: Locat
       location: speaker?.location_id ? speaker.location_id : '',
       featured: speaker?.featured ? speaker.featured : false,
       image: null,
+      tags: speaker?.tags ? speaker.tags : [],
+      categories: speaker?.categories ? speaker.categories : [],
     },
 
     validationSchema: Yup.object( {
-      name: Yup.string()
-        .required( 'Name is required' ),
+      first_name: Yup.string()
+        .required( 'First Name is required' ),
+      last_name: Yup.string()
+        .required( 'Last Name is required' ),
       meta_title: Yup.string()
         .required( 'Meta title is required' ),
       keywords: Yup.string()
@@ -115,23 +127,43 @@ function Create( {speaker, locations} : { speaker: SpeakerType, locations: Locat
         <div className="sm:p-6 lg:p-4 bg-white overflow-hidden shadow-sm sm:rounded-lg">
           <form onSubmit={formik.handleSubmit}
                 className=" max-w-4xl space-y-8 mx-auto py-8 px-8">
-            <div>
-              <Label htmlFor="name" className="block text-sm font-medium text-gray-700">Name</Label>
-              <div className="mt-1">
-                <Input type="text"
-                       name="name"
-                       id="name"
-                       value={formik.values.name}
-                       onChange={formik.handleChange}
-                       className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                       placeholder="Speaker Name"/>
-              </div>
+            <div className="flex gap-6 flex-col lg:flex-row">
+              <div className={'w-full lg:w-1/2'}>
+                <Label htmlFor="first_name" className="block text-sm font-medium text-gray-700">First name</Label>
+                <div className="mt-1">
+                  <Input type="text"
+                         name="first_name"
+                         id="name"
+                         value={formik.values.first_name}
+                         onChange={formik.handleChange}
+                         className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                         placeholder="Last Name"/>
+                </div>
 
-              {
-                formik.touched.name && formik.errors.name ? (
-                  <div className="text-red-500 text-xs italic">{formik.errors.name}</div>
-                ) : null
-              }
+                {
+                  formik.touched.first_name && formik.errors.first_name ? (
+                    <div className="text-red-500 text-xs italic">{formik.errors.first_name}</div>
+                  ) : null
+                }
+              </div>
+              <div className={'w-full lg:w-1/2'}>
+                <Label htmlFor="last_name" className="block text-sm font-medium text-gray-700">Last name</Label>
+                <div className="mt-1">
+                  <Input type="text"
+                         name="last_name"
+                         id="name"
+                         value={formik.values.last_name}
+                         onChange={formik.handleChange}
+                         className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                         placeholder="Last Name"/>
+                </div>
+
+                {
+                  formik.touched.last_name && formik.errors.last_name ? (
+                    <div className="text-red-500 text-xs italic">{formik.errors.last_name}</div>
+                  ) : null
+                }
+              </div>
             </div>
 
             <div>
@@ -140,7 +172,7 @@ function Create( {speaker, locations} : { speaker: SpeakerType, locations: Locat
                 <Input type="text"
                        name="meta_title"
                        value={formik.values.meta_title}
-                        onChange={formik.handleChange}
+                       onChange={formik.handleChange}
                        id="meta_title"
                        className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                        placeholder="Meta title"/>
@@ -158,7 +190,7 @@ function Create( {speaker, locations} : { speaker: SpeakerType, locations: Locat
                 <Input type="text"
                        name="keywords"
                        value={formik.values.keywords}
-                        onChange={formik.handleChange}
+                       onChange={formik.handleChange}
                        id="keywords"
                        className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                        placeholder="Keywords, "/>
@@ -218,21 +250,22 @@ function Create( {speaker, locations} : { speaker: SpeakerType, locations: Locat
 
             </div>
 
-            <div className={'w-full lg:w-1/2'}>
+            <div className={'w-full lg:w-1/3'}>
               <Label htmlFor="location" className="block text-sm font-medium text-gray-700">Location</Label>
               <div className="mt-1">
                 <select
-                       name="location"
-                       value={formik.values.location}
-                       onChange={formik.handleChange}
-                       id="location"
-                       className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                       placeholder="Meta title">
+                  name="location"
+                  value={formik.values.location}
+                  onChange={formik.handleChange}
+                  id="location"
+                  className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                  placeholder="Meta title">
                   <option disabled value="">Select Location</option>
                   {
-                    locations.map( ( location ) => {
-                      return <option key={location.id} value={location.id} selected={location.id === formik.values.location} >{location.name}</option>;
-                    } )
+                    locations.map((location) => {
+                      return <option key={location.id} value={location.id}
+                                     selected={location.id === formik.values.location}>{location.name}</option>;
+                    })
                   }
                 </select>
 
@@ -244,6 +277,29 @@ function Create( {speaker, locations} : { speaker: SpeakerType, locations: Locat
               }
             </div>
 
+
+            <div className="w-full ">
+              <Label htmlFor="location" className="block text-sm font-medium text-gray-700">Tags</Label>
+              <CreatableSelect
+                isMulti
+                placeholder={'Select or create tags '}
+                options={tags}
+                onChange={(value) => formik.setFieldValue('tags', value)}
+              />
+            </div>
+
+
+            <div className="w-full">
+              <Label htmlFor="location" className="block text-sm font-medium text-gray-700">Categories</Label>
+              <CreatableSelect
+                isMulti
+                placeholder={'Select or create categories '}
+                options={categories}
+                onChange={(value) => formik.setFieldValue('categories', value)}
+              />
+            </div>
+
+
             <div>
               <Label htmlFor="bio" className="block text-sm font-medium text-gray-700">Bio</Label>
 
@@ -251,7 +307,7 @@ function Create( {speaker, locations} : { speaker: SpeakerType, locations: Locat
                 <ReactQuill
                   theme='snow'
                   value={formik.values.bio}
-                  onChange={( e ) => formik.setFieldValue( 'bio', e )}
+                  onChange={(e) => formik.setFieldValue('bio', e)}
                 />
 
               </div>
@@ -264,8 +320,8 @@ function Create( {speaker, locations} : { speaker: SpeakerType, locations: Locat
 
             <div>
               <div className='w-full lg:w-1/2 '>
-                <Label htmlFor={'file'} >Featured Image</Label>
-                <div {...getRootProps( {className: 'border-dashed border-2 rounded-lg mt-2 py-4 px-4'} )}>
+                <Label htmlFor={'file'}>Featured Image</Label>
+                <div {...getRootProps({className: 'border-dashed border-2 rounded-lg mt-2 py-4 px-4'})}>
                   <Input {...getInputProps()} />
                   <p className={'text-sm'}>Drag 'n' Cover Image, or click to select files</p>
                 </div>
@@ -273,7 +329,7 @@ function Create( {speaker, locations} : { speaker: SpeakerType, locations: Locat
                 {/*    display preview */}
                 {imagePreview && (
                   <div className='mx-auto mt-3'>
-                    <img src={imagePreview} className={'h-40 w-40 object-cover'} alt='' />
+                    <img src={imagePreview} className={'h-40 w-40 object-cover'} alt=''/>
                   </div>
                 )}
 
@@ -284,10 +340,10 @@ function Create( {speaker, locations} : { speaker: SpeakerType, locations: Locat
             <div className="relative flex items-start">
               <div className="flex h-5 items-center">
                 <Input
-                        onChange={formik.handleChange}
-                        checked={formik.values.featured}
+                  onChange={formik.handleChange}
+                  checked={formik.values.featured}
                   id="featured" aria-describedby="featured" name="featured" value='1' type="checkbox"
-                       className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"/>
+                  className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"/>
               </div>
               <div className="ml-3 text-sm">
                 <Label htmlFor="featured" className="font-medium text-gray-700">Featured</Label>

@@ -1,5 +1,4 @@
 import React from 'react';
-import stripTags from "@/Utils/stripTags";
 import {Link} from "@inertiajs/react";
 import {SpeakerType} from "@/types/speaker-type";
 
@@ -13,14 +12,14 @@ function SpeakerCard({speaker}: SpeakerCardProps) {
       <img
         className={'h-96 z-0 w-full object-cover'}
         src={speaker.image}
-        alt=""
+        alt={speaker.name}
       />
       <div className="absolute bottom-0 z-10 right-0 left-0">
         <div className="w-full px-4 py-4 space-y-1 bg-gradient-to-t from-black/60 to-black/0">
           <Link href={route('speakers.show', speaker.slug)}>
-          <h3 className="text-white text-lg font-semibold">
-            {speaker.name}
-          </h3>
+            <h3 className="text-white text-lg font-semibold">
+              {speaker.name}
+            </h3>
           </Link>
 
           <div className={'flex items-center'}>
@@ -31,7 +30,12 @@ function SpeakerCard({speaker}: SpeakerCardProps) {
             </svg>
 
             <p className={'text-white text-xs'}>
-              Performance coach, Psychologist, Author and Keynote speaker
+              {speaker.categories?.map((category, index) => (
+                <span key={category}>
+                    {category}
+                  {index < speaker.tags.length - 1 ? ', ' : ''}
+                 </span>
+              ))}
             </p>
 
           </div>

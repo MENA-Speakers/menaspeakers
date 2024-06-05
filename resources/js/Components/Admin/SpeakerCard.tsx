@@ -5,11 +5,6 @@ import {DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger
 import {MoreVertical} from "lucide-react";
 import axios from "axios";
 
-//Speaker interface
-
-
-
-
 function SpeakerCard({speaker} : {speaker: SpeakerType}) {
 
   const deleteSpeaker = () => {
@@ -35,7 +30,11 @@ function SpeakerCard({speaker} : {speaker: SpeakerType}) {
             <MoreVertical className={'w-5 h-5 text-gray-500'}/>
           </DropdownMenuTrigger>
           <DropdownMenuContent>
-            <DropdownMenuItem>View</DropdownMenuItem>
+            <DropdownMenuItem>
+              <Link href={route('admin.speakers.faqs', speaker.slug)}>
+                Faqs
+              </Link>
+            </DropdownMenuItem>
             <DropdownMenuItem>
               <Link href={route('admin.speakers.edit', speaker.slug)}>
                 Edit

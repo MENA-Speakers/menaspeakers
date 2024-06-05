@@ -2,6 +2,9 @@
 
 
 import {PortfolioType} from "@/types/portfolio-type";
+import {FaqType} from "@/types/faq-type";
+
+
 
 export interface SpeakerType {
   id: number;
@@ -12,7 +15,10 @@ export interface SpeakerType {
   meta_title: string;
   meta_description: string;
   bio: string;
+  tags: string[];
+  categories: string[];
   excerpt: string;
+  faqs: FaqType[];
   keywords: string;
   location_id: number;
   name: string;

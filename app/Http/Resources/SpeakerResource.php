@@ -16,9 +16,14 @@ class SpeakerResource extends JsonResource
     {
         return [
           'id' => $this->id,
-          'name' => $this->name,
+          'first_name' => $this->first_name,
+          'last_name' => $this->last_name,
+          'name' => $this->first_name . ' ' . $this->last_name,
           'image' => $this->getFirstMediaUrl('avatar', 'webp'),
+          'categories'            => $this->tagsWithType('categories')->pluck('name'),
+          'tags'            => $this->tagsWithType('tags')->pluck('name'),
           'bio' => $this->bio,
+          'faqs' => $this->faqs,
           'featured' => boolval($this->featured),
           'meta_title' => $this->meta_title,
           'excerpt' => $this->meta_description,

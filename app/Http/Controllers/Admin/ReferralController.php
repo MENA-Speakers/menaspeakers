@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Faq;
 use Illuminate\Http\Request;
 
 class ReferralController extends Controller
@@ -28,7 +29,18 @@ class ReferralController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+          'question' => 'required|string',
+          'answer' => 'required|string',
+        ]);
+
+
+        $faq = Faq::create([
+          'question' => $request->input('question'),
+          'answer' => $request->input('answer'),
+        ]);
+
+        return $faq;
     }
 
     /**
@@ -60,6 +72,7 @@ class ReferralController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        Faq::find($id)->delete();
+        return back();
     }
 }

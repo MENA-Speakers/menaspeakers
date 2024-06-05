@@ -18,6 +18,7 @@
   use App\Http\Controllers\Admin\SettingController;
   use App\Http\Controllers\Admin\AdminSpeakerController;
   use App\Http\Controllers\AdminGalleryController;
+  use App\Http\Controllers\AdminSpeakerFaqController;
   use App\Http\Controllers\AdminSpeakerVideoController;
   use App\Http\Controllers\DealController;
   use App\Http\Controllers\FaqsController;
@@ -132,12 +133,11 @@
     Route::post('proposals/{proposal}/delete', [ProposalController::class, 'destroy'])->name('proposals.delete');
 
     // Referrals route
-    Route::get('referrals', [ReferralController::class, 'index'])->name('referrals.index');
-    Route::post('referrals', [ReferralController::class, 'store'])->name('referrals.store');
-    Route::get('referrals/create', [ReferralController::class, 'create'])->name('referrals.create');
-    Route::get('referrals/{referral}/edit', [ReferralController::class, 'edit'])->name('referrals.edit');
-    Route::post('referrals/{referral}', [ReferralController::class, 'update'])->name('referrals.update');
-    Route::post('referrals/{referral}/delete', [ReferralController::class, 'destroy'])->name('referrals.delete');
+    Route::get('faqs', [ReferralController::class, 'index'])->name('faqs.index');
+    Route::post('faqs', [ReferralController::class, 'store'])->name('faqs.store');
+    Route::get('faqs/create', [ReferralController::class, 'create'])->name('faqs.create');
+    Route::post('faqs/{faq}', [ReferralController::class, 'update'])->name('faqs.update');
+    Route::post('faqs/{faq}/delete', [ReferralController::class, 'destroy'])->name('faqs.delete');
 
 
     // Front page speaker routes
@@ -153,6 +153,11 @@
     Route::get('speakers/{speakers}/videos', [AdminProfileVideoController::class, 'index'])->name('speakers.videos');
     Route::post('speakers/{speakers}/videos', [AdminSpeakerVideoController::class, 'store'])->name('speakers.videos.store');
     Route::post('speakers/videos/{video}/delete', [AdminProfileVideoController::class, 'destroy'])->name('speakers.videos.destroy');
+
+    //Speaker Faqs
+    Route::get('speakers/{speaker}/faqs', [AdminSpeakerFaqController::class, 'index'])->name('speakers.faqs');
+    Route::post('speakers/{speaker}/faqs', [AdminSpeakerFaqController::class, 'store'])->name('speakers.faqs.store');
+    Route::post('speakers/{speaker}/delete', [AdminSpeakerFaqController::class, 'delete'])->name('speakers.faqs.destroy');
 
 
 
