@@ -12,17 +12,18 @@ use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
+use Spatie\Tags\HasTags;
 
 class Speaker extends Model implements HasMedia
 {
-    use HasFactory, Searchable, HasSlug, InteractsWithMedia;
+    use HasFactory, Searchable, HasSlug, InteractsWithMedia, HasTags;
 
     protected $guarded = ['id'];
 
     public function getSlugOptions (): SlugOptions
     {
       return SlugOptions::create()
-        ->generateSlugsFrom('name')
+        ->generateSlugsFrom(['first_name', 'last_name'])
         ->saveSlugsTo('slug')
         ->doNotGenerateSlugsOnUpdate();
     }
@@ -48,6 +49,12 @@ class Speaker extends Model implements HasMedia
   public function videos(): HasMany
   {
     return $this->hasMany(Video::class);
+  }
+
+
+  public function faqs(): HasMany
+  {
+    return $this->hasMany(Faq::class);
   }
 
   public function location(): BelongsTo

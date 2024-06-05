@@ -31,4 +31,9 @@ class PagesController extends Controller
   public function profileArabic(){
     return view('pages.profile-arabic');
   }
+
+
+  public function about(){
+    return Inertia::render('About/Index');
+  }
 }

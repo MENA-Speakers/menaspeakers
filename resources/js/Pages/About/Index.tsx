@@ -5,24 +5,9 @@ import {Facebook, Instagram, Linkedin, Twitter, Youtube} from "lucide-react";
 import {Input} from "@/Components/ui/input";
 import {Textarea} from "@/Components/ui/textarea";
 
-function Index() {
+function AboutPage() {
   // const formRef = useRef(null);
 
-  // useEffect(() => {
-  //   const script = document.createElement('script');
-  //   script.setAttribute('data-b24-form', 'inline/53/h8olp0');
-  //   script.setAttribute('data-skip-moving', 'true');
-  //
-  //   script.innerHTML = `
-  //     (function(w,d,u){
-  //       var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);
-  //       var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);
-  //     })(window,document,'https://cdn.bitrix24.com/b25531643/crm/form/loader_53.js');
-  //   `;
-  //
-  //   formRef.current.appendChild(script);
-  //
-  // }, []);
 
   return (
     <MainLayout>
@@ -30,7 +15,13 @@ function Index() {
         <title>Contact Us</title>
       </Head>
 
-      <section className="py-12">
+      <section className="pb-12 -mt-4">
+        <div className="w-full relative h-[800px]">
+          <img className={'w-full h-[800px] object-cover'} src="/images/home-about-us.webp" alt="About MENA Speakers"/>
+          <div className="absolute inset-0 bg-black opacity-50">
+
+          </div>
+        </div>
         <div className="max-w-7xl flex gap-8 mx-auto  px-6 lg:px-0">
           {/*<div ref={formRef}>*/}
           {/*  /!* The Bitrix form will load here *!/*/}
@@ -83,7 +74,7 @@ function Index() {
               Fill the form so that our team can reach out to you
             </p>
 
-            <form action="https://formspree.io/f/xnqoqkqk" method="POST" className="mt-6">
+            <form action="" method="POST" className="mt-6">
               <div className="space-y-6">
                 <Input type="text" name="name" placeholder="Name" className="w-full border rounded-lg py-3 px-4"/>
                 <Input type="text" name="company_name" placeholder="Comapny Name" className="w-full border rounded-lg py-3 px-4"/>
@@ -102,4 +93,4 @@ function Index() {
   );
 }
 
-export default Index;
+export default AboutPage;

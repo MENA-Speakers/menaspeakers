@@ -19,9 +19,10 @@ module.exports = {
     extend: {
       colors: {
         mena: {
-          100: '#34ABE2',
+          100: '#37ACE2',
           200: '#2A72A9',
-          300: '#1F4282'
+          300: '#1F4282',
+          'brand': '#204283',
         },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
