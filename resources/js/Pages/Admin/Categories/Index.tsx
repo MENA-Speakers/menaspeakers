@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react';
+import React, {Fragment, useState} from 'react';
 import AdminLayout from "@/Layouts/AdminLayout";
 import {CategoryType} from "@/types/speaker-type";
 import {Button} from "@/Components/ui/button";
@@ -13,6 +13,8 @@ import * as Yup from "yup";
 import AddFaqForm from "@/Components/Admin/AddFaqForm";
 import AddTagForm from "@/Components/AddTopicForm";
 import {FaqType} from "@/types/faq-type";
+import {useDropzone} from "react-dropzone";
+import {Label} from "@/Components/ui/label";
 
 interface CategoryPageProps {
   categories: CategoryType[];
@@ -38,19 +40,45 @@ function Index({categories, topics}: CategoryPageProps) {
     });
   }
 
+  const [ imagePreview, setImagePreview ] = useState<string | null>(  null );
+
+  const {
+    acceptedFiles,
+    getRootProps: getRootProps,
+    getInputProps: getInputProps,
+  } = useDropzone( {
+    maxFiles: 1,
+    accept: {
+      'image/*': [],
+    },
+    onDrop: ( acceptedFiles ) => {
+      setImagePreview( URL.createObjectURL( acceptedFiles[ 0 ] ) );
+      formik.setFieldValue( 'image', acceptedFiles[ 0 ] );
+    },
+  } );
+
   const formik = useFormik({
     initialValues: {
       name: '',
+      image: '',
     },
 
     validationSchema: Yup.object({
-
       name: Yup.string().required('Category name is required'),
     }),
 
     onSubmit: values => {
 
-      axios.post(route('admin.categories.store'), values
+      //validate image
+      if (!values.image) {
+        formik.setErrors({image: 'Image is required'});
+        return;
+      }
+
+      axios.post(route('admin.categories.store'), values, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }}
       ).then((response) => {
         formik.setSubmitting(false);
         setAddingCategory(false)
@@ -87,7 +115,8 @@ function Index({categories, topics}: CategoryPageProps) {
             {
               allCategories.map((category, index) => (
                 <div key={index} className="flex justify-between items-center rounded bg-white py-2 border px-6">
-                  <div>
+                  <div className={'flex items-center'}>
+                    <img className={'w-40 h-20 object-cover mr-4'} src={category.image} alt=""/>
                     <h3 className="">{category.name}</h3>
                   </div>
                   <div>
@@ -168,14 +197,15 @@ function Index({categories, topics}: CategoryPageProps) {
                               className=" max-w-4xl space-y-8 mx-auto py-8 px-8">
 
                           <div>
-                            <label htmlFor="link" className="block text-sm font-medium text-gray-700">Category Name</label>
+                            <label htmlFor="link" className="block text-sm font-medium text-gray-700">Category
+                              Name</label>
                             <div className="mt-1">
                               <Input type="text"
                                      name="name"
                                      value={formik.values.name}
                                      onChange={formik.handleChange}
                                      id="link"
-                                     placeholder={'Category Name'} />
+                                     placeholder={'Category Name'}/>
                             </div>
                             {
                               formik.touched.name && formik.errors.name ? (
@@ -185,9 +215,27 @@ function Index({categories, topics}: CategoryPageProps) {
                           </div>
 
                           <div>
+                            <div className='w-full'>
+                              <Label htmlFor={'file'}>Image</Label>
+                              <div {...getRootProps({className: 'border-dashed border-2 rounded-lg mt-2 py-4 px-4'})}>
+                                <input {...getInputProps()} />
+                                <p className={'text-sm'}>Drag 'n' Cover Image, or click to select files</p>
+                              </div>
+
+                              {/*    display preview */}
+                              {imagePreview && (
+                                <div className='mx-auto mt-3 w-full flex items-center justify-center'>
+                                  <img src={imagePreview} className={'h-40 w-60 rounded-lg object-cover'} alt=''/>
+                                </div>
+                              )}
+
+                            </div>
+                          </div>
+
+                          <div>
                             <div className="mt-1 flex justify-end">
                               <Button disabled={formik.isSubmitting} type="submit">
-                               Add Category
+                                Add Category
                               </Button>
                             </div>
                           </div>

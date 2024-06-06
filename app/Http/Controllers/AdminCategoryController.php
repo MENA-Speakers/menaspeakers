@@ -2,6 +2,8 @@
 
   namespace App\Http\Controllers;
 
+  use App\Http\Resources\CategoryResource;
+  use App\Http\Resources\TopicResource;
   use App\Models\Category;
   use App\Models\Topic;
   use Illuminate\Http\Request;
@@ -15,8 +17,8 @@
       $categories = Category::all();
       $topics = Topic::all();
       return Inertia::render('Admin/Categories/Index', [
-        'categories' => $categories,
-        'topics' => $topics,
+        'categories' => CategoryResource::collection($categories),
+        'topics' => TopicResource::collection($topics),
       ]);
     }
 
@@ -24,13 +26,18 @@
     {
       $request->validate([
         'name' => 'required|string',
+        'image' => 'required|image',
       ]);
 
       $category = Category::create([
         'name' => $request->input('name'),
       ]);
 
-      return $category;
+      if($request->hasFile('image')){
+        $category->addMediaFromRequest('image')->toMediaCollection('image');
+      }
+
+      return CategoryResource::make($category);
     }
 
 

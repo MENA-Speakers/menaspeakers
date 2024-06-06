@@ -145,6 +145,7 @@
     Route::post('/categories', [AdminCategoryController::class, 'store'])->name('categories.store');
     Route::post('/categories/{category}', [AdminCategoryController::class, 'delete'])->name('categories.destroy');
 
+    //Topics route
     Route::post('/topics', [AdminTopicController::class, 'store'])->name('topics.store');
     Route::post('/topics/{topic}', [AdminTopicController::class, 'delete'])->name('topics.destroy');
 

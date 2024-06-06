@@ -10,6 +10,7 @@
   use App\Http\Controllers\Api\ApiProposalController;
   use App\Http\Controllers\BitrixSpeakerController;
   use App\Http\Controllers\BlogsController;
+  use App\Http\Controllers\CategoryController;
   use App\Http\Controllers\DealController;
   use App\Http\Controllers\ExternalSiteController;
   use App\Http\Controllers\FaqsController;
@@ -20,6 +21,7 @@
   use App\Http\Controllers\ProposalController;
   use App\Http\Controllers\ProfilesController;
   use App\Http\Controllers\SpeakerNotificationController;
+  use App\Http\Controllers\TopicController;
   use App\Mail\BirthdayEmail;
   use App\Models\Profile;
   use App\Models\Speaker;
@@ -53,6 +55,8 @@
   Route::get('/blogs', [BlogsController::class, 'index'])->name('blogs.index');
   Route::get('/blogs/{blog}', [BlogsController::class, 'show'])->name('blogs.show');
 
+  Route::get('/categories', [CategoryController::class, 'index'])->name('categories.index');
+  Route::get('/topics', [TopicController::class, 'index'])->name('topics.index');
 
   Route::get('profile', [PagesController::class, 'profile'])->name('pages.profile');
   Route::get('profile-arabic', [PagesController::class, 'profileArabic'])->name('pages.profile.arabic');

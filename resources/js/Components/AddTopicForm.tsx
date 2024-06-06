@@ -20,6 +20,7 @@ function AddTopicForm({ topicAdded} : AddTopicFormProps) {
   const formik = useFormik({
     initialValues: {
       name: '',
+      image: '',
     },
 
     validationSchema: Yup.object({
@@ -27,9 +28,17 @@ function AddTopicForm({ topicAdded} : AddTopicFormProps) {
     }),
 
     onSubmit: values => {
-      let postUrl = route('admin.topics.store');
 
-      axios.post(postUrl, values
+      //validate image
+      if (!values.image) {
+        formik.setErrors({image: 'Image is required'});
+        return;
+      }
+
+      axios.post(route('admin.topics.store'), values, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }}
       ).then((response) => {
         formik.setSubmitting(false);
         if (topicAdded) {

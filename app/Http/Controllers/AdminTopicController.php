@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 
+use App\Http\Resources\TopicResource;
 use App\Models\Topic;
 use Illuminate\Http\Request;
 
@@ -13,13 +14,18 @@ class AdminTopicController extends Controller
   {
     $request->validate([
       'name' => 'required|string',
+      'image' => 'required|image',
     ]);
 
     $topic = Topic::create([
       'name' => $request->input('name'),
     ]);
 
-    return $topic;
+
+    if($request->hasFile('image')){
+      $topic->addMediaFromRequest('image')->toMediaCollection('image');
+    }
+    return TopicResource::collection($topic);
   }
 
 

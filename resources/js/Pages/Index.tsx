@@ -162,7 +162,7 @@ function Index({blogs, speakers, gallery} : IndexProps) {
                   </p>
                 </div>
                 <div>
-                  <Link href={'/categories'} className="text-[#F15A29] ">View All Categories</Link>
+                  <Link href={route('categories.index')} className="text-[#F15A29] ">View All Categories</Link>
                 </div>
               </div>
 
@@ -201,7 +201,7 @@ function Index({blogs, speakers, gallery} : IndexProps) {
                   </p>
                 </div>
                 <div>
-                  <Link href={'/categories'} className="text-[#F15A29] ">View All Topics</Link>
+                  <Link href={route('topics.index')} className="text-[#F15A29] ">View All Topics</Link>
                 </div>
               </div>
 

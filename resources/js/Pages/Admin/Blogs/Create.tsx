@@ -118,7 +118,7 @@ function Create( {blog} : {blog: BlogType} ) {
               <label htmlFor="excerpt" className="block text-sm font-medium text-gray-700">Keywords </label>
               <div className="mt-1">
                 <Textarea
-                  rows="2"
+                  rows={2}
                   name="keywords"
                   value={formik.values.keywords}
                   onChange={formik.handleChange}
