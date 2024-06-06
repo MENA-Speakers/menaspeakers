@@ -24,26 +24,12 @@ export function SideBar({ className }: SidebarProps) {
       <div className="space-y-4 py-4">
         <div className="px-3 py-2">
           <div className="space-y-2">
-
-            <Link href={route('admin.dashboard')} className={ cn("w-full flex justify-start items-center px-3 py-2 text-gray-600 hover:bg-slate-100 hover:text-gray-900 rounded-lg",
-              route().current('admin.dashboard') && 'bg-slate-100 rounded-lg text-gray-900'
+            <Link href={route('admin.speakers.index')} className={ cn("w-full flex justify-start items-center px-3 py-2 text-gray-600 hover:bg-slate-100 hover:text-gray-900 rounded-lg",
+              route().current('admin.speakers.*') && 'bg-slate-100 rounded-lg text-gray-900'
             )}>
-              <RadioTower className="mr-2 h-5 w-5" />
-              Home
+              <Mic2 className="mr-2 h-5 w-5" />
+              Speakers
             </Link>
-            <Link href={route('admin.proposals.index')} className={ cn("w-full flex justify-start items-center px-3 py-2 text-gray-600 hover:bg-slate-100 hover:text-gray-900 rounded-lg",
-              route().current('admin.proposals.*') && 'bg-slate-100 rounded-lg text-gray-900'
-            )}>
-              <FolderDot className="mr-2 h-5 w-5" />
-              Proposals
-            </Link>
-            <Link href={route('admin.portfolios.index')} className={ cn("w-full flex justify-start items-center px-3 py-2 text-gray-600 hover:bg-slate-100 hover:text-gray-900 rounded-lg",
-              route().current('admin.portfolios.*') && 'bg-slate-100 rounded-lg text-gray-900'
-            )}>
-              <Files className="mr-2 h-5 w-5" />
-              Portfolios
-            </Link>
-
             <Link href={route('admin.profiles.index')} className={ cn("w-full flex justify-start items-center px-3 py-2 text-gray-600 hover:bg-slate-100 hover:text-gray-900 rounded-lg",
               route().current('admin.profiles.*') && 'bg-slate-100 rounded-lg text-gray-900'
             )}>
@@ -70,11 +56,11 @@ export function SideBar({ className }: SidebarProps) {
               Blogs
              </Link>
 
-             <Link href={route('admin.deals.index')} className={ cn("w-full flex justify-start items-center px-3 py-2 text-gray-600 hover:bg-slate-100 hover:text-gray-900 rounded-lg",
-              route().current('admin.deals.*') && 'bg-slate-100 rounded-lg text-gray-900'
+             <Link href={route('admin.categories.index')} className={ cn("w-full flex justify-start items-center px-3 py-2 text-gray-600 hover:bg-slate-100 hover:text-gray-900 rounded-lg",
+              route().current('admin.categories.*') && 'bg-slate-100 rounded-lg text-gray-900'
             )}>
               <FolderKanban className="mr-2 h-5 w-5" />
-              Deals
+              Categories / Topics
              </Link>
 
             <Link href={route('admin.faqs.index')} className={ cn("w-full flex justify-start items-center px-3 py-2 text-gray-600 hover:bg-slate-100 hover:text-gray-900 rounded-lg",

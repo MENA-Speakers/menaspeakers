@@ -80,7 +80,6 @@ function Show({ speaker, videos, faqs } : ShowProps) {
   });
 
   const handleFaqAdded = (faq: FaqType) => {
-    console.log('faq added', faq)
     setAllFaqs([...allFaqs, faq]);
     setAddingFaq(false);
   }

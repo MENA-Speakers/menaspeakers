@@ -39,15 +39,14 @@
 
   Route::get('/', [HomeController::class, 'index'])->name('index');
 
-  Route::controller(ProfilesController::class)->group(function () {
+  Route::controller(ProfilesController::class)->group(function() {
     Route::get('/speakers', 'index')->name('speakers.index');
     Route::get('/speakers/{speaker}', 'show')->name('speakers.show');
   });
 
 
-
-    Route::get('/location/{location}', [LocationController::class, 'show'])->name('location.show');
-    Route::get('/location/{location}/search', [LocationController::class, 'search'])->name('location.speakers.search');
+  Route::get('/location/{location}', [LocationController::class, 'show'])->name('location.show');
+  Route::get('/location/{location}/search', [LocationController::class, 'search'])->name('location.speakers.search');
 
 
   Route::get('/gallery/', [GalleryController::class, 'index'])->name('gallery.index');
@@ -71,7 +70,7 @@
 
 
   //External site routes
-  Route::group(['prefix' => 'external', 'as' => 'external.'], function () {
+  Route::group(['prefix' => 'external', 'as' => 'external.'], function() {
     Route::get('sports', [ExternalSiteController::class, 'sports'])->name('sports');
     Route::get('wellness', [ExternalSiteController::class, 'wellness'])->name('wellness');
     Route::get('coaching', [ExternalSiteController::class, 'coaching'])->name('coaching');

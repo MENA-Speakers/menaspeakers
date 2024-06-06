@@ -23,12 +23,15 @@ class SpeakerUpdateRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-          'name' => 'required',
-          'bio' => 'required',
-          'meta_title' => 'required',
-          'excerpt' => 'required',
-          'keywords' => 'required',
-        ];
+      return [
+        'first_name' => 'required',
+        'last_name' => 'required',
+        'bio' => 'required',
+        'image' => 'required',
+        'featured' => 'required',
+        'title' => 'required',
+        'excerpt' => 'required',
+        'key_titles' => 'required',
+      ];
     }
 }

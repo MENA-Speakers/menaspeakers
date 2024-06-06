@@ -29,9 +29,9 @@ class StoreSpeakerRequest extends FormRequest
           'bio' => 'required',
           'image' => 'required',
           'featured' => 'required',
-          'meta_title' => 'required',
+          'title' => 'required',
           'excerpt' => 'required',
-          'keywords' => 'required',
+          'key_titles' => 'required',
         ];
     }
 }

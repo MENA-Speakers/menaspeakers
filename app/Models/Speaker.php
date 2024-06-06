@@ -1,26 +1,27 @@
 <?php
 
-namespace App\Models;
+  namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
-use Laravel\Scout\Searchable;
-use Spatie\MediaLibrary\HasMedia;
-use Spatie\MediaLibrary\InteractsWithMedia;
-use Spatie\MediaLibrary\MediaCollections\Models\Media;
-use Spatie\Sluggable\HasSlug;
-use Spatie\Sluggable\SlugOptions;
-use Spatie\Tags\HasTags;
+  use Illuminate\Database\Eloquent\Factories\HasFactory;
+  use Illuminate\Database\Eloquent\Model;
+  use Illuminate\Database\Eloquent\Relations\BelongsTo;
+  use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+  use Illuminate\Database\Eloquent\Relations\HasMany;
+  use Laravel\Scout\Searchable;
+  use Spatie\MediaLibrary\HasMedia;
+  use Spatie\MediaLibrary\InteractsWithMedia;
+  use Spatie\MediaLibrary\MediaCollections\Models\Media;
+  use Spatie\Sluggable\HasSlug;
+  use Spatie\Sluggable\SlugOptions;
+  use Spatie\Tags\HasTags;
 
-class Speaker extends Model implements HasMedia
-{
+  class Speaker extends Model implements HasMedia
+  {
     use HasFactory, Searchable, HasSlug, InteractsWithMedia, HasTags;
 
     protected $guarded = ['id'];
 
-    public function getSlugOptions (): SlugOptions
+    public function getSlugOptions(): SlugOptions
     {
       return SlugOptions::create()
         ->generateSlugsFrom(['first_name', 'last_name'])
@@ -28,45 +29,50 @@ class Speaker extends Model implements HasMedia
         ->doNotGenerateSlugsOnUpdate();
     }
 
-    public function getRouteKeyName (): string
+    public function getRouteKeyName(): string
     {
       return 'slug';
     }
 
-  public function registerMediaCollections(): void
-  {
-    $this->addMediaCollection('avatar')->singleFile();
+    public function registerMediaCollections(): void
+    {
+      $this->addMediaCollection('avatar')->singleFile();
+    }
+
+    public function registerMediaConversions(Media $media = null): void
+    {
+      $this->addMediaConversion('webp')
+        ->format('webp')
+        ->performOnCollections('avatar');
+    }
+
+
+    public function videos(): HasMany
+    {
+      return $this->hasMany(Video::class);
+    }
+
+
+    public function faqs(): HasMany
+    {
+      return $this->hasMany(Faq::class);
+    }
+
+    public function location(): BelongsTo
+    {
+      return $this->belongsTo(Location::class);
+    }
+
+    public function toSearchableArray(): array
+    {
+      $array = $this->toArray();
+      $array['location'] = $this->location?->name;
+      return $array;
+    }
+
+    public function categories(): BelongsToMany
+    {
+      return $this->belongsToMany(Category::class, 'categories_speakers');
+    }
+
   }
-
-  public function registerMediaConversions(Media $media = null): void
-  {
-    $this->addMediaConversion('webp')
-      ->format('webp')
-      ->performOnCollections('avatar');
-  }
-
-
-  public function videos(): HasMany
-  {
-    return $this->hasMany(Video::class);
-  }
-
-
-  public function faqs(): HasMany
-  {
-    return $this->hasMany(Faq::class);
-  }
-
-  public function location(): BelongsTo
-  {
-    return $this->belongsTo(Location::class);
-  }
-
-  public function toSearchableArray(): array
-  {
-    $array = $this->toArray();
-    $array['location'] = $this->location?->name;
-    return $array;
-  }
-
-}

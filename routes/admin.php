@@ -17,6 +17,7 @@
   use App\Http\Controllers\Admin\ReferralController;
   use App\Http\Controllers\Admin\SettingController;
   use App\Http\Controllers\Admin\AdminSpeakerController;
+  use App\Http\Controllers\AdminCategoryController;
   use App\Http\Controllers\AdminGalleryController;
   use App\Http\Controllers\AdminSpeakerFaqController;
   use App\Http\Controllers\AdminSpeakerVideoController;
@@ -139,6 +140,10 @@
 //    Route::post('faqs/{faq}', [ReferralController::class, 'update'])->name('faqs.update');
 //    Route::post('faqs/{faq}/delete', [ReferralController::class, 'destroy'])->name('faqs.delete');
 
+    Route::get('/categories', [AdminCategoryController::class, 'index'])->name('categories.index');
+    Route::post('/categories', [AdminCategoryController::class, 'store'])->name('categories.store');
+    Route::post('/categories/{category}', [AdminCategoryController::class, 'delete'])->name('categories.destroy');
+
 
     // Front page speaker routes
     Route::get('speakers', [AdminSpeakerController::class, 'index'])->name('speakers.index');
@@ -158,8 +163,6 @@
     Route::get('speakers/{speaker}/faqs', [AdminSpeakerFaqController::class, 'index'])->name('speakers.faqs');
     Route::post('speakers/{speaker}/faqs', [AdminSpeakerFaqController::class, 'store'])->name('speakers.faqs.store');
     Route::post('speakers/{speaker}/delete', [AdminSpeakerFaqController::class, 'delete'])->name('speakers.faqs.destroy');
-
-
 
   });
 

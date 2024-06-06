@@ -5,29 +5,34 @@ import {PortfolioType} from "@/types/portfolio-type";
 import {FaqType} from "@/types/faq-type";
 import {VideoType} from "@/types/video-type";
 
+export interface TagType {
+  id: number;
+  name: string;
+}
 
+export interface CategoryType {
+  id: number;
+  name: string;
+}
 
 export interface SpeakerType {
   id: number;
   first_name: string;
   last_name: string;
-  full_name: string;
   title: string;
-  portfolios: PortfolioType[];
+  full_name: string;
+  key_titles: string[];
   meta_title: string;
   meta_description: string;
   bio: string;
-  tags: string[];
-  categories: string[];
+  tags: TagType[];
+  categories: CategoryType[];
   excerpt: string;
   faqs: FaqType[];
-  keywords: string;
   location_id: number;
   videos: VideoType[];
   name: string;
   slug: string;
-  company: string;
-  position: string;
   about: string;
   featured: boolean;
   image: string;

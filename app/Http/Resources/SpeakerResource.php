@@ -14,16 +14,22 @@ class SpeakerResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
+
+      //explode from key_titles by comma into an array
+      $key_titles = explode(',', $this->key_titles);
+
         return [
           'id' => $this->id,
           'first_name' => $this->first_name,
           'last_name' => $this->last_name,
           'name' => $this->first_name . ' ' . $this->last_name,
           'image' => $this->getFirstMediaUrl('avatar', 'webp'),
-          'categories'            => $this->tagsWithType('categories')->pluck('name'),
-          'tags'            => $this->tagsWithType('tags')->pluck('name'),
+          'categories'   =>    $this->categories,
+//          'tags'            => $this->tagsWithType('tags')->pluck('name'),
           'bio' => $this->bio,
           'faqs' => $this->faqs,
+          'title' => $this->title,
+          'key_titles' => $key_titles,
           'featured' => boolval($this->featured),
           'meta_title' => $this->meta_title,
           'excerpt' => $this->meta_description,

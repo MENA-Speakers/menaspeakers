@@ -15,21 +15,34 @@ import {Input} from "@/Components/ui/input";
 import {SpeakerType} from "@/types/speaker-type";
 import {Label} from "@/Components/ui/label";
 import CreatableSelect from 'react-select/creatable';
+import Select from 'react-select';
 
+interface optionType {
+  value: string;
+  label: string;
+}
 interface CreateProps {
   speaker: SpeakerType;
   locations: LocationType[];
-  categories: string[];
-  tags: string[];
+  categories: optionType[];
+  tags: optionType[];
+  selectedTags: optionType[];
+  selectedCategories: optionType[];
 }
 
-function Create( {speaker, locations, categories, tags} : CreateProps ) {
+function Create( {
+                   speaker,
+                   locations,
+                   categories,
+                   tags,
+                    selectedCategories,
+                    selectedTags
+} : CreateProps ) {
 
 
 
   const [ imagePreview, setImagePreview ] = React.useState( speaker?.image ? speaker.image : null );
   const [isEditing, setIsEditing] = React.useState(false);
-
   useEffect(() => {
     if (speaker) {
       setIsEditing(true);
@@ -40,8 +53,8 @@ function Create( {speaker, locations, categories, tags} : CreateProps ) {
     initialValues: {
       first_name: speaker?.first_name ? speaker.first_name : '',
       last_name: speaker?.last_name ? speaker.last_name : '',
-      meta_title: speaker?.meta_title ? speaker.meta_title : '',
-      keywords: speaker?.keywords ? speaker.keywords : '',
+      title: speaker?.title ? speaker.title : '',
+      key_titles: speaker?.key_titles ? speaker.key_titles : '',
       slug: speaker?.slug ? speaker.slug : '',
       excerpt: speaker?.excerpt ? speaker.excerpt : '',
       bio: speaker?.bio ? speaker.bio : '',
@@ -57,10 +70,9 @@ function Create( {speaker, locations, categories, tags} : CreateProps ) {
         .required( 'First Name is required' ),
       last_name: Yup.string()
         .required( 'Last Name is required' ),
-      meta_title: Yup.string()
-        .required( 'Meta title is required' ),
-      keywords: Yup.string()
-        .required( 'Keywords are required' ),
+      title: Yup.string()
+        .required( 'Main title is required' ),
+
       excerpt: Yup.string()
         .required( 'Meta description is required' ),
       bio: Yup.string()
@@ -121,7 +133,11 @@ function Create( {speaker, locations, categories, tags} : CreateProps ) {
       <div className="">
         <div className="sm:px-6 lg:px-8">
           <div className="flex justify-between">
-            <h2 className=" font-semibold text-gray-900">Add Speaker</h2>
+            <h2 className=" font-semibold text-gray-900">
+              {
+                speaker ? 'Edit Speaker' : 'Create Speaker'
+              }
+            </h2>
           </div>
         </div>
         <div className="sm:p-6 lg:p-4 bg-white overflow-hidden shadow-sm sm:rounded-lg">
@@ -167,38 +183,39 @@ function Create( {speaker, locations, categories, tags} : CreateProps ) {
             </div>
 
             <div>
-              <Label htmlFor="meta_title" className="block text-sm font-medium text-gray-700">Meta title</Label>
+              <Label htmlFor="title" className="block text-sm font-medium text-gray-700">Main title</Label>
               <div className="mt-1">
                 <Input type="text"
-                       name="meta_title"
-                       value={formik.values.meta_title}
+                       name="title"
+                       value={formik.values.title}
                        onChange={formik.handleChange}
-                       id="meta_title"
+                       id="title"
                        className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                       placeholder="Meta title"/>
+                       placeholder="Main title"/>
               </div>
               {
-                formik.touched.meta_title && formik.errors.meta_title ? (
-                  <div className="text-red-500 text-xs italic">{formik.errors.meta_title}</div>
+                formik.touched.title && formik.errors.title ? (
+                  <div className="text-red-500 text-xs italic">{formik.errors.title}</div>
                 ) : null
               }
             </div>
             <div>
-              <Label htmlFor="keywords" className="block text-sm font-medium text-gray-700">Keywords (Comma
-                Seperated)</Label>
+              <Label htmlFor="key_titles" className="block text-sm font-medium text-gray-700">Other Speaker
+                Titles </Label>
               <div className="mt-1">
                 <Input type="text"
-                       name="keywords"
-                       value={formik.values.keywords}
+                       name="key_titles"
+                       value={formik.values.key_titles}
                        onChange={formik.handleChange}
-                       id="keywords"
+                       id="key_titles"
                        className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                       placeholder="Keywords, "/>
+                       placeholder="Keynote Speaker, MC "/>
               </div>
 
+              <p className="text-xs mt-1">Important to separate each title by comma (,)</p>
               {
-                formik.touched.keywords && formik.errors.keywords ? (
-                  <div className="text-red-500 text-xs italic">{formik.errors.keywords}</div>
+                formik.touched.key_titles && formik.errors.key_titles ? (
+                  <div className="text-red-500 text-xs italic">{formik.errors.key_titles}</div>
                 ) : null
               }
 
@@ -208,7 +225,7 @@ function Create( {speaker, locations, categories, tags} : CreateProps ) {
             {/*  !isEditing &&*/}
 
             {/*  <div>*/}
-            {/*    <Label htmlFor="keywords" className="block text-sm font-medium text-gray-700">Slug (speaker url)</Label>*/}
+            {/*    <Label htmlFor="key_titles" className="block text-sm font-medium text-gray-700">Slug (speaker url)</Label>*/}
             {/*    <div className="mt-1">*/}
             {/*      <Input type="text"*/}
             {/*             name="slug"*/}
@@ -280,22 +297,28 @@ function Create( {speaker, locations, categories, tags} : CreateProps ) {
 
             <div className="w-full ">
               <Label htmlFor="location" className="block text-sm font-medium text-gray-700">Tags</Label>
-              <CreatableSelect
+              <Select
+                defaultValue={selectedTags}
+                onChange={(e) => formik.setFieldValue('tags', e)}
                 isMulti
-                placeholder={'Select or create tags '}
+                name="tags"
                 options={tags}
-                onChange={(value) => formik.setFieldValue('tags', value)}
+                className="basic-multi-select"
+                classNamePrefix="select"
               />
             </div>
 
 
-            <div className="w-full">
+            <div className="w-full ">
               <Label htmlFor="location" className="block text-sm font-medium text-gray-700">Categories</Label>
-              <CreatableSelect
+              <Select
+                defaultValue={selectedCategories}
+                onChange={(e) => formik.setFieldValue('categories', e)}
                 isMulti
-                placeholder={'Select or create categories '}
+                name="category"
                 options={categories}
-                onChange={(value) => formik.setFieldValue('categories', value)}
+                className="basic-multi-select"
+                classNamePrefix="select"
               />
             </div>
 
