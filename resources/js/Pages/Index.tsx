@@ -98,7 +98,28 @@ function Index({blogs, speakers, gallery} : IndexProps) {
                   speaker in 5 minutes.
                 </p>
 
-               <div className="mt-6 ">
+                <div className="mt-6 grid grid-cols-1 gap-4 lg:grid-cols-3">
+                  <div className={'py-3 px-4 col-span-1 bg-mena-brand rounded-xl flex items-center justify-center'}>
+                    <p className="text-center text-white">
+                      Protocol and speakers management
+                    </p>
+                  </div>
+
+                  <div className={'py-3 px-4 col-span-1 bg-mena-brand rounded-xl flex items-center justify-center'}>
+                    <p className="text-center text-white">
+                      Public Speaking
+                    </p>
+                  </div>
+
+                  <div className={'py-3 px-4 col-span-1 bg-mena-brand rounded-xl flex items-center justify-center'}>
+                    <p className="text-center text-white">
+                      Speaker Fast track
+                    </p>
+                  </div>
+
+                </div>
+
+                <div className="mt-6 ">
                  <span className={'border-b pb-1 border-[#F15A29]'}>
                     <Link href={'/about-us'} aria-label={'About Us'} className="mt-6 text-[#F15A29]">
                    Learn More

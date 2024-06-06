@@ -5,9 +5,12 @@ import {Facebook, Instagram, Linkedin, Mail, Phone, Twitter, Youtube} from "luci
 function Footer() {
   return (
     <div className={'bg-mena-brand py-12 lg:pt-24 pb-12 px-6'}>
-      <div className="max-w-7xl mx-auto pb-12 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto pb-12 flex flex-col lg:flex-row items-center justify-between">
         <div className="w-full lg:w-2/3 space-y-3">
-          <div>
+          <div className={' items-center justify-center  lg:hidden'}>
+            <img width={260} height={160} src="/images/white-logo.png" alt="MENA Speaker's logo"/>
+          </div>
+          <div className={' items-center justify-center lg:hidden'}>
             <img width={160} height={80} src="/images/white-logo.png" alt="MENA Speaker's logo"/>
           </div>
           <div className="flex items-center group">
@@ -16,14 +19,15 @@ function Footer() {
           </div>
           <div className="flex items-center group">
             <Mail size={20} className={'text-slate-300 group-hover:text-white mr-2 stroke-1'}/>
-            <a href="mailto:info@mena-speakers.com" className={'text-slate-300 hover:text-white'}>info@mena-speakers.com</a>
+            <a href="mailto:info@mena-speakers.com"
+               className={'text-slate-300 hover:text-white'}>info@mena-speakers.com</a>
           </div>
         </div>
 
-        <div className="w-full lg:w-1/3  gap-8">
+        <div className="w-full lg:w-1/3 pt-8 lg:pt-0 gap-8">
           <h3 className="text-white text-lg font-semibold">Quick Links</h3>
           <div className={'w-full'}>
-            <nav className="mt-4 flex  ">
+          <nav className="mt-4 flex  ">
               <div className={'w-full lg:w-1/2'}>
                 <Link href={'/speakers'} className={'text-slate-300 hover:text-white block py-2'}>Speakers</Link>
                 <Link href={'/about-us'} className={'text-slate-300 hover:text-white block py-2'}>About</Link>
@@ -37,7 +41,7 @@ function Footer() {
 
         </div>
       </div>
-      <div className="pt-12 border-t border-slate-400 max-w-7xl mx-auto flex justify-between">
+      <div className="pt-12 border-t border-slate-400 max-w-7xl mx-auto flex flex-col lg:flex-row justify-between">
         <div className={'flex gap-6'}>
           <div className={'flex space-x-4 '}>
             <a href={'https://www.linkedin.com'} className="p-2 rounded-full border">

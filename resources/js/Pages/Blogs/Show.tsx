@@ -2,8 +2,13 @@ import React from 'react';
 import MainLayout from "@/Layouts/MainLayout";
 import {Head} from "@inertiajs/react";
 import truncateText from "@/Utils/truncateText";
+import {BlogType} from "@/types/blog-type";
 
-function Index({blog}) {
+interface ViewBlogPageProps {
+  blog: BlogType
+}
+
+function ViewBlogPage({blog} : ViewBlogPageProps) {
 
   const blogStructuredData = {
     '@context': 'https://schema.org',
@@ -30,7 +35,7 @@ function Index({blog}) {
         <meta name={'description'} content={blog.excerpt} />
         <meta name={'keywords'} content={blog.keywords} />
       </Head>
-      <section className="relative h-[550px]">
+      <section className="relative -mt-4 h-[550px]">
         <img src={blog.image} alt={blog.title} className="w-full h-full object-cover"/>
 
         <div className="absolute inset-0 z-0">
@@ -42,14 +47,72 @@ function Index({blog}) {
         </div>
       </section>
 
-      <section className="py-12">
+      <section className="py-12 ">
 
-        <div dangerouslySetInnerHTML={{__html: blog.content}} className="max-w-7xl mx-auto px-4 sm px-6 lg px-8 py-12 px-6 lg:px-0">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-6">
+          <div className={'col-span-1 lg:col-span-2 space-y-6 lg:pr-12'}>
 
+            {/*CATEGORIES SECTION */}
+            <div className={'p-4 rounded-xl bg-[#F2F6FE] lg:w-[90%] '}>
+              <h2 className="text-2xl pb-4 text-mena-brand">
+                CATEGORY
+              </h2>
+
+
+              <div className={'flex flex-wrap items-center gap-4'}>
+                <div className={'px-4 py-1.5 rounded-3xl bg-mena-brand text-white'}>
+                  Society and Education
+                </div>
+
+                <div className={'px-4 py-1.5 rounded-3xl bg-mena-brand text-white'}>
+                  AI
+                </div>
+
+                <div className={'px-4 py-1.5 rounded-3xl bg-mena-brand text-white'}>
+                  Model
+                </div>
+
+                <div className={'px-4 py-1.5 rounded-3xl bg-mena-brand text-white'}>
+                  Media
+                </div>
+
+                <div className={'px-4 py-1.5 rounded-3xl bg-mena-brand text-white'}>
+                  Artificial intelligence
+                </div>
+              </div>
+
+
+            </div>
+
+
+            {/*TOPICS SECTION */}
+            <div className={'p-4 rounded-xl bg-[#F2F6FE] lg:w-[90%] '}>
+              <h2 className="text-2xl pb-4 text-mena-brand">
+                TOPICS
+              </h2>
+
+
+              <div className={'flex flex-wrap items-center gap-4'}>
+                <div className={'px-4 py-1.5 rounded-3xl border border-mena-brand text-mena-brand'}>
+                  Politics
+                </div>
+
+              </div>
+
+
+            </div>
+          </div>
+
+          <div className="col-span-1 lg:col-span-4">
+            <div dangerouslySetInnerHTML={{__html: blog.content}}
+                 className="px-6 lg  py-12  lg:px-0">
+
+            </div>
+          </div>
         </div>
       </section>
     </MainLayout>
   );
 }
 
-export default Index;
+export default ViewBlogPage;

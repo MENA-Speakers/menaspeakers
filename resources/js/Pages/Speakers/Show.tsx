@@ -7,17 +7,10 @@ import posthog from "posthog-js";
 import {Button} from "@/Components/ui/button";
 import {Share} from "lucide-react";
 import {Accordion, AccordionContent, AccordionItem, AccordionTrigger} from "@/Components/ui/accordion";
+import {SpeakerType} from "@/types/speaker-type";
 
 interface ShowSpeakerProps {
-  speaker: {
-    name: string,
-    title: string,
-    image: string,
-    excerpt: string,
-    bio: string,
-    keywords: string,
-    videos: any[]
-  }
+  speaker: SpeakerType
 
 }
 
@@ -75,17 +68,23 @@ function Show({ speaker }: ShowSpeakerProps) {
               <h1 className="text-4xl font-semibold text-mena-brand">
                 {speaker.name}
               </h1>
-              <div className="flex items-center gap-2">
-                <svg className={'mr-2'} width="21" height="23" viewBox="0 0 21 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M16.5847 0.507324C15.4613 0.507324 14.3311 0.966309 13.5238 1.7478C13.804 4.00073 14.5651 5.43892 15.66 6.35132C16.7464 7.25674 18.2029 7.66382 19.9447 7.73535C20.6005 6.95068 20.9792 5.92456 20.9792 4.90332C20.9792 3.75747 20.5032 2.60532 19.6929 1.79512C18.8826 0.984863 17.7305 0.507324 16.5847 0.507324ZM12.86 2.57637C12.4299 3.27187 12.1886 4.08936 12.1886 4.90332C12.1886 6.04917 12.6662 7.20132 13.4764 8.01152C14.2867 8.82178 15.4388 9.29937 16.5847 9.29937C17.4968 9.29937 18.4129 8.99683 19.1574 8.46475C17.6168 8.3085 16.2459 7.85635 15.1595 6.95107C14.023 6.00395 13.2283 4.57607 12.86 2.57642L12.86 2.57637ZM11.5035 5.88301L8.35559 9.97383C8.4971 10.9309 8.86624 11.6877 9.4344 12.2291C10.0053 12.7731 10.7876 13.1137 11.8072 13.1874L15.6798 9.99985C14.6447 9.81304 13.671 9.31089 12.9241 8.56396C12.1952 7.83511 11.7006 6.88984 11.5034 5.88296L11.5035 5.88301ZM12.242 8.90566H12.2435C12.2522 8.90537 12.2608 8.90537 12.2695 8.90566C12.3449 8.90615 12.4186 8.92845 12.4816 8.96989C12.5446 9.01132 12.5943 9.07012 12.6247 9.13918C12.655 9.20823 12.6647 9.28459 12.6526 9.35903C12.6405 9.43348 12.607 9.50282 12.5564 9.55869L10.8809 11.4522C10.8472 11.4915 10.806 11.5237 10.7597 11.5468C10.7135 11.57 10.6631 11.5838 10.6114 11.5874C10.5598 11.5909 10.508 11.5842 10.459 11.5676C10.4099 11.5509 10.3647 11.5247 10.3259 11.4905C10.2871 11.4562 10.2555 11.4146 10.2329 11.368C10.2103 11.3215 10.1972 11.2709 10.1943 11.2192C10.1915 11.1675 10.1989 11.1158 10.2162 11.067C10.2334 11.0182 10.2602 10.9734 10.295 10.935L11.9704 9.04145C12.0044 9.00185 12.0459 8.96943 12.0925 8.94612C12.1391 8.9228 12.19 8.90902 12.242 8.90566ZM7.73001 10.7871L2.62288 17.4231C2.79314 18.0739 2.98059 18.4458 3.23323 18.6941C3.47884 18.9357 3.83802 19.1072 4.38377 19.3L10.9908 13.8587C10.1574 13.6824 9.44807 13.3214 8.89578 12.7952C8.34178 12.2674 7.95232 11.583 7.73001 10.7871ZM2.27962 18.7156C1.8343 18.9784 1.43147 19.4031 1.15042 19.9073C0.678934 20.7528 0.587918 21.7254 1.04055 22.3716C1.36599 22.5834 1.55647 22.6065 1.71653 22.5837C1.80413 22.5712 1.89319 22.5372 1.99114 22.4922C1.83587 22.0247 1.68352 21.4702 1.86907 20.8655C2.01702 20.3836 2.37312 19.9356 3.01507 19.5228C2.8974 19.4421 2.78711 19.3512 2.68548 19.2512C2.5284 19.0967 2.39544 18.9201 2.27957 18.7155L2.27962 18.7156Z"
-                    fill="#F15A29"/>
-                </svg>
+              {
+                speaker.title &&
+                <div className="flex items-center gap-2">
+                  <svg className={'mr-2'} width="21" height="23" viewBox="0 0 21 23" fill="none"
+                       xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M16.5847 0.507324C15.4613 0.507324 14.3311 0.966309 13.5238 1.7478C13.804 4.00073 14.5651 5.43892 15.66 6.35132C16.7464 7.25674 18.2029 7.66382 19.9447 7.73535C20.6005 6.95068 20.9792 5.92456 20.9792 4.90332C20.9792 3.75747 20.5032 2.60532 19.6929 1.79512C18.8826 0.984863 17.7305 0.507324 16.5847 0.507324ZM12.86 2.57637C12.4299 3.27187 12.1886 4.08936 12.1886 4.90332C12.1886 6.04917 12.6662 7.20132 13.4764 8.01152C14.2867 8.82178 15.4388 9.29937 16.5847 9.29937C17.4968 9.29937 18.4129 8.99683 19.1574 8.46475C17.6168 8.3085 16.2459 7.85635 15.1595 6.95107C14.023 6.00395 13.2283 4.57607 12.86 2.57642L12.86 2.57637ZM11.5035 5.88301L8.35559 9.97383C8.4971 10.9309 8.86624 11.6877 9.4344 12.2291C10.0053 12.7731 10.7876 13.1137 11.8072 13.1874L15.6798 9.99985C14.6447 9.81304 13.671 9.31089 12.9241 8.56396C12.1952 7.83511 11.7006 6.88984 11.5034 5.88296L11.5035 5.88301ZM12.242 8.90566H12.2435C12.2522 8.90537 12.2608 8.90537 12.2695 8.90566C12.3449 8.90615 12.4186 8.92845 12.4816 8.96989C12.5446 9.01132 12.5943 9.07012 12.6247 9.13918C12.655 9.20823 12.6647 9.28459 12.6526 9.35903C12.6405 9.43348 12.607 9.50282 12.5564 9.55869L10.8809 11.4522C10.8472 11.4915 10.806 11.5237 10.7597 11.5468C10.7135 11.57 10.6631 11.5838 10.6114 11.5874C10.5598 11.5909 10.508 11.5842 10.459 11.5676C10.4099 11.5509 10.3647 11.5247 10.3259 11.4905C10.2871 11.4562 10.2555 11.4146 10.2329 11.368C10.2103 11.3215 10.1972 11.2709 10.1943 11.2192C10.1915 11.1675 10.1989 11.1158 10.2162 11.067C10.2334 11.0182 10.2602 10.9734 10.295 10.935L11.9704 9.04145C12.0044 9.00185 12.0459 8.96943 12.0925 8.94612C12.1391 8.9228 12.19 8.90902 12.242 8.90566ZM7.73001 10.7871L2.62288 17.4231C2.79314 18.0739 2.98059 18.4458 3.23323 18.6941C3.47884 18.9357 3.83802 19.1072 4.38377 19.3L10.9908 13.8587C10.1574 13.6824 9.44807 13.3214 8.89578 12.7952C8.34178 12.2674 7.95232 11.583 7.73001 10.7871ZM2.27962 18.7156C1.8343 18.9784 1.43147 19.4031 1.15042 19.9073C0.678934 20.7528 0.587918 21.7254 1.04055 22.3716C1.36599 22.5834 1.55647 22.6065 1.71653 22.5837C1.80413 22.5712 1.89319 22.5372 1.99114 22.4922C1.83587 22.0247 1.68352 21.4702 1.86907 20.8655C2.01702 20.3836 2.37312 19.9356 3.01507 19.5228C2.8974 19.4421 2.78711 19.3512 2.68548 19.2512C2.5284 19.0967 2.39544 18.9201 2.27957 18.7155L2.27962 18.7156Z"
+                      fill="#F15A29"/>
+                  </svg>
 
-                <p className="mt-2">
-                  Performance coach,Psychologist, Author and Keynote speaker
-                </p>
-              </div>
+                  <p className="mt-2">
+                    {
+                      speaker.title
+                    }
+                  </p>
+                </div>
+              }
             </div>
 
             <div className={'flex gap-6 items-center justify-center'}>
@@ -239,7 +238,7 @@ function Show({ speaker }: ShowSpeakerProps) {
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 sm:gap-6 gap-6">
                       {
                         speaker.videos.map(video => (
-                          <AdminYoutubeVideo key={video.id} video={video}/>
+                          <AdminYoutubeVideo width={350} key={video.id} video={video}/>
                         ))
                       }
                     </div>
@@ -280,56 +279,37 @@ function Show({ speaker }: ShowSpeakerProps) {
                   </div>
                 </div>
               </div>
-
-              <div className={'mt-6'}>
+              {
+                speaker.faqs &&
+                 <div className={'mt-6'}>
                 <h4 className="text-2xl font-semibold pb-4 text-mena-brand">
                   Frequently asked questions about {speaker.name}
                 </h4>
                 <div className="mt-6 w-full lg:max-w-3xl mx-auto">
-                  <Accordion type="single" collapsible className="w-full space-y-3">
-                    <AccordionItem value="item-1" className={'border shadow px-4 rounded-3xl bg-[#F2F6FE]'}>
-                      <AccordionTrigger>How do I book a speaker for my event?</AccordionTrigger>
-                      <AccordionContent>
-                        To book a speaker, browse through our directory to find a speaker that fits your event's theme
-                        and audience. Once you've selected a speaker, click on their profile to view more details and
-                        use the "Book Now" button to fill out a booking request form. Our team will then assist you with
-                        availability, pricing, and any other details needed to confirm the booking.
-                      </AccordionContent>
-                    </AccordionItem>
 
-                    <AccordionItem value="item-2" className={'border shadow px-4 rounded-3xl bg-[#F2F6FE]'}>
-                      <AccordionTrigger>How do I book a speaker for my event?</AccordionTrigger>
-                      <AccordionContent>
-                        To book a speaker, browse through our directory to find a speaker that fits your event's theme
-                        and audience. Once you've selected a speaker, click on their profile to view more details and
-                        use the "Book Now" button to fill out a booking request form. Our team will then assist you with
-                        availability, pricing, and any other details needed to confirm the booking.
-                      </AccordionContent>
-                    </AccordionItem>
+                    <Accordion type="single" collapsible className="w-full space-y-3">
+                      {
+                        speaker.faqs.map(faq => (
+                          <AccordionItem key={faq.id} value="item-4" className={'border shadow px-4 rounded-3xl bg-[#F2F6FE]'}>
+                            <AccordionTrigger>{
+                              faq.question
+                            }</AccordionTrigger>
+                            <AccordionContent>
+                              <p>
+                                {
+                                  faq.answer
+                                }
+                              </p>
+                            </AccordionContent>
+                          </AccordionItem>
+                        ))
+                      }
+                    </Accordion>
 
-                    <AccordionItem value="item-3" className={'border shadow px-4 rounded-3xl bg-[#F2F6FE]'}>
-                      <AccordionTrigger>How do I book a speaker for my event?</AccordionTrigger>
-                      <AccordionContent>
-                        To book a speaker, browse through our directory to find a speaker that fits your event's theme
-                        and audience. Once you've selected a speaker, click on their profile to view more details and
-                        use the "Book Now" button to fill out a booking request form. Our team will then assist you with
-                        availability, pricing, and any other details needed to confirm the booking.
-                      </AccordionContent>
-                    </AccordionItem>
-
-                    <AccordionItem value="item-4" className={'border shadow px-4 rounded-3xl bg-[#F2F6FE]'}>
-                      <AccordionTrigger>How do I book a speaker for my event?</AccordionTrigger>
-                      <AccordionContent>
-                        To book a speaker, browse through our directory to find a speaker that fits your event's theme
-                        and audience. Once you've selected a speaker, click on their profile to view more details and
-                        use the "Book Now" button to fill out a booking request form. Our team will then assist you with
-                        availability, pricing, and any other details needed to confirm the booking.
-                      </AccordionContent>
-                    </AccordionItem>
-                  </Accordion>
                 </div>
 
               </div>
+              }
             </div>
 
           </div>

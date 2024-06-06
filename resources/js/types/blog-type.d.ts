@@ -8,5 +8,7 @@ export type BlogType = {
   meta_description?: string;
   keywords?: string;
   published_at: string;
+  created_at: string;
+  updated_at: string;
   image: string;
 };

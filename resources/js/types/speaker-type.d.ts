@@ -3,6 +3,7 @@
 
 import {PortfolioType} from "@/types/portfolio-type";
 import {FaqType} from "@/types/faq-type";
+import {VideoType} from "@/types/video-type";
 
 
 
@@ -11,6 +12,7 @@ export interface SpeakerType {
   first_name: string;
   last_name: string;
   full_name: string;
+  title: string;
   portfolios: PortfolioType[];
   meta_title: string;
   meta_description: string;
@@ -21,6 +23,7 @@ export interface SpeakerType {
   faqs: FaqType[];
   keywords: string;
   location_id: number;
+  videos: VideoType[];
   name: string;
   slug: string;
   company: string;
