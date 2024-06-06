@@ -3,6 +3,7 @@
   namespace App\Http\Controllers;
 
   use App\Models\Category;
+  use App\Models\Topic;
   use Illuminate\Http\Request;
   use Inertia\Inertia;
 
@@ -12,8 +13,10 @@
     public function index()
     {
       $categories = Category::all();
+      $topics = Topic::all();
       return Inertia::render('Admin/Categories/Index', [
         'categories' => $categories,
+        'topics' => $topics,
       ]);
     }
 
@@ -31,19 +34,6 @@
     }
 
 
-    public function storeTopics(Request $request)
-    {
-      $request->validate([
-        'name' => 'required|string',
-      ]);
-
-      $topic = Topic::create([
-        'name' => $request->input('name'),
-      ]);
-
-      return $topic;
-    }
-
 
     public function delete(Category $category)
     {
@@ -57,9 +47,4 @@
     }
 
 
-    public function deleteTopic(Topic $topic)
-    {
-      $topic->delete();
-      return back();
-    }
   }

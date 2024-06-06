@@ -25,8 +25,8 @@ interface CreateProps {
   speaker: SpeakerType;
   locations: LocationType[];
   categories: optionType[];
-  tags: optionType[];
-  selectedTags: optionType[];
+  topics: optionType[];
+  selectedTopics: optionType[];
   selectedCategories: optionType[];
 }
 
@@ -34,9 +34,9 @@ function Create( {
                    speaker,
                    locations,
                    categories,
-                   tags,
+                   topics,
                     selectedCategories,
-                    selectedTags
+                    selectedTopics
 } : CreateProps ) {
 
 
@@ -61,7 +61,7 @@ function Create( {
       location: speaker?.location_id ? speaker.location_id : '',
       featured: speaker?.featured ? speaker.featured : false,
       image: null,
-      tags: speaker?.tags ? speaker.tags : [],
+      topics: speaker?.topics ? speaker.topics : [],
       categories: speaker?.categories ? speaker.categories : [],
     },
 
@@ -296,13 +296,13 @@ function Create( {
 
 
             <div className="w-full ">
-              <Label htmlFor="location" className="block text-sm font-medium text-gray-700">Tags</Label>
+              <Label htmlFor="location" className="block text-sm font-medium text-gray-700">Topics</Label>
               <Select
-                defaultValue={selectedTags}
-                onChange={(e) => formik.setFieldValue('tags', e)}
+                defaultValue={selectedTopics}
+                onChange={(e) => formik.setFieldValue('topics', e)}
                 isMulti
-                name="tags"
-                options={tags}
+                name="topics"
+                options={topics}
                 className="basic-multi-select"
                 classNamePrefix="select"
               />

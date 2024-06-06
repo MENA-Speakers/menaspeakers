@@ -10,6 +10,9 @@ import {Input} from "@/Components/ui/input";
 import PrimaryButton from "@/Components/PrimaryButton";
 import {useFormik} from "formik";
 import * as Yup from "yup";
+import AddFaqForm from "@/Components/Admin/AddFaqForm";
+import AddTagForm from "@/Components/AddTopicForm";
+import {FaqType} from "@/types/faq-type";
 
 interface CategoryPageProps {
   categories: CategoryType[];
@@ -21,6 +24,7 @@ function Index({categories, topics}: CategoryPageProps) {
   const [allCategories, setAllCategories] = React.useState<CategoryType[]>(categories);
   const [allTopics, setAllTopics] = React.useState<CategoryType[]>(topics);
   const [addingCategory, setAddingCategory] = React.useState<boolean>(false);
+  const [addingTopic, setAddingTopic] = React.useState<boolean>(false);
 
   const deleteCategory = (id: number) => {
     axios.post(route('admin.categories.destroy', {id: id})).then(response => {
@@ -29,8 +33,8 @@ function Index({categories, topics}: CategoryPageProps) {
   }
 
   const deleteTopic = (id: number) => {
-    axios.post(route('admin.topics.delete', {id: id})).then(response => {
-      setAllCategories(allCategories.filter(topic => topic.id !== id));
+    axios.post(route('admin.topics.destroy', {id: id})).then(response => {
+      setAllTopics(allTopics.filter(topic => topic.id !== id));
     });
   }
 
@@ -62,6 +66,11 @@ function Index({categories, topics}: CategoryPageProps) {
     },
   });
 
+  const handleTopicAdded = (topic: CategoryType) => {
+    setAllTopics([...allTopics, topic]);
+    setAddingTopic(false);
+  }
+
   return (
     <AdminLayout>
       <div>
@@ -92,17 +101,17 @@ function Index({categories, topics}: CategoryPageProps) {
         <div className="w-full lg:w-1/2 p-6">
           <div className="flex justify-between items-center">
             <h2 className="text-xl font-semibold">Topics</h2>
-            <Button  variant={'outline'} size={'sm'} className="btn btn-primary">Add Topic</Button>
+            <Button onClick={() => setAddingTopic(true)} variant={'outline'} size={'sm'} className="btn btn-primary">Add Topic</Button>
           </div>
           <div className="mt-4 space-y-4">
             {
-              allCategories.map((category, index) => (
-                <div key={index} className="flex justify-between items-center bg-white p-4 rounded-lg shadow-sm px-6">
+              allTopics.map((topic, index) => (
+                <div key={index} className="flex justify-between items-center rounded bg-white py-2 border px-6">
                   <div>
-                    <h3 className="text-lg font-semibold">{category.name}</h3>
+                    <h3 className="">{topic.name}</h3>
                   </div>
                   <div>
-                    <Button variant={'destructive'} size={'sm'}>Delete</Button>
+                    <Button onClick={() => deleteTopic(topic.id)} variant={'destructive'} size={'sm'}>Delete</Button>
                   </div>
                 </div>
               ))
@@ -183,6 +192,64 @@ function Index({categories, topics}: CategoryPageProps) {
                             </div>
                           </div>
                         </form>
+                      </div>
+                    </div>
+                  </div>
+
+                </Dialog.Panel>
+              </Transition.Child>
+            </div>
+          </div>
+        </Dialog>
+      </Transition.Root>
+
+
+      {/*ADD Topic MODAL*/}
+      <Transition.Root show={addingTopic} as={Fragment}>
+        <Dialog as="div" className="relative z-10" onClose={setAddingTopic}>
+          <Transition.Child
+            as={Fragment}
+            enter="ease-out duration-300"
+            enterFrom="opacity-0"
+            enterTo="opacity-100"
+            leave="ease-in duration-200"
+            leaveFrom="opacity-100"
+            leaveTo="opacity-0"
+          >
+            <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
+          </Transition.Child>
+
+          <div className="fixed inset-0 z-10 overflow-y-auto">
+            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+              <Transition.Child
+                as={Fragment}
+                enter="ease-out duration-300"
+                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                enterTo="opacity-100 translate-y-0 sm:scale-100"
+                leave="ease-in duration-200"
+                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
+                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+              >
+                <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white px-4  pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-2xl sm:p-6">
+                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
+                    <button
+                      type="button"
+                      className="rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                      onClick={() => setAddingTopic(false)}
+                    >
+                      <span className="sr-only">Close</span>
+                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                    </button>
+                  </div>
+                  <div className="">
+                    <div className="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
+                      <Dialog.Title as="h3" className="text-base font-semibold leading-6 text-gray-900">
+                        Add Tag
+                      </Dialog.Title>
+                      <div className="mt-2 w-ful">
+                        <AddTagForm
+                          topicAdded={(topic) => handleTopicAdded(topic)}
+                        />
                       </div>
                     </div>
                   </div>

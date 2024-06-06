@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <!-- Google Tag Manager -->
+  <!-- Google Topic Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
         new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
       j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-M3R6MQ4');</script>
-  <!-- End Google Tag Manager -->
+  <!-- End Google Topic Manager -->
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="description" content="MENA Speakers offers solutions built to succeed. What makes MENA Speakers trustworthy is more than their track record. We perpetually strive to provide top notch speakers, raising the bar every day. We recognize it is important to keep growing, especially in a field where a great speaker is a key ingredient to a successful meeting">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -40,7 +40,7 @@
 {{--        type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');--}}
 {{--  </script>--}}
 {{--  <!--End of Zopim Live Chat Script-->--}}
-  <!-- Google Code for Remarketing Tag -->
+  <!-- Google Code for Remarketing Topic -->
   <script type="text/javascript">
     /* <![CDATA[ */
     var google_conversion_id = 849762840;
@@ -99,10 +99,10 @@
     <img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/849762840/?guid=ON&amp;script=0"/>
   </div>
 </noscript>
-<!-- Google Tag Manager (noscript) -->
+<!-- Google Topic Manager (noscript) -->
 <noscript><iframe title="Google Tagmanager" src="https://www.googletagmanager.com/ns.html?id=GTM-M3R6MQ4"
                   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+<!-- End Google Topic Manager (noscript) -->
 <div id="wrapper">
   <div class="container" id="home">
     <div class="row">
@@ -574,7 +574,7 @@
 <script src="{{ asset('js/custom.js')}}"></script>
 
 
-<!-- Google Code for Remarketing Tag -->
+<!-- Google Code for Remarketing Topic -->
 <!--------------------------------------------------
 Remarketing tags may not be associated with personally identifiable information or placed on pages related to sensitive categories. See more information and instructions on how to setup the tag on: http://google.com/ads/remarketingsetup
 --------------------------------------------------->

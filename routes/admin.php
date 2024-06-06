@@ -21,6 +21,7 @@
   use App\Http\Controllers\AdminGalleryController;
   use App\Http\Controllers\AdminSpeakerFaqController;
   use App\Http\Controllers\AdminSpeakerVideoController;
+  use App\Http\Controllers\AdminTopicController;
   use App\Http\Controllers\DealController;
   use App\Http\Controllers\FaqsController;
   use App\Http\Controllers\ProposalController;
@@ -143,6 +144,12 @@
     Route::get('/categories', [AdminCategoryController::class, 'index'])->name('categories.index');
     Route::post('/categories', [AdminCategoryController::class, 'store'])->name('categories.store');
     Route::post('/categories/{category}', [AdminCategoryController::class, 'delete'])->name('categories.destroy');
+
+    Route::post('/topics', [AdminTopicController::class, 'store'])->name('topics.store');
+    Route::post('/topics/{topic}', [AdminTopicController::class, 'delete'])->name('topics.destroy');
+
+
+
 
 
     // Front page speaker routes

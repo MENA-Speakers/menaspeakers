@@ -7,6 +7,7 @@
   use Illuminate\Database\Eloquent\Relations\BelongsTo;
   use Illuminate\Database\Eloquent\Relations\BelongsToMany;
   use Illuminate\Database\Eloquent\Relations\HasMany;
+  use Illuminate\Database\Eloquent\Relations\MorphToMany;
   use Laravel\Scout\Searchable;
   use Spatie\MediaLibrary\HasMedia;
   use Spatie\MediaLibrary\InteractsWithMedia;
@@ -74,5 +75,12 @@
     {
       return $this->belongsToMany(Category::class, 'categories_speakers');
     }
+
+
+    public function topics(): BelongsToMany
+    {
+      return $this->belongsToMany(Topic::class, 'speaker_topics');
+    }
+
 
   }

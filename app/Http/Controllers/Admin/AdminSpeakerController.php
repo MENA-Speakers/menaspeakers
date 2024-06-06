@@ -10,12 +10,12 @@
   use App\Models\Location;
   use App\Models\Profile;
   use App\Models\Speaker;
+  use App\Models\Topic;
   use App\Models\Video;
   use Illuminate\Http\RedirectResponse;
   use Illuminate\Http\Request;
   use Inertia\Inertia;
   use Inertia\Response;
-  use Spatie\Tags\Tag;
 
   class AdminSpeakerController extends Controller
   {
@@ -45,14 +45,14 @@
      */
     public function create(): Response
     {
-//      $tags = Tag::all()->map(function ($tag) {
-//        return [
-//          'value' => $tag->id,
-//          'label' => $tag->name,
-//        ];
-//      });
+      $topics = Topic::all()->map(function($topic) {
+        return [
+          'value' => $topic->id,
+          'label' => $topic->name,
+        ];
+      });
 
-      $categories = Category::all()->map(function ($category) {
+      $categories = Category::all()->map(function($category) {
         return [
           'value' => $category->id,
           'label' => $category->name,
@@ -60,12 +60,12 @@
       });
 
 
-
       return Inertia::render('Admin/Speakers/Create', [
-        'locations'  => Location::all(),
-        'tags'       => [], //['tags' => $tags
-        'categories' => $categories,
+        'locations'          => Location::all(),
+        'topics'               => $topics,
+        'categories'         => $categories,
         'selectedCategories' => [],
+        'selectedTopics' => [],
       ]);
     }
 
@@ -76,24 +76,32 @@
     {
 
 // Extract the category IDs from the request data
-      $categoryIds = array_map(function ($category) {
+      $categoryIds = array_map(function($category) {
         return $category['value'];
       }, $request->input('categories'));
 
+// Extract the Topic IDs from the request data
+      $topicIds = array_map(function($topic) {
+        return $topic['value'];
+      }, $request->input('topics'));
+
       $speaker = Speaker::create([
-        'first_name'             => $request->input('first_name'),
-        'last_name'             => $request->input('first_name'),
+        'first_name'       => $request->input('first_name'),
+        'last_name'        => $request->input('first_name'),
         'bio'              => $request->input('bio'),
-        'title'       => $request->input('title'),
+        'title'            => $request->input('title'),
         'location_id'      => $request->input('location'),
         'excerpt'          => $request->input('excerpt'),
         'featured'         => boolval($request->input('featured')),
         'meta_description' => $request->input('excerpt'),
-        'key_titles'         => $request->input('key_titles'),
+        'key_titles'       => $request->input('key_titles'),
       ]);
 
       // Sync the categories to the speaker
       $speaker->categories()->sync($categoryIds);
+
+      // Sync the topics to the speaker
+      $speaker->topics()->sync($topicIds);
 
       if( $request->hasFile('image') ) {
         $speaker->addMediaFromRequest('image')
@@ -121,21 +129,29 @@
     public function edit(Speaker $speaker)
     {
 
-      $selectedCategories = $speaker->categories->map(function ($category) {
+      $selectedCategories = $speaker->categories->map(function($category) {
         return [
           'value' => $category->id,
           'label' => $category->name,
         ];
       });
 
-      //      $tags = Tag::all()->map(function ($tag) {
-//        return [
-//          'value' => $tag->id,
-//          'label' => $tag->name,
-//        ];
-//      });
+      //selected topics
+      $selectedTopics = $speaker->topics->map(function($topic) {
+        return [
+          'value' => $topic->id,
+          'label' => $topic->name,
+        ];
+      });
 
-      $categories = Category::all()->map(function ($category) {
+      $topics = Topic::all()->map(function($topic) {
+        return [
+          'value' => $topic->id,
+          'label' => $topic->name,
+        ];
+      });
+
+      $categories = Category::all()->map(function($category) {
         return [
           'value' => $category->id,
           'label' => $category->name,
@@ -144,11 +160,12 @@
 
 
       return Inertia::render('Admin/Speakers/Create', [
-        'speaker'   => new SpeakerResource($speaker),
-        'locations' => Location::all(),
-        'tags'      => [],
-        'categories' => $categories,
+        'speaker'            => new SpeakerResource($speaker),
+        'locations'          => Location::all(),
+        'topics'             => $topics,
+        'categories'         => $categories,
         'selectedCategories' => $selectedCategories,
+        'selectedTopics' => $selectedTopics,
       ]);
     }
 
@@ -162,24 +179,32 @@
       $speaker = Speaker::find($id);
 
       // Extract the category IDs from the request data
-      $categoryIds = array_map(function ($category) {
+      $categoryIds = array_map(function($category) {
         return $category['value'];
       }, $request->input('categories'));
 
+
+      // Extract the category IDs from the request data
+      $topicIds = array_map(function($topic) {
+        return $topic['value'];
+      }, $request->input('topics'));
+
+
       $speaker->update([
-        'first_name'             => $request->input('first_name'),
-        'last_name'             => $request->input('first_name'),
+        'first_name'       => $request->input('first_name'),
+        'last_name'        => $request->input('first_name'),
         'bio'              => $request->input('bio'),
-        'title'       => $request->input('title'),
+        'title'            => $request->input('title'),
         'location_id'      => $request->input('location'),
         'excerpt'          => $request->input('excerpt'),
         'featured'         => boolval($request->input('featured')),
         'meta_description' => $request->input('excerpt'),
-        'key_titles'         => $request->input('key_titles'),
+        'key_titles'       => $request->input('key_titles'),
       ]);
 
       // Sync the categories to the speaker
       $speaker->categories()->sync($categoryIds);
+      $speaker->topics()->sync($topicIds);
 
       if( $request->hasFile('image') ) {
         $speaker->addMediaFromRequest('image')

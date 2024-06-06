@@ -25,7 +25,7 @@ export interface SpeakerType {
   meta_title: string;
   meta_description: string;
   bio: string;
-  tags: TagType[];
+  topics: CategoryType[];
   categories: CategoryType[];
   excerpt: string;
   faqs: FaqType[];
