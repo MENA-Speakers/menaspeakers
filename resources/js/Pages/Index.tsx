@@ -89,50 +89,53 @@ function Index({blogs, speakers, gallery} : IndexProps) {
       <section className="px-6 py-6 lg:py-24 overflow-hidden lg:h-[700px] lg:relative">
         <div className="lg:absolute lg:inset-0 lg:p-6 z-10">
           <div className="max-w-7xl mx-auto h-full z-10 flex items-center">
-            <div className={'p-4 lg:p-12 w-full lg:w-1/2 bg-slate-200 rounded-3xl '}>
-              <h2 className={'text-3xl lg:text-5xl font-semibold text-mena-brand'}>About Us</h2>
-              <div className={'mt-6'}>
-                <p className={'text-slate-500'}>
-                  MENA Speakers is the leading speakers and MC corporation in the Middle East. We provide public
-                  speakers, MCs, and corporate trainers. We are a one-stop solution for all your event needs. Get a
-                  speaker in 5 minutes.
-                </p>
+            <div className="w-full lg:w-2/3 lg:pr-12">
+              <div className={'p-4 lg:p-12 w-full bg-slate-200 rounded-3xl '}>
+                <h2 className={'text-3xl lg:text-5xl font-semibold text-mena-brand'}>About Us</h2>
+                <div className={'mt-6'}>
+                  <p className={'text-slate-500'}>
+                    MENA Speakers is the leading speakers and MC corporation in the Middle East. We provide public
+                    speakers, MCs, and corporate trainers. We are a one-stop solution for all your event needs. Get a
+                    speaker in 5 minutes.
+                  </p>
 
-                <div className="mt-6 grid grid-cols-1 gap-4 lg:grid-cols-3">
-                  <div className={'py-3 px-4 col-span-1 bg-mena-brand rounded-xl flex items-center justify-center'}>
-                    <p className="text-center text-white">
-                      Protocol and speakers management
-                    </p>
+                  <div className="mt-6 grid grid-cols-1 gap-4 lg:grid-cols-3">
+                    <div className={'py-3 px-4 col-span-1 bg-mena-brand rounded-xl flex items-center justify-center'}>
+                      <p className="text-center text-white">
+                        Protocol and speakers management
+                      </p>
+                    </div>
+
+                    <div className={'py-3 px-4 col-span-1 bg-mena-brand rounded-xl flex items-center justify-center'}>
+                      <p className="text-center text-white">
+                        Public Speaking
+                      </p>
+                    </div>
+
+                    <div className={'py-3 px-4 col-span-1 bg-mena-brand rounded-xl flex items-center justify-center'}>
+                      <p className="text-center text-white">
+                        Speaker Fast track
+                      </p>
+                    </div>
+
                   </div>
 
-                  <div className={'py-3 px-4 col-span-1 bg-mena-brand rounded-xl flex items-center justify-center'}>
-                    <p className="text-center text-white">
-                      Public Speaking
-                    </p>
-                  </div>
-
-                  <div className={'py-3 px-4 col-span-1 bg-mena-brand rounded-xl flex items-center justify-center'}>
-                    <p className="text-center text-white">
-                      Speaker Fast track
-                    </p>
-                  </div>
-
-                </div>
-
-                <div className="mt-6 ">
+                  <div className="mt-6 ">
                  <span className={'border-b pb-1 border-[#F15A29]'}>
                     <Link href={'/about-us'} aria-label={'About Us'} className="mt-6 text-[#F15A29]">
                    Learn More
                  </Link>
                  </span>
 
-               </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
         <div className="z-0 absolute bottom-0 top-0 right-0 w-[70%]">
-          <img className={'z-0 hidden lg:block h-full w-full object-cover'} src="/images/home-about-us.webp" alt="about mena speakers"/>
+          <img className={'z-0 hidden lg:block h-full w-full object-cover'} src="/images/home-about-us.webp"
+               alt="about mena speakers"/>
         </div>
 
       </section>

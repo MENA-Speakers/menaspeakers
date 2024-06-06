@@ -200,11 +200,11 @@ function Create( {
               }
             </div>
             <div>
-              <Label htmlFor="key_titles" className="block text-sm font-medium text-gray-700">Other Speaker
-                Titles </Label>
+              <Label htmlFor="key_titles" className="block text-sm font-medium text-gray-700">Keynote Titles </Label>
               <div className="mt-1">
-                <Input type="text"
+                <Textarea
                        name="key_titles"
+                       rows={5}
                        value={formik.values.key_titles}
                        onChange={formik.handleChange}
                        id="key_titles"
