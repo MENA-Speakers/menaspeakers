@@ -18,6 +18,7 @@
   use App\Http\Controllers\Admin\SettingController;
   use App\Http\Controllers\Admin\AdminSpeakerController;
   use App\Http\Controllers\AdminCategoryController;
+  use App\Http\Controllers\AdminFaqController;
   use App\Http\Controllers\AdminGalleryController;
   use App\Http\Controllers\AdminSpeakerFaqController;
   use App\Http\Controllers\AdminSpeakerVideoController;
@@ -53,10 +54,9 @@
     Route::get('employees', [EmployeeController::class, 'index'])->name('employees.index');
     Route::get('employees/create', [EmployeeController::class, 'create'])->name('employees.create');
 
-    Route::get('/faqs', [FaqsController::class, 'index'])->name('faqs.index');
-    Route::post('/faqs', [FaqsController::class, 'store'])->name('faqs.store');
-    Route::post('/faqs/{faq}', [FaqsController::class, 'destroy'])->name('faqs.delete');
-    Route::post('/faqs/{faq}/update', [FaqsController::class, 'update'])->name('faqs.update');
+    Route::get('/faqs', [AdminFaqController::class, 'index'])->name('faqs.index');
+    Route::post('/faqs', [AdminFaqController::class, 'store'])->name('faqs.store');
+    Route::post('/faqs/{faq}', [AdminFaqController::class, 'destroy'])->name('faqs.delete');
 
 
 
@@ -168,7 +168,6 @@
     Route::post('speakers/videos/{video}/delete', [AdminProfileVideoController::class, 'destroy'])->name('speakers.videos.destroy');
 
     //Speaker Faqs
-    Route::get('speakers/{speaker}/faqs', [AdminSpeakerFaqController::class, 'index'])->name('speakers.faqs');
     Route::post('speakers/{speaker}/faqs', [AdminSpeakerFaqController::class, 'store'])->name('speakers.faqs.store');
     Route::post('speakers/{speaker}/delete', [AdminSpeakerFaqController::class, 'delete'])->name('speakers.faqs.destroy');
 

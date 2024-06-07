@@ -16,14 +16,17 @@ import {Accordion, AccordionContent, AccordionItem, AccordionTrigger} from "@/Co
 import {Input} from "@/Components/ui/input";
 import {Button} from "@/Components/ui/button";
 import {ArrowRight} from "lucide-react";
+import {Textarea} from "@/Components/ui/textarea";
+import {FaqType} from "@/types/faq-type";
 
 interface IndexProps {
   blogs: BlogType[],
   speakers: SpeakerType[],
   gallery: GalleryType[],
+  faqs: FaqType[]
 }
 
-function Index({blogs, speakers, gallery}: IndexProps) {
+function Index({blogs, speakers, faqs}: IndexProps) {
 
   const siteUrl = window.location.href;
 
@@ -306,45 +309,17 @@ function Index({blogs, speakers, gallery}: IndexProps) {
           </h3>
           <div className="mt-6 w-full py-6 lg:max-w-3xl mx-auto">
             <Accordion type="single" collapsible className="w-full space-y-3">
-              <AccordionItem value="item-1" className={'border shadow px-4 rounded-3xl'}>
-                <AccordionTrigger>How do I book a speaker for my event?</AccordionTrigger>
-                <AccordionContent>
-                  To book a speaker, browse through our directory to find a speaker that fits your event's theme and
-                  audience. Once you've selected a speaker, click on their profile to view more details and use the
-                  "Book Now" button to fill out a booking request form. Our team will then assist you with availability,
-                  pricing, and any other details needed to confirm the booking.
-                </AccordionContent>
-              </AccordionItem>
+              {
+                faqs.map(faq => (
+                  <AccordionItem key={faq.id} value="item-1" className={'border shadow px-4 rounded-3xl'}>
+                    <AccordionTrigger>{faq.question}</AccordionTrigger>
+                    <AccordionContent>
+                      <p>{faq.answer}</p>
+                    </AccordionContent>
+                  </AccordionItem>
+                ))
+              }
 
-              <AccordionItem value="item-2" className={'border shadow px-4 rounded-3xl'}>
-                <AccordionTrigger>How do I book a speaker for my event?</AccordionTrigger>
-                <AccordionContent>
-                  To book a speaker, browse through our directory to find a speaker that fits your event's theme and
-                  audience. Once you've selected a speaker, click on their profile to view more details and use the
-                  "Book Now" button to fill out a booking request form. Our team will then assist you with availability,
-                  pricing, and any other details needed to confirm the booking.
-                </AccordionContent>
-              </AccordionItem>
-
-              <AccordionItem value="item-3" className={'border shadow px-4 rounded-3xl'}>
-                <AccordionTrigger>How do I book a speaker for my event?</AccordionTrigger>
-                <AccordionContent>
-                  To book a speaker, browse through our directory to find a speaker that fits your event's theme and
-                  audience. Once you've selected a speaker, click on their profile to view more details and use the
-                  "Book Now" button to fill out a booking request form. Our team will then assist you with availability,
-                  pricing, and any other details needed to confirm the booking.
-                </AccordionContent>
-              </AccordionItem>
-
-              <AccordionItem value="item-4" className={'border shadow px-4 rounded-3xl'}>
-                <AccordionTrigger>How do I book a speaker for my event?</AccordionTrigger>
-                <AccordionContent>
-                  To book a speaker, browse through our directory to find a speaker that fits your event's theme and
-                  audience. Once you've selected a speaker, click on their profile to view more details and use the
-                  "Book Now" button to fill out a booking request form. Our team will then assist you with availability,
-                  pricing, and any other details needed to confirm the booking.
-                </AccordionContent>
-              </AccordionItem>
             </Accordion>
           </div>
         </div>
@@ -358,10 +333,10 @@ function Index({blogs, speakers, gallery}: IndexProps) {
             Testimonials
           </h3>
 
-          <div className={'py-6 max-w-4xl mx-auto flex gap-12 items-start'}>
-            <div>
+          <div className={'py-6 max-w-4xl mx-auto flex flex-col lg:flex-row gap-6 lg:gap-12 items-start'}>
+            <div className={'w-full flex items-center justify-center'}>
               <svg
-                className={'w-20 h-20 opacity-10'}
+                className={'w-12 lg:w-20 h-12 lg:h-20 opacity-10'}
                 viewBox="0 0 84 64" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
                   d="M67.673 32.631C76.8922 32.631 83.1049 38.8737 83.1049 48.1236C83.1049 56.4473 75.9644 63.3819 66.2931 63.3819C55.6998 63.3819 47.8723 55.0581 47.8723 42.3439C47.8723 13.4452 69.5169 1.88577 83.1049 0.496582V13.2108C73.8916 14.8287 63.5332 23.8442 63.0693 33.7915C63.5332 33.5628 65.3712 32.631 67.673 32.631ZM20.7021 32.631C29.9096 32.631 36.1281 38.8737 36.1281 48.1236C36.1281 56.4473 28.9876 63.3819 19.3163 63.3819C8.72302 63.3819 0.895508 55.0581 0.895508 42.3439C0.895508 13.4452 22.5401 1.88577 36.1281 0.496582V13.2108C26.9148 14.8287 16.5564 23.8442 16.0925 33.7915C16.5564 33.5628 18.3944 32.631 20.7021 32.631Z"
@@ -430,11 +405,12 @@ function Index({blogs, speakers, gallery}: IndexProps) {
             </div>
 
             <div className={'grid grid-cols-1 lg:grid-cols-2 gap-6 mt-6'}>
-              <Input type={'text'} placeholder={'Name'} className={'rounded-lg py-3 px-4 '}/>
-              <Input type={'text'} placeholder={'Company name'} className={'rounded-lg py-3 px-4 '}/>
-              <Input type={'email'} placeholder={'Email'} className={'rounded-lg py-3 px-4 '}/>
-              <Input type={'text'} placeholder={'Phone number'} className={'rounded-lg py-3 px-4 '}/>
-              <Input type={'text'} placeholder={'Phone number'} className={'rounded-lg py-3 px-4 col-span-2'}/>
+              <Input type={'text'} placeholder={'Name'} className={'rounded-lg py-3 px-4 col-span-2 lg:col-span-1'}/>
+              <Input type={'text'} placeholder={'Company name'} className={'rounded-lg py-3 px-4 col-span-2 lg:col-span-1'}/>
+              <Input type={'email'} placeholder={'Email'} className={'rounded-lg py-3 px-4 col-span-2 lg:col-span-1'}/>
+              <Input type={'text'} placeholder={'Phone number'} className={'rounded-lg py-3 px-4 col-span-2 lg:col-span-1'}/>
+              {/*<Input type={'text'} placeholder={'Phone number'} className={'rounded-lg py-3 px-4'}/>*/}
+              <Textarea placeholder={'Message'} className={'rounded-lg py-3 px-4 col-span-2'}/>
               <Button className={'bg-mena-brand text-white py-3 px-4 rounded-lg col-span-2'}>
                 Submit
               </Button>

@@ -8,6 +8,7 @@ use App\Http\Resources\ProfileResource;
 use App\Http\Resources\SpeakerResource;
 use App\Mail\BirthdayEmail;
 use App\Models\Blog;
+use App\Models\Faq;
 use App\Models\Image;
 use App\Models\Profile;
 use App\Models\Speaker;
@@ -21,11 +22,13 @@ class HomeController extends Controller
     public function index(){
         $speakers = Speaker::where('featured', true)->inRandomOrder()->limit(4)->get();
         $blogs = Blog::latest()->limit(4)->get();
+        $faqs = Faq::where('speaker_id', null)->get();
 
         return Inertia::render('Index', [
             'speakers' => SpeakerResource::collection($speakers),
             'blogs' => BlogResource::collection($blogs),
-            'gallery' => ImageResource::collection(Image::inRandomOrder()->limit(8)->get())
+            'gallery' => ImageResource::collection(Image::inRandomOrder()->limit(8)->get()),
+            'faqs' => $faqs
         ]);
     }
 }
