@@ -14,7 +14,7 @@ function AdminYoutubeVideo({ video, height = 250, width = 450 }) {
     });
   }
   return (
-    <div>
+    <div className={'rounded-xl overflow-hidden'}>
       {!isVimeoVideo ? (
       <iframe
         width={width}

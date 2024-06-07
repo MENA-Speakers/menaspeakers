@@ -136,7 +136,8 @@ function Index({categories, topics}: CategoryPageProps) {
             {
               allTopics.map((topic, index) => (
                 <div key={index} className="flex justify-between items-center rounded bg-white py-2 border px-6">
-                  <div>
+                  <div className={'flex items-center'}>
+                    <img className={'w-40 h-20 object-cover mr-4'} src={topic.image} alt=""/>
                     <h3 className="">{topic.name}</h3>
                   </div>
                   <div>

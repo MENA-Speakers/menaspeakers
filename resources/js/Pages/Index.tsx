@@ -23,7 +23,7 @@ interface IndexProps {
   gallery: GalleryType[],
 }
 
-function Index({blogs, speakers, gallery} : IndexProps) {
+function Index({blogs, speakers, gallery}: IndexProps) {
 
   const siteUrl = window.location.href;
 
@@ -62,7 +62,7 @@ function Index({blogs, speakers, gallery} : IndexProps) {
 
       </Head>
       {/* Hero Header*/}
-      <HomePageHeroSection />
+      <HomePageHeroSection/>
 
       {/*FEATURED SPEAKERS SECTION */}
 
@@ -76,10 +76,11 @@ function Index({blogs, speakers, gallery} : IndexProps) {
           </div>
           <div className={'mt-4'}>
             <p className={'text-slate-500'}>
-              We have a roster of 300 top professionals whose sole purpose is to make an event successful and ensure that your audience is getting engaged, educated and empowered.
+              We have a roster of 300 top professionals whose sole purpose is to make an event successful and ensure
+              that your audience is getting engaged, educated and empowered.
             </p>
           </div>
-          <HomeFeaturedSpeakers  speakers={speakers} />
+          <HomeFeaturedSpeakers speakers={speakers}/>
         </div>
       </section>
 
@@ -122,9 +123,10 @@ function Index({blogs, speakers, gallery} : IndexProps) {
 
                   <div className="mt-6 ">
                  <span className={'border-b pb-1 border-[#F15A29]'}>
-                    <Link href={'/about-us'} aria-label={'About Us'} className="mt-6 text-[#F15A29]">
-                   Learn More
-                 </Link>
+                 <Link href={'/about-us'} aria-label={'About Us'} title={'Learn more about us'}
+                       className="mt-6 text-[#F15A29]">
+                  Learn More
+                </Link>
                  </span>
 
                   </div>
@@ -197,7 +199,7 @@ function Index({blogs, speakers, gallery} : IndexProps) {
                     Topics
                   </h3>
                   <p>
-                    Find a speaker on a  specific topic
+                    Find a speaker on a specific topic
                   </p>
                 </div>
                 <div>
@@ -291,11 +293,11 @@ function Index({blogs, speakers, gallery} : IndexProps) {
       {/*OUR CLIENTS SECTION */}
 
       <section className="py-12 lg:py-24 px-6 bg-[#F2F6FE]">
-       <HomeOurPartners />
+        <HomeOurPartners/>
 
       </section>
 
-       {/*FAQ SECTION*/}
+      {/*FAQ SECTION*/}
 
       <section className="py-12 px-6">
         <div className="max-w-7xl mx-auto">
@@ -307,28 +309,40 @@ function Index({blogs, speakers, gallery} : IndexProps) {
               <AccordionItem value="item-1" className={'border shadow px-4 rounded-3xl'}>
                 <AccordionTrigger>How do I book a speaker for my event?</AccordionTrigger>
                 <AccordionContent>
-                  To book a speaker, browse through our directory to find a speaker that fits your event's theme and audience. Once you've selected a speaker, click on their profile to view more details and use the "Book Now" button to fill out a booking request form. Our team will then assist you with availability, pricing, and any other details needed to confirm the booking.
+                  To book a speaker, browse through our directory to find a speaker that fits your event's theme and
+                  audience. Once you've selected a speaker, click on their profile to view more details and use the
+                  "Book Now" button to fill out a booking request form. Our team will then assist you with availability,
+                  pricing, and any other details needed to confirm the booking.
                 </AccordionContent>
               </AccordionItem>
 
               <AccordionItem value="item-2" className={'border shadow px-4 rounded-3xl'}>
                 <AccordionTrigger>How do I book a speaker for my event?</AccordionTrigger>
                 <AccordionContent>
-                  To book a speaker, browse through our directory to find a speaker that fits your event's theme and audience. Once you've selected a speaker, click on their profile to view more details and use the "Book Now" button to fill out a booking request form. Our team will then assist you with availability, pricing, and any other details needed to confirm the booking.
+                  To book a speaker, browse through our directory to find a speaker that fits your event's theme and
+                  audience. Once you've selected a speaker, click on their profile to view more details and use the
+                  "Book Now" button to fill out a booking request form. Our team will then assist you with availability,
+                  pricing, and any other details needed to confirm the booking.
                 </AccordionContent>
               </AccordionItem>
 
               <AccordionItem value="item-3" className={'border shadow px-4 rounded-3xl'}>
                 <AccordionTrigger>How do I book a speaker for my event?</AccordionTrigger>
                 <AccordionContent>
-                  To book a speaker, browse through our directory to find a speaker that fits your event's theme and audience. Once you've selected a speaker, click on their profile to view more details and use the "Book Now" button to fill out a booking request form. Our team will then assist you with availability, pricing, and any other details needed to confirm the booking.
+                  To book a speaker, browse through our directory to find a speaker that fits your event's theme and
+                  audience. Once you've selected a speaker, click on their profile to view more details and use the
+                  "Book Now" button to fill out a booking request form. Our team will then assist you with availability,
+                  pricing, and any other details needed to confirm the booking.
                 </AccordionContent>
               </AccordionItem>
 
               <AccordionItem value="item-4" className={'border shadow px-4 rounded-3xl'}>
                 <AccordionTrigger>How do I book a speaker for my event?</AccordionTrigger>
                 <AccordionContent>
-                  To book a speaker, browse through our directory to find a speaker that fits your event's theme and audience. Once you've selected a speaker, click on their profile to view more details and use the "Book Now" button to fill out a booking request form. Our team will then assist you with availability, pricing, and any other details needed to confirm the booking.
+                  To book a speaker, browse through our directory to find a speaker that fits your event's theme and
+                  audience. Once you've selected a speaker, click on their profile to view more details and use the
+                  "Book Now" button to fill out a booking request form. Our team will then assist you with availability,
+                  pricing, and any other details needed to confirm the booking.
                 </AccordionContent>
               </AccordionItem>
             </Accordion>
@@ -434,15 +448,19 @@ function Index({blogs, speakers, gallery} : IndexProps) {
             </h3>
             <div className="mt-6">
               <p className="text-slate-500">
-                The world is constantly changing. We monitor trends and keep you up to date monthly with the latest and most topical subjects from our leading speakers. To get the latest information as it comes in, please sign up for our monthly newsletter. You may unsubscribe at any time using the link at the end of all of our emails.
+                The world is constantly changing. We monitor trends and keep you up to date monthly with the latest and
+                most topical subjects from our leading speakers. To get the latest information as it comes in, please
+                sign up for our monthly newsletter. You may unsubscribe at any time using the link at the end of all of
+                our emails.
               </p>
             </div>
 
             <div className={'mt-6'}>
               <div className="relative">
                 <Input type={'email'} placeholder={'Email'} className={'rounded-lg py-3 px-4 '}/>
-                <Button className={'bg-mena-brand text-white rounded-l-none  rounded-r-lg absolute right-0 bottom-0 top-0'}>
-                  <ArrowRight size={24} className={'text-white'} />
+                <Button
+                  className={'bg-mena-brand text-white rounded-l-none  rounded-r-lg absolute right-0 bottom-0 top-0'}>
+                  <ArrowRight size={24} className={'text-white'}/>
                 </Button>
               </div>
             </div>

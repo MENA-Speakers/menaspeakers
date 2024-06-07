@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "@/Components/ui/select";
 import {Input} from "@/Components/ui/input";
 import PrimaryButton from "@/Components/PrimaryButton";
@@ -9,6 +9,8 @@ import {CategoryType, SpeakerType} from "@/types/speaker-type";
 import {FaqType} from "@/types/faq-type";
 import {Button} from "@/Components/ui/button";
 import {Textarea} from "@/Components/ui/textarea";
+import {Label} from "@/Components/ui/label";
+import {useDropzone} from "react-dropzone";
 
 interface AddTopicFormProps {
   topicAdded? : (tag: CategoryType) => void;
@@ -53,8 +55,25 @@ function AddTopicForm({ topicAdded} : AddTopicFormProps) {
         formik.setSubmitting(false);
       });
     },
+
   });
 
+  const [ imagePreview, setImagePreview ] = useState<string | null>(  null );
+
+  const {
+    acceptedFiles,
+    getRootProps: getRootProps,
+    getInputProps: getInputProps,
+  } = useDropzone( {
+    maxFiles: 1,
+    accept: {
+      'image/*': [],
+    },
+    onDrop: ( acceptedFiles ) => {
+      setImagePreview( URL.createObjectURL( acceptedFiles[ 0 ] ) );
+      formik.setFieldValue( 'image', acceptedFiles[ 0 ] );
+    },
+  } );
 
   return (
     <form onSubmit={formik.handleSubmit}
@@ -74,6 +93,25 @@ function AddTopicForm({ topicAdded} : AddTopicFormProps) {
             <div className="text-red-500 text-xs italic">{formik.errors.name}</div>
           ) : null
         }
+      </div>
+
+
+      <div>
+        <div className='w-full'>
+          <Label htmlFor={'file'}>Image</Label>
+          <div {...getRootProps({className: 'border-dashed border-2 rounded-lg mt-2 py-4 px-4'})}>
+            <input {...getInputProps()} />
+            <p className={'text-sm'}>Drag 'n' Cover Image, or click to select files</p>
+          </div>
+
+          {/*    display preview */}
+          {imagePreview && (
+            <div className='mx-auto mt-3 w-full flex items-center justify-center'>
+              <img src={imagePreview} className={'h-40 w-60 rounded-lg object-cover'} alt=''/>
+            </div>
+          )}
+
+        </div>
       </div>
 
       <div>

@@ -238,7 +238,7 @@ function Show({ speaker }: ShowSpeakerProps) {
                     <div className="grid grid-cols-1 lg:grid-cols-2 sm:gap-6 gap-6">
                       {
                         speaker.videos.map(video => (
-                          <AdminYoutubeVideo width={350} key={video.id} video={video}/>
+                          <AdminYoutubeVideo width={370} key={video.id} video={video}/>
                         ))
                       }
                     </div>
