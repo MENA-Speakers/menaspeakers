@@ -7,7 +7,7 @@ function Footer() {
     <div className={'bg-mena-brand py-12 lg:pt-24 pb-12 px-6'}>
       <div className="max-w-7xl mx-auto pb-12 flex flex-col lg:flex-row items-center justify-between">
         <div className="w-full lg:w-2/3 space-y-3">
-          <div className={' items-center justify-center  lg:hidden'}>
+          <div className={' items-center justify-center  hidden lg:block'}>
             <img width={260} height={160} src="/images/white-logo.png" alt="MENA Speaker's logo"/>
           </div>
           <div className={' items-center justify-center lg:hidden'}>
