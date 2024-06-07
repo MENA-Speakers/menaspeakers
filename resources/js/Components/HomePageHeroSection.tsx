@@ -4,7 +4,7 @@ import {Input} from "@/Components/ui/input";
 function HomePageHeroSection() {
   return (
     <div className={'h-[600px] lg:h-screen relative'}>
-      <img className={'lg:h-full h-[600px] w-full object-cover'} src="/images/hero-bg-image.webp" alt=""/>
+      <img className={'lg:h-full h-[600px] w-full object-cover'} src="/images/home-hero-bg.webp" alt=""/>
       <div className="absolute bg-gradient-to-br from-black/90 via-slate-900/90 to-zinc-900/70  px-6 inset-0 z-0">
         <div className="w-full lg:h-full flex h-[600px]  items-center justify-center flex-col space-y-8">
           <div className={'space-y-8 py-12'}>
