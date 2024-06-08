@@ -1,7 +1,19 @@
 import React from 'react';
 import {Input} from "@/Components/ui/input";
+import {useFormik} from "formik";
+import {router} from "@inertiajs/react";
 
 function HomePageHeroSection() {
+
+  const formik = useFormik({
+    initialValues: {
+      query:  ''
+    },
+    onSubmit: (values) => {
+      router.get(route('speakers.index'), values)
+    }
+  })
+
   return (
     <div className={'h-[600px] lg:h-screen relative'}>
       <img className={'lg:h-full h-[600px] w-full object-cover'} src="/images/home-hero-bg.webp" alt=""/>
@@ -13,6 +25,8 @@ function HomePageHeroSection() {
             </h1>
             <div className={'w-full lg:w-[70%] space-y-2 mx-auto'}>
               <Input
+                name={'query'}
+                value={formik.values.query} onChange={formik.handleChange}
                 className={'w-full  rounded-2xl py-3 text-lg px-5'}
                 placeholder={"Search by 'topics', 'speakers', 'categories' etc"}
               />

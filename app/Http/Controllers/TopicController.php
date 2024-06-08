@@ -14,7 +14,7 @@ class TopicController extends Controller
 
     public function index(): Response
     {
-        return Inertia::render('Topic/Index', [
+        return Inertia::render('Topics/Index', [
             'topics' => TopicResource::collection(Topic::all())
         ]);
     }
