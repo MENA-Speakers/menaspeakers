@@ -20,7 +20,7 @@ class CategoryResource extends JsonResource
             'name' => $this->name,
             'speaker_count' => $this->speakers?->count(),
             'image' => $this->getFirstMediaUrl('image', 'webp'),
-            'speakers' => $this->speakers ? SpeakerResource::collection($this->speakers) : null,
+            'speakers' => $this->speakers,
         ];
     }
 }
