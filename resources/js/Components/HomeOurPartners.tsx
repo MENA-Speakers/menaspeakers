@@ -17,72 +17,72 @@ function HomeOurPartners() {
           </svg>
         </div>
         <div className={'mt-4'}>
-          <img className={'h-12'} src="/images/partners/fab.png" alt=""/>
+          <img className={'h-12'} src="/images/partners/fab.png" alt="FAB"/>
         </div>
         <div className={'mt-4'}>
-          <img className={'h-12'} src="/images/partners/islamic-development-bank.png" alt=""/>
+          <img className={'h-12'} src="/images/partners/islamic-development-bank.png" alt="Islamic Development Bank"/>
         </div>
         <div className={'mt-4'}>
-          <img className={'h-12'} src="/images/partners/dp-world.png" alt=""/>
+          <img className={'h-12'} src="/images/partners/dp-world.png" alt="DP World"/>
         </div>
         <div className={'mt-4'}>
-          <img className={'h-12'} src="/images/partners/dhl.png" alt=""/>
+          <img className={'h-12'} src="/images/partners/dhl.png" alt="DHL"/>
         </div>
         <div className={'mt-4'}>
-          <img className={'h-12'} src="/images/partners/alraj_bank.png" alt=""/>
+          <img className={'h-12'} src="/images/partners/alraj_bank.png" alt="Alraj bank"/>
         </div>
         <div className={'mt-4'}>
-          <img className={'h-12'} src="/images/partners/neom.png" alt=""/>
+          <img className={'h-12'} src="/images/partners/neom.png" alt="Neom"/>
         </div>
         <div className={'mt-4'}>
-          <img className={'h-12'} src="/images/partners/gilead.png" alt=""/>
-        </div>
-
-        <div className={'mt-4'}>
-          <img className={'h-12'} src="/images/partners/oracle.png" alt=""/>
+          <img className={'h-12'} src="/images/partners/gilead.png" alt="Gilead"/>
         </div>
 
         <div className={'mt-4'}>
-          <img className={'h-12'} src="/images/partners/uniliver.png" alt=""/>
+          <img className={'h-12'} src="/images/partners/oracle.png" alt="Oracle"/>
         </div>
 
         <div className={'mt-4'}>
-          <img className={'h-12'} src="/images/partners/network.png" alt=""/>
+          <img className={'h-12'} src="/images/partners/uniliver.png" alt="Uniliver"/>
         </div>
 
         <div className={'mt-4'}>
-          <img className={'h-12'} src="/images/partners/lilly.png" alt=""/>
+          <img className={'h-12'} src="/images/partners/network.png" alt="Network"/>
         </div>
 
         <div className={'mt-4'}>
-          <img className={'h-12'} src="/images/partners/johnson.png" alt=""/>
+          <img className={'h-12'} src="/images/partners/lilly.png" alt="Lilly"/>
         </div>
 
         <div className={'mt-4'}>
-          <img className={'h-12'} src="/images/partners/philip.jpg" alt=""/>
+          <img className={'h-12'} src="/images/partners/johnson.png" alt="Johnson"/>
         </div>
 
         <div className={'mt-4'}>
-          <img className={'h-12'} src="/images/partners/anoc.png" alt=""/>
+          <img className={'h-12'} src="/images/partners/philip.png" alt="Philip"/>
         </div>
 
         <div className={'mt-4'}>
-          <img className={'h-12'} src="/images/partners/havard.png" alt=""/>
+          <img className={'h-12'} src="/images/partners/anoc.png" alt="Adnoc"/>
         </div>
 
         <div className={'mt-4'}>
-          <img className={'h-12'} src="/images/partners/good-year.png" alt=""/>
+          <img className={'h-12'} src="/images/partners/havard.png" alt="Havard"/>
         </div>
 
         <div className={'mt-4'}>
-          <img className={'h-12'} src="/images/partners/acino.png" alt=""/>
+          <img className={'h-12'} src="/images/partners/good-year.png" alt="Good Year"/>
         </div>
 
         <div className={'mt-4'}>
-          <img className={'h-12'} src="/images/partners/key.png" alt=""/>
+          <img className={'h-12'} src="/images/partners/acino.png" alt="Acino"/>
+        </div>
+
+        <div className={'mt-4'}>
+          <img className={'h-12'} src="/images/partners/key.png" alt="Key"/>
         </div>
         <div className={'mt-4'}>
-          <img className={'h-12'} src="/images/partners/adaa.png" alt=""/>
+          <img className={'h-12'} src="/images/partners/adaa.png" alt="Adaa"/>
         </div>
 
       </div>
