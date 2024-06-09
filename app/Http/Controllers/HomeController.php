@@ -28,13 +28,11 @@ class HomeController extends Controller
         $blogs = Blog::latest()->limit(4)->get();
         $faqs = Faq::where('speaker_id', null)->get();
 
-      $categories = Category::withCount('speakers')
-        ->orderBy('speakers_count', 'desc')
-        ->limit(2)
-        ->get();
+      $categories = Category::inRandomOrder()
+    ->limit(2)
+    ->get();
 
-      $topics = Topic::withCount('speakers')
-        ->orderBy('speakers_count', 'desc')
+      $topics = Topic::inRandomOrder()
         ->limit(8)
         ->get();
 

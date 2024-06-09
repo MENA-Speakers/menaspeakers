@@ -106,23 +106,23 @@ function Index({blogs, speakers, faqs, categories, topics}: IndexProps) {
                   </p>
 
                   <div className="mt-6 grid grid-cols-1 gap-4 lg:grid-cols-3">
-                    <div className={'py-3 px-4 col-span-1 bg-mena-brand rounded-xl flex items-center justify-center'}>
+                    <Link href={route('pages.contact')}  className={'py-3 px-4 col-span-1 bg-mena-brand rounded-xl flex items-center justify-center'}>
                       <p className="text-center text-white">
                         Protocol and speakers management
                       </p>
-                    </div>
+                    </Link>
 
-                    <div className={'py-3 px-4 col-span-1 bg-mena-brand rounded-xl flex items-center justify-center'}>
+                    <a href={'https://menaspeakersfasttrack.bitrix24.site'} target={'_blank'} className={'py-3 px-4 col-span-1 bg-mena-brand rounded-xl flex items-center justify-center'}>
                       <p className="text-center text-white">
                         Public Speaking
                       </p>
-                    </div>
+                    </a>
 
-                    <div className={'py-3 px-4 col-span-1 bg-mena-brand rounded-xl flex items-center justify-center'}>
+                    <a href={'https://publicspeaking.bitrix24.site'} target={'_black'} className={'py-3 px-4 col-span-1 bg-mena-brand rounded-xl flex items-center justify-center'}>
                       <p className="text-center text-white">
                         Speaker Fast track
                       </p>
-                    </div>
+                    </a>
 
                   </div>
 
