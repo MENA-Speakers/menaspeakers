@@ -259,7 +259,7 @@ function Show({ speaker }: ShowSpeakerProps) {
                     <Accordion type="single" collapsible className="w-full space-y-3">
                       {
                         speaker.faqs.map(faq => (
-                          <AccordionItem key={faq.id} value="item-4" className={'border shadow px-4 rounded-3xl bg-[#F2F6FE]'}>
+                          <AccordionItem key={faq.id} value={faq.id} className={'border shadow px-4 rounded-3xl bg-[#F2F6FE]'}>
                             <AccordionTrigger>{
                               faq.question
                             }</AccordionTrigger>

@@ -7,6 +7,7 @@ import SpeakerCard from "@/Components/Admin/SpeakerCard";
 import {Button} from "@/Components/ui/button";
 import {Input} from "@/Components/ui/input";
 import {SpeakerType} from "@/types/speaker-type";
+import Pagination from "@/Components/Pagination";
 
 interface SpeakerData {
   data: SpeakerType[],
@@ -80,10 +81,10 @@ function Index( {speakers, query} : {speakers: SpeakerData, query: string} ) {
 
           </div>
 
-          {/*<div className="mt-12 px-6 w-full">*/}
-          {/*  {{$speakers->links()}}*/}
-          {/*</div>*/}
-
+          {/* Pagination */}
+          <div className="flex justify-center mt-6">
+            <Pagination links={speakers.links} metaLinks={speakers.meta} />
+          </div>
         </div>
       </div>
     </div>

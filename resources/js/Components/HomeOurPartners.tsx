@@ -59,7 +59,7 @@ function HomeOurPartners() {
         </div>
 
         <div className={'mt-4'}>
-          <img className={'h-12'} src="/images/partners/philip.png" alt=""/>
+          <img className={'h-12'} src="/images/partners/philip.jpg" alt=""/>
         </div>
 
         <div className={'mt-4'}>
