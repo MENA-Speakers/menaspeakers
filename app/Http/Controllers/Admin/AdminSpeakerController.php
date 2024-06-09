@@ -129,6 +129,7 @@
     public function edit(Speaker $speaker)
     {
 
+
       $selectedCategories = $speaker->categories->map(function($category) {
         return [
           'value' => $category->id,
@@ -176,8 +177,9 @@
     {
       $request->validated();
 
-      $speaker = Speaker::find($id);
+      dd(\request()->all());
 
+      $speaker = Speaker::find($id);
 
       // Extract the category IDs from the request data
       $categoryIds = [];
@@ -198,7 +200,7 @@
 
       $speaker->update([
         'first_name'       => $request->input('first_name'),
-        'last_name'        => $request->input('first_name'),
+        'last_name'        => $request->input('last_name'),
         'bio'              => $request->input('bio'),
         'title'            => $request->input('title'),
         'location_id'      => $request->input('location'),

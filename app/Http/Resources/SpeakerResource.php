@@ -16,7 +16,9 @@ class SpeakerResource extends JsonResource
     {
 
       //explode from key_titles by comma into an array
-      $key_titles = explode(',', $this->key_titles);
+      $titles = explode(',', $this->key_titles);
+
+      $temTitles = json_decode($this->key_titles, true);
 
         return [
           'id' => $this->id,
@@ -29,7 +31,8 @@ class SpeakerResource extends JsonResource
           'bio' => $this->bio,
           'faqs' => $this->faqs,
           'title' => $this->title,
-          'key_titles' => $key_titles,
+          'key_titles' => $titles,
+          'titles' => implode(', ', $temTitles),
           'featured' => boolval($this->featured),
           'meta_title' => $this->meta_title,
           'excerpt' => $this->meta_description,

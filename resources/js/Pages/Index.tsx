@@ -176,7 +176,7 @@ function Index({blogs, speakers, faqs, categories, topics}: IndexProps) {
               <div className={'flex gap-6'}>
                 {
                   categories.map(category => (
-                    <div key={category.id} className={' flex flex-col'}>
+                    <div key={category.id} className={'w-full lg:w-1/2 flex flex-col'}>
                       <Link href={route('categories.show', {category: category.slug})}>
                         <img className={'h-40 object-cover w-full rounded-xl'}
                              src={category.image ? category.image : '/images/placeholder.webp'}

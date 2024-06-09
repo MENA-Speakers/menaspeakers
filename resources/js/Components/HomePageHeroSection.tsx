@@ -2,6 +2,7 @@ import React from 'react';
 import {Input} from "@/Components/ui/input";
 import {useFormik} from "formik";
 import {router} from "@inertiajs/react";
+import {Search} from "lucide-react";
 
 function HomePageHeroSection() {
 
@@ -10,6 +11,7 @@ function HomePageHeroSection() {
       query:  ''
     },
     onSubmit: (values) => {
+      if (values.query === '') return
       router.get(route('speakers.index'), values)
     }
   })
@@ -24,12 +26,18 @@ function HomePageHeroSection() {
               We are the leading speaker and <br /> MC Bureau in the Middle East
             </h1>
             <div className={'w-full lg:w-[70%] space-y-2 mx-auto'}>
-              <Input
-                name={'query'}
-                value={formik.values.query} onChange={formik.handleChange}
-                className={'w-full  rounded-2xl py-3 text-lg px-5'}
-                placeholder={"Search by 'topics', 'speakers', 'categories' etc"}
-              />
+             <div className={'relative w-full'}>
+               <Input
+                 name={'query'}
+                 value={formik.values.query} onChange={formik.handleChange}
+                 className={'w-full  rounded-2xl py-3 text-lg px-5'}
+                 placeholder={"Search by 'topics', 'speakers', 'categories' etc"}
+               />
+               <button className={'absolute top-1/2 transform -translate-y-1/2 right-4 '}>
+                 <Search size={26} className={'text-slate-500'}/>
+               </button>
+
+             </div>
               <p className={'text-white text-xs mx-1'}>
                 Popular searches: {' '}
                 <span className="underline cursor-pointer">Geopolitics,</span>{' '}
