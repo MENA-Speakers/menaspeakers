@@ -36,15 +36,14 @@ function PublicCategoryPage({categories, query}: PublicCategoryPageProps) {
 
 
           {/* Display Speakers*/}
-          <div className="grid grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
 
             {
               categories.map(category => (
                 <div key={category.id} className="bg-white rounded-lg shadow-md overflow-hidden">
                   <img src={category.image} alt={category.name} className="w-full h-48 object-cover"/>
                   <div className="p-4">
-                    <h2 className="text-lg font-bold text-gray-800">{category.name}</h2>
-                    <p className="text-gray-600">{category.speaker_count} Speakers</p>
+                    <h2 className="text-sm font-bold text-gray-800">{category.name}</h2>s
                   </div>
                 </div>
               ))}

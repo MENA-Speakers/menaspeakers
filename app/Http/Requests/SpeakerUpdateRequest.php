@@ -27,7 +27,6 @@ class SpeakerUpdateRequest extends FormRequest
         'first_name' => 'required',
         'last_name' => 'required',
         'bio' => 'required',
-        'image' => 'required',
         'featured' => 'required',
         'title' => 'required',
         'excerpt' => 'required',
