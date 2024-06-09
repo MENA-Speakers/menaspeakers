@@ -13,6 +13,7 @@ export interface TagType {
 export interface CategoryType {
   id: number;
   image: string;
+  slug: string;
   name: string;
 }
 

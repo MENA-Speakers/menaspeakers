@@ -1,118 +1,103 @@
 import React from 'react';
 import MainLayout from "@/Layouts/MainLayout";
-import {Head} from "@inertiajs/react";
-import truncateText from "@/Utils/truncateText";
-import {BlogType} from "@/types/blog-type";
+import {Head, Link, router} from "@inertiajs/react";
+import SpeakerCard from "@/Components/SpeakerCard";
+import {useFormik} from "formik";
+import Pagination from "@/Components/Pagination";
+import {Input} from "@/Components/ui/input";
+import {Search} from "lucide-react";
+import {SpeakerType} from "@/types/speaker-type";
 
-interface ViewBlogPageProps {
-  blog: BlogType
+interface SpeakerDataType {
+  data: SpeakerType[],
+  links: any,
+  meta: any
+
 }
 
-function ViewBlogPage({blog} : ViewBlogPageProps) {
-
-  const blogStructuredData = {
-    '@context': 'https://schema.org',
-    '@type': 'Article',
-    headline: blog.title,
-    url: window.location.href,
-    Keywords: blog.keywords,
-    datePublished: blog.created_at,
-    dateModified: blog.updated_at,
-    author: {
-      '@type': 'Organization',
-      name: 'MENA Speakers',
-      url: 'https://menaspeakers.com',
+interface ShowTopicProps {
+  speakers: SpeakerType[],
+  query: string,
+  locations: any[]
+}
+function ShowTopic({speakers, query, locations} : ShowTopicProps) {
+  const formik = useFormik({
+    initialValues: {
+      query: query ? query : ''
     },
-    image: blog.image,
-    description: blog.excerpt ? blog.excerpt : truncateText( blog.content, 150 ),
-  };
+    onSubmit: (values) => {
+      router.get(route('speakers.index'), values)
+    }
+  })
 
   return (
     <MainLayout>
-      <script type='application/ld+json'>{JSON.stringify( blogStructuredData )}</script>
-      <Head>
-        <title>{blog.title}</title>
-        <meta name={'description'} content={blog.excerpt} />
-        <meta name={'keywords'} content={blog.keywords} />
-      </Head>
-      <section className="relative -mt-4 h-[550px]">
-        <img src={blog.image} alt={blog.title} className="w-full h-full object-cover"/>
-
-        <div className="absolute inset-0 z-0">
-          <div className="w-full h-full z-20 bg-black/50">
-            <div className="max-w-7xl mx-auto flex items-center justify-center h-full  px-4 sm px-6 lg px-8">
-              <h1 className="text-white text-5xl font-bold">{blog.title}</h1>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-12 ">
-
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-6">
-          <div className={'col-span-1 lg:col-span-2 space-y-6 lg:pr-12'}>
-
-            {/*CATEGORIES SECTION */}
-            <div className={'p-4 rounded-xl bg-[#F2F6FE] lg:w-[90%] '}>
-              <h2 className="text-2xl pb-4 text-mena-brand">
-                CATEGORY
-              </h2>
 
 
-              <div className={'flex flex-wrap items-center gap-4'}>
-                <div className={'px-4 py-1.5 rounded-3xl bg-mena-brand text-white'}>
-                  Society and Education
+      <section className="py-12">
+        <div className="max-w-7xl mx-auto  sm:px-6   px-6 lg:px-0">
+
+          {/*<div className=" pb-12 w-full lg:w-2/3 mx-auto">*/}
+          {/*  <form onSubmit={formik.handleSubmit} className={'space-y-4'}>*/}
+          {/*    <div className={'flex space-x-6 items-center'}>*/}
+          {/*      <div className="flex-grow relative">*/}
+          {/*        <Input name="query" placeholder={'Search'}*/}
+          {/*               className={'w-full border rounded-3xl py-3 px-8'} value={formik.values.query} onChange={formik.handleChange} />*/}
+          {/*        <Search className={'absolute top-1/2 transform -translate-y-1/2 right-4 h-6 w-6 text-gray-400'}/>*/}
+          {/*      </div>*/}
+
+          {/*    </div>*/}
+          {/*  </form>*/}
+          {/*  <div className={'py-4 px-6 flex space-x-3 '}>*/}
+          {/*    <p className={'text-gray-900 text-sm'}>Popular searches: </p>*/}
+          {/*    <div className={'text-sm flex space-x-2'}>*/}
+          {/*      {*/}
+          {/*        locations.map(location => (*/}
+          {/*          <Link key={location.id}*/}
+          {/*                href={route('location.show', {location: location.slug})}*/}
+          {/*                className={'text-gray-500 hover:text-gray-900 text-sm hover:bg-gray-50 px-1.2 underline rounded'}>*/}
+          {/*            {location.name}*/}
+          {/*          </Link>*/}
+          {/*        ))*/}
+          {/*      }*/}
+          {/*    </div>*/}
+          {/*  </div>*/}
+          {/*</div>*/}
+
+
+          {/* Display Speakers*/}
+          {
+            !speakers.length && (
+              <div className={' min-h-[600px] flex items-center justify-center flex-col space-y-8'}>
+                <div className={'flex items-center justify-center space-y-3 flex-col'}>
+                  <h2 className={'text-2xl font-bold text-gray-800'}>No speakers found</h2>
+                  <p className={'text-gray-500'}>Try browsing other <Link href={route('topics.index')} className={'underline font-semibold text-mena-300'}> Topics</Link></p>
                 </div>
 
-                <div className={'px-4 py-1.5 rounded-3xl bg-mena-brand text-white'}>
-                  AI
-                </div>
+                <div>
 
-                <div className={'px-4 py-1.5 rounded-3xl bg-mena-brand text-white'}>
-                  Model
-                </div>
-
-                <div className={'px-4 py-1.5 rounded-3xl bg-mena-brand text-white'}>
-                  Media
-                </div>
-
-                <div className={'px-4 py-1.5 rounded-3xl bg-mena-brand text-white'}>
-                  Artificial intelligence
-                </div>
-              </div>
-
-
-            </div>
-
-
-            {/*TOPICS SECTION */}
-            <div className={'p-4 rounded-xl bg-[#F2F6FE] lg:w-[90%] '}>
-              <h2 className="text-2xl pb-4 text-mena-brand">
-                TOPICS
-              </h2>
-
-
-              <div className={'flex flex-wrap items-center gap-4'}>
-                <div className={'px-4 py-1.5 rounded-3xl border border-mena-brand text-mena-brand'}>
-                  Politics
                 </div>
 
               </div>
+            )
+          }
 
-
-            </div>
+          <div className="grid grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+            {
+              speakers.map(speaker => (
+                <SpeakerCard key={speaker.id} speaker={speaker} />
+              ))
+            }
           </div>
 
-          <div className="col-span-1 lg:col-span-4">
-            <div dangerouslySetInnerHTML={{__html: blog.content}}
-                 className="px-6 lg  py-12  lg:px-0">
-
-            </div>
-          </div>
+          {/*/!* Pagination *!/*/}
+          {/*<div className="flex justify-center mt-6">*/}
+          {/*  <Pagination links={speakers.links} metaLinks={speakers.meta} />*/}
+          {/*</div>*/}
         </div>
       </section>
     </MainLayout>
   );
 }
 
-export default ViewBlogPage;
+export default ShowTopic;

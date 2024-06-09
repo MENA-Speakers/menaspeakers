@@ -36,6 +36,7 @@
       if($request->hasFile('image')){
         $category->addMediaFromRequest('image')->toMediaCollection('image');
       }
+
       return CategoryResource::make($category);
     }
 

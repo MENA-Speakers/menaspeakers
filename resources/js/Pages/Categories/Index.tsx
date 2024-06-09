@@ -43,7 +43,7 @@ function PublicCategoryPage({categories, query}: PublicCategoryPageProps) {
                 <div key={category.id} className="bg-white rounded-lg shadow-md overflow-hidden">
                   <img src={category.image} alt={category.name} className="w-full h-48 object-cover"/>
                   <div className="p-4">
-                    <h2 className="text-sm font-bold text-gray-800">{category.name}</h2>s
+                    <h2 className="text-sm text-gray-800">{category.name}</h2>
                   </div>
                 </div>
               ))}

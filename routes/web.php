@@ -56,7 +56,10 @@
   Route::get('/blogs/{blog}', [BlogsController::class, 'show'])->name('blogs.show');
 
   Route::get('/categories', [CategoryController::class, 'index'])->name('categories.index');
+  Route::get('/categories/{category}', [CategoryController::class, 'show'])->name('categories.show');
+
   Route::get('/topics', [TopicController::class, 'index'])->name('topics.index');
+  Route::get('/topics/{topic}', [TopicController::class, 'show'])->name('topics.show');
 
   Route::get('profile', [PagesController::class, 'profile'])->name('pages.profile');
   Route::get('profile-arabic', [PagesController::class, 'profileArabic'])->name('pages.profile.arabic');

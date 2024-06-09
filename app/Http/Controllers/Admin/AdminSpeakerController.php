@@ -178,16 +178,22 @@
 
       $speaker = Speaker::find($id);
 
+
       // Extract the category IDs from the request data
-      $categoryIds = array_map(function($category) {
-        return $category['value'];
-      }, $request->input('categories'));
+      $categoryIds = [];
+      if (isset($request->input('categories')[0]['value'])) {
+        $categoryIds = array_map(function($category) {
+          return $category['value'];
+        }, $request->input('categories'));
+      }
 
 
       // Extract the category IDs from the request data
-      $topicIds = array_map(function($topic) {
-        return $topic['value'];
-      }, $request->input('topics'));
+      if (isset($request->input('topics')[0]['value'])) {
+        $topicIds = array_map(function($topic) {
+          return $topic['value'];
+        }, $request->input('topics'));
+      }
 
 
       $speaker->update([
@@ -203,8 +209,13 @@
       ]);
 
       // Sync the categories to the speaker
-      $speaker->categories()->sync($categoryIds);
-      $speaker->topics()->sync($topicIds);
+      if (!empty($categoryIds)) {
+        $speaker->categories()->sync($categoryIds);
+      }
+
+      if (!empty($topicIds)) {
+        $speaker->topics()->sync($topicIds);
+      }
 
       if( $request->hasFile('image') ) {
         $speaker->addMediaFromRequest('image')

@@ -40,7 +40,7 @@ function PublicTopicPage({topics, query}: PublicTopicPageProps) {
                 <div key={topic.id} className="bg-white rounded-lg shadow-md overflow-hidden">
                   <img src={topic.image} alt={topic.name} className="w-full h-48 object-cover"/>
                   <div className="p-4">
-                    <h2 className="text-sm font-bold text-gray-800">{topic.name}</h2>
+                    <h2 className="text-sm  text-gray-800">{topic.name}</h2>
                   </div>
                 </div>
               ))}

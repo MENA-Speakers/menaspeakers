@@ -20,7 +20,7 @@ class TopicResource extends JsonResource
             'slug' => $this->slug,
             'speaker_count' => $this->speakers?->count(),
             'image' => $this->getFirstMediaUrl('image', 'webp'),
-            'speakers' => $this->speakers,
+            'speakers' => SpeakerResource::collection($this->speakers),
         ];
     }
 }

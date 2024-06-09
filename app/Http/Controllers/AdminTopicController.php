@@ -25,7 +25,8 @@ class AdminTopicController extends Controller
     if($request->hasFile('image')){
       $topic->addMediaFromRequest('image')->toMediaCollection('image');
     }
-    return TopicResource::collection($topic);
+
+    return TopicResource::make($topic);
   }
 
 

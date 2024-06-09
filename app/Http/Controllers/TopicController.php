@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\SpeakerResource;
 use App\Http\Resources\TopicResource;
 use App\Models\Topic;
 use Illuminate\Http\Request;
@@ -16,6 +17,17 @@ class TopicController extends Controller
     {
         return Inertia::render('Topics/Index', [
             'topics' => TopicResource::collection(Topic::all())
+        ]);
+    }
+
+
+    public function show(Topic $topic): Response
+    {
+
+      $speaker = $topic->speaker;
+        return Inertia::render('Topics/Show', [
+            'topic' => new TopicResource($topic),
+            'speakers' => $topic->speakers()->exists() ? new SpeakerResource($speaker) : [],
         ]);
     }
 }

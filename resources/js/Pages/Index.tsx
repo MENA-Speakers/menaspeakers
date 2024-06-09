@@ -6,7 +6,7 @@ import HomeNewsSection from "@/Components/HomeNewsSection";
 import HomeOurPartners from "@/Components/HomeOurPartners";
 import HomeCountdownSection from "@/Components/HomeCountdownSection";
 import HomeGallerySection from "@/Components/HomeGallerySection";
-import {SpeakerType} from "@/types/speaker-type";
+import {CategoryType, SpeakerType} from "@/types/speaker-type";
 import {GalleryType} from "@/types/media";
 import {OpenGraphDataType} from "@/types/open-grap-data";
 import {BackgroundGradientAnimation} from "@/Components/ui/background-gradient-animation";
@@ -24,9 +24,11 @@ interface IndexProps {
   speakers: SpeakerType[],
   gallery: GalleryType[],
   faqs: FaqType[]
+  topics: CategoryType[],
+  categories: CategoryType[],
 }
 
-function Index({blogs, speakers, faqs}: IndexProps) {
+function Index({blogs, speakers, faqs, categories, topics}: IndexProps) {
 
   const siteUrl = window.location.href;
 
@@ -172,23 +174,22 @@ function Index({blogs, speakers, faqs}: IndexProps) {
               </div>
 
               <div className={'flex gap-6'}>
-                <div className={'w-full lg:w-1/2'}>
-                  <img className={'h-40 object-cover w-full rounded-xl'}
-                       src="https://plus.unsplash.com/premium_photo-1661963828727-823941143490?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                       alt=""/>
-                  <p className="text-sm mt-1">
-                    Leadership & motivation
-                  </p>
-                </div>
-
-                <div className={'w-full lg:w-1/2'}>
-                  <img className={'h-40 object-cover w-full rounded-xl'}
-                       src="https://plus.unsplash.com/premium_photo-1661512457461-86b513bb485f?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                       alt=""/>
-                  <p className="text-sm mt-1">
-                    Leadership & motivation
-                  </p>
-                </div>
+                {
+                  categories.map(category => (
+                    <div key={category.id} className={' flex flex-col'}>
+                      <Link href={route('categories.show', {category: category.slug})}>
+                        <img className={'h-40 object-cover w-full rounded-xl'}
+                             src={category.image ? category.image : '/images/placeholder.webp'}
+                             alt={`${category.name} Speakers`}/>
+                        </Link>
+                        <Link href={route('categories.show', category.slug)} className="text-sm mt-1">
+                          {
+                            category.name
+                          }
+                        </Link>
+                    </div>
+                  ))
+                }
               </div>
 
             </div>
@@ -211,77 +212,23 @@ function Index({blogs, speakers, faqs}: IndexProps) {
               </div>
 
               <div className={'grid grid-cols-2 lg:grid-cols-4 gap-6'}>
-                <div className={''}>
-                  <img className={'h-20 object-cover w-full rounded-xl'}
-                       src="https://plus.unsplash.com/premium_photo-1661963828727-823941143490?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                       alt=""/>
-                  <p className="text-sm mt-1">
-                    Economy
-                  </p>
-                </div>
 
-                <div className={''}>
-                  <img className={'h-20 object-cover w-full rounded-xl'}
-                       src="https://plus.unsplash.com/premium_photo-1661963828727-823941143490?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                       alt=""/>
-                  <p className="text-sm mt-1">
-                    Economy
-                  </p>
-                </div>
-
-                <div className={''}>
-                  <img className={'h-20 object-cover w-full rounded-xl'}
-                       src="https://plus.unsplash.com/premium_photo-1661963828727-823941143490?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                       alt=""/>
-                  <p className="text-sm mt-1">
-                    Economy
-                  </p>
-                </div>
-
-                <div className={''}>
-                  <img className={'h-20 object-cover w-full rounded-xl'}
-                       src="https://plus.unsplash.com/premium_photo-1661963828727-823941143490?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                       alt=""/>
-                  <p className="text-sm mt-1">
-                    Economy
-                  </p>
-                </div>
-
-                <div className={''}>
-                  <img className={'h-20 object-cover w-full rounded-xl'}
-                       src="https://plus.unsplash.com/premium_photo-1661963828727-823941143490?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                       alt=""/>
-                  <p className="text-sm mt-1">
-                    Economy
-                  </p>
-                </div>
-
-                <div className={''}>
-                  <img className={'h-20 object-cover w-full rounded-xl'}
-                       src="https://plus.unsplash.com/premium_photo-1661963828727-823941143490?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                       alt=""/>
-                  <p className="text-sm mt-1">
-                    Economy
-                  </p>
-                </div>
-
-                <div className={''}>
-                  <img className={'h-20 object-cover w-full rounded-xl'}
-                       src="https://plus.unsplash.com/premium_photo-1661963828727-823941143490?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                       alt=""/>
-                  <p className="text-sm mt-1">
-                    Economy
-                  </p>
-                </div>
-
-                <div className={''}>
-                  <img className={'h-20 object-cover w-full rounded-xl'}
-                       src="https://plus.unsplash.com/premium_photo-1661963828727-823941143490?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                       alt=""/>
-                  <p className="text-sm mt-1">
-                    Economy
-                  </p>
-                </div>
+                {
+                  topics.map(topic => (
+                    <div key={topic.id} className={' flex flex-col'}>
+                      <Link href={route('topics.show', {topic: topic.slug})}>
+                        <img className={'h-20 object-cover w-full rounded-xl'}
+                             src={topic.image ? topic.image : '/images/placeholder.webp'}
+                             alt={`${topic.name} Speakers`}/>
+                      </Link>
+                      <Link href={route('topics.show', topic.slug)} className="text-sm mt-1">
+                        {
+                          topic.name
+                        }
+                      </Link>
+                    </div>
+                  ))
+                }
 
 
               </div>
@@ -305,7 +252,7 @@ function Index({blogs, speakers, faqs}: IndexProps) {
       <section className="py-12 px-6">
         <div className="max-w-7xl mx-auto">
           <h3 className="text-4xl text-mena-brand font-semibold">
-            FAQ
+          FAQ
           </h3>
           <div className="mt-6 w-full py-6 lg:max-w-3xl mx-auto">
             <Accordion type="single" collapsible className="w-full space-y-3">
