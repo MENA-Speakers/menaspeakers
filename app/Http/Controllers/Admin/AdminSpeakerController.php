@@ -177,7 +177,6 @@
     {
       $request->validated();
 
-      dd(\request()->all());
 
       $speaker = Speaker::find($id);
 
