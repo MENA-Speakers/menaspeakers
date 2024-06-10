@@ -2,10 +2,7 @@ import React from 'react';
 import MainLayout from "@/Layouts/MainLayout";
 import {Head, Link} from "@inertiajs/react";
 import BlogCard from "@/Components/BlogCard";
-import HomeNewsSection from "@/Components/HomeNewsSection";
 import HomeOurPartners from "@/Components/HomeOurPartners";
-import HomeCountdownSection from "@/Components/HomeCountdownSection";
-import HomeGallerySection from "@/Components/HomeGallerySection";
 import {CategoryType, SpeakerType} from "@/types/speaker-type";
 import {GalleryType} from "@/types/media";
 import {OpenGraphDataType} from "@/types/open-grap-data";
@@ -18,6 +15,9 @@ import {Button} from "@/Components/ui/button";
 import {ArrowRight} from "lucide-react";
 import {Textarea} from "@/Components/ui/textarea";
 import {FaqType} from "@/types/faq-type";
+import HomeTestimonialsSection from "@/Components/HomeTestimonialsSection";
+import {TestimonialType} from "@/types/testimonial-type";
+import * as test from "node:test";
 
 interface IndexProps {
   blogs: BlogType[],
@@ -26,9 +26,10 @@ interface IndexProps {
   faqs: FaqType[]
   topics: CategoryType[],
   categories: CategoryType[],
+  testimonials: TestimonialType[]
 }
 
-function Index({blogs, speakers, faqs, categories, topics}: IndexProps) {
+function Index({blogs, speakers, faqs, categories, topics, testimonials}: IndexProps) {
 
   const siteUrl = window.location.href;
 
@@ -273,46 +274,13 @@ function Index({blogs, speakers, faqs, categories, topics}: IndexProps) {
       </section>
 
       {/*TESTIMONIALS SECTION*/}
-
-      <section className={'py-12 px-6 bg-[#F2F6FE]'}>
-        <div className="max-w-7xl mx-auto space-y-8">
-          <h3 className="text-4xl text-mena-brand font-semibold">
-            Testimonials
-          </h3>
-
-          <div className={'py-6 max-w-4xl mx-auto flex flex-col lg:flex-row gap-6 lg:gap-12 items-start'}>
-            <div className={'w-full flex items-center justify-center'}>
-              <svg
-                className={'w-12 lg:w-20 h-12 lg:h-20 opacity-10'}
-                viewBox="0 0 84 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M67.673 32.631C76.8922 32.631 83.1049 38.8737 83.1049 48.1236C83.1049 56.4473 75.9644 63.3819 66.2931 63.3819C55.6998 63.3819 47.8723 55.0581 47.8723 42.3439C47.8723 13.4452 69.5169 1.88577 83.1049 0.496582V13.2108C73.8916 14.8287 63.5332 23.8442 63.0693 33.7915C63.5332 33.5628 65.3712 32.631 67.673 32.631ZM20.7021 32.631C29.9096 32.631 36.1281 38.8737 36.1281 48.1236C36.1281 56.4473 28.9876 63.3819 19.3163 63.3819C8.72302 63.3819 0.895508 55.0581 0.895508 42.3439C0.895508 13.4452 22.5401 1.88577 36.1281 0.496582V13.2108C26.9148 14.8287 16.5564 23.8442 16.0925 33.7915C16.5564 33.5628 18.3944 32.631 20.7021 32.631Z"
-                  fill="#050505"/>
-              </svg>
-            </div>
-
-            <div>
-              <p className="text-slate-500">
-                Booking Dr. Emily Carter for our annual conference was an excellent decision. Her inspiring and engaging
-                presentation captivated our audience and provided actionable insights that greatly benefited our team.
-                Attendees gave glowing feedback, highlighting the significant impact of her talk. I highly recommend Dr.
-                Carter for any event looking for a dynamic and impactful speaker.
-              </p>
-
-              <div className="mt-6 flex justify-between">
-                <div>
-                  <h4 className="text-lg font-semibold text-mena-brand">John Doe</h4>
-                  <p className="text-sm text-[#F15A29]">CEO, Company Name</p>
-                </div>
-
-              </div>
-
-            </div>
-
-          </div>
-        </div>
-      </section>
-
+      {
+        testimonials.length > 0 && (
+          <section className="py-12 px-6 bg-[#F2F6FE]">
+            <HomeTestimonialsSection testimonials={testimonials}/>
+          </section>
+        )
+      }
 
       {/*RESOURCES SECTION   */}
       <section className="py-12 px-6">

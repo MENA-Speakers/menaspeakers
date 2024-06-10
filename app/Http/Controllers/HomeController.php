@@ -15,6 +15,7 @@ use App\Models\Faq;
 use App\Models\Image;
 use App\Models\Profile;
 use App\Models\Speaker;
+use App\Models\Testimonial;
 use App\Models\Topic;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -27,6 +28,7 @@ class HomeController extends Controller
         $speakers = Speaker::where('featured', true)->inRandomOrder()->limit(4)->get();
         $blogs = Blog::latest()->limit(4)->get();
         $faqs = Faq::where('speaker_id', null)->get();
+        $testimonials = Testimonial::latest()->limit(12)->get();
 
       $categories = Category::inRandomOrder()
     ->limit(2)
@@ -43,6 +45,7 @@ class HomeController extends Controller
             'faqs' => $faqs,
             'categories' => CategoryResource::collection($categories),
             'topics' => TopicResource::collection($topics),
+            'testimonials' => $testimonials
         ]);
     }
 }

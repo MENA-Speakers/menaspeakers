@@ -22,6 +22,7 @@
   use App\Http\Controllers\AdminGalleryController;
   use App\Http\Controllers\AdminSpeakerFaqController;
   use App\Http\Controllers\AdminSpeakerVideoController;
+  use App\Http\Controllers\AdminTestimonialController;
   use App\Http\Controllers\AdminTopicController;
   use App\Http\Controllers\DealController;
   use App\Http\Controllers\FaqsController;
@@ -171,6 +172,12 @@
     Route::get('speakers/{speaker}/faqs', [AdminSpeakerFaqController::class, 'index'])->name('speakers.faqs');
     Route::post('speakers/{speaker}/faqs', [AdminSpeakerFaqController::class, 'store'])->name('speakers.faqs.store');
     Route::post('speakers/{speaker}/delete', [AdminSpeakerFaqController::class, 'delete'])->name('speakers.faqs.destroy');
+
+
+    // Testimonials
+    Route::get('testimonials', [AdminTestimonialController::class, 'index'])->name('testimonials.index');
+    Route::post('testimonials', [AdminTestimonialController::class, 'store'])->name('testimonials.store');
+    Route::post('testimonials/{testimonial}', [AdminTestimonialController::class, 'delete'])->name('testimonials.destroy');
 
   });
 
