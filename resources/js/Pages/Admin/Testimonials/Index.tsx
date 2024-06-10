@@ -42,7 +42,6 @@ function TestimonialPage( {testimonials} : TestimonialPageProps) {
     validationSchema: Yup.object({
       author: Yup.string().required('Author is required'),
       content: Yup.string().required('Content is required'),
-      author_title: Yup.string().required('Author title is required'),
     }),
 
     onSubmit: values => {

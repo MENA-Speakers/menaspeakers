@@ -21,7 +21,6 @@ class AdminTestimonialController extends Controller
         $request->validate([
             'content' => 'required',
             'author' => 'required',
-            'author_title' => 'required',
         ]);
 
         $testimonial = Testimonial::create([
