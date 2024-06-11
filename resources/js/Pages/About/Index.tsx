@@ -1,15 +1,11 @@
 import React, {useEffect, useRef} from 'react';
 import MainLayout from "@/Layouts/MainLayout";
 import {Head, Link} from "@inertiajs/react";
-import {Facebook, Instagram, Linkedin, Twitter, Youtube} from "lucide-react";
-import {Input} from "@/Components/ui/input";
-import {Textarea} from "@/Components/ui/textarea";
-import {Text} from "@react-pdf/renderer";
 
 function AboutPage() {
   // const formRef = useRef(null);
 
-
+  const [activeMenu, setActiveMenu] = React.useState('about');
   return (
     <MainLayout>
       <Head>
@@ -43,49 +39,87 @@ function AboutPage() {
           {/*<div ref={formRef}>*/}
           {/*  /!* The Bitrix form will load here *!/*/}
           {/*</div>*/}
-          <div className="w-full lg:py-12 col-span-1 lg:col-span-4 space-y-3">
-            <h1 className="text-4xl font-semibold text-mena-brand">
-              Why?
-            </h1>
-            <p className="mt-6">
-              MENA Speakers is a highly acclaimed agency offering customized solutions for various speaking engagements. Established in 2016, we have become the foremost speakers' agency  in the Middle East, offering services that can compete with international agencies. Our exceptional track record is a testament to our unwavering commitment to delivering top notch speakers who constantly raise the bar.
 
-            </p>
 
-            <p>
-              Our expert orators can innovate, facilitate, moderate, and motivate audiences across different events, including keynote speeches, educational seminars, and one-on-one meetings. Under the leadership of Saana Azzam, an award-winning economist, MENA Speakers represents the best and brightest in the region, including VIPs such as Prince Salman from Saudi Arabia, Mohammed Qahtani, world champion in public speaking, and Muna AbuSulayman.
+          {
+            activeMenu === 'about' && (
+              <div className="w-full lg:py-12 col-span-1 lg:col-span-4 space-y-3">
+                <h1 className="text-4xl font-semibold text-mena-brand">
+                  Who we are
+                </h1>
+                <p className="pt-6">
+                  At MENA Speakers, we're not just another agency – we're the heartbeat of inspiration in the Middle East.
+                  Since our establishment in 2016, we've skyrocketed to become the region's premier speakers' agency,
+                  setting the bar for excellence and innovation. Our relentless dedication to excellence has made us the
+                  go-to choice for those who demand nothing but the best.
 
-            </p>
+                </p>
 
-            <p>
-                We have also brought in renowned international speakers such as Fed Reserve Chairman Ben Bernanke, Janet Yellen, and David Meltzer. Our exclusive speaker roster includes Mathew Knowles, the father and agent of Beyoncé, Joe Foster, the founder of Reebok, and Hala Gorani, a CNN anchor. We have an impressive client base, which includes Gulf Ministries, Kellogg's Company, Standard Chartered Bank, NEOM, Misk, Al Ula, and many more.
+              </div>
+            )
+          }
 
-            </p>
-          </div>
+
+          {
+            activeMenu === 'we-do' && (
+              <div className="w-full lg:py-12 col-span-1 lg:col-span-4 space-y-3">
+                <h1 className="text-4xl font-semibold text-mena-brand">
+                  What We Do
+                </h1>
+                <p className="pt-6">
+                  We craft unforgettable experiences. From electrifying keynote speeches to intimate educational seminars, our expert orators are masters at engaging, motivating, and transforming audiences. Whether it's igniting inspiration or sparking change, we're here to make every moment unforgettable.
+
+
+                </p>
+
+              </div>
+            )
+          }
+
+
+          {
+            activeMenu === 'why-us' && (
+              <div className="w-full lg:py-12 col-span-1 lg:col-span-4 space-y-3">
+                <h1 className="text-4xl font-semibold text-mena-brand">
+                  Why Choose Us?
+                </h1>
+                <p className="pt-6">
+                  Because exceptional is our standard. We're not just speakers; we're storytellers, innovators, and catalysts for change. Our roster boasts the brightest stars in the region and beyond, from world champions to global icons. When you choose MENA Speakers, you're choosing excellence, passion, and a commitment to exceeding expectations every single time.
+
+                </p>
+
+              </div>
+            )
+          }
           <div className="col-span-1 lg:col-span-2 lg:p-6 ">
             <div className={'p-6 bg-[#EBEEF4] mt-12 rounded-xl space-y-6'}>
               <h3 className="text-xl font-semibold">
                 About Us
               </h3>
               <nav className={'flex flex-col space-y-4'}>
-                <Link href={'#'} className={'py-2 px-4 bg-slate-100 rounded-lg'}>
+                <button onClick={() => setActiveMenu('about')}
+                        className={`py-2 px-4 rounded-lg  text-left ${activeMenu === 'about' ? 'bg-mena-brand text-white' : 'bg-slate-100'}`}>
                   Who Are We
-                </Link>
-                <Link href={'#'} className={'py-2 px-4 bg-slate-100 rounded-lg'}>
+                </button>
+                <button onClick={() => setActiveMenu('we-do')}
+                        className={`py-2 px-4 rounded-lg  text-left ${activeMenu === 'we-do' ? 'bg-mena-brand text-white' : 'bg-slate-100'}`}>
                   What We Do
-                </Link>
-                <Link href={'#'} className={'py-2 px-4 bg-mena-brand rounded-lg text-white'}>
-                  Why
-                </Link>
-                <Link href={'#'} className={'py-2 px-4 bg-slate-100 rounded-lg'}>
-                  With who
-                </Link>
+
+                </button>
+                <button onClick={() => setActiveMenu('why-us')}
+                        className={`py-2 px-4 rounded-lg  text-left ${activeMenu === 'why-us' ? 'bg-mena-brand text-white' : 'bg-slate-100'}`}>
+                  Why Choose Us?
+
+                </button>
               </nav>
             </div>
 
 
           </div>
+
+
         </div>
+
       </section>
     </MainLayout>
   );
