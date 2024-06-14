@@ -4,6 +4,7 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import {Link} from "@inertiajs/react";
 import InlineNewsLetterForm from "@/Components/InlineNewsLetterForm";
 import Footer from "@/Components/Footer";
+import {Toaster} from "sonner";
 
 const navigation = [
   { name: 'Home', dropdown: false, route: 'index' },
@@ -173,6 +174,7 @@ export default function MainLayout({ children} : {children: React.ReactNode}) {
 
       {/* Footer */}
       <Footer/>
+      <Toaster position={'top-center'} />
     </div>
   )
 }

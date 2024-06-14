@@ -4,6 +4,7 @@ import { Head } from "@inertiajs/react";
 import {Facebook, Instagram, Linkedin, Twitter, Youtube} from "lucide-react";
 import {Input} from "@/Components/ui/input";
 import {Textarea} from "@/Components/ui/textarea";
+import ContactPageForm from "@/Components/ui/ContactPageForm";
 
 function Index() {
   // const formRef = useRef(null);
@@ -83,18 +84,7 @@ function Index() {
               Fill the form so that our team can reach out to you
             </p>
 
-            <form action="https://formspree.io/f/xnqoqkqk" method="POST" className="mt-6">
-              <div className="space-y-6">
-                <Input type="text" name="name" placeholder="Name" className="w-full border rounded-lg py-3 px-4"/>
-                <Input type="text" name="company_name" placeholder="Comapny Name" className="w-full border rounded-lg py-3 px-4"/>
-                <Input type="email" name="email" placeholder="Email" className="w-full border rounded-lg py-3 px-4"/>
-                <Input type="text" name="phone" placeholder="Phone" className="w-full border rounded-lg py-3 px-4"/>
-                <Textarea name="message" placeholder="Message" className="w-full border rounded-lg py-3 px-4"/>
-                <button type="submit" className="w-full bg-mena-brand text-white py-3 rounded-lg">
-                  Submit
-                </button>
-              </div>
-            </form>
+            <ContactPageForm />
           </div>
         </div>
       </section>

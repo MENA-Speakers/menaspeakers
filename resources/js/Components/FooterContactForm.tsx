@@ -1,0 +1,177 @@
+import React from 'react';
+import {Button} from "@/Components/ui/button";
+import {Label} from "@/Components/ui/label";
+import {Input} from "@/Components/ui/input";
+import PhoneInput from "react-phone-input-2";
+import {Textarea} from "@/Components/ui/textarea";
+import {useFormik} from "formik";
+import * as Yup from "yup";
+import axios from "axios";
+import {toast} from "sonner";
+import {FormMessage} from "@/Components/ui/form";
+import {Alert, AlertDescription, AlertTitle} from "@/Components/ui/alert";
+import {ThumbsUp} from "lucide-react";
+
+
+
+function FooterContactForm() {
+
+  const [formSubmitted, setFormSubmitted] = React.useState(false);
+
+  const formik = useFormik( {
+    initialValues: {
+      full_name:  '',
+      phone: '',
+      company: '',
+      email: '',
+      message: '',
+      source: 'Footer home page'
+    },
+
+    validationSchema: Yup.object( {
+      full_name: Yup.string().required( 'Full name is required' ),
+      email: Yup.string().email().required( 'Email is required' ),
+      phone: Yup.string().required( 'Phone number is required' ),
+      message: Yup.string().required( 'Message is required' ),
+    } ),
+
+    onSubmit: values => {
+
+
+      axios.post( route('leads.store'), values
+      ).then( ( response ) => {
+        formik.setSubmitting( false );
+        toast.success('Your request has been submitted successfully. We will get back to you shortly.')
+        setFormSubmitted(true)
+      } ).catch( ( error ) => {
+        //Set formik errors
+        if ( error.response.status === 422 ) {
+          formik.setErrors( error.response.data.errors );
+        }
+        formik.setSubmitting( false );
+      } );
+    },
+  } );
+
+
+  return (
+    <form onSubmit={formik.handleSubmit} className="grid grid-cols-2 gap-6 py-12">
+      {
+        formSubmitted && (
+         <div className={'col-span-2 pb-6 text-teal-600 '}>
+           <Alert className={'border-teal-500 text-teal-600'}>
+             <ThumbsUp className="h-4 w-4 text-teal-600 stroke-1" />
+             <AlertTitle>Message Received</AlertTitle>
+             <AlertDescription>
+               our request has been submitted successfully. We will get back to you shortly.
+             </AlertDescription>
+           </Alert>
+         </div>
+
+        )
+      }
+      <div className="col-span-2 lg:col-span-1">
+        <Label htmlFor="full_name" className="text-slate-600 sr-only">
+          Full Name
+        </Label>
+        <Input
+          id="full_name"
+          disabled={formik.isSubmitting || formSubmitted}
+          placeholder={'Full Name'}
+          value={formik.values.full_name}
+          onChange={formik.handleChange}
+        />
+        {
+          formik.touched.full_name && formik.errors.full_name ? (
+            <p className={'text-sm text-red-500 mt-1'}>{formik.errors.full_name}</p>
+          ) : null
+        }
+      </div>
+
+      <div className="col-span-2 lg:col-span-1">
+        <Label htmlFor="company" className="text-slate-600 sr-only">
+          Company Name
+        </Label>
+        <Input
+          id="company"
+          disabled={formik.isSubmitting || formSubmitted}
+          placeholder={'Company Name'}
+          value={formik.values.company}
+          onChange={formik.handleChange}
+        />
+
+        {
+          formik.touched.company && formik.errors.company ? (
+            <p className={'text-sm text-red-500 mt-1'}>{formik.errors.company}</p>
+          ) : null
+        }
+      </div>
+
+
+      <div className=" gap-2">
+        <Label htmlFor="email" className="text-slate-600 sr-only">
+          Email
+        </Label>
+        <Input
+          id="email"
+          type={'email'}
+          disabled={formik.isSubmitting || formSubmitted}
+          placeholder={'example@email.com'}
+          value={formik.values.email}
+          onChange={formik.handleChange}
+        />
+        {
+          formik.touched.email && formik.errors.email ? (
+            <p className={'text-sm text-red-500 mt-1'}>{formik.errors.email}</p>
+          ) : null
+        }
+      </div>
+      <div className="grid flex-1 gap-2">
+        <Label htmlFor="phone" className={'sr-only'}>
+          Phone number
+        </Label>
+        <Input
+          id="phone"
+          placeholder={'Phone number'}
+          disabled={formik.isSubmitting || formSubmitted}
+          value={formik.values.phone}
+          onChange={formik.handleChange}
+        />
+
+        {
+          formik.touched.phone && formik.errors.phone ? (
+            <p className={'text-sm text-red-500 mt-1'}>{formik.errors.phone}</p>
+          ) : null
+        }
+
+      </div>
+
+      <div className="col-span-2 flex-1 gap-2">
+        <Label htmlFor="Message" className="sr-only">
+          Your Message
+        </Label>
+        <Textarea
+          id="message"
+          rows={4}
+          disabled={formik.isSubmitting || formSubmitted}
+          placeholder="Your Message"
+          value={formik.values.message}
+          onChange={formik.handleChange}
+        />
+
+        {
+          formik.touched.message && formik.errors.message ? (
+            <p className={'text-sm text-red-500 mt-1'}>{formik.errors.message}</p>
+          ) : null
+        }
+      </div>
+      <div className="col-span-2">
+        <Button disabled={formik.isSubmitting || formSubmitted} onClick={() => formik.handleSubmit()} type={'submit'} className="px-3 w-full bg-mena-brand hover:bg-mena-brand/90">
+          <span className="">Send Message</span>
+        </Button>
+      </div>
+    </form>
+  );
+}
+
+export default FooterContactForm;

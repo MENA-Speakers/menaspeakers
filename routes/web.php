@@ -7,6 +7,7 @@
   use App\Http\Controllers\Admin\AdminProfileController;
   use App\Http\Controllers\Admin\SettingController;
   use App\Http\Controllers\AdminGalleryController;
+  use App\Http\Controllers\AdminLeadController;
   use App\Http\Controllers\Api\ApiProposalController;
   use App\Http\Controllers\BitrixSpeakerController;
   use App\Http\Controllers\BlogsController;
@@ -74,6 +75,8 @@
   Route::post('api/bitrix/add-speaker', [BitrixSpeakerController::class, 'store'])->name('api.speakers.store');
 
   Route::post('pitch-speakers', [SpeakerNotificationController::class, 'pitched'])->name('pitch-speakers.index');
+
+  Route::post('leads', [AdminLeadController::class, 'store'])->name('leads.store');
 
 
   //External site routes

@@ -1,7 +1,5 @@
 import React from 'react';
-import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "@/Components/ui/select";
 import {Input} from "@/Components/ui/input";
-import PrimaryButton from "@/Components/PrimaryButton";
 import {useFormik} from "formik";
 import * as Yup from "yup";
 import axios from "axios";

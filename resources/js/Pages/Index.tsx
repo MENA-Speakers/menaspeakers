@@ -18,6 +18,7 @@ import {FaqType} from "@/types/faq-type";
 import HomeTestimonialsSection from "@/Components/HomeTestimonialsSection";
 import {TestimonialType} from "@/types/testimonial-type";
 import * as test from "node:test";
+import FooterContactForm from "@/Components/FooterContactForm";
 
 interface IndexProps {
   blogs: BlogType[],
@@ -319,17 +320,7 @@ function Index({blogs, speakers, faqs, categories, topics, testimonials}: IndexP
               </p>
             </div>
 
-            <div className={'grid grid-cols-1 lg:grid-cols-2 gap-6 mt-6'}>
-              <Input type={'text'} placeholder={'Name'} className={'rounded-lg py-3 px-4 col-span-2 lg:col-span-1'}/>
-              <Input type={'text'} placeholder={'Company name'} className={'rounded-lg py-3 px-4 col-span-2 lg:col-span-1'}/>
-              <Input type={'email'} placeholder={'Email'} className={'rounded-lg py-3 px-4 col-span-2 lg:col-span-1'}/>
-              <Input type={'text'} placeholder={'Phone number'} className={'rounded-lg py-3 px-4 col-span-2 lg:col-span-1'}/>
-              {/*<Input type={'text'} placeholder={'Phone number'} className={'rounded-lg py-3 px-4'}/>*/}
-              <Textarea placeholder={'Message'} className={'rounded-lg py-3 px-4 col-span-2'}/>
-              <Button className={'bg-mena-brand text-white py-3 px-4 rounded-lg col-span-2'}>
-                Submit
-              </Button>
-            </div>
+            <FooterContactForm />
           </div>
 
 
