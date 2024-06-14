@@ -15,9 +15,6 @@ class SpeakerResource extends JsonResource
     public function toArray(Request $request): array
     {
 
-      //explode from key_titles by comma into an array
-      $titles = explode(',', $this->key_titles);
-
       $temTitles = '';
 
 

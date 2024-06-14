@@ -24,10 +24,10 @@ class TopicController extends Controller
     public function show(Topic $topic): Response
     {
 
-      $speaker = $topic->speaker;
+      $speakers = $topic->speakers;
         return Inertia::render('Topics/Show', [
             'topic' => new TopicResource($topic),
-            'speakers' => $topic->speakers()->exists() ? new SpeakerResource($speaker) : [],
+            'speakers' => $topic->speakers()->exists() ? SpeakerResource::collection($speakers) : [],
         ]);
     }
 }

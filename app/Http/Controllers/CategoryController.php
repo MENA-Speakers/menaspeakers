@@ -22,10 +22,10 @@ class CategoryController extends Controller
   public function show(Category $category)
   {
 
-    $speaker = $category->speakers;
+    $speakers = $category->speakers;
     return Inertia::render('Categories/Show', [
       'category' => new CategoryResource($category),
-      'speakers' => $category->speakers()->exists() ? new SpeakerResource($speaker) : [],
+      'speakers' => $category->speakers()->exists() ? SpeakerResource::collection($speakers) : [],
     ]);
   }
 }

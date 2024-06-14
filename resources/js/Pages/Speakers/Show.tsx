@@ -104,6 +104,7 @@ function Show({ speaker }: ShowSpeakerProps) {
     },
   } );
 
+  console.log( 'speaker' , speaker)
 
 
   return (
@@ -159,16 +160,14 @@ function Show({ speaker }: ShowSpeakerProps) {
                 </p>
               </div>
 
+              <Button onClick={() =>setBookSpeaker(true)} className={'font-semibold text-white bg-mena-brand py-2.5 rounded-xl'}>Book Speaker</Button>
               <Dialog open={bookSpeaker} onOpenChange={setBookSpeaker}>
-                <DialogTrigger asChild>
-                  <Button className={'font-semibold text-white bg-mena-brand py-2.5 rounded-xl'}>Book Speaker</Button>
-                </DialogTrigger>
-                <DialogContent className="sm:max-w-2xl">
+                <DialogContent className="sm:max-w-xl">
                   <DialogHeader>
                     <DialogTitle className={'text-center text-2xl'}>Book <span className="text-mena-brand font-semibold">{speaker.first_name + ' ' + speaker.last_name}</span></DialogTitle>
 
                   </DialogHeader>
-                  <form onSubmit={formik.handleSubmit} className="p-12 space-y-3">
+                  <form onSubmit={formik.handleSubmit} className="p-8 space-y-3">
                     <div className="grid flex-1 gap-2">
                       <Label htmlFor="full_name" className="text-slate-600">
                         Full Name
@@ -306,54 +305,54 @@ function Show({ speaker }: ShowSpeakerProps) {
 
 
               {/*CATEGORIES SECTION */}
-              <div className={'p-4 rounded-xl bg-[#F2F6FE] lg:w-[90%] '}>
-                <h2 className="text-2xl pb-4 text-mena-brand">
-                  CATEGORY
-                </h2>
+              {
+                speaker.categories &&
+                <div className={'p-4 rounded-xl bg-[#F2F6FE] lg:w-[90%] '}>
+                  <h2 className="text-2xl pb-4 text-mena-brand">
+                    CATEGORY
+                  </h2>
 
 
-                <div className={'flex flex-wrap items-center gap-4'}>
-                  <div className={'px-4 py-1.5 rounded-3xl bg-mena-brand text-white'}>
-                    Society and Education
+                  <div className={'flex flex-wrap items-center gap-4'}>
+                    {
+                      speaker.categories.map(category => (
+                        <Link href={route('categories.show', category.slug)} key={category.id}
+                              className={'px-4 py-1.5 rounded-3xl bg-mena-brand border border-mena-brand text-white'}>
+                          {category.name}
+                        </Link>
+                      ))
+                    }
                   </div>
 
-                  <div className={'px-4 py-1.5 rounded-3xl bg-mena-brand text-white'}>
-                    AI
-                  </div>
 
-                  <div className={'px-4 py-1.5 rounded-3xl bg-mena-brand text-white'}>
-                    Model
-                  </div>
-
-                  <div className={'px-4 py-1.5 rounded-3xl bg-mena-brand text-white'}>
-                    Media
-                  </div>
-
-                  <div className={'px-4 py-1.5 rounded-3xl bg-mena-brand text-white'}>
-                    Artificial intelligence
-                  </div>
                 </div>
-
-
-              </div>
+              }
 
 
               {/*TOPICS SECTION */}
-              <div className={'p-4 rounded-xl bg-[#F2F6FE] lg:w-[90%] '}>
-                <h2 className="text-2xl pb-4 text-mena-brand">
-                  TOPICS
-                </h2>
+              {
+                speaker.topics &&
+                <div className={'p-4 rounded-xl bg-[#F2F6FE] lg:w-[90%] '}>
+                  <h2 className="text-2xl pb-4 text-mena-brand">
+                    TOPICS
+                  </h2>
 
 
-                <div className={'flex flex-wrap items-center gap-4'}>
-                  <div className={'px-4 py-1.5 rounded-3xl border border-mena-brand text-mena-brand'}>
-                    Politics
+                  <div className={'flex flex-wrap items-center gap-4'}>
+                     {
+                        speaker.topics.map(topic => (
+                          <Link href={route('topics.show', topic.slug)} key={topic.id}
+                                className={'px-4 py-1.5 rounded-3xl border border-mena-brand text-mena-brand'}>
+                            {topic.name}
+                          </Link>
+                        ))
+                      }
+
                   </div>
 
+
                 </div>
-
-
-              </div>
+              }
 
             </div>
 

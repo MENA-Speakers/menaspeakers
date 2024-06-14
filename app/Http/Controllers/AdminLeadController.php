@@ -26,6 +26,7 @@ class AdminLeadController extends Controller
       'email' => $request->email,
       'phone' => $request->phone,
       'message' => $request->message,
+      'source' => $request->source,
       'speaker_id' => $request->speaker_id,
     ]);
 

@@ -67,7 +67,6 @@ class ProfilesController extends Controller
   }
 
   public function show(Speaker $speaker){
-
     SEOTools::setTitle($speaker->meta_title);
     SEOTools::setDescription($speaker->meta_description);
     SEOTools::opengraph()->setUrl(route('speakers.show', $speaker->slug));

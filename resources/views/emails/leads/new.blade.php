@@ -1,12 +1,9 @@
 <x-mail::message>
 # New Lead from mena-speakers.com
 
-The body of your message.
-
 
 |         |                                        |
 |---------|----------------------------------------|
-| Source  | Footer Contact Form                    |
 | Source  | {{ $lead->source }}                    |
 | Name    | {{ $lead->name }}                      |
 | Phone   | {{ $lead->phone }}                     |
