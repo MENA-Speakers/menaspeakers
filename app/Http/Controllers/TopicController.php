@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Resources\SpeakerResource;
 use App\Http\Resources\TopicResource;
 use App\Models\Topic;
-use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Inertia\Response;
 

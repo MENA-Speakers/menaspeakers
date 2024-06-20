@@ -48,6 +48,8 @@ class AdminLeadController extends Controller
 //      ]
 //    ]);
 
+
+
     return redirect()->back();
   }
 
