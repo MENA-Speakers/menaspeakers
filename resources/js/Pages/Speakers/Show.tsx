@@ -1,6 +1,6 @@
 import React from 'react';
 import MainLayout from "@/Layouts/MainLayout";
-import {Head, Link, router} from "@inertiajs/react";
+import {Head, Link} from "@inertiajs/react";
 import AdminYoutubeVideo from "@/Components/AdminYoutubeVideo";
 import truncateText from "@/Utils/truncateText";
 import posthog from "posthog-js";
@@ -8,24 +8,7 @@ import {Button} from "@/Components/ui/button";
 import {Share} from "lucide-react";
 import {Accordion, AccordionContent, AccordionItem, AccordionTrigger} from "@/Components/ui/accordion";
 import {SpeakerType} from "@/types/speaker-type";
-import {
-  Dialog, DialogClose,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger
-} from "@/Components/ui/dialog";
-import {Label} from "@/Components/ui/label";
-import {Input} from "@/Components/ui/input";
-import {Textarea} from "@/Components/ui/textarea";
-import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
-import {useFormik} from "formik";
-import * as Yup from "yup";
-import axios from "axios";
-import {toast} from "sonner";
 import SpeakerContactForm from "@/Components/SpeakerContactForm";
 
 interface ShowSpeakerProps {
@@ -123,7 +106,7 @@ function Show({ speaker }: ShowSpeakerProps) {
                 </p>
               </div>
 
-              <Button onClick={() =>setBookSpeaker(true)} className={'font-semibold text-white bg-mena-brand py-2.5 rounded-xl'}>Book Speaker</Button>
+              <Link  href={route('pages.contact', {speaker: speaker.slug})} className={'font-semibold text-white bg-mena-brand px-6 py-2.5 rounded-xl'}>Book Speaker</Link>
             </div>
           </div>
           <div className="grid grid-cols-2 lg:py-12 lg:grid-cols-6">
@@ -257,10 +240,10 @@ function Show({ speaker }: ShowSpeakerProps) {
                     </p>
 
                     <div className={'mt-4 flex items-center space-x-4'}>
-                      <Button onClick={() => setBookSpeaker(true)}
-                              className="font-semibold text-white bg-mena-brand py-2.5 rounded-2xl">
+                      <Link  href={route('pages.contact', {speaker: speaker.slug})}
+                              className="font-semibold text-white bg-mena-brand py-2.5 px-6 rounded-2xl">
                         Book Speaker
-                      </Button>
+                      </Link>
                       <div>
                         <p className="text-xs text-white">
                           Call +971 52 630 6673
@@ -311,11 +294,11 @@ function Show({ speaker }: ShowSpeakerProps) {
         </div>
       </section>
 
-    <SpeakerContactForm
-      speaker={speaker}
-      bookSpeaker={bookSpeaker}
-      setBookSpeaker={setBookSpeaker}
-    />
+    {/*<SpeakerContactForm*/}
+    {/*  speaker={speaker}*/}
+    {/*  bookSpeaker={bookSpeaker}*/}
+    {/*  setBookSpeaker={setBookSpeaker}*/}
+    {/*/>*/}
     </MainLayout>
   );
 }

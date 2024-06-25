@@ -44,22 +44,22 @@ function Footer() {
       <div className="pt-12 border-t border-slate-400 max-w-7xl mx-auto flex flex-col lg:flex-row justify-between">
         <div className={'flex gap-6'}>
           <div className={'flex space-x-4 '}>
-            <a href={'https://www.linkedin.com'} className="p-2 rounded-full border">
+            <a target={'_blank'} href={'https://www.linkedin.com'} className="p-2 rounded-full border">
               <Linkedin className={'h-4 w-4 stroke-1 text-slate-50'}/>
             </a>
 
-            <a href={'https://www.twitter.com'} className="p-2 rounded-full border">
+            <a  target={'_blank'} href={'https://www.twitter.com'} className="p-2 rounded-full border">
               <Twitter className={'h-4 w-4 stroke-1 text-slate-50'}/>
             </a>
 
-            <a href={'https://www.facebook.com'} className="p-2 rounded-full border">
+            <a  target={'_blank'} href={'https://www.facebook.com'} className="p-2 rounded-full border">
               <Facebook className={'h-4 w-4 stroke-1 text-slate-50'}/>
             </a>
-            <a href={'https://www.instagram.com'} className="p-2 rounded-full border">
+            <a  target={'_blank'} href={'https://www.instagram.com'} className="p-2 rounded-full border">
               <Instagram className={'h-4 w-4 stroke-1 text-slate-50'}/>
             </a>
 
-            <a href={'https://www.youtube.com'} className="p-2 rounded-full border">
+            <a  target={'_blank'} href={'https://www.youtube.com'} className="p-2 rounded-full border">
               <Youtube className={'h-4 w-4 stroke-1 text-slate-50'}/>
             </a>
           </div>

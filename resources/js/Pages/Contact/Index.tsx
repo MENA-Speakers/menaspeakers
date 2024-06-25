@@ -5,8 +5,11 @@ import {Facebook, Instagram, Linkedin, Twitter, Youtube} from "lucide-react";
 import {Input} from "@/Components/ui/input";
 import {Textarea} from "@/Components/ui/textarea";
 import ContactPageForm from "@/Components/ui/ContactPageForm";
-
-function Index() {
+import {SpeakerType} from "@/types/speaker-type";
+interface ContactPageProps {
+  speaker: SpeakerType
+}
+function Index({speaker}: ContactPageProps) {
   // const formRef = useRef(null);
 
   // useEffect(() => {
@@ -58,33 +61,52 @@ function Index() {
                 Socials
               </h3>
               <div className={'flex space-x-4 mt-4'}>
-                <a href={'https://www.linkedin.com'} className="p-2 rounded-full border">
+                <a  target={'_blank'} href={'https://www.linkedin.com'} className="p-2 rounded-full border">
                   <Linkedin className={'h-5 w-5 stroke-1 text-mena-brand'}/>
                 </a>
 
-                <a href={'https://www.twitter.com'} className="p-2 rounded-full border">
+                <a  target={'_blank'} href={'https://www.twitter.com'} className="p-2 rounded-full border">
                   <Twitter className={'h-5 w-5 stroke-1 text-mena-brand'}/>
                 </a>
 
-                <a href={'https://www.facebook.com'} className="p-2 rounded-full border">
+                <a  target={'_blank'} href={'https://www.facebook.com'} className="p-2 rounded-full border">
                   <Facebook className={'h-5 w-5 stroke-1 text-mena-brand'}/>
                 </a>
-                <a href={'https://www.instagram.com'} className="p-2 rounded-full border">
+                <a  target={'_blank'} href={'https://www.instagram.com'} className="p-2 rounded-full border">
                   <Instagram className={'h-5 w-5 stroke-1 text-mena-brand'}/>
                 </a>
 
-                <a href={'https://www.youtube.com'} className="p-2 rounded-full border">
+                <a  target={'_blank'} href={'https://www.youtube.com'} className="p-2 rounded-full border">
                   <Youtube className={'h-5 w-5 stroke-1 text-mena-brand'}/>
                 </a>
               </div>
             </div>
           </div>
           <div className="w-full lg:w-1/2 p-6 lg:p-24">
+            {
+              speaker && (
+                <div className="flex items-center py-4 pb-6">
+                  <div>
+                    <img src={speaker.image} alt={speaker.first_name + ' ' + speaker.last_name}
+                         className="w-24 h-24 rounded-full"/>
+                  </div>
+                  <div className={'ml-4'}>
+                    <p className={'italic'}>Booking</p>
+                    <h2 className="text-2xl font-semibold mt-2">
+                    {speaker.first_name + ' ' + speaker.last_name}
+                    </h2>
+                    <p className="text-lg text-slate-600">
+                      {speaker.title}
+                    </p>
+                  </div>
+                </div>
+              )
+            }
             <p>
               Fill the form so that our team can reach out to you
             </p>
 
-            <ContactPageForm />
+            <ContactPageForm speaker={speaker}/>
           </div>
         </div>
       </section>

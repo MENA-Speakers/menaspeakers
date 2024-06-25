@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\SpeakerResource;
+use App\Models\Speaker;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
@@ -19,8 +21,13 @@ class PagesController extends Controller
   }
 
 
-  public function contact(){
-    return Inertia::render('Contact/Index');
+  public function contact(Request $request){
+
+    $speaker = Speaker::where('slug', $request->speaker)->first();
+
+    return Inertia::render('Contact/Index', [
+      'speaker' =>  $speaker ? new SpeakerResource($speaker) : null
+    ]);
   }
 
 

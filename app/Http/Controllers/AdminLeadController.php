@@ -21,6 +21,7 @@ class AdminLeadController extends Controller
       'message' => 'required|string',
     ]);
 
+
     $lead = Lead::create([
       'name' => $request->full_name,
       'email' => $request->email,

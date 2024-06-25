@@ -260,7 +260,7 @@ function Index({blogs, speakers, faqs, categories, topics, testimonials}: IndexP
             <Accordion type="single" collapsible className="w-full space-y-3">
               {
                 faqs.map(faq => (
-                  <AccordionItem key={faq.id} value="item-1" className={'border shadow px-4 rounded-3xl'}>
+                  <AccordionItem key={faq.id} value={`${faq.id}`} className={'border shadow px-4 rounded-3xl'}>
                     <AccordionTrigger>{faq.question}</AccordionTrigger>
                     <AccordionContent>
                       <p>{faq.answer}</p>

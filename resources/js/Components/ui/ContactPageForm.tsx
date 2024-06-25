@@ -11,10 +11,14 @@ import {toast} from "sonner";
 import {FormMessage} from "@/Components/ui/form";
 import {Alert, AlertDescription, AlertTitle} from "@/Components/ui/alert";
 import {ThumbsUp} from "lucide-react";
+import {SpeakerType} from "@/types/speaker-type";
+
+interface FooterContactFormProps {
+  speaker?: SpeakerType
+}
 
 
-
-function FooterContactForm() {
+function FooterContactForm({speaker}: FooterContactFormProps) {
 
   const [formSubmitted, setFormSubmitted] = React.useState(false);
 
@@ -22,6 +26,7 @@ function FooterContactForm() {
     initialValues: {
       full_name:  '',
       phone: '',
+      speaker_id: speaker?.id,
       company: '',
       email: '',
       message: '',
