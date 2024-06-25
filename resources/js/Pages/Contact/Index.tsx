@@ -88,7 +88,7 @@ function Index({speaker}: ContactPageProps) {
                 <div className="flex items-center py-4 pb-6">
                   <div>
                     <img src={speaker.image} alt={speaker.first_name + ' ' + speaker.last_name}
-                         className="w-24 h-24 rounded-full"/>
+                         className="w-24 h-24 object-cover rounded-full"/>
                   </div>
                   <div className={'ml-4'}>
                     <p className={'italic'}>Booking</p>

@@ -1,8 +1,7 @@
-import React, { Fragment, useState } from 'react'
+import React, {Fragment, useState} from 'react'
 import {Dialog, Menu, Transition} from '@headlessui/react'
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import {Bars3Icon, XMarkIcon} from '@heroicons/react/24/outline'
 import {Link} from "@inertiajs/react";
-import InlineNewsLetterForm from "@/Components/InlineNewsLetterForm";
 import Footer from "@/Components/Footer";
 import {Toaster} from "sonner";
 
