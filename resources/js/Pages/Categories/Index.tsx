@@ -1,6 +1,6 @@
 import React from 'react';
 import MainLayout from "@/Layouts/MainLayout";
-import {Head} from "@inertiajs/react";
+import {Head, Link} from "@inertiajs/react";
 import BlogCard from "@/Components/BlogCard";
 import Pagination from "@/Components/Pagination";
 import {BlogType} from "@/types/blog-type";
@@ -41,9 +41,13 @@ function PublicCategoryPage({categories, query}: PublicCategoryPageProps) {
             {
               categories.map(category => (
                 <div key={category.id} className="bg-white rounded-lg shadow-md overflow-hidden">
-                  <img src={category.image} alt={category.name} className="w-full h-48 object-cover"/>
+                  <Link href={`/categories/${category.slug}`}>
+                    <img src={category.image} alt={category.name} className="w-full h-48 object-cover"/>
+                  </Link>
                   <div className="p-4">
-                    <h2 className="text-sm text-gray-800">{category.name}</h2>
+                    <Link href={`/categories/${category.slug}`}>
+                      <h2 className="text-sm text-gray-800">{category.name}</h2>
+                    </Link>
                   </div>
                 </div>
               ))}

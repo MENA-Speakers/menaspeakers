@@ -94,7 +94,7 @@ function Index({blogs, speakers, faqs, categories, topics, testimonials}: IndexP
 
       {/*ABOUT US SECTION */}
 
-      <section className="px-6 py-6 lg:py-24 overflow-hidden lg:h-[700px] lg:relative">
+      <section className="px-6 py-6 lg:py-24 overflow-hidden lg:h-[700px] relative">
         <div className="lg:absolute lg:inset-0 lg:p-6 z-10">
           <div className="max-w-7xl mx-auto h-full z-10 flex items-center">
             <div className="w-full lg:w-2/3 lg:pr-12">

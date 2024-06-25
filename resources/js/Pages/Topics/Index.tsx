@@ -1,6 +1,6 @@
 import React from 'react';
 import MainLayout from "@/Layouts/MainLayout";
-import {Head} from "@inertiajs/react";
+import {Head, Link} from "@inertiajs/react";
 import {PublicTopicType} from "@/types/PublicTopicType";
 
 interface PublicTopicPageProps {
@@ -38,9 +38,13 @@ function PublicTopicPage({topics, query}: PublicTopicPageProps) {
             {
               topics.map(topic => (
                 <div key={topic.id} className="bg-white rounded-lg shadow-md overflow-hidden">
-                  <img src={topic.image} alt={topic.name} className="w-full h-48 object-cover"/>
+                  <Link href={`/topics/${topic.slug}`}>
+                    <img src={topic.image} alt={topic.name} className="w-full h-48 object-cover"/>
+                  </Link>
                   <div className="p-4">
-                    <h2 className="text-sm  text-gray-800">{topic.name}</h2>
+                    <Link href={`/topics/${topic.slug}`}>
+                      <h2 className="text-sm text-gray-800">{topic.name}</h2>
+                    </Link>
                   </div>
                 </div>
               ))}

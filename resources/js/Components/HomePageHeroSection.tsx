@@ -26,11 +26,11 @@ function HomePageHeroSection() {
               We are the leading speaker and <br /> MC Bureau in the Middle East
             </h1>
             <div className={'w-full lg:w-[70%] space-y-2 mx-auto'}>
-             <form onSubmit={formik.handleSubmit} className={'relative w-full'}>
+             <form onSubmit={formik.handleSubmit} className={'relative w-full flex'}>
                <Input
                  name={'query'}
                  value={formik.values.query} onChange={formik.handleChange}
-                 className={'w-full  rounded-2xl py-3 text-lg px-5'}
+                 className={'w-full flex-1 z-2  rounded-2xl py-3 text-lg px-5'}
                  placeholder={"Search by 'topics', 'speakers', 'categories' etc"}
                />
                <button type={'submit'} className={'absolute top-1/2 transform -translate-y-1/2 right-4 '}>
