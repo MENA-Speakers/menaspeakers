@@ -330,10 +330,7 @@ function Index({blogs, speakers, faqs, categories, topics, testimonials}: IndexP
             </h3>
             <div className="mt-6">
               <p className="text-slate-500">
-                The world is constantly changing. We monitor trends and keep you up to date monthly with the latest and
-                most topical subjects from our leading speakers. To get the latest information as it comes in, please
-                sign up for our monthly newsletter. You may unsubscribe at any time using the link at the end of all of
-                our emails.
+                Stay ahead with our monthly newsletter! Get the latest trends and expert insights straight to your inbox. Sign up now and stay informed. Unsubscribe anytime with the link in our emails..
               </p>
             </div>
 
