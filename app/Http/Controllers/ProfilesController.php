@@ -2,20 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Resources\ProfileResource;
 use App\Http\Resources\SpeakerResource;
-use App\Imports\BlogImport;
-use App\Imports\SpeakerImport;
 use App\Models\Category;
 use App\Models\Location;
 use App\Models\Speaker;
 use App\Models\Topic;
-use Artesaos\SEOTools\Facades\JsonLdMulti;
 use Artesaos\SEOTools\Facades\SEOTools;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
-use Maatwebsite\Excel\Facades\Excel;
-use PostHog\PostHog;
 
 class ProfilesController extends Controller
 {
@@ -67,12 +61,12 @@ class ProfilesController extends Controller
   }
 
   public function show(Speaker $speaker){
-    SEOTools::setTitle($speaker->meta_title);
-    SEOTools::setDescription($speaker->meta_description);
+    SEOTools::setTitle($speaker->first_name . ' ' . $speaker->last_name);
+    SEOTools::setDescription($speaker->key_titles);
     SEOTools::opengraph()->setUrl(route('speakers.show', $speaker->slug));
     SEOTools::opengraph()->addProperty('type', 'person');
     SEOTools::twitter()->setSite('@menaspeakers');
-    SEOTools::jsonLd()->addImage($speaker->getFirstMediaUrl('avatar'));
+    SEOTools::jsonLd()->addImage($speaker->getFirstMediaUrl('avatar', 'webp'));
 
     return Inertia::render('Speakers/Show', [
       'speaker' => new SpeakerResource($speaker)

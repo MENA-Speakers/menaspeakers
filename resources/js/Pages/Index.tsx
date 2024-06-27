@@ -41,7 +41,7 @@ function Index({blogs, speakers, faqs, categories, topics, testimonials}: IndexP
     type: 'website',
     twitter: '@menaspeakers',
     keywords: "MENA Speakers, Speakers, MCs, Corporate Trainers, One Stop Solution",
-    image: "https://mena-speakers.com/images/mena-speakers-logo.webp",
+    image: "https://mena-speakers.com/images/logo-color.png",
   } as OpenGraphDataType;
 
   return (
@@ -322,7 +322,6 @@ function Index({blogs, speakers, faqs, categories, topics, testimonials}: IndexP
 
             <FooterContactForm />
           </div>
-
 
           <div className="w-full lg:w-1/2">
             <h3 className="text-2xl text-mena-brand font-semibold">

@@ -5,7 +5,7 @@ export default function ApplicationLogo() {
      <>
        <img
            className="h-11 w-auto"
-           src="/images/Logo-Wide-MENA-Speakers-1.png"
+           src="/images/logo-color.png"
            alt="mena speakers logo"
        />
      </>

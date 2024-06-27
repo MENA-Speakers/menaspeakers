@@ -17,6 +17,7 @@ use App\Models\Profile;
 use App\Models\Speaker;
 use App\Models\Testimonial;
 use App\Models\Topic;
+use Artesaos\SEOTools\Facades\SEOTools;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Inertia\Inertia;
@@ -25,6 +26,15 @@ class HomeController extends Controller
 {
 
     public function index(){
+
+      SEOTools::setTitle('MENA Speakers - Official Website');
+      SEOTools::setDescription("MENA Speakers is the leading speakers bureau in the Middle East. We represent the best speakers, trainers, and moderators in the region.");
+      SEOTools::opengraph()->setUrl(route('index'));
+      SEOTools::opengraph()->addProperty('type', 'person');
+      SEOTools::twitter()->setSite('@menaspeakers');
+      SEOTools::jsonLd()->addImage('https://mena-speakers.com/images/mena-speakers-logo.webp');
+
+
         $speakers = Speaker::where('featured', true)->inRandomOrder()->limit(4)->get();
         $blogs = Blog::latest()->limit(4)->get();
         $faqs = Faq::where('speaker_id', null)->get();

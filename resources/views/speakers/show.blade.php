@@ -64,7 +64,7 @@
                                   <img
                                     width="320"
                                     height="174"
-                                    src="{{ asset('images/Logo-Wide-MENA-Speakers-1.png') }}"
+                                    src="{{ asset('images/logo-color.png') }}"
                                     class="attachment-full size-full"
                                     alt=""
                                   />
@@ -352,7 +352,7 @@
                               <img
                                 width="320"
                                 height="174"
-                                src="{{ asset('/images/Logo-Wide-MENA-Speakers-1.png') }}"
+                                src="{{ asset('/images/logo-color.png') }}"
                                 class="attachment-full size-full"
                                 alt=""
                               />
