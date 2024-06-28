@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Resources\BlogResource;
 use App\Models\Blog;
+use Artesaos\SEOTools\Facades\SEOTools;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
@@ -27,6 +28,16 @@ class BlogsController extends Controller
 
 
     public function show(Blog $blog){
+
+      $cleanContent = strip_tags($blog->content);
+      $truncatedContent = mb_strimwidth($cleanContent, 0, 150, "...");
+      SEOTools::setTitle($blog->title);
+      SEOTools::setDescription($blog->excerpt ? $blog->excerpt : $truncatedContent);
+      SEOTools::opengraph()->setUrl(route('blogs.show', $blog->slug));
+      SEOTools::opengraph()->addProperty('type', 'blog');
+      SEOTools::twitter()->setSite('@menaspeakers');
+      SEOTools::jsonLd()->addImage($blog->getFirstMediaUrl('image', 'webp'));
+
       return Inertia::render('Blogs/Show', [
         'blog' => new BlogResource($blog)
       ]);
