@@ -10,6 +10,8 @@ import {Accordion, AccordionContent, AccordionItem, AccordionTrigger} from "@/Co
 import {SpeakerType} from "@/types/speaker-type";
 import 'react-phone-input-2/lib/style.css'
 import SpeakerContactForm from "@/Components/SpeakerContactForm";
+import {Popover, PopoverContent, PopoverTrigger} from "@/Components/ui/popover";
+import {ShareSocial} from "react-share-social";
 
 interface ShowSpeakerProps {
   speaker: SpeakerType
@@ -97,14 +99,23 @@ function Show({ speaker }: ShowSpeakerProps) {
             </div>
 
             <div className={'flex gap-6 items-center justify-between lg:justify-center'}>
-              <div className={'flex items-center'}>
-                <Share size={20} className={'mr-2 text-[#F15A29]'}/>
-                <p className={'border-b pb-1 border-[#F15A29]'}>
+              <Popover>
+                <PopoverTrigger className={'inline-flex border-b pb-1 border-[#F15A29]'}>
+                  <Share size={20} className={'mr-2 text-[#F15A29]'}/>
                   <span className={'text-[#F15A29]'}>
                     Share
                   </span>
-                </p>
-              </div>
+                </PopoverTrigger>
+                <PopoverContent
+                  align={'center'}
+                >
+                  <ShareSocial
+                    url ={route('speakers.show', speaker.slug)}
+                    socialTypes={['whatsapp', 'telegram', 'facebook','twitter','email','reddit','linkedin' ]}
+                  />
+                </PopoverContent>
+              </Popover>
+
 
               <Link  href={route('pages.contact', {speaker: speaker.slug})} className={'font-semibold text-white bg-mena-brand px-6 py-2.5 rounded-xl'}>Book Speaker</Link>
             </div>

@@ -35,7 +35,7 @@ function Index({speaker}: ContactPageProps) {
       </Head>
 
       <section className="py-12">
-        <div className="max-w-7xl flex gap-8 mx-auto  px-6 lg:px-0">
+        <div className="max-w-7xl flex flex-col lg:flex-row gap-8 mx-auto  px-6 lg:px-0">
           {/*<div ref={formRef}>*/}
           {/*  /!* The Bitrix form will load here *!/*/}
           {/*</div>*/}
@@ -82,7 +82,7 @@ function Index({speaker}: ContactPageProps) {
               </div>
             </div>
           </div>
-          <div className="w-full lg:w-1/2 p-6 lg:p-24">
+          <div className="w-full lg:w-1/2 lg:p-6 lg:p-24">
             {
               speaker && (
                 <div className="flex items-center py-4 pb-6">

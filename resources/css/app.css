@@ -106,4 +106,8 @@
     min-height: 300px;
   }
 
+  .makeStyles-container-1 {
+    padding: 4px!important;
+  }
+
 }

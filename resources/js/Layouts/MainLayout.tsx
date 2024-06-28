@@ -4,6 +4,7 @@ import {Bars3Icon, XMarkIcon} from '@heroicons/react/24/outline'
 import {Link} from "@inertiajs/react";
 import Footer from "@/Components/Footer";
 import {Toaster} from "sonner";
+import {Home, Phone, User} from "lucide-react";
 
 const navigation = [
   { name: 'Home', dropdown: false, route: 'index' },
@@ -22,7 +23,7 @@ export default function MainLayout({ children} : {children: React.ReactNode}) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
-    <div className="bg-white">
+    <div className="bg-white relative">
       <header className={`absolute inset-x-0 top-0 z-50 ${!route().current('index') && 'bg-black '}`}>
         <div className="max-w-7xl justify-between items-center px-6 flex  mx-auto">
           <Link href="/" className=" p-1.5" aria-label={'MENA Speakers Logo'}>
@@ -173,7 +174,29 @@ export default function MainLayout({ children} : {children: React.ReactNode}) {
 
       {/* Footer */}
       <Footer/>
-      <Toaster position={'top-center'} />
+      <Toaster position={'top-center'}/>
+
+      {/*MOBILE MENU*/}
+      <div className={'fixed lg:hidden bottom-0 inset-x-0 z-50 py-2 px-6 bg-mena-brand flex justify-between items-center'}>
+        <Link href={'/'} className={'p-1.5'}>
+          <span className="sr-only">MENA Speakers</span>
+         <Home size={26} className={'text-white stroke-1'}/>
+        </Link>
+        <Link href={route('speakers.index')} className={'p-1.5'}>
+          <span className="sr-only">Speakers</span>
+          <User size={26} className={'text-white stroke-1'}/>
+        </Link>
+        <Link href={route('pages.contact')} className={'p-1.5'}>
+          <span className="sr-only">Contact MENA Speakers</span>
+          <Phone size={26} className={'text-white stroke-1'}/>
+        </Link>
+        <div className="flex items-center">
+          {/*<Link href={route('pages.contact')} aria-label={'Contact us'}>*/}
+          {/*  <Phone size={26} className={'text-white stroke-1'}/>*/}
+          {/*   <span aria-hidden="true">&rarr;</span>*/}
+          {/*</Link>*/}
+        </div>
+      </div>
     </div>
   )
 }
