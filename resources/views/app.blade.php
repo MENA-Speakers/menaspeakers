@@ -90,6 +90,16 @@
     var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);
   })(window,document,'https://cdn.bitrix24.com/b25531643/crm/tag/call.tracker.js');
 </script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-458374216"></script>
+
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-458374216');
+</script>
 
 <script>
   // Function to check if a cookie exists

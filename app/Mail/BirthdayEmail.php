@@ -56,7 +56,7 @@ class BirthdayEmail extends Mailable
   public function build(): BirthdayEmail
   {
     return $this->to($this->profile->email)
-      ->subject('Happy Birthday from the MENA Speakers Family! 🎈')
+      ->subject('Happy Birthday from MENA Speakers! 🎈')
       ->bcc('tech@mena-speakers.com')
       ->bcc('saana@mena-speakers.com')
       ->bcc('socials@mena-speakers.com')
