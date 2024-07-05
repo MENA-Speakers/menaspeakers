@@ -23,7 +23,8 @@ export interface SpeakerType {
   last_name: string;
   title: string;
   full_name: string;
-  key_titles: string[];
+  key_titles_array: string[];
+  key_titles: string;
   meta_title: string;
   meta_description: string;
   bio: string;

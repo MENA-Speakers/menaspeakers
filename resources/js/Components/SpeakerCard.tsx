@@ -49,7 +49,7 @@ function SpeakerCard({speaker}: SpeakerCardProps) {
               <>
                 <div className="">
                   {
-                    speaker.key_titles.slice(0, 3).map((key_title, index) => (
+                    speaker.key_titles_array.slice(0, 3).map((key_title, index) => (
                     <div key={index}  className={'flex items-center'}>
                   <Dot className={'w-6 h-6 mr-1 text-white'}/>
 

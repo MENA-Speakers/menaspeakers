@@ -54,7 +54,7 @@ function Create( {
       first_name: speaker?.first_name ? speaker.first_name : '',
       last_name: speaker?.last_name ? speaker.last_name : '',
       title: speaker?.title ? speaker.title : '',
-      key_titles: speaker?.titles ? speaker.titles : '',
+      key_titles: speaker?.key_titles ? speaker.key_titles : '',
       slug: speaker?.slug ? speaker.slug : '',
       excerpt: speaker?.excerpt ? speaker.excerpt : '',
       bio: speaker?.bio ? speaker.bio : '',
@@ -124,8 +124,6 @@ function Create( {
     },
   } );
 
-
-  console.log('speaker',speaker)
   return (
     <AdminLayout
     >

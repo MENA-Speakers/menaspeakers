@@ -138,7 +138,7 @@ function Show({ speaker }: ShowSpeakerProps) {
 
                 <div className={'flex flex-col space-y-3'}>
                   {
-                    speaker.key_titles.map((title, index) => (
+                    speaker.key_titles_array.map((title, index) => (
                       <div key={index} className={'flex items-center mt-4'}>
                         <svg className={'mr-2'} width="18" height="19" viewBox="0 0 18 19" fill="none"
                              xmlns="http://www.w3.org/2000/svg">
