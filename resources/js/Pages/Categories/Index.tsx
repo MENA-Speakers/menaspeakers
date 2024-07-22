@@ -40,10 +40,10 @@ function PublicCategoryPage({categories, query}: PublicCategoryPageProps) {
 
             {
               categories.map(category => (
-                <div key={category.id} className="bg-white rounded-lg shadow-md overflow-hidden">
-                  <Link href={`/categories/${category.slug}`}>
-                    <img src={category.image} alt={category.name} className="w-full h-48 object-cover"/>
-                  </Link>
+                <div key={category.id} className="bg-white rounded-lg overflow-hidden">
+                  {/*<Link href={`/categories/${category.slug}`}>*/}
+                  {/*  <img src={category.image} alt={category.name} className="w-full h-48 object-cover"/>*/}
+                  {/*</Link>*/}
                   <div className="p-4">
                     <Link href={`/categories/${category.slug}`}>
                       <h2 className="text-sm text-gray-800">{category.name}</h2>

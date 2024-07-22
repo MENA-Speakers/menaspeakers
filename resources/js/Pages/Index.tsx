@@ -179,11 +179,11 @@ function Index({blogs, speakers, faqs, categories, topics, testimonials}: IndexP
                 {
                   categories.map(category => (
                     <div key={category.id} className={'w-full lg:w-1/2 flex flex-col'}>
-                      <Link href={route('categories.show', {category: category.slug})}>
-                        <img className={'h-40 object-cover w-full rounded-xl'}
-                             src={category.image ? category.image : '/images/placeholder.webp'}
-                             alt={`${category.name} Speakers`}/>
-                        </Link>
+                      {/*<Link href={route('categories.show', {category: category.slug})}>*/}
+                      {/*  <img className={'h-40 object-cover w-full rounded-xl'}*/}
+                      {/*       src={category.image ? category.image : '/images/placeholder.webp'}*/}
+                      {/*       alt={`${category.name} Speakers`}/>*/}
+                      {/*  </Link>*/}
                         <Link href={route('categories.show', category.slug)} className="text-sm mt-1">
                           {
                             category.name

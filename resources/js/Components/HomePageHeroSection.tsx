@@ -22,8 +22,8 @@ function HomePageHeroSection() {
       <div className="absolute bg-gradient-to-br from-black/90 via-slate-900/90 to-zinc-900/70  px-6 inset-0 z-0">
         <div className="w-full lg:h-full flex h-[600px]  items-center justify-center flex-col space-y-8">
           <div className={'space-y-8 py-12'}>
-            <h1 className="text-3xl lg:text-6xl text-mena-100 font-bold">
-              We are the leading speaker and <br /> MC Bureau in the Middle East
+            <h1 className="text-3xl lg:text-5xl text-mena-100 text-center font-bold">
+              The leading Premier speakers bureau <br />in the MENA Region
             </h1>
             <div className={'w-full lg:w-[70%] space-y-2 mx-auto'}>
              <form onSubmit={formik.handleSubmit} className={'relative w-full flex'}>
