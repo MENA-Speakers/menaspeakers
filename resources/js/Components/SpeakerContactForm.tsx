@@ -25,6 +25,7 @@ function SpeakerContactForm({speaker, setBookSpeaker, bookSpeaker}: SpeakerConta
     initialValues: {
       full_name:  '',
       phone: '',
+      subject: '',
       company: '',
       email: '',
       message: '',
@@ -42,6 +43,12 @@ function SpeakerContactForm({speaker, setBookSpeaker, bookSpeaker}: SpeakerConta
 
 
     onSubmit: values => {
+
+      if (values.subject ! == '') {
+        toast.error('Something went wrong. Please try again later.')
+        return
+      }
+
       formik.setSubmitting( true );
       axios.post( route('leads.store'), values
       ).then( ( response ) => {
@@ -83,6 +90,22 @@ function SpeakerContactForm({speaker, setBookSpeaker, bookSpeaker}: SpeakerConta
               ) : null
             }
           </div>
+
+          <div className=" hidden flex-1 gap-2">
+            <Label htmlFor="subject" className="text-slate-600">
+             Subject
+            </Label>
+            <Input
+              id="subject"
+              hidden={true}
+              placeholder={'Full Name'}
+              value={formik.values.subject}
+              onChange={formik.handleChange}
+            />
+
+
+          </div>
+
 
           <div className=" gap-2">
             <Label htmlFor="email" className="text-slate-600">

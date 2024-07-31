@@ -26,6 +26,7 @@ function FooterContactForm({speaker}: FooterContactFormProps) {
     initialValues: {
       full_name:  '',
       phone: '',
+      subject: '',
       speaker_id: speaker?.id,
       company: '',
       email: '',
@@ -42,6 +43,11 @@ function FooterContactForm({speaker}: FooterContactFormProps) {
 
     onSubmit: values => {
 
+
+      if (values.subject !== '') {
+        toast.error('Something went wrong. Please try again later.')
+        return
+      }
 
       axios.post( route('leads.store'), values
       ).then( ( response ) => {
@@ -63,15 +69,15 @@ function FooterContactForm({speaker}: FooterContactFormProps) {
     <form onSubmit={formik.handleSubmit} className=" space-y-6 gap-6 py-12">
       {
         formSubmitted && (
-         <div className={'col-span-2 pb-6 text-teal-600 '}>
-           <Alert className={'border-teal-500 text-teal-600'}>
-             <ThumbsUp className="h-4 w-4 text-teal-600 stroke-1" />
-             <AlertTitle>Message Received</AlertTitle>
-             <AlertDescription>
-               our request has been submitted successfully. We will get back to you shortly.
-             </AlertDescription>
-           </Alert>
-         </div>
+          <div className={'col-span-2 pb-6 text-teal-600 '}>
+            <Alert className={'border-teal-500 text-teal-600'}>
+              <ThumbsUp className="h-4 w-4 text-teal-600 stroke-1"/>
+              <AlertTitle>Message Received</AlertTitle>
+              <AlertDescription>
+                our request has been submitted successfully. We will get back to you shortly.
+              </AlertDescription>
+            </Alert>
+          </div>
 
         )
       }
@@ -84,6 +90,25 @@ function FooterContactForm({speaker}: FooterContactFormProps) {
           disabled={formik.isSubmitting || formSubmitted}
           placeholder={'Full Name'}
           value={formik.values.full_name}
+          onChange={formik.handleChange}
+        />
+        {
+          formik.touched.full_name && formik.errors.full_name ? (
+            <p className={'text-sm text-red-500 mt-1'}>{formik.errors.full_name}</p>
+          ) : null
+        }
+      </div>
+
+      <div className="hidden">
+        <Label htmlFor="subject" className="text-slate-600 sr-only">
+          Subject
+        </Label>
+        <Input
+          id="subject"
+          hidden={true}
+          disabled={formik.isSubmitting || formSubmitted}
+          placeholder={'subject'}
+          value={formik.values.subject}
           onChange={formik.handleChange}
         />
         {
@@ -171,7 +196,8 @@ function FooterContactForm({speaker}: FooterContactFormProps) {
         }
       </div>
       <div className="col-span-2">
-        <Button disabled={formik.isSubmitting || formSubmitted} onClick={() => formik.handleSubmit()} type={'submit'} className="px-3 w-full bg-mena-brand hover:bg-mena-brand/90">
+        <Button disabled={formik.isSubmitting || formSubmitted} onClick={() => formik.handleSubmit()} type={'submit'}
+                className="px-3 w-full bg-mena-brand hover:bg-mena-brand/90">
           <span className="">Send Message</span>
         </Button>
       </div>

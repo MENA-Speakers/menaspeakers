@@ -23,6 +23,7 @@ function FooterContactForm() {
       full_name:  '',
       phone: '',
       company: '',
+      subject: '',
       email: '',
       message: '',
       source: 'Footer home page'
@@ -37,6 +38,10 @@ function FooterContactForm() {
 
     onSubmit: values => {
 
+      if (values.subject !== '') {
+        toast.error('Something went wrong. Please try again later.')
+        return
+      }
 
       axios.post( route('leads.store'), values
       ).then( ( response ) => {
