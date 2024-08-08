@@ -57,6 +57,10 @@ class NewLeadNotification extends Mailable
     return $this->subject('New Lead -' . ' - '.$this->lead->name)
       ->bcc('tech@mena-speakers.com')
       ->bcc('book@mena-speakers.com')
+      ->bcc('speakers@mena-speakers.com')
+      ->bcc('Agent@mena-speakers.com')
+      ->bcc('Connect@mena-speakers.com')
+      ->bcc('sales@mena-speakers.com')
       ->bcc('saana@mena-speakers.com')
       ->markdown('emails.leads.new', ['lead' => $this->lead]);
   }
