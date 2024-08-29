@@ -37,30 +37,24 @@
 <!-- Scripts GETBEE -->
 <script>
   window.getbeeWidgetConf = {
-    tenant:"menaspeakers",
-    infoBox:{
-      isEnabled: true,
-      text: "Start a video call with one of our experts",
-      timer: 5000
-    },
-    cta:{
-      type: "image",
-      video:{
+    tenant: "menaspeakers",
+    cta: {
+      type: "video",
+      video: {
         text: "Call our team",
-        videoUrl: "https://testbeestorage.blob.core.windows.net/devwidget/video.mp4",
+        videoUrl:
+          "https://testbeestorage.blob.core.windows.net/devwidget/mena.mp4",
         videoPage: {
-          heading: "Shop with our team",
+          heading: "Call our team",
           descrp: "Talk to sales agent over video call",
-          btnText: "Call expert",
-        },
-      },
-      image:{
-        imageUrl: "https://getbee.blob.core.windows.net/widget/menaspeakers-logo.png",
-      },
+          btnText: "Call an expert",
+        }
+      }
     },
     showCta: true,
     position: "right",
     spacing: "16px",
+    bottomSpacing: "16px",
   };
   (() => {
     var w = window;
@@ -69,10 +63,11 @@
       var s = d.createElement("script");
       s.type = "text/javascript";
       s.async = true;
-      s.src = "https://iframe.getbee.com/dist/getbee.js";
+      s.src = "https://iframe.getbee.com/dist/getbee.js"
       var x = d.getElementsByTagName("script")[0];
       x.parentNode.insertBefore(s, x);
     };
+
     if (document.readyState === "complete") {
       l();
     } else if (w.attachEvent) {
