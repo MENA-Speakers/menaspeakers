@@ -16,6 +16,8 @@ import {FaqType} from "@/types/faq-type";
 import {Button} from "@/Components/ui/button";
 import AddFaqForm from "@/Components/Admin/AddFaqForm";
 import {Accordion, AccordionContent, AccordionItem, AccordionTrigger} from "@/Components/ui/accordion";
+import AddGalleryForm from "@/Components/Admin/AddGalleryForm";
+import {X} from "lucide-react";
 
 interface ShowProps {
   speaker: SpeakerType,
@@ -31,7 +33,9 @@ function Show({ speaker, videos, faqs } : ShowProps) {
   const [isEditing, setIsEditing] = useState(false);
   const [allVideos, setAllVideos] = useState(videos);
   const [addingFaq, setAddingFaq] = useState(false);
+  const [allImages, setAllImages] = useState(speaker.gallery);
   const [allFaqs, setAllFaqs] = useState(faqs);
+  const [addingGallery, setAddingGallery] = useState(false);
 
 
 
@@ -84,9 +88,22 @@ function Show({ speaker, videos, faqs } : ShowProps) {
     setAddingFaq(false);
   }
 
+  const handleGalleryAdded = (gallery: GalleryType[]) => {
+    setAddingGallery(false);
+    console.log('gallery', gallery);
+    setAllImages(gallery);
+  }
+
   const deleteFaq = (faq: FaqType) => {
     axios.post(route('admin.faqs.delete', faq.id)).then(response => {
       setAllFaqs(allFaqs.filter(f => f.id !== faq.id));
+    })
+  }
+
+  //delete Image
+  const deleteImage = (image: GalleryType) => {
+    axios.post(route('admin.speakers.gallery.delete', image.id)).then(response => {
+      setAllImages(allImages.filter(f => f.id !== image.id));
     })
   }
 
@@ -94,14 +111,15 @@ function Show({ speaker, videos, faqs } : ShowProps) {
     <AdminLayout
 
     >
-      <Head title="Speaker " />
+      <Head title="Speaker "/>
 
       <div className="py-4">
         <div className="flex justify-between">
-          <h2 className="font-semibold text-xl text-gray-800 leading-tight">Speaker - {speaker.name}</h2>
+          <h2 className="font-semibold text-xl text-gray-800 leading-tight">Speaker - {speaker.first_name + ' ' + speaker.last_name}</h2>
           <div className="flex">
             <Button className={'mr-4'} onClick={() => setAddingFaq(true)}>Add FAQ </Button>
             <Button onClick={() => setOpen(true)}>Add Video</Button>
+            <Button className={'ml-4'} onClick={() => setAddingGallery(true)}>Add Gallery</Button>
           </div>
         </div>
 
@@ -114,9 +132,9 @@ function Show({ speaker, videos, faqs } : ShowProps) {
             {
               !allFaqs.length && (
                 <div className="text-gray-500 text-center h-full pt-24 py-4 flex flex-col space-y-6 justify-center">
-                 <p>
-                   No FAQs added yet
-                 </p>
+                  <p>
+                    No FAQs added yet
+                  </p>
 
                   <div>
                     <Button onClick={() => setAddingFaq(true)}>Add FAQ</Button>
@@ -127,19 +145,19 @@ function Show({ speaker, videos, faqs } : ShowProps) {
 
             {
               allFaqs.map(faq => (
-               <div className={'spade-y-4'}>
-                 <Accordion type="single" collapsible className="w-full space-y-4">
-                   <AccordionItem value="item-1" className={'border shadow px-4 mt-3 rounded-3xl'}>
-                     <AccordionTrigger>{ faq.question}</AccordionTrigger>
-                     <AccordionContent className={'flex flex-col'}>
-                       <p>{faq.answer}</p>
+                <div className={'spade-y-4'}>
+                  <Accordion type="single" collapsible className="w-full space-y-4">
+                    <AccordionItem value="item-1" className={'border shadow px-4 mt-3 rounded-3xl'}>
+                      <AccordionTrigger>{faq.question}</AccordionTrigger>
+                      <AccordionContent className={'flex flex-col'}>
+                        <p>{faq.answer}</p>
                         <div className={'flex justify-end'}>
                           <Button variant={'destructive'} size={'sm'} onClick={() => deleteFaq(faq)}>Delete</Button>
                         </div>
-                     </AccordionContent>
-                   </AccordionItem>
-                 </Accordion>
-               </div>
+                      </AccordionContent>
+                    </AccordionItem>
+                  </Accordion>
+                </div>
 
               ))
             }
@@ -178,26 +196,64 @@ function Show({ speaker, videos, faqs } : ShowProps) {
       </div>
 
 
-      {/*ADD VIDEO MODAL*/}
-      <Transition.Root show={open} as={Fragment}>
-        <Dialog as="div" className="relative z-10" onClose={setOpen}>
+      <div>
+        <h2 className="text-xl font-semibold py-4">
+          Gallery
+        </h2>
+
+        {
+          !allImages.length && (
+            <div className="text-gray-500 text-center h-full pt-24 py-4 flex flex-col space-y-6 justify-center">
+              <p>
+                No gallery added yet
+              </p>
+
+              <div>
+                <Button onClick={() => setAddingGallery(true)}>Add gallery</Button>
+              </div>
+            </div>
+          )
+        }
+
+        <div className="max-w-7xl mx-auto sm:p-6 lg:p-4 grid grid-cols-1 md:grid-cols-2 gap-4 lg:grid-cols-4">
+          {
+            allImages?.map((image, index) => (
+              <div key={index} className="bg-white shadow-lg rounded-lg  relative">
+                <img src={image.url} alt={`${speaker.first_name} gallery`} className="w-full h-60 object-cover"/>
+                <div className="absolute -top-3 -right-3">
+                  <Button onClick={() => deleteImage(image)} variant={'destructive'} size={'icon'} className={'rounded-full'}>
+                    <X className={'h-6 w-6 text-white'}/>
+                  </Button>
+                </div>
+              </div>
+            ))
+          }
+
+        </div>
+      </div>
+
+
+  {/*ADD VIDEO MODAL*/
+  }
+  <Transition.Root show={open} as={Fragment}>
+    <Dialog as="div" className="relative z-10" onClose={setOpen}>
+      <Transition.Child
+        as={Fragment}
+        enter="ease-out duration-300"
+        enterFrom="opacity-0"
+        enterTo="opacity-100"
+        leave="ease-in duration-200"
+        leaveFrom="opacity-100"
+        leaveTo="opacity-0"
+      >
+        <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"/>
+      </Transition.Child>
+
+      <div className="fixed inset-0 z-10 overflow-y-auto">
+        <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
           <Transition.Child
             as={Fragment}
             enter="ease-out duration-300"
-            enterFrom="opacity-0"
-            enterTo="opacity-100"
-            leave="ease-in duration-200"
-            leaveFrom="opacity-100"
-            leaveTo="opacity-0"
-          >
-            <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
-          </Transition.Child>
-
-          <div className="fixed inset-0 z-10 overflow-y-auto">
-            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-              <Transition.Child
-                as={Fragment}
-                enter="ease-out duration-300"
                 enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
                 enterTo="opacity-100 translate-y-0 sm:scale-100"
                 leave="ease-in duration-200"
@@ -283,7 +339,7 @@ function Show({ speaker, videos, faqs } : ShowProps) {
       </Transition.Root>
 
 
-      {/*ADD FAQ MODAL*/}
+      {/*ADD FAQ*/}
       <Transition.Root show={addingFaq} as={Fragment}>
         <Dialog as="div" className="relative z-10" onClose={setAddingFaq}>
           <Transition.Child
@@ -330,6 +386,64 @@ function Show({ speaker, videos, faqs } : ShowProps) {
                           mode={'speaker'}
                           speaker={speaker}
                           faqAdded={(faq) => handleFaqAdded(faq)}
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                </Dialog.Panel>
+              </Transition.Child>
+            </div>
+          </div>
+        </Dialog>
+      </Transition.Root>
+
+      {/*ADD GALLERY*/}
+      <Transition.Root show={addingGallery} as={Fragment}>
+        <Dialog as="div" className="relative z-10" onClose={setAddingGallery}>
+          <Transition.Child
+            as={Fragment}
+            enter="ease-out duration-300"
+            enterFrom="opacity-0"
+            enterTo="opacity-100"
+            leave="ease-in duration-200"
+            leaveFrom="opacity-100"
+            leaveTo="opacity-0"
+          >
+            <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
+          </Transition.Child>
+
+          <div className="fixed inset-0 z-10 overflow-y-auto">
+            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+              <Transition.Child
+                as={Fragment}
+                enter="ease-out duration-300"
+                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                enterTo="opacity-100 translate-y-0 sm:scale-100"
+                leave="ease-in duration-200"
+                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
+                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+              >
+                <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white px-4  pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-2xl sm:p-6">
+                  <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
+                    <button
+                      type="button"
+                      className="rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                      onClick={() => setAddingGallery(false)}
+                    >
+                      <span className="sr-only">Close</span>
+                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                    </button>
+                  </div>
+                  <div className="">
+                    <div className="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
+                      <Dialog.Title as="h3" className="text-base font-semibold leading-6 text-gray-900">
+                        Add gallery for <span className={'text-mena-brand'}>{speaker.first_name}</span>
+                      </Dialog.Title>
+                      <div className="mt-2 w-ful">
+                        <AddGalleryForm
+                          speaker={speaker}
+                          galleryAdded={(galleryItems) => handleGalleryAdded(galleryItems)}
                         />
                       </div>
                     </div>

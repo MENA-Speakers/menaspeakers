@@ -30,6 +30,10 @@ export interface SpeakerType {
   bio: string;
   topics: CategoryType[];
   categories: CategoryType[];
+  gallery: {
+    id: number,
+    url: string,
+  }[];
   excerpt: string;
   faqs: FaqType[];
   location_id: number;

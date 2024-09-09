@@ -29,6 +29,15 @@ class SpeakerResource extends JsonResource
         }
       }
 
+      //Gallery
+      $gallery = $this->getMedia('gallery');
+      $galleryArray = [];
+      foreach ($gallery as $media) {
+        $galleryArray[] = [
+          'id' => $media->id,
+          'url' => $media->getUrl('webp'),
+        ];
+      }
 
       return [
           'id' => $this->id,
@@ -39,6 +48,7 @@ class SpeakerResource extends JsonResource
           'categories'   =>    $this->categories,
           'topics'   =>    $this->topics,
           'bio' => $this->bio,
+          'gallery' => $galleryArray,
           'faqs' => $this->faqs,
           'title' => $this->title,
           'key_titles_array' => $titles,

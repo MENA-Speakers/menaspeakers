@@ -7,6 +7,7 @@
   use App\Http\Controllers\Admin\AdminProfileVideoController;
   use App\Http\Controllers\Admin\AdminRateCardController;
   use App\Http\Controllers\Admin\AdminProfileMediaController;
+  use App\Http\Controllers\Admin\AdminSpeakerGalleryController;
   use App\Http\Controllers\Admin\AdminSpeakerPortfolioController;
   use App\Http\Controllers\Admin\AdminSpeakerProposalController;
   use App\Http\Controllers\Admin\EmployeeController;
@@ -173,6 +174,12 @@
     Route::get('speakers/{speaker}/faqs', [AdminSpeakerFaqController::class, 'index'])->name('speakers.faqs');
     Route::post('speakers/{speaker}/faqs', [AdminSpeakerFaqController::class, 'store'])->name('speakers.faqs.store');
     Route::post('speakers/{speaker}/delete', [AdminSpeakerFaqController::class, 'delete'])->name('speakers.faqs.destroy');
+
+
+    //Gallery Routes
+    Route::get('speakers/{speaker}/gallery', [AdminSpeakerGalleryController::class, 'index'])->name('speakers.gallery.index');
+    Route::post('speakers/{speaker}/gallery', [AdminSpeakerGalleryController::class, 'store'])->name('speakers.gallery.store');
+    Route::post('speakers/gallery/{gallery}', [AdminSpeakerGalleryController::class, 'destroy'])->name('speakers.gallery.delete');
 
 
     //Leads

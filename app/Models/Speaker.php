@@ -38,6 +38,7 @@
     public function registerMediaCollections(): void
     {
       $this->addMediaCollection('avatar')->singleFile();
+      $this->addMediaCollection('gallery');
     }
 
     public function registerMediaConversions(Media $media = null): void
@@ -45,6 +46,10 @@
       $this->addMediaConversion('webp')
         ->format('webp')
         ->performOnCollections('avatar');
+
+      $this->addMediaConversion('webp')
+        ->format('webp')
+        ->performOnCollections('gallery');
     }
 
 

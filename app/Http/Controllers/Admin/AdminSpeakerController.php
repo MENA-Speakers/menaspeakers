@@ -87,7 +87,7 @@
 
       $speaker = Speaker::create([
         'first_name'       => $request->input('first_name'),
-        'last_name'        => $request->input('first_name'),
+        'last_name'        => $request->input('last_name'),
         'bio'              => $request->input('bio'),
         'title'            => $request->input('title'),
         'location_id'      => $request->input('location'),

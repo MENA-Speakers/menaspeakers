@@ -235,6 +235,22 @@ function Show({ speaker }: ShowSpeakerProps) {
                 )}
               </div>
 
+              {/*GALLERY SECTION*/}
+              {
+                speaker.gallery &&
+                <div className="mt-12">
+                  <h2 className="text-2xl font-semibold pb-4 text-mena-brand">
+                    Gallery
+                  </h2>
+                  <div className="grid grid-cols-2 lg:grid-cols-2 gap-3">
+                    {
+                      speaker.gallery.map(image => (
+                        <img key={image.id} src={image.url} alt={`${speaker.first_name} gallery`} className={'w-full h-60 object-cover rounded-2xl'}/>
+                      ))
+                    }
+                  </div>
+                </div>
+              }
               <div className={'relative rounded-3xl lg:mt-6 overflow-hidden py-6'}>
                 <img className={'w-full object-cover rounded-3xl h-64'} src="/images/speaker-bg.jpeg"
                      alt="Background image"/>
@@ -267,6 +283,7 @@ function Show({ speaker }: ShowSpeakerProps) {
                   </div>
                 </div>
               </div>
+
               {
                 speaker.faqs &&
                  <div className={'mt-6'}>
