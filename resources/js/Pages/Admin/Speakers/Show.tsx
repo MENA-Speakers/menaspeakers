@@ -95,7 +95,7 @@ function Show({ speaker, videos, faqs } : ShowProps) {
   }
 
   const deleteFaq = (faq: FaqType) => {
-    axios.post(route('admin.faqs.delete', faq.id)).then(response => {
+    axios.post(route('admin.faqs.destroy', faq.id)).then(response => {
       setAllFaqs(allFaqs.filter(f => f.id !== faq.id));
     })
   }
