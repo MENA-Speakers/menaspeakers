@@ -30,7 +30,9 @@ function AboutPage() {
               </svg>
 
               <div className="mt-8 max-w-2xl mx-auto">
-                <p className={'text-center text-white'}>Traveling is an enriching experience that opens up new horizons, exposes us to different cultures, and creates memories that last a lifetime. However, traveling can also be stressful </p>
+                <p className={'text-center text-white'}>
+                  MENA Speakers is the leading speakers and MC corporation in the Middle East. We provide public speakers, MCs, and corporate trainers. We are a one-stop solution for all your event needs. Get a speaker in 5 minutes.
+                </p>
               </div>
             </div>
           </div>
