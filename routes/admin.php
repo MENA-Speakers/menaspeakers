@@ -59,7 +59,7 @@
 
     Route::get('/faqs', [AdminFaqController::class, 'index'])->name('faqs.index');
     Route::post('/faqs', [AdminFaqController::class, 'store'])->name('faqs.store');
-    Route::post('/faqs/{faq}', [AdminFaqController::class, 'destroy'])->name('faqs.delete');
+    Route::post('/faqs/{faq}', [AdminFaqController::class, 'delete'])->name('faqs.destroy');
 
 
 

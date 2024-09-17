@@ -35,7 +35,7 @@
       SEOTools::twitter()->setSite('@menaspeakers');
       SEOTools::jsonLd()->addImage('https://mena-speakers.com/images/mena-speakers-logo.webp');
 
-      $speakers = Speaker::where('featured', true)->inRandomOrder()->limit(4)->get();
+      $speakers = Speaker::where('featured', true)->inRandomOrder()->limit(10)->get();
       $heroSpeakers = Speaker::limit(12)->get();
       $blogs = Blog::latest()->limit(4)->get();
       $faqs = Faq::where('speaker_id', null)->get();

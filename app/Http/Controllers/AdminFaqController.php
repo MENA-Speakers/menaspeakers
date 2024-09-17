@@ -32,4 +32,10 @@ class AdminFaqController extends Controller
 
     return $faq;
   }
+
+  public function delete(Faq $faq)
+  {
+    $faq->delete();
+    return redirect()->route('admin.faqs.index');
+  }
 }

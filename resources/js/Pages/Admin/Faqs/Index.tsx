@@ -28,7 +28,7 @@ function FaqPage( {faqs} : FaqPageProps) {
   }
 
   const deleteFaq = (faq: FaqType) => {
-    axios.post(route('admin.faqs.delete', faq.id)).then(response => {
+    axios.post(route('admin.faqs.destroy', faq.id)).then(response => {
       setAllFaqs(allFaqs.filter(f => f.id !== faq.id));
     })
   }
@@ -88,6 +88,11 @@ function FaqPage( {faqs} : FaqPageProps) {
                   <AccordionTrigger>{ faq.question}</AccordionTrigger>
                   <AccordionContent>
                     <p>{faq.answer}</p>
+                    <div className="py-3 flex justify-end">
+                      <Button onClick={() => deleteFaq(faq)} className="bg-red-500 text-white hover:bg-red-600">
+                        Delete
+                      </Button>
+                    </div>
                   </AccordionContent>
                 </AccordionItem>
 
