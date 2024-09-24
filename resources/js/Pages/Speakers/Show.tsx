@@ -132,7 +132,7 @@ function Show({ speaker }: ShowSpeakerProps) {
                 <h2 className="text-xl pb-4 text-mena-brand">
                   {
                     speaker.first_name
-                  }'s key note titles
+                  }'s titles
                 </h2>
 
 
