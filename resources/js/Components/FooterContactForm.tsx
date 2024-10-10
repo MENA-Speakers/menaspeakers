@@ -12,11 +12,49 @@ import {FormMessage} from "@/Components/ui/form";
 import {Alert, AlertDescription, AlertTitle} from "@/Components/ui/alert";
 import {ThumbsUp} from "lucide-react";
 
+interface FormValues {
+  full_name: string;
+  email: string;
+  phone: string;
+  message: string;
+  company: string;
+  source: string;
+}
 
 
 function FooterContactForm() {
 
   const [formSubmitted, setFormSubmitted] = React.useState(false);
+
+  const sendBitrix = async (values: FormValues) => {
+    const crmUrl = `${import.meta.env.VITE_BITRIX_CRM_URL}/crm.deal.add.json?
+        FIELDS[TITLE]=${encodeURIComponent('New Lead from MENA Speakers - contact form')}
+        &FIELDS[NAME]=${encodeURIComponent(values.full_name)}
+        &FIELDS[EMAIL]=${encodeURIComponent(values.email)}
+        &FIELDS[PHONE]=${encodeURIComponent(values.phone)}
+        &FIELDS[COMPANY_TITLE]=${encodeURIComponent(values.company)}
+        &FIELDS[COMPANY_TITLE]=${encodeURIComponent(values.company)}
+        &FIELDS[COMMENTS]=${encodeURIComponent(`${values.message} - ${values.source}` )}
+        &FIELDS[UTM_SOURCE]=${encodeURIComponent(values.source)}
+        &FIELDS[WEB]=${encodeURIComponent(`https://mena-speakers.com`)}
+        `;
+
+    try {
+      const crmResponse = await fetch(crmUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+
+      if (!crmResponse.ok) {
+        throw new Error('Failed to create lead in CRM');
+      }
+    } catch (error) {
+      console.error('Error creating lead in CRM:', error);
+    }
+  }
+
 
   const formik = useFormik( {
     initialValues: {
@@ -26,7 +64,7 @@ function FooterContactForm() {
       subject: '',
       email: '',
       message: '',
-      source: 'Footer home page'
+      source: 'Footer form'
     },
 
     validationSchema: Yup.object( {
@@ -42,6 +80,8 @@ function FooterContactForm() {
         toast.error('Something went wrong. Please try again later.')
         return
       }
+
+      sendBitrix(values)
 
       axios.post( route('leads.store'), values
       ).then( ( response ) => {

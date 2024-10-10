@@ -17,10 +17,48 @@ interface FooterContactFormProps {
   speaker?: SpeakerType
 }
 
+interface FormValues {
+  full_name: string;
+  email: string;
+  phone: string;
+  message: string;
+  company: string;
+  source: string;
+}
 
 function FooterContactForm({speaker}: FooterContactFormProps) {
 
   const [formSubmitted, setFormSubmitted] = React.useState(false);
+
+  const sendBitrix = async (values: FormValues) => {
+    const crmUrl = `${import.meta.env.VITE_BITRIX_CRM_URL}/crm.deal.add.json?
+        FIELDS[TITLE]=${encodeURIComponent('New Lead from MENA Speakers - contact form')}
+        &FIELDS[NAME]=${encodeURIComponent(values.full_name)}
+        &FIELDS[EMAIL]=${encodeURIComponent(values.email)}
+        &FIELDS[PHONE]=${encodeURIComponent(values.phone)}
+        &FIELDS[COMPANY_TITLE]=${encodeURIComponent(values.company)}
+        &FIELDS[COMPANY_TITLE]=${encodeURIComponent(values.company)}
+        &FIELDS[COMMENTS]=${encodeURIComponent(`${values.message} - ${values.source}  ${ speaker?.name && ' | Speaker: - ' + speaker.name}` )}
+        &FIELDS[UTM_SOURCE]=${encodeURIComponent(values.source)}
+        &FIELDS[WEB]=${encodeURIComponent(`https://mena-speakers.com/speakers/${speaker?.slug}`)}
+        `;
+
+    try {
+      const crmResponse = await fetch(crmUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+
+      if (!crmResponse.ok) {
+        throw new Error('Failed to create lead in CRM');
+      }
+    } catch (error) {
+      console.error('Error creating lead in CRM:', error);
+    }
+  }
+
 
   const formik = useFormik( {
     initialValues: {
@@ -41,6 +79,8 @@ function FooterContactForm({speaker}: FooterContactFormProps) {
       message: Yup.string().required( 'Message is required' ),
     } ),
 
+
+
     onSubmit: values => {
 
 
@@ -49,6 +89,13 @@ function FooterContactForm({speaker}: FooterContactFormProps) {
         return
       }
 
+      sendBitrix(values).then(r => {
+        formik.setSubmitting( false );
+        toast.success('Your request has been submitted successfully. We will get back to you shortly.')
+        setFormSubmitted(true)
+      })
+
+      // console.log('values', values)
       axios.post( route('leads.store'), values
       ).then( ( response ) => {
         formik.setSubmitting( false );
