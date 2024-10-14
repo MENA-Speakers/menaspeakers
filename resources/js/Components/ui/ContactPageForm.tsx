@@ -36,9 +36,13 @@ function FooterContactForm({speaker}: FooterContactFormProps) {
         &FIELDS[NAME]=${encodeURIComponent(values.full_name)}
         &FIELDS[EMAIL]=${encodeURIComponent(values.email)}
         &FIELDS[PHONE]=${encodeURIComponent(values.phone)}
+        &FIELDS[PHONE][0][VALUE]=${encodeURIComponent(values.phone)}
+        &FIELDS[PHONE][0][VALUE_TYPE]=${'WORK'}
+        &FIELDS[EMAIL][0][VALUE]=${encodeURIComponent(values.email)}
+        &FIELDS[EMAIL][0][VALUE_TYPE]=${'WORK'}
         &FIELDS[COMPANY_TITLE]=${encodeURIComponent(values.company)}
         &FIELDS[COMPANY_TITLE]=${encodeURIComponent(values.company)}
-        &FIELDS[COMMENTS]=${encodeURIComponent(`${values.message} - ${values.source}  ${ speaker?.name && ' | Speaker: - ' + speaker.name}` )}
+        &FIELDS[COMMENTS]=${encodeURIComponent(`${values.message} - ${values.source}  ${ speaker?.name && ' | Speaker: - ' + speaker.name} | Phone: ${values.phone} | Email:  ${values.email} ` )}
         &FIELDS[UTM_SOURCE]=${encodeURIComponent(values.source)}
         &FIELDS[WEB]=${encodeURIComponent(`https://mena-speakers.com/speakers/${speaker?.slug}`)}
         `;
