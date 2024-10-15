@@ -62,6 +62,7 @@ class NewLeadNotification extends Mailable
       ->bcc('Connect@mena-speakers.com')
       ->bcc('sales@mena-speakers.com')
       ->bcc('saana@mena-speakers.com')
+      ->bcc('connect@mena-speakers.com')
       ->markdown('emails.leads.new', ['lead' => $this->lead]);
   }
 }
