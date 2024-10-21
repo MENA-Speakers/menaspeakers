@@ -98,7 +98,7 @@ function Footer() {
           <div className={"flex space-x-4 "}>
             <a
               target={"_blank"}
-              href={"https://www.linkedin.com/company/mena-speakers/mycompany"}
+              href={"https://www.linkedin.com/company/mena-speakers/mycompany/"}
               className="p-2 rounded-full border"
             >
               <Linkedin className={"h-4 w-4 stroke-1 text-slate-50"} />
