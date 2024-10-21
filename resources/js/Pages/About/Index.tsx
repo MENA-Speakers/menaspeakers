@@ -67,7 +67,7 @@ function AboutPage() {
             </div>
           </div>
         </div>
-        <div className="max-w-7xl  gap-8 mx-auto grid grid-cols-1 lg:grid-cols-6  px-6 lg:px-0 container pb-12">
+        <div className="max-w-7xl  gap-8 mx-auto grid grid-cols-1 lg:grid-cols-6  px-6 lg:px-0 container pb-12 ">
           {/*<div ref={formRef}>*/}
           {/*  /!* The Bitrix form will load here *!/*/}
           {/*</div>*/}
