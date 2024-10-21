@@ -129,7 +129,7 @@ function Footer() {
 
             <a
               target={"_blank"}
-              href={"https://www.youtube.com"}
+              href={"https://www.youtube.com/@menaspeakers4868"}
               className="p-2 rounded-full border"
             >
               <Youtube className={"h-4 w-4 stroke-1 text-slate-50"} />
