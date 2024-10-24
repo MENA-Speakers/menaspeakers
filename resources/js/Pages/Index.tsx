@@ -221,7 +221,7 @@ function Index({
                 </div>
               </div>
 
-              <div className={"flex gap-6"}>
+              <div className={"flex gap-6 sm:flex-col"}>
                 {categories.map((category) => (
                   <div
                     key={category.id}
