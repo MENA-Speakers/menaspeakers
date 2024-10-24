@@ -94,7 +94,7 @@ function Footer() {
         </div>
       </div>
       <div className="pt-12 border-t border-slate-400 max-w-7xl mx-auto flex flex-col lg:flex-row justify-between">
-        <div className={"flex gap-6"}>
+        <div className={"flex gap-6 sm:justify-around sm:mb-4"}>
           <div className={"flex space-x-4 "}>
             <a
               target={"_blank"}
