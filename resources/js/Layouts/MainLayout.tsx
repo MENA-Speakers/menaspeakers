@@ -218,7 +218,7 @@ export default function MainLayout({
       {/*MOBILE MENU*/}
       <div
         className={
-          "fixed lg:hidden bottom-0 inset-x-0 z-50 py-2 px-6 bg-mena-brand flex justify-between items-center"
+          "fixed hidden bottom-0 inset-x-0 z-50 py-2 px-6 bg-mena-brand justify-between items-center"
         }
       >
         <Link href={"/"} className={"p-1.5"}>
