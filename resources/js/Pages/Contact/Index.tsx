@@ -61,7 +61,9 @@ function Index({ speaker }: ContactPageProps) {
               <div className={"flex space-x-4 mt-4"}>
                 <a
                   target={"_blank"}
-                  href={"https://www.linkedin.com"}
+                  href={
+                    "https://www.linkedin.com/company/mena-speakers/mycompany/"
+                  }
                   className="p-2 rounded-full border"
                 >
                   <Linkedin className={"h-5 w-5 stroke-1 text-mena-brand"} />
@@ -69,7 +71,7 @@ function Index({ speaker }: ContactPageProps) {
 
                 <a
                   target={"_blank"}
-                  href={"https://www.twitter.com"}
+                  href={"https://twitter.com/menaspeakers"}
                   className="p-2 rounded-full border"
                 >
                   <Twitter className={"h-5 w-5 stroke-1 text-mena-brand"} />
@@ -77,14 +79,14 @@ function Index({ speaker }: ContactPageProps) {
 
                 <a
                   target={"_blank"}
-                  href={"https://www.facebook.com"}
+                  href={"https://www.facebook.com/menaspeakers"}
                   className="p-2 rounded-full border"
                 >
                   <Facebook className={"h-5 w-5 stroke-1 text-mena-brand"} />
                 </a>
                 <a
                   target={"_blank"}
-                  href={"https://www.instagram.com"}
+                  href={"https://www.instagram.com/menaspeakers/"}
                   className="p-2 rounded-full border"
                 >
                   <Instagram className={"h-5 w-5 stroke-1 text-mena-brand"} />
@@ -92,7 +94,7 @@ function Index({ speaker }: ContactPageProps) {
 
                 <a
                   target={"_blank"}
-                  href={"https://www.youtube.com"}
+                  href={"https://www.youtube.com/@menaspeakers4868"}
                   className="p-2 rounded-full border"
                 >
                   <Youtube className={"h-5 w-5 stroke-1 text-mena-brand"} />
