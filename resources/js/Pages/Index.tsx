@@ -390,6 +390,23 @@ function Index({
                 </Button>
               </div>
             </div>
+            <div className="mena-society mt-6">
+              <h3 className="text-2xl text-mena-brand font-semibold">
+                MENA Speakers Society
+              </h3>
+              <p className="text-slate-500 mt-6">
+                Get the scoop on masterclasses, public speaking events and
+                workshops with MENA Speakers
+              </p>
+              <div className="society-link mt-6">
+                <a
+                  className="underline"
+                  href=" https://chat.whatsapp.com/KvdNjb3XmRqEVLrd9xgZHt"
+                >
+                  Join MENA Speakers Society (WhatsApp)
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </section>
