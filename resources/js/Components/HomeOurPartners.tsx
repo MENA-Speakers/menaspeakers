@@ -9,7 +9,7 @@ function HomeOurPartners() {
       <div className="mt-6 py-4 flex flex-wrap gap-4 justify-items-center justify-center">
         <div className={"mt-4"}>
           <svg
-            className={"h-10"}
+            className={"h-12"}
             xmlns="http://www.w3.org/2000/svg"
             viewBox="-153.6 -69.186 1331.2 415.113"
           >
@@ -22,7 +22,7 @@ function HomeOurPartners() {
         <div className={"mt-4"}>
           <img
             className={"h-12"}
-            src="/images/partners/fab.png"
+            src="/images/partners/fab.svg"
             alt="FAB"
             loading="lazy"
           />
@@ -38,7 +38,7 @@ function HomeOurPartners() {
         <div className={"mt-4"}>
           <img
             className={"h-12"}
-            src="/images/partners/dp-world.png"
+            src="/images/partners/dp-world.svg"
             alt="DP World"
             loading="lazy"
           />
@@ -46,7 +46,7 @@ function HomeOurPartners() {
         <div className={"mt-4"}>
           <img
             className={"h-12"}
-            src="/images/partners/dhl.png"
+            src="/images/partners/dhl.svg"
             alt="DHL"
             loading="lazy"
           />
@@ -54,7 +54,7 @@ function HomeOurPartners() {
         <div className={"mt-4"}>
           <img
             className={"h-12"}
-            src="/images/partners/alraj_bank.png"
+            src="/images/partners/al-rajhi-bank-logo.svg"
             alt="Alraj bank"
             loading="lazy"
           />
@@ -70,7 +70,7 @@ function HomeOurPartners() {
         <div className={"mt-4"}>
           <img
             className={"h-12"}
-            src="/images/partners/gilead.png"
+            src="/images/partners/gilead.svg"
             alt="Gilead"
             loading="lazy"
           />
@@ -78,8 +78,8 @@ function HomeOurPartners() {
 
         <div className={"mt-4"}>
           <img
-            className={"h-12"}
-            src="/images/partners/oracle.png"
+            className={"h-8"}
+            src="/images/partners/oracle.svg"
             alt="Oracle"
             loading="lazy"
           />
@@ -87,8 +87,8 @@ function HomeOurPartners() {
 
         <div className={"mt-4"}>
           <img
-            className={"h-12"}
-            src="/images/partners/uniliver.png"
+            className={"h-14"}
+            src="/images/partners/uniliver.svg"
             alt="Uniliver"
             loading="lazy"
           />
@@ -106,7 +106,7 @@ function HomeOurPartners() {
         <div className={"mt-4"}>
           <img
             className={"h-12"}
-            src="/images/partners/lilly.png"
+            src="/images/partners/lilly.svg"
             alt="Lilly"
             loading="lazy"
           />
@@ -115,7 +115,7 @@ function HomeOurPartners() {
         <div className={"mt-4"}>
           <img
             className={"h-12"}
-            src="/images/partners/johnson.png"
+            src="/images/partners/johnson.svg"
             alt="Johnson"
             loading="lazy"
           />
@@ -123,8 +123,8 @@ function HomeOurPartners() {
 
         <div className={"mt-4"}>
           <img
-            className={"h-12"}
-            src="/images/partners/philip.png"
+            className={"h-9"}
+            src="/images/partners/philips.svg"
             alt="Philip"
             loading="lazy"
           />
@@ -133,7 +133,7 @@ function HomeOurPartners() {
         <div className={"mt-4"}>
           <img
             className={"h-12"}
-            src="/images/partners/anoc.png"
+            src="/images/partners/anoc.svg"
             alt="Adnoc"
             loading="lazy"
           />
