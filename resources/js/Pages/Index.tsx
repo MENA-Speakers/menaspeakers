@@ -370,7 +370,7 @@ function Index({
               <p className="text-slate-500">
                 Stay ahead with our monthly newsletter! Get the latest trends
                 and expert insights straight to your inbox. Sign up now and stay
-                informed. Unsubscribe anytime with the link in our emails..
+                informed. Unsubscribe anytime with the link in our emails.
               </p>
             </div>
 
@@ -396,14 +396,11 @@ function Index({
               </h3>
               <p className="text-slate-500 mt-6">
                 Get the scoop on masterclasses, public speaking events and
-                workshops with MENA Speakers
+                workshops with MENA Speakers.
               </p>
               <div className="society-link mt-6">
-                <a
-                  className="underline"
-                  href=" https://chat.whatsapp.com/KvdNjb3XmRqEVLrd9xgZHt"
-                >
-                  Join MENA Speakers Society (WhatsApp)
+                <a href=" https://chat.whatsapp.com/KvdNjb3XmRqEVLrd9xgZHt">
+                  <img className="h-15" src="/images/MSS-07.svg" alt="" />
                 </a>
               </div>
             </div>
