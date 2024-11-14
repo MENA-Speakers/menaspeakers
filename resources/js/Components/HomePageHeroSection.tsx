@@ -26,7 +26,8 @@ function HomePageHeroSection() {
         <div className="w-full lg:h-full flex h-[600px]  items-center justify-center flex-col space-y-8">
           <div className={"space-y-8 py-12"}>
             <h1 className="text-3xl lg:text-5xl text-mena-100 text-center font-bold">
-              The leading Premier speakers bureau <br />
+              The leading speakers bureau
+              <br />
               in the MENA Region
             </h1>
             <div className={"w-full lg:w-[70%] space-y-2 mx-auto"}>
@@ -39,9 +40,7 @@ function HomePageHeroSection() {
                   value={formik.values.query}
                   onChange={formik.handleChange}
                   className={"w-full flex-1 z-2  rounded-2xl py-3 text-lg px-5"}
-                  placeholder={
-                    "Search by 'topics', 'speakers', 'categories' etc"
-                  }
+                  placeholder={"Search by topics, speakers, categories etc"}
                 />
                 <button
                   type={"submit"}
