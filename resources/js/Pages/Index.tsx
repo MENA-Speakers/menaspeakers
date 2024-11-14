@@ -400,7 +400,11 @@ function Index({
               </p>
               <div className="society-link mt-6">
                 <a href=" https://chat.whatsapp.com/KvdNjb3XmRqEVLrd9xgZHt">
-                  <img className="h-15" src="/images/MSS-07.svg" alt="" />
+                  <img
+                    className="h-15"
+                    src="/images/MSS-07.svg"
+                    alt="mena-society"
+                  />
                 </a>
               </div>
             </div>
