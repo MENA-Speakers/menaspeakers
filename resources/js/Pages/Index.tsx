@@ -369,8 +369,8 @@ function Index({
             <div className="mt-6">
               <p className="text-slate-500">
                 Stay ahead with our monthly newsletter! Get the latest trends
-                and expert insights straight to your inbox. Sign up now and stay
-                informed. Unsubscribe anytime with the link in our emails.
+                and expert insights straight to your inbox. Unsubscribe anytime
+                with the link in our emails.
               </p>
             </div>
 
