@@ -1,190 +1,95 @@
-import React from "react";
+import { useState } from "react";
 
-function HomeOurPartners() {
+const HomeOurPartners = () => {
+  const clients = [
+    { name: "NEOM", logo: "/images/partner/neom.png" },
+    { name: "ORACLE", logo: "/images/partner/oracle.svg" },
+    { name: "PHILIPS", logo: "/images/partner/philips.svg" },
+    { name: "Al-MASAOOD", logo: "/images/partner/MENA-pst-logo-01.png" },
+    { name: "Ministry of Media", logo: "/images/partner/MENA-pst-logo-02.png" },
+    { name: "ADNOC", logo: "/images/partner/MENA-pst-logo-03.png" },
+    { name: "TOSHIBA", logo: "/images/partner/MENA-pst-logo-04.png" },
+    {
+      name: "Standard Chartered",
+      logo: "/images/partner/MENA-pst-logo-05.png",
+    },
+    { name: "PEPSICO", logo: "/images/partner/MENA-pst-logo-06.png" },
+    { name: "Goodyear", logo: "/images/partner/MENA-pst-logo-07.png" },
+    { name: "DP WORLD", logo: "/images/partner/novo.png" },
+    { name: "SKY  JEWELLERY", logo: "/images/partner/key.png" },
+    { name: "Al-Rajhi bank", logo: "/images/partner/al-rajhi-bank-logo.svg" },
+    { name: "DHL", logo: "/images/partner/dhl.svg" },
+    { name: "Johnson & Johnson", logo: "/images/partner/johnson.svg" },
+    { name: "Lilly", logo: "/images/partner/lilly.svg" },
+    { name: "Gilead", logo: "/images/partner/gilead.svg" },
+  ];
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const clientsPerView = 6;
+
+  const handleNext = () => {
+    setCurrentIndex((prevIndex) => {
+      if (prevIndex < clients.length - clientsPerView) {
+        return prevIndex + 1;
+      }
+      return prevIndex;
+    });
+  };
+
+  const handlePrevious = () => {
+    setCurrentIndex((prevIndex) => {
+      if (prevIndex > 0) {
+        return prevIndex - 1;
+      }
+      return prevIndex;
+    });
+  };
+
   return (
-    <section className="max-w-7xl mx-auto  lg:px-0">
-      <div className="">
-        <h3 className="text-4xl font-semibold text-mena-brand">Our Clients</h3>
-      </div>
-      <div className="mt-6 py-4 flex flex-wrap gap-4 justify-items-center justify-center">
-        <div className={"mt-4"}>
-          <svg
-            className={"h-12"}
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="-153.6 -69.186 1331.2 415.113"
+    <section className="container flex flex-col w-full">
+      <div className="flex justify-between items-center mb-4">
+        <h2 className="text-mena-brand text-2xl font-semibold lg:text-4xl">
+          Trusted by Awesome Clients
+        </h2>
+        <div className="flex gap-2 my-2">
+          <button
+            className=" prev-button bg-gray-600 text-white py-2 px-4 rounded disabled:opacity-50"
+            onClick={handlePrevious}
+            disabled={currentIndex === 0}
           >
-            <path
-              fill="#d81f26"
-              d="M140.803 258.904c-15.404 2.705-31.079 3.516-47.294 5.676L44.051 119.724v151.073C28.647 272.418 14.594 274.58 0 276.742V0h41.08l56.212 157.021V0h43.511zm85.131-157.558c16.757 0 42.431-.811 57.835-.811v43.24c-19.189 0-41.619 0-57.835.811v64.322c25.405-1.621 50.809-3.785 76.482-4.596v41.617l-119.724 9.461V0h119.724v43.241h-76.482zm237.284-58.104h-44.862V242.15c-14.594 0-29.188 0-43.239.539V43.242h-44.862V0H463.22zm70.266 55.132h59.187v43.24h-59.187v98.104h-42.433V0h120.808v43.241h-78.375zm148.641 103.507c24.594.539 49.456 2.434 73.51 3.783v42.701c-38.646-2.434-77.293-4.863-116.75-5.676V0h43.24zm109.994 49.457c13.783.812 28.377 1.623 42.43 3.242V0h-42.43zM1024 0l-54.863 131.615L1024 276.742c-16.217-2.162-32.432-5.135-48.648-7.838l-31.078-79.994-31.617 73.51c-15.678-2.705-30.812-3.516-46.484-5.678l55.672-126.75L871.576 0h46.482l28.377 72.699L976.705 0z"
-            />
-          </svg>
+            &lt;
+          </button>
+          <button
+            className=" next-button bg-blue-600 text-white py-2 px-4 rounded disabled:opacity-50"
+            onClick={handleNext}
+            disabled={currentIndex >= 3}
+          >
+            &gt;
+          </button>
         </div>
-        <div className={"mt-4"}>
-          <img
-            className={"h-12"}
-            src="/images/partners/fab.svg"
-            alt="FAB"
-            loading="lazy"
-          />
-        </div>
-        <div className={"mt-4"}>
-          <img
-            className={"h-12"}
-            src="/images/partners/islamic-development-bank.png"
-            alt="Islamic Development Bank"
-            loading="lazy"
-          />
-        </div>
-        <div className={"mt-4"}>
-          <img
-            className={"h-12"}
-            src="/images/partners/dp-world.svg"
-            alt="DP World"
-            loading="lazy"
-          />
-        </div>
-        <div className={"mt-4"}>
-          <img
-            className={"h-12"}
-            src="/images/partners/dhl.svg"
-            alt="DHL"
-            loading="lazy"
-          />
-        </div>
-        <div className={"mt-4"}>
-          <img
-            className={"h-12"}
-            src="/images/partners/al-rajhi-bank-logo.svg"
-            alt="Alraj bank"
-            loading="lazy"
-          />
-        </div>
-        <div className={"mt-4"}>
-          <img
-            className={"h-12"}
-            src="/images/partners/neom.png"
-            alt="Neom"
-            loading="lazy"
-          />
-        </div>
-        <div className={"mt-4"}>
-          <img
-            className={"h-12"}
-            src="/images/partners/gilead.svg"
-            alt="Gilead"
-            loading="lazy"
-          />
-        </div>
-
-        <div className={"mt-4"}>
-          <img
-            className={"h-8"}
-            src="/images/partners/oracle.svg"
-            alt="Oracle"
-            loading="lazy"
-          />
-        </div>
-
-        <div className={"mt-4"}>
-          <img
-            className={"h-14"}
-            src="/images/partners/uniliver.svg"
-            alt="Uniliver"
-            loading="lazy"
-          />
-        </div>
-
-        <div className={"mt-4"}>
-          <img
-            className={"h-12"}
-            src="/images/partners/network.png"
-            alt="Network"
-            loading="lazy"
-          />
-        </div>
-
-        <div className={"mt-4"}>
-          <img
-            className={"h-12"}
-            src="/images/partners/lilly.svg"
-            alt="Lilly"
-            loading="lazy"
-          />
-        </div>
-
-        <div className={"mt-4"}>
-          <img
-            className={"h-12"}
-            src="/images/partners/johnson.svg"
-            alt="Johnson"
-            loading="lazy"
-          />
-        </div>
-
-        <div className={"mt-4"}>
-          <img
-            className={"h-9"}
-            src="/images/partners/philips.svg"
-            alt="Philip"
-            loading="lazy"
-          />
-        </div>
-
-        <div className={"mt-4"}>
-          <img
-            className={"h-12"}
-            src="/images/partners/anoc.svg"
-            alt="Adnoc"
-            loading="lazy"
-          />
-        </div>
-
-        <div className={"mt-4"}>
-          <img
-            className={"h-12"}
-            src="/images/partners/havard.png"
-            alt="Havard"
-            loading="lazy"
-          />
-        </div>
-
-        <div className={"mt-4"}>
-          <img
-            className={"h-12"}
-            src="/images/partners/good-year.png"
-            alt="Good Year"
-            loading="lazy"
-          />
-        </div>
-
-        <div className={"mt-4"}>
-          <img
-            className={"h-12"}
-            src="/images/partners/acino.png"
-            alt="Acino"
-            loading="lazy"
-          />
-        </div>
-
-        <div className={"mt-4"}>
-          <img
-            className={"h-12"}
-            src="/images/partners/key.png"
-            alt="Key"
-            loading="lazy"
-          />
-        </div>
-        <div className={"mt-4"}>
-          <img
-            className={"h-12"}
-            src="/images/partners/adaa.png"
-            alt="Adaa"
-            loading="lazy"
-          />
+      </div>
+      <div className="overflow-hidden">
+        <div
+          className="flex justify-center gap-2 transition-transform duration-500 ease-in-out w-[calc(100%*12/6)] "
+          style={{
+            transform: `translateX(-${currentIndex * (100 / clientsPerView)}%)`,
+          }}
+        >
+          {clients.map((client, index) => (
+            <div
+              className="flex justify-center items-center border border-gray-300 rounded-lg bg-white p-2 m-1 w-36 h-24 transition-transform duration-300 hover:-translate-y-1 hover:shadow-md"
+              key={index}
+            >
+              <img
+                src={client.logo}
+                alt={client.name}
+                className="w-full h-auto"
+              />
+            </div>
+          ))}
         </div>
       </div>
     </section>
   );
-}
+};
 
 export default HomeOurPartners;
