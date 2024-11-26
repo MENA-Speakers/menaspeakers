@@ -25,10 +25,15 @@ const HomeOurPartners = () => {
   ];
   const [currentIndex, setCurrentIndex] = useState(0);
   const clientsPerView = 6;
-
+  const translateXPercentage = -(
+    currentIndex *
+    (100 / (window.innerWidth < 768 ? 8.5 : 6))
+  );
   const handleNext = () => {
     setCurrentIndex((prevIndex) => {
       if (prevIndex < clients.length - clientsPerView) {
+        console.log(prevIndex);
+        console.log(currentIndex);
         return prevIndex + 1;
       }
       return prevIndex;
@@ -46,7 +51,7 @@ const HomeOurPartners = () => {
 
   return (
     <section className="container flex flex-col w-full">
-      <div className="flex justify-between items-center mb-4">
+      <div className="flex flex-col justify-between items-center mb-4 md:flex-row">
         <h2 className="text-mena-brand text-2xl font-semibold lg:text-4xl">
           Trusted by Awesome Clients
         </h2>
@@ -69,14 +74,14 @@ const HomeOurPartners = () => {
       </div>
       <div className="overflow-hidden">
         <div
-          className="flex justify-center gap-2 transition-transform duration-500 ease-in-out w-[calc(100%*12/6)] "
+          className="flex justify-center gap-2 transition-transform duration-500 ease-in-out w-[calc(72%*12/1)] md:w-[calc(100%*12/6)]"
           style={{
-            transform: `translateX(-${currentIndex * (100 / clientsPerView)}%)`,
+            transform: `translateX(${translateXPercentage}%)`,
           }}
         >
           {clients.map((client, index) => (
             <div
-              className="flex justify-center items-center border border-gray-300 rounded-lg bg-white p-2 m-1 w-36 h-24 transition-transform duration-300 hover:-translate-y-1 hover:shadow-md"
+              className="flex justify-center items-center border border-gray-300 rounded-lg bg-white p-2 m-1 w-28 md:w-36 h-24 transition-transform duration-300 hover:-translate-y-1 hover:shadow-md"
               key={index}
             >
               <img
@@ -93,3 +98,5 @@ const HomeOurPartners = () => {
 };
 
 export default HomeOurPartners;
+
+// 8.5;
