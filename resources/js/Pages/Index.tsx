@@ -24,6 +24,7 @@ import HomeTestimonialsSection from "@/Components/HomeTestimonialsSection";
 import { TestimonialType } from "@/types/testimonial-type";
 import * as test from "node:test";
 import FooterContactForm from "@/Components/FooterContactForm";
+import ScrollToTop from "@/Components/ui/scrollToTop";
 
 interface IndexProps {
   blogs: BlogType[];
@@ -81,7 +82,7 @@ function Index({
       </Head>
       {/* Hero Header*/}
       <HomePageHeroSection />
-
+      <ScrollToTop />
       {/*FEATURED SPEAKERS SECTION */}
 
       <section className={"py-12 px-6"}>
