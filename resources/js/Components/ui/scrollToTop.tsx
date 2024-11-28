@@ -1,11 +1,8 @@
-// ScrollToTop.js
 import React, { useEffect, useState } from "react";
 
 const ScrollToTop = () => {
-  // State to track the visibility of the button
   const [isVisible, setIsVisible] = useState(false);
 
-  // Function to handle scroll
   const handleScroll = () => {
     if (window.scrollY > 300) {
       setIsVisible(true);
@@ -14,19 +11,16 @@ const ScrollToTop = () => {
     }
   };
 
-  // Scroll to top logic
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: "smooth", // Smooth scroll animation
+      behavior: "smooth",
     });
   };
 
-  // Attach scroll event listener
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
 
-    // Cleanup the event listener on unmount
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
