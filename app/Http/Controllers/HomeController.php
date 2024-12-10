@@ -28,8 +28,8 @@
     public function index()
     {
 
-      SEOTools::setTitle('MENA Speakers - Official Website');
-      SEOTools::setDescription("MENA Speakers is the leading speakers bureau in the Middle East. We represent the best speakers, trainers, and moderators in the region.");
+      SEOTools::setTitle('The leading Premier speakers bureau in the MENA Region');
+      SEOTools::setDescription("The leading Premier speakers bureau in the MENA Region for corporations and governments, providing Keynote Speakers for Corporate and Professional Events.");
       SEOTools::opengraph()->setUrl(route('index'));
       SEOTools::opengraph()->addProperty('type', 'person');
       SEOTools::twitter()->setSite('@menaspeakers');

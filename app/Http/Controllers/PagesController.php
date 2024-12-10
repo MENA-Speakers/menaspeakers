@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Resources\SpeakerResource;
 use App\Models\Speaker;
+use Artesaos\SEOTools\Facades\SEOTools;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
@@ -41,6 +42,9 @@ class PagesController extends Controller
 
 
   public function about(){
+
+    SEOTools::setTitle('About Us - MENA Speakers');
+    SEOTools::setDescription(" We provide premier public speakers, MCs, and corporate trainers. We are a one-stop solution for all your event needs. Get a speaker in 5 minutes.");
     return Inertia::render('About/Index');
   }
 }

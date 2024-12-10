@@ -9,7 +9,7 @@ function AboutPage() {
   return (
     <MainLayout>
       <Head>
-        <title>Contact Us</title>
+        <title>About Us</title>
       </Head>
 
       <section className="pb-12 -mt-4">
