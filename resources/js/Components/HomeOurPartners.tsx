@@ -74,7 +74,7 @@ const HomeOurPartners = () => {
       </div>
       <div className="overflow-hidden">
         <div
-          className="flex justify-center gap-2 transition-transform duration-500 ease-in-out w-[calc(72%*12/1)] md:w-[calc(100%*12/6)]"
+          className="flex justify-center gap-2 transition-transform duration-500 ease-in-out w-[calc(60%*12/1)] md:w-[calc(100%*12/6)]"
           style={{
             transform: `translateX(${translateXPercentage}%)`,
           }}
