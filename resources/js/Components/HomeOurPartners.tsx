@@ -53,7 +53,7 @@ const HomeOurPartners = () => {
     <section className="container flex flex-col w-full">
       <div className="flex flex-col justify-between items-center mb-4 md:flex-row">
         <h2 className="text-mena-brand text-2xl font-semibold lg:text-4xl">
-          Trusted by Awesome Clients
+          Trusted by
         </h2>
         <div className="flex gap-2 my-2">
           <button
