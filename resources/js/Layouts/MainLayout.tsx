@@ -16,16 +16,16 @@ const navigation = [
     dropdown: true,
     route: null,
     children: [
-      {
-        name: "Sports",
-        route: null,
-        link: "https://sports.mena-speakers.com?utm_source=mena-speakers.com&utm_medium=referral&utm_campaign=mena-speakers.com",
-      },
-      {
-        name: "Wellness",
-        route: null,
-        link: "https://wellness.mena-speakers.com?utm_source=mena-speakers.com&utm_medium=referral&utm_campaign=mena-speakers.com",
-      },
+      // {
+      //   name: "Sports",
+      //   route: null,
+      //   link: "https://sports.mena-speakers.com?utm_source=mena-speakers.com&utm_medium=referral&utm_campaign=mena-speakers.com",
+      // },
+      // {
+      //   name: "Wellness",
+      //   route: null,
+      //   link: "https://wellness.mena-speakers.com?utm_source=mena-speakers.com&utm_medium=referral&utm_campaign=mena-speakers.com",
+      // },
       {
         name: "Coaching",
         route: null,
