@@ -75,7 +75,6 @@ function Index({
         <meta property="og:image" content={data.image} />
         <meta property="og:image:url" content={data.image} />
         <meta property="og:image:size" content="300" />
-
         <meta name="twitter:card" content={data.description} />
         <meta name="twitter:title" content={data.title} />
         <meta name="twitter:site" content={data.twitter} />
