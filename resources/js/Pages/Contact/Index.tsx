@@ -6,6 +6,7 @@ import { Input } from "@/Components/ui/input";
 import { Textarea } from "@/Components/ui/textarea";
 import ContactPageForm from "@/Components/ui/ContactPageForm";
 import { SpeakerType } from "@/types/speaker-type";
+import SocialLogos from "@/Components/ui/SocialLogos";
 interface ContactPageProps {
   speaker: SpeakerType;
 }
@@ -57,49 +58,8 @@ function Index({ speaker }: ContactPageProps) {
             </div>
 
             <div className="py-6 lg:py-12">
-              <h3 className="font-semibold text-lg">Socials</h3>
-              <div className={"flex space-x-4 mt-4"}>
-                <a
-                  target={"_blank"}
-                  href={
-                    "https://www.linkedin.com/company/mena-speakers/mycompany/"
-                  }
-                  className="p-2 rounded-full border"
-                >
-                  <Linkedin className={"h-5 w-5 stroke-1 text-mena-brand"} />
-                </a>
-
-                <a
-                  target={"_blank"}
-                  href={"https://twitter.com/menaspeakers"}
-                  className="p-2 rounded-full border"
-                >
-                  <Twitter className={"h-5 w-5 stroke-1 text-mena-brand"} />
-                </a>
-
-                <a
-                  target={"_blank"}
-                  href={"https://www.facebook.com/menaspeakers"}
-                  className="p-2 rounded-full border"
-                >
-                  <Facebook className={"h-5 w-5 stroke-1 text-mena-brand"} />
-                </a>
-                <a
-                  target={"_blank"}
-                  href={"https://www.instagram.com/menaspeakers/"}
-                  className="p-2 rounded-full border"
-                >
-                  <Instagram className={"h-5 w-5 stroke-1 text-mena-brand"} />
-                </a>
-
-                <a
-                  target={"_blank"}
-                  href={"https://www.youtube.com/@menaspeakers4868"}
-                  className="p-2 rounded-full border"
-                >
-                  <Youtube className={"h-5 w-5 stroke-1 text-mena-brand"} />
-                </a>
-              </div>
+              <h3 className="font-semibold text-lg mb-2">Socials</h3>
+              <SocialLogos dark={false} />
             </div>
           </div>
           <div className="w-full lg:w-1/2 lg:p-6 lg:p-24">

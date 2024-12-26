@@ -5,9 +5,7 @@ const {
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: ["class"],
-  content: [
-    'resources/js/**/*.tsx',
-	],
+  content: ["resources/js/**/*.tsx"],
   theme: {
     container: {
       center: true,
@@ -19,10 +17,11 @@ module.exports = {
     extend: {
       colors: {
         mena: {
-          100: '#37ACE2',
-          200: '#2A72A9',
-          300: '#1F4282',
-          'brand': '#204283',
+          100: "#37ACE2",
+          200: "#2A72A9",
+          300: "#1F4282",
+          brand: "#204283",
+          secondary: "#1a202c",
         },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -126,11 +125,8 @@ module.exports = {
       },
     },
   },
-  plugins: [
-    require("tailwindcss-animate"),
-    addVariablesForColors
-  ],
-}
+  plugins: [require("tailwindcss-animate"), addVariablesForColors],
+};
 
 function addVariablesForColors({ addBase, theme }) {
   let allColors = flattenColorPalette(theme("colors"));
