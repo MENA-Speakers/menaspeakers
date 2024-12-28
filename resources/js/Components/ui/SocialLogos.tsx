@@ -70,7 +70,7 @@ export default function SocialLogos({ dark }: { dark: boolean }) {
           href={item.href}
           className={`p-2 ${
             dark ? "bg-gray-800" : "bg-slate-200"
-          } transition duration-300 hover:bg-${item.color}  rounded-lg`}
+          } transition duration-300 hover:bg-${item.color} rounded-lg`}
         >
           {item.logo}
         </a>
