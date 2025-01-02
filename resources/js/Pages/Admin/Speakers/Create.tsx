@@ -21,6 +21,7 @@ interface optionType {
   value: string;
   label: string;
 }
+
 interface CreateProps {
   speaker: SpeakerType;
   locations: LocationType[];
@@ -30,18 +31,17 @@ interface CreateProps {
   selectedCategories: optionType[];
 }
 
-function Create( {
-                   speaker,
-                   locations,
-                   categories,
-                   topics,
-                    selectedCategories,
-                    selectedTopics
-} : CreateProps ) {
+function Create({
+                  speaker,
+                  locations,
+                  categories,
+                  topics,
+                  selectedCategories,
+                  selectedTopics
+                }: CreateProps) {
 
 
-
-  const [ imagePreview, setImagePreview ] = React.useState( speaker?.image ? speaker.image : null );
+  const [imagePreview, setImagePreview] = React.useState(speaker?.image ? speaker.image : null);
   const [isEditing, setIsEditing] = React.useState(false);
   useEffect(() => {
     if (speaker) {
@@ -49,7 +49,7 @@ function Create( {
     }
   }, [speaker])
 
-  const formik = useFormik( {
+  const formik = useFormik({
     initialValues: {
       first_name: speaker?.first_name ? speaker.first_name : '',
       last_name: speaker?.last_name ? speaker.last_name : '',
@@ -65,64 +65,64 @@ function Create( {
       categories: speaker?.categories ? speaker.categories : [],
     },
 
-    validationSchema: Yup.object( {
+    validationSchema: Yup.object({
       first_name: Yup.string()
-        .required( 'First Name is required' ),
+        .required('First Name is required'),
       last_name: Yup.string()
-        .required( 'Last Name is required' ),
+        .required('Last Name is required'),
       title: Yup.string()
-        .required( 'Main title is required' ),
+        .required('Main title is required'),
 
       excerpt: Yup.string()
-        .required( 'Meta description is required' ),
+        .required('Meta description is required'),
       bio: Yup.string()
-        .required( 'Bio is required' ),
-    } ),
+        .required('Bio is required'),
+    }),
 
     onSubmit: values => {
-      let url = route( 'admin.speakers.store' );
+      let url = route('admin.speakers.store');
       let method = 'post';
 
-      if ( isEditing ) {
-        url = route( 'admin.speakers.update', speaker.id );
+      if (isEditing) {
+        url = route('admin.speakers.update', speaker.id);
       }
 
 
-      axios( {
+      axios({
         method: method,
         url: url,
         data: values,
         headers: {
           'Content-Type': 'multipart/form-data',
         }
-      } ).then( ( response ) => {
-        formik.setSubmitting( false );
-        router.visit( route( 'admin.speakers.index' ) );
-      } ).catch( ( error ) => {
+      }).then((response) => {
+        formik.setSubmitting(false);
+        router.visit(route('admin.speakers.index'));
+      }).catch((error) => {
         //Set formik errors
-        if ( error.response.status === 422 ) {
-          formik.setErrors( error.response.data.errors );
+        if (error.response.status === 422) {
+          formik.setErrors(error.response.data.errors);
         }
-        formik.setSubmitting( false );
-      } );
+        formik.setSubmitting(false);
+      });
     },
-  } );
+  });
 
 
   const {
     acceptedFiles,
     getRootProps: getRootProps,
     getInputProps: getInputProps,
-  } = useDropzone( {
+  } = useDropzone({
     maxFiles: 1,
     accept: {
       'image/*': [],
     },
-    onDrop: ( acceptedFiles ) => {
-      setImagePreview( URL.createObjectURL( acceptedFiles[ 0 ] ) );
-      formik.setFieldValue( 'image', acceptedFiles[ 0 ] );
+    onDrop: (acceptedFiles) => {
+      setImagePreview(URL.createObjectURL(acceptedFiles[0]));
+      formik.setFieldValue('image', acceptedFiles[0]);
     },
-  } );
+  });
 
   return (
     <AdminLayout
@@ -202,13 +202,13 @@ function Create( {
               <Label htmlFor="key_titles" className="block text-sm font-medium text-gray-700">Keynote Titles </Label>
               <div className="mt-1">
                 <Textarea
-                       name="key_titles"
-                       rows={5}
-                       value={formik.values.key_titles}
-                       onChange={formik.handleChange}
-                       id="key_titles"
-                       className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                       placeholder="Keynote Speaker, MC "/>
+                  name="key_titles"
+                  rows={5}
+                  value={formik.values.key_titles}
+                  onChange={formik.handleChange}
+                  id="key_titles"
+                  className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                  placeholder="Keynote Speaker, MC "/>
               </div>
 
               <p className="text-xs mt-1">Important to separate each title by comma (,)</p>

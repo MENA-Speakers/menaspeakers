@@ -1,3 +1,5 @@
+import {CategoryType} from "@/types/speaker-type";
+
 export type BlogType = {
   id: number;
   title: string;
@@ -11,4 +13,6 @@ export type BlogType = {
   created_at: string;
   updated_at: string;
   image: string;
+  categories: CategoryType[];
+  featured: boolean;
 };

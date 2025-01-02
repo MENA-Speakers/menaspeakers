@@ -11,75 +11,101 @@ import AdminLayout from "@/Layouts/AdminLayout";
 import {Input} from "@/Components/ui/input";
 import {Textarea} from "@/Components/ui/textarea";
 import {Label} from "@/Components/ui/label";
+import {BlogType} from "@/types/blog-type";
+import Select from "react-select";
 
-function Create( {blog} : {blog: BlogType} ) {
+interface optionType {
+  value: string;
+  label: string;
+}
 
-  const formik = useFormik( {
+interface createBlogProps {
+  blog: BlogType,
+  categories: optionType[],
+  selectedCategories: optionType[]
+}
+
+function Create({blog, categories, selectedCategories}: createBlogProps) {
+// Initialize the formik object with initial values and validation schema
+  const formik = useFormik({
     initialValues: {
+      // The title of the blog, defaulting to an empty string if not provided
       title: blog?.title ? blog.title : '',
+      // The meta title of the blog, defaulting to an empty string if not provided
       meta_title: blog?.meta_title ? blog.meta_title : '',
+      // The keywords for the blog, defaulting to a predefined string if not provided
       keywords: blog?.keywords ? blog.keywords :
         'Public speaking, Communication skills, Keynote speaker, Public speaking trainer, Serial entrepreneur, Forbes contributor, Career advancement, Personal branding, Overcoming fear of public speaking, Effective communication, Impactful speeches',
+      // Whether the blog is featured, defaulting to an empty string if not provided
       featured: blog?.featured ? blog.featured : '',
+      // The content of the blog, defaulting to an empty string if not provided
       content: blog?.content ? blog.content : '',
+      // The excerpt of the blog, defaulting to an empty string if not provided
       excerpt: blog?.excerpt ? blog.excerpt : '',
+      // The image associated with the blog, defaulting to an empty string if not provided
       image: '',
+      // The categories associated with the blog, defaulting to an empty array if not provided
+      categories: blog?.categories ? blog.categories : [],
     },
 
-    validationSchema: Yup.object( {
+
+    validationSchema: Yup.object({
       title: Yup.string()
-        .max( 255, 'Must be 255 characters or less' )
-        .required( 'Required' ),
+        .max(255, 'Must be 255 characters or less')
+        .required('Required'),
       meta_title: Yup.string()
-        .max( 75, 'Must be 75 characters or less' ),
+        .max(75, 'Must be 75 characters or less'),
       keywords: Yup.string()
-        .max( 255, 'Must be 255 characters or less' )
-        .required( 'Required' ),
+        .max(255, 'Must be 255 characters or less')
+        .required('Required'),
       content: Yup.string()
-        .min( 50, 'Must be 50 characters or More' )
-        .required( 'Required' ),
-      excerpt: Yup.string().required( 'Required' ),
-    } ),
+        .min(50, 'Must be 50 characters or More')
+        .required('Required'),
+      excerpt: Yup.string().required('Required'),
+    }),
 
     onSubmit: values => {
-      let postUrl = route( 'admin.blogs.store' );
-      if ( blog ) {
-        postUrl = route( 'admin.blogs.update', blog.slug );
+      // Determine the URL for the POST request based on whether a blog exists
+      let postUrl = route('admin.blogs.store');
+      if (blog) {
+        postUrl = route('admin.blogs.update', blog.slug);
       }
 
-      axios.post( postUrl, values, {
+      // Make a POST request to the determined URL with the form values
+      axios.post(postUrl, values, {
         headers: {
           'Content-Type': 'multipart/form-data',
         }
-      } ).then( ( response ) => {
-        router.visit( route( 'admin.blogs.index'));
-        formik.setSubmitting( false );
-      } ).catch( ( error ) => {
-        //Set formik errors
-        if ( error.response.status === 422 ) {
-          formik.setErrors( error.response.data.errors );
+      }).then((response) => {
+        // Redirect to the blogs index route upon successful submission
+        router.visit(route('admin.blogs.index'));
+        formik.setSubmitting(false);
+      }).catch((error) => {
+        // Set formik errors if the response status is 422 (Unprocessable Entity)
+        if (error.response.status === 422) {
+          formik.setErrors(error.response.data.errors);
         }
-        formik.setSubmitting( false );
-      } );
+        formik.setSubmitting(false);
+      });
     },
-  } );
+  });
 
-  const [ imagePreview, setImagePreview ] = React.useState( blog?.image ? blog.image : null );
+  const [imagePreview, setImagePreview] = React.useState(blog?.image ? blog.image : null);
 
   const {
     acceptedFiles,
     getRootProps: getRootProps,
     getInputProps: getInputProps,
-  } = useDropzone( {
+  } = useDropzone({
     maxFiles: 1,
     accept: {
       'image/*': [],
     },
-    onDrop: ( acceptedFiles ) => {
-      setImagePreview( URL.createObjectURL( acceptedFiles[ 0 ] ) );
-      formik.setFieldValue( 'image', acceptedFiles[ 0 ] );
+    onDrop: (acceptedFiles) => {
+      setImagePreview(URL.createObjectURL(acceptedFiles[0]));
+      formik.setFieldValue('image', acceptedFiles[0]);
     },
-  } );
+  });
 
 
   return (
@@ -135,10 +161,25 @@ function Create( {blog} : {blog: BlogType} ) {
 
             </div>
 
+
+            <div className="w-full ">
+              <Label htmlFor="location" className="block text-sm font-medium text-gray-700">Categories</Label>
+              <Select
+                defaultValue={selectedCategories}
+                onChange={(e) => formik.setFieldValue('categories', e)}
+                isMulti
+                name="category"
+                options={categories}
+                className="basic-multi-select"
+                classNamePrefix="select"
+              />
+            </div>
+
+
             <div>
               <label htmlFor="excerpt" className="block text-sm font-medium text-gray-700">Excerpt </label>
               <div className="mt-1">
-                <Textarea rows="2" name="excerpt"
+                <Textarea rows={2} name="excerpt"
                           value={formik.values.excerpt}
                           onChange={formik.handleChange}
                           id="excerpt"
@@ -160,7 +201,7 @@ function Create( {blog} : {blog: BlogType} ) {
                 <ReactQuill
                   theme='snow'
                   value={formik.values.content}
-                  onChange={( e ) => formik.setFieldValue( 'content', e )}
+                  onChange={(e) => formik.setFieldValue('content', e)}
                 />
 
               </div>
@@ -174,7 +215,7 @@ function Create( {blog} : {blog: BlogType} ) {
             <div>
               <div className='w-full lg:w-1/2 '>
                 <Label htmlFor={'file'}>Featured Image</Label>
-                <div {...getRootProps( {className: 'border-dashed border-2 rounded-lg mt-2 py-4 px-4'} )}>
+                <div {...getRootProps({className: 'border-dashed border-2 rounded-lg mt-2 py-4 px-4'})}>
                   <input {...getInputProps()} />
                   <p className={'text-sm'}>Drag 'n' Cover Image, or click to select files</p>
                 </div>
@@ -182,7 +223,7 @@ function Create( {blog} : {blog: BlogType} ) {
                 {/*    display preview */}
                 {imagePreview && (
                   <div className='mx-auto mt-3'>
-                    <img src={imagePreview} className={'h-40 w-40 object-cover'} alt='' />
+                    <img src={imagePreview} className={'h-40 w-40 object-cover'} alt=''/>
                   </div>
                 )}
 

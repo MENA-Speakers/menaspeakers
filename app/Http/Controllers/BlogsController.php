@@ -11,7 +11,10 @@ use Inertia\Inertia;
 class BlogsController extends Controller
 {
     public function index(Request $request){
-      $bogs = null;
+
+      SEOTools::setTitle('Blogs | MENA Speakers');
+      SEOTools::setDescription('Stay informed with the latest insights on public speaking, event management, and leadership from MENA Speakers. Get tips, strategies, and inspiration to elevate your next event.');
+
       $query = null;
       if($request->has('query')){
         $query = $request->input('query');
