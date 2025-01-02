@@ -1,6 +1,6 @@
 import React from "react";
 import MainLayout from "@/Layouts/MainLayout";
-import { Head } from "@inertiajs/react";
+import { Head, Link } from "@inertiajs/react";
 import truncateText from "@/Utils/truncateText";
 import { BlogType } from "@/types/blog-type";
 
@@ -56,42 +56,25 @@ function ViewBlogPage({ blog }: ViewBlogPageProps) {
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-6">
           <div className={"col-span-1 lg:col-span-2 space-y-6 lg:pr-12"}>
             {/*CATEGORIES SECTION */}
-            <div className={"p-4 rounded-xl bg-[#F2F6FE] lg:w-[90%] "}>
-              <h2 className="text-2xl pb-4 text-mena-brand">CATEGORY</h2>
+            {blog.categories && (
+              <div className={"p-4 rounded-xl bg-[#F2F6FE] lg:w-[90%] "}>
+                <h2 className="text-2xl pb-4 text-mena-brand">CATEGORY</h2>
 
-              <div className={"flex flex-wrap items-center gap-4"}>
-                <div
-                  className={"px-4 py-1.5 rounded-3xl bg-mena-brand text-white"}
-                >
-                  Society and Education
-                </div>
-
-                <div
-                  className={"px-4 py-1.5 rounded-3xl bg-mena-brand text-white"}
-                >
-                  AI
-                </div>
-
-                <div
-                  className={"px-4 py-1.5 rounded-3xl bg-mena-brand text-white"}
-                >
-                  Model
-                </div>
-
-                <div
-                  className={"px-4 py-1.5 rounded-3xl bg-mena-brand text-white"}
-                >
-                  Media
-                </div>
-
-                <div
-                  className={"px-4 py-1.5 rounded-3xl bg-mena-brand text-white"}
-                >
-                  Artificial intelligence
+                <div className={"flex flex-wrap items-center gap-4"}>
+                  {blog.categories.map((category) => (
+                    <Link
+                      href={route("categories.show", category.slug)}
+                      key={category.id}
+                      className={
+                        "px-4 py-1.5 rounded-3xl bg-mena-brand border border-mena-brand text-white"
+                      }
+                    >
+                      {category.name}
+                    </Link>
+                  ))}
                 </div>
               </div>
-            </div>
-
+            )}
             {/*TOPICS SECTION */}
             <div className={"p-4 rounded-xl bg-[#F2F6FE] lg:w-[90%] "}>
               <h2 className="text-2xl pb-4 text-mena-brand">TOPICS</h2>
