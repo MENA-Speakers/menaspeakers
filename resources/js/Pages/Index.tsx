@@ -26,7 +26,7 @@ import * as test from "node:test";
 import FooterContactForm from "@/Components/FooterContactForm";
 import ScrollToTop from "@/Components/ui/scrollToTop";
 import InlineNewsLetterForm from "@/Components/InlineNewsLetterForm";
-
+import { BlogType } from "@/types/blog-type";
 interface IndexProps {
   blogs: BlogType[];
   speakers: SpeakerType[];
