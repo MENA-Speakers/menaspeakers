@@ -33,6 +33,8 @@
     --ring: 222.2 84% 4.9%;
 
     --radius: 0.5rem;
+
+    --ui-border-radius-md: 0.5rem;
   }
 
   .dark {
@@ -82,15 +84,12 @@
   /* style all ul lists */
   ul {
     @apply list-disc pl-6;
-
   }
 
   /* style all links in #footer white */
   #footer a {
     @apply text-gray-300;
   }
-
-
 
   .gradient-btn {
     @apply bg-gradient-to-r from-mena-200 to-mena-300;
@@ -107,7 +106,6 @@
   }
 
   .makeStyles-container-1 {
-    padding: 4px!important;
+    padding: 4px !important;
   }
-
 }

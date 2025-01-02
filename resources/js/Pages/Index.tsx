@@ -25,6 +25,7 @@ import { TestimonialType } from "@/types/testimonial-type";
 import * as test from "node:test";
 import FooterContactForm from "@/Components/FooterContactForm";
 import ScrollToTop from "@/Components/ui/scrollToTop";
+import InlineNewsLetterForm from "@/Components/InlineNewsLetterForm";
 
 interface IndexProps {
   blogs: BlogType[];
@@ -372,24 +373,9 @@ function Index({
                 and expert insights straight to your inbox. Unsubscribe anytime
                 with the link in our emails.
               </p>
+              <InlineNewsLetterForm />
             </div>
 
-            <div className={"mt-6"}>
-              <div className="relative">
-                <Input
-                  type={"email"}
-                  placeholder={"Email"}
-                  className={"rounded-lg py-3 px-4 "}
-                />
-                <Button
-                  className={
-                    "bg-mena-brand text-white rounded-l-none  rounded-r-lg absolute right-0 bottom-0 top-0"
-                  }
-                >
-                  <ArrowRight size={24} className={"text-white"} />
-                </Button>
-              </div>
-            </div>
             <div className="mena-society mt-6">
               <h3 className="text-2xl text-mena-brand font-semibold">
                 MENA Speakers Society
