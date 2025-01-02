@@ -1,4 +1,6 @@
 //Blog type interface
+import {CategoryType} from "@/types/speaker-type";
+
 interface BlogType {
     id: number;
     title: string;
@@ -12,4 +14,5 @@ interface BlogType {
     created_at: string;
     published_at: string;
     comments?: Comment[];
+    categories: CategoryType[];
 }

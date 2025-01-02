@@ -16,7 +16,9 @@ class ProfilesController extends Controller
 
   public function index(Request $request){
 
-    $result = [];
+    SEOTools::setTitle('Speakers | MENA Speakers');
+    SEOTools::setDescription("Explore our curated list of dynamic speakers at MENA Speakers. Find professional keynote speakers, MCs, and corporate trainers tailored for your event's needs in the Middle East region");
+
     if($request->hasAny([
       'query',
     ])){
