@@ -25,7 +25,7 @@ function HomePageHeroSection() {
       <div className="absolute bg-gradient-to-br from-black/90 via-slate-900/90 to-zinc-900/70  px-6 inset-0 z-0">
         <div className="w-full lg:h-full flex h-[600px]  items-center justify-center flex-col space-y-8">
           <div className={"space-y-8 py-12"}>
-            <h1 className="text-3xl lg:text-5xl text-mena-100 text-center font-bold">
+            <h1 className="text-3xl lg:text-5xl text-mena-100 text-center font-bold text-balance">
               The leading speakers bureau
               <br />
               in the MENA Region
@@ -39,7 +39,9 @@ function HomePageHeroSection() {
                   name={"query"}
                   value={formik.values.query}
                   onChange={formik.handleChange}
-                  className={"w-full flex-1 z-2  rounded-2xl py-3 text-lg px-5"}
+                  className={
+                    "w-full flex-1 z-2  rounded-2xl py-3 lg:text-lg px-5 text-sm"
+                  }
                   placeholder={"Search by topics, speakers, categories etc"}
                 />
                 <button
@@ -51,7 +53,7 @@ function HomePageHeroSection() {
                   <Search size={26} className={"text-slate-500"} />
                 </button>
               </form>
-              <p className={" hidden text-white text-xs mx-1"}>
+              <p className={" hidden text-white lg:text-xs mx-1 text-sm"}>
                 Popular searches:{" "}
                 <span className="underline cursor-pointer">Geopolitics,</span>{" "}
                 <span className="underline cursor-pointer">
