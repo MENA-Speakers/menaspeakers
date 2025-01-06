@@ -177,6 +177,7 @@ export default function MainLayout({
                         <div className={"px-2"}>
                           {item?.children.map((child, index) => (
                             <a
+                              key={index}
                               href={
                                 child.route ? route(child.route) : child.link
                               }
@@ -190,19 +191,19 @@ export default function MainLayout({
                       )
                     )}
                   </div>
-                  <div className=" hidden lg:flex lg:flex-1 lg:justify-end">
+                  <div className="py-4">
                     <Link
                       href={route("pages.contact")}
                       aria-label={"Contact us"}
-                      className="bg-gradient-to-r from-pink-500 to-rose-500 text-sm font-semibold py-2.5 px-4 py-2 px-4 text-white"
+                      className="text-sm font-semibold bg-mena-brand py-3 px-6 rounded-xl text-white"
                     >
-                      Book Now <span aria-hidden="true">&rarr;</span>
+                      Contact Us
                     </Link>
                   </div>
                 </div>
               </div>
             </Dialog.Panel>
-          </Dialog>
+          </Dialog>{" "}
         </div>
       </header>
 
