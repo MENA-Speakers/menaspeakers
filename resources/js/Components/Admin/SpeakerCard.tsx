@@ -8,7 +8,7 @@ import axios from "axios";
 function SpeakerCard({speaker} : {speaker: SpeakerType}) {
 
   const deleteSpeaker = () => {
-    axios.delete(route('admin.speakers.delete', speaker.slug)).then(response => {
+    axios.post(route('admin.speakers.destroy', speaker.slug)).then(response => {
       router.reload()
     })
   }
