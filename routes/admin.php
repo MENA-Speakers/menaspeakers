@@ -59,7 +59,7 @@
 
     Route::get('/faqs', [AdminFaqController::class, 'index'])->name('faqs.index');
     Route::post('/faqs', [AdminFaqController::class, 'store'])->name('faqs.store');
-    Route::post('/faqs/{faq}', [AdminFaqController::class, 'delete'])->name('faqs.destroy');
+    Route::post('/faqs/{faq}/delete', [AdminFaqController::class, 'delete'])->name('faqs.destroy');
 
 
 
@@ -164,7 +164,7 @@
     Route::post('speakers', [AdminSpeakerController::class, 'store'])->name('speakers.store');
     Route::get('speakers/{speaker}/edit', [AdminSpeakerController::class, 'edit'])->name('speakers.edit');
     Route::post('speakers/{speaker}', [AdminSpeakerController::class, 'update'])->name('speakers.update');
-    Route::delete('speakers/{speaker}/delete', [AdminSpeakerController::class, 'destroy'])->name('speakers.delete');
+    Route::post('speakers/{speaker}/delete', [AdminSpeakerController::class, 'destroy'])->name('speakers.destroy');
 
     Route::get('speakers/{speakers}/videos', [AdminProfileVideoController::class, 'index'])->name('speakers.videos');
     Route::post('speakers/{speakers}/videos', [AdminSpeakerVideoController::class, 'store'])->name('speakers.videos.store');
@@ -173,7 +173,7 @@
     //Speaker Faqs
     Route::get('speakers/{speaker}/faqs', [AdminSpeakerFaqController::class, 'index'])->name('speakers.faqs');
     Route::post('speakers/{speaker}/faqs', [AdminSpeakerFaqController::class, 'store'])->name('speakers.faqs.store');
-    Route::post('speakers/{speaker}/delete', [AdminSpeakerFaqController::class, 'delete'])->name('speakers.faqs.destroy');
+//    Route::post('speakers/{speaker}/faq/delete', [AdminSpeakerFaqController::class, 'delete'])->name('speakers.faqs.destroy');
 
 
     //Gallery Routes
