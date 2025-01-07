@@ -164,7 +164,7 @@
     Route::post('speakers', [AdminSpeakerController::class, 'store'])->name('speakers.store');
     Route::get('speakers/{speaker}/edit', [AdminSpeakerController::class, 'edit'])->name('speakers.edit');
     Route::post('speakers/{speaker}', [AdminSpeakerController::class, 'update'])->name('speakers.update');
-    Route::post('speakers/{speaker}/delete', [AdminSpeakerController::class, 'destroy'])->name('speakers.delete');
+    Route::delete('speakers/{speaker}/delete', [AdminSpeakerController::class, 'destroy'])->name('speakers.delete');
 
     Route::get('speakers/{speakers}/videos', [AdminProfileVideoController::class, 'index'])->name('speakers.videos');
     Route::post('speakers/{speakers}/videos', [AdminSpeakerVideoController::class, 'store'])->name('speakers.videos.store');
