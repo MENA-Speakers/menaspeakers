@@ -36,6 +36,10 @@ class PagesController extends Controller
     return view('pages.profile');
   }
 
+  public function thanks(){
+    return Inertia::render("Contact/ThankYou");
+  }
+
   public function profileArabic(){
     return view('pages.profile-arabic');
   }

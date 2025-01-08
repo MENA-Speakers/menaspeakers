@@ -12,6 +12,7 @@ import {FormMessage} from "@/Components/ui/form";
 import {Alert, AlertDescription, AlertTitle} from "@/Components/ui/alert";
 import {ThumbsUp} from "lucide-react";
 import {SpeakerType} from "@/types/speaker-type";
+import {router} from "@inertiajs/react";
 
 interface FooterContactFormProps {
   speaker?: SpeakerType
@@ -57,6 +58,9 @@ function FooterContactForm({speaker}: FooterContactFormProps) {
 
       if (!crmResponse.ok) {
         throw new Error('Failed to create lead in CRM');
+      } else {
+        //redirect to thank you page
+        return router.visit(route('contact.thank-you'), {method: 'get'})
       }
     } catch (error) {
       console.error('Error creating lead in CRM:', error);
