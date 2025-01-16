@@ -67,6 +67,7 @@ Route::get('profile-arabic', [PagesController::class, 'profileArabic'])->name('p
 Route::get('/faqs', [FaqsController::class, 'index'])->name('faqs.index');
 Route::get('/about-us', [PagesController::class, 'about'])->name('pages.about');
 Route::get('/terms-condition', [PagesController::class, 'terms'])->name('pages.terms');
+Route::get('/privacy-policy', [PagesController::class, 'privacy'])->name('pages.privacy-policy');
 Route::get('/contact/thank-you', [PagesController::class, 'thanks'])->name('pages.thank-you');
 Route::get('/contact', [PagesController::class, 'contact'])->name('pages.contact');
 Route::get('/page/refund-policy', [PagesController::class, 'policy'])->name('pages.policy');
