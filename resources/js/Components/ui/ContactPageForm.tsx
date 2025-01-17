@@ -97,9 +97,11 @@ function FooterContactForm({speaker}: FooterContactFormProps) {
       }
 
       sendBitrix(values).then(r => {
+        console.log('submitted to bitrix')
         formik.setSubmitting( false );
         toast.success('Your request has been submitted successfully. We will get back to you shortly.')
-        router.visit(route('contact.thank-you'), {method: 'get'})
+        console.log('route', route('pages.thank-you'))
+        router.visit(route('pages.thank-you'), {method: 'get'})
         setFormSubmitted(true)
       })
 
