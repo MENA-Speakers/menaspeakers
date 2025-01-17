@@ -59,8 +59,7 @@ function FooterContactForm({speaker}: FooterContactFormProps) {
       if (!crmResponse.ok) {
         throw new Error('Failed to create lead in CRM');
       } else {
-        //redirect to thank you page
-        return router.visit(route('contact.thank-you'), {method: 'get'})
+
       }
     } catch (error) {
       console.error('Error creating lead in CRM:', error);
@@ -100,6 +99,7 @@ function FooterContactForm({speaker}: FooterContactFormProps) {
       sendBitrix(values).then(r => {
         formik.setSubmitting( false );
         toast.success('Your request has been submitted successfully. We will get back to you shortly.')
+        router.visit(route('contact.thank-you'), {method: 'get'})
         setFormSubmitted(true)
       })
 
