@@ -4,7 +4,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+  @php  
+     use Artesaos\SEOTools\Facades\SEOTools; 
+  @endphp  
     <title inertia>{{ config('app.name', 'MENA Speakers') }}</title>
     <link rel="shortcut icon" href="{{ asset('favicon.png') }}" type="image/x-icon">
 
@@ -20,7 +22,7 @@
     <meta name="dc.language" content="en-US">
 
     {{--  SEO Generated --}}
-    {!! SEO::generate() !!}
+    {!! SEOTools::generate() !!}
 
     {{--  end seo generated --}}
 
