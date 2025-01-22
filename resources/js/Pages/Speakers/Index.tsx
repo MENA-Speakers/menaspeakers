@@ -190,7 +190,7 @@ function Index({
           {/* Display Speakers*/}
           <div className="grid grid-cols-1 gap-x-6 gap-y-12 py-12 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4">
             {speakers.data.map((speaker) => (
-              <SpeakerCard key={speaker.id} speaker={speaker} />
+              <SpeakerCard key={speaker.slug} speaker={speaker} />
             ))}
           </div>
 
