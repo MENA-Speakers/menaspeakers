@@ -261,7 +261,7 @@ class AdminSpeakerController extends Controller
       'title'            => $request->input('title'),
       'location_id'      => $request->input('location'),
       'excerpt'          => $request->input('excerpt'),
-      'featured'         => boolval($request->input('featured', true)),
+      'featured'         => boolval($request->input('featured')),
       'meta_description' => $request->input('excerpt'),
       'key_titles'       => $request->input('key_titles'),
     ]);
