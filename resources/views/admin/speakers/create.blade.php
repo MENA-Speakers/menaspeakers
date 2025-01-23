@@ -74,7 +74,7 @@
         </div>
         <div class="relative flex items-start">
           <div class="flex h-5 items-center">
-            <input id="featured"  aria-describedby="featured" name="featured" value="1" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
+            <input id="featured"  aria-describedby="featured" name="featured" value="0" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
           </div>
           <div class="ml-3 text-sm">
             <label for="featured" class="font-medium text-gray-700">Featured</label>
