@@ -62,6 +62,7 @@ class ProfilesController extends Controller
     ]);
   }
 
+
   public function show(Speaker $speaker){
     SEOTools::setTitle($speaker->first_name . ' ' . $speaker->last_name);
     SEOTools::setDescription($speaker->key_titles);
