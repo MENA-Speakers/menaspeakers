@@ -88,9 +88,9 @@ function ViewBlogPage({ blog }: ViewBlogPageProps) {
                   Politics
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
- */}
+
           <div className="col-span-1 lg:col-span-4">
             <div
               dangerouslySetInnerHTML={{ __html: blog.content }}
