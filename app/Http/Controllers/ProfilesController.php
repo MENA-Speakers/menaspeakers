@@ -14,53 +14,62 @@ use Inertia\Inertia;
 class ProfilesController extends Controller
 {
 
-  public function index(Request $request){
+/**
+ * Display a listing of the speakers.
+ *
+ * @param \Illuminate\Http\Request $request
+ * @return \Inertia\Response
+ */
+public function index(Request $request){
 
-    SEOTools::setTitle('Speakers | MENA Speakers');
-    SEOTools::setDescription("Explore our curated list of dynamic speakers at MENA Speakers. Find professional keynote speakers, MCs, and corporate trainers tailored for your event's needs in the Middle East region");
+  // Set SEO title and description for the speakers page
+  SEOTools::setTitle('Speakers | MENA Speakers');
+  SEOTools::setDescription("Explore our curated list of dynamic speakers at MENA Speakers. Find professional keynote speakers, MCs, and corporate trainers tailored for your event's needs in the Middle East region");
 
-    if($request->hasAny([
-      'query',
-    ])){
-
-      $result = Speaker::search($request->input('query'))->paginate(12)->withQueryString();
-    }else {
-      // Return all speakers if no query, featured first
-      $result = Speaker::orderBy('featured', "DESC" )->paginate(12)->withQueryString();
-
-    }
-
-    $topics = Topic::all()->map(function($topic) {
-      return [
-        'value' => $topic->id,
-        'label' => $topic->name,
-      ];
-    });
-
-    $categories = Category::all()->map(function($category) {
-      return [
-        'value' => $category->id,
-        'label' => $category->name,
-      ];
-    });
-
-    $locations = Location::all()->map(function($location) {
-      return [
-        'value' => $location->id,
-        'label' => $location->name,
-      ];
-    });
-
-
-
-    return Inertia::render('Speakers/Index', [
-        'speakers' => SpeakerResource::collection($result),
-        'query' => $request->input('query'),
-        'locations' => $locations,
-        'topics' => $topics,
-        'categories' => $categories,
-    ]);
+  // Check if the request has a query parameter
+  if($request->hasAny([
+    'query',
+  ])){
+    // Search speakers based on the query and paginate the results
+    $result = Speaker::search($request->input('query'))->paginate(12)->withQueryString();
+  }else {
+    // Return all speakers if no query, featured first
+    $result = Speaker::latest()->paginate(12);;
   }
+
+  // Retrieve all topics and format them for the frontend
+  $topics = Topic::all()->map(function($topic) {
+    return [
+      'value' => $topic->id,
+      'label' => $topic->name,
+    ];
+  });
+
+  // Retrieve all categories and format them for the frontend
+  $categories = Category::all()->map(function($category) {
+    return [
+      'value' => $category->id,
+      'label' => $category->name,
+    ];
+  });
+
+  // Retrieve all locations and format them for the frontend
+  $locations = Location::all()->map(function($location) {
+    return [
+      'value' => $location->id,
+      'label' => $location->name,
+    ];
+  });
+
+  // Render the speakers index page with the retrieved data
+  return Inertia::render('Speakers/Index', [
+      'speakers' => SpeakerResource::collection($result),
+      'query' => $request->input('query'),
+      'locations' => $locations,
+      'topics' => $topics,
+      'categories' => $categories,
+  ]);
+}
 
 
   public function show(Speaker $speaker){
