@@ -109,7 +109,7 @@
       <div class="topdata" style="margin-top: 3%;">
         <div class="pack">
           <div class="phone">
-            <a href="tel:+971559832756"><img src="{{ asset('/images/phone.png')}}" alt=""> <p>+971 55 983 2756</p></a>
+            <a href="tel:+971526306673"><img src="{{ asset('/images/phone.png')}}" alt=""> <p>+971 52 630 6673</p></a>
           </div>
           <div class="email">
             <a href="mailto:speakers@mena-speakers.com"><img src="{{ asset('/images/envolp.png')}}" alt=""> <p>info@mena-speakers.com</p></a>
