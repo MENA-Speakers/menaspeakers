@@ -141,10 +141,10 @@
         'blog' => new BlogResource($blog),
         'categories' => $categories,
         'selectedCategories' => $selectedCategories,
-        'author' => [
-          'value' => $author?->id,
-          'label' => $author?->first_name . ' ' . $author?->last_name,
-        ],
+        'author' => $author ? [
+          'value' => $author->id,
+          'label' => $author->first_name . ' ' . $author->last_name,
+        ] : null,
         'authors' => []
       ]);
     }
