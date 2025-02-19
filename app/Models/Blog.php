@@ -82,7 +82,7 @@
 
     public function author(): BelongsTo
     {
-      return $this->belongsTo(Speaker::class, 'speaker_id');
+      return $this->belongsTo(Speaker::class, 'author_id');
     }
 
     /**
