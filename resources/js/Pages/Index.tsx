@@ -99,9 +99,9 @@ function Index({
           </div>
           <div className={"mt-4"}>
             <p className={"text-slate-500"}>
-              We have a roster of 300 top professionals whose sole purpose is to
-              make an event successful and ensure that your audience is getting
-              engaged, educated and empowered.
+              Our roster of 350+ expert professionals is dedicated to making
+              your event a success, ensuring your audience remains educated,
+              engaged and empowered.
             </p>
           </div>
           <HomeFeaturedSpeakers speakers={speakers} />
