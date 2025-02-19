@@ -136,6 +136,12 @@
       });
 
       $author = Speaker::find($blog->author_id);
+      $authors = Speaker::all()->map(function ($author) {
+        return [
+          'value' => $author->id,
+          'label' => $author->first_name . ' ' . $author->last_name,
+        ];
+      });
 
       return Inertia::render('Admin/Blogs/Create', [
         'blog' => new BlogResource($blog),
@@ -145,7 +151,7 @@
           'value' => $author->id,
           'label' => $author->first_name . ' ' . $author->last_name,
         ] : null,
-        'authors' => []
+        'authors' => $authors ? $authors : [],
       ]);
     }
 
