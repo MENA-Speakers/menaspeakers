@@ -142,8 +142,8 @@
         'categories' => $categories,
         'selectedCategories' => $selectedCategories,
         'author' => [
-          'value' => $author->id,
-          'label' => $author->first_name . ' ' . $author->last_name,
+          'value' => $author?->id,
+          'label' => $author?->first_name . ' ' . $author?->last_name,
         ],
         'authors' => []
       ]);
