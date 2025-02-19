@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources;
 
+use App\Http\Requests\StoreSpeakerRequest;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -60,7 +61,7 @@ class SpeakerResource extends JsonResource
           'slug' => $this->slug,
           'keywords' => $this->keywords,
           'videos' => $this->videos,
-          'blogs' => BlogResource::collection($this->blogs),
+          'blogs' => $this->blogs ? StoreSpeakerRequest::collection($this->blogs) : [],
         ];
     }
 }
