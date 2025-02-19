@@ -8,6 +8,7 @@
   use App\Http\Resources\BlogResource;
   use App\Models\Blog;
   use App\Models\Category;
+  use App\Models\Speaker;
   use Illuminate\Contracts\Foundation\Application;
   use Illuminate\Contracts\View\Factory;
   use Illuminate\Contracts\View\View;
@@ -55,9 +56,18 @@
         ];
       });
 
+      $authors = Speaker::all()->map(function ($author) {
+        return [
+          'value' => $author->id,
+          'label' => $author->first_name . ' ' . $author->last_name,
+        ];
+      });
+
+
       return Inertia::render('Admin/Blogs/Create', [
         'categories' => $categories,
-        'selectedCategories' => []
+        'selectedCategories' => [],
+        'authors' => $authors,
       ]);
     }
 
@@ -83,6 +93,7 @@
         'content'  => $request->input('content'),
         'keywords' => $request->input('keywords'),
         'excerpt'  => $request->input('excerpt'),
+        'author_id' => $request->input('authorId'),
         'featured' => boolval($request->input('featured')),
       ]);
 
@@ -124,10 +135,17 @@
         ];
       });
 
+      $author = Speaker::find($blog->author_id);
+
       return Inertia::render('Admin/Blogs/Create', [
         'blog' => new BlogResource($blog),
         'categories' => $categories,
-        'selectedCategories' => $selectedCategories
+        'selectedCategories' => $selectedCategories,
+        'author' => [
+          'value' => $author->id,
+          'label' => $author->first_name . ' ' . $author->last_name,
+        ],
+        'authors' => []
       ]);
     }
 
@@ -151,6 +169,7 @@
         'content'  => $request->input('content'),
         'excerpt'  => $request->input('excerpt'),
         'featured' => boolval($request->input('featured')),
+        'author_id' => $request->input('authorId'),
       ]);
 
       $categoryIds = [];

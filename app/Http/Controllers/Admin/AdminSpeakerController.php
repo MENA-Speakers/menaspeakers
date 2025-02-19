@@ -85,12 +85,12 @@ class AdminSpeakerController extends Controller
       ];
     });
 
+
     return Inertia::render('Admin/Speakers/Create', [
       'locations'          => Location::all(),
       'topics'             => $topics,
       'categories'         => $categories,
       'selectedCategories' => [],
-      'selectedTopics'     => [],
     ]);
   }
 

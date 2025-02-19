@@ -15,4 +15,5 @@ export type BlogType = {
   image: string;
   categories: CategoryType[];
   featured: boolean;
+  authorId: number;
 };

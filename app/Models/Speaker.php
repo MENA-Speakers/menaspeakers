@@ -88,4 +88,9 @@
     }
 
 
+    public function blogs(): HasMany
+    {
+      return $this->hasMany(Blog::class);
+    }
+
   }

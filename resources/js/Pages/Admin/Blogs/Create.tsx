@@ -22,10 +22,12 @@ interface optionType {
 interface createBlogProps {
   blog: BlogType,
   categories: optionType[],
-  selectedCategories: optionType[]
+  selectedCategories: optionType[],
+  authors: optionType[],
+  author: optionType
 }
 
-function Create({blog, categories, selectedCategories}: createBlogProps) {
+function Create({blog, categories, selectedCategories, authors, author}: createBlogProps) {
 // Initialize the formik object with initial values and validation schema
   const formik = useFormik({
     initialValues: {
@@ -46,6 +48,8 @@ function Create({blog, categories, selectedCategories}: createBlogProps) {
       image: '',
       // The categories associated with the blog, defaulting to an empty array if not provided
       categories: blog?.categories ? blog.categories : [],
+      // The author ID associated with the blog, defaulting to an empty string if not provided
+      authorId: blog?.authorId ? blog.authorId : '',
     },
 
 
@@ -168,8 +172,23 @@ function Create({blog, categories, selectedCategories}: createBlogProps) {
                 defaultValue={selectedCategories}
                 onChange={(e) => formik.setFieldValue('categories', e)}
                 isMulti
+                placeholder={"Select Categories"}
                 name="category"
                 options={categories}
+                className="basic-multi-select"
+                classNamePrefix="select"
+              />
+            </div>
+
+
+            <div className="w-full ">
+              <Label htmlFor="location" className="block text-sm font-medium text-gray-700">Author</Label>
+              <Select
+                defaultValue={author}
+                onChange={(e) => formik.setFieldValue('authorId', e?.value)}
+                name="authorId"
+                placeholder={"Select Author"}
+                options={authors}
                 className="basic-multi-select"
                 classNamePrefix="select"
               />

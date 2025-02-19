@@ -60,6 +60,7 @@ class SpeakerResource extends JsonResource
           'slug' => $this->slug,
           'keywords' => $this->keywords,
           'videos' => $this->videos,
+          'blogs' => BlogResource::collection($this->blogs),
         ];
     }
 }
