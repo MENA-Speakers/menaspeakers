@@ -26,6 +26,7 @@ class BlogResource extends JsonResource
           'published_at' => $this->updated_at->format('F j, Y'),
           'image' => $this->getFirstMediaUrl('image', 'webp'),
           'categories'   =>    $this->categories,
+          'author' => $this->author ? SpeakerResource::make($this->author) : null,
         ];
     }
 }

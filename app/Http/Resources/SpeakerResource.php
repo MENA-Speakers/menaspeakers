@@ -61,7 +61,7 @@ class SpeakerResource extends JsonResource
           'slug' => $this->slug,
           'keywords' => $this->keywords,
           'videos' => $this->videos,
-          'blogs' => $this->blogs ? StoreSpeakerRequest::collection($this->blogs) : [],
+          'blogs' => $this->blogs ? BlogResource::collection($this->blogs) : [],
         ];
     }
 }
