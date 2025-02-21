@@ -282,7 +282,7 @@
         <div class="col-md-7">
           <div class="details wow fadeInRight">
             <ul>
-              <li><a href="tel:971559832756"><img src="{{ asset('/images/reciver.png')}}" alt=""> +971 55 983 2756</a></li>
+              <li><a href="tel:971559832756"><img src="{{ asset('/images/reciver.png')}}" alt="">+971526306673</a></li>
               <li class="change"><a href="mailto:info@mena-speakers.com"><img src="{{ asset('/images/mail.png')}}" alt=""> info@mena-speakers.com</a></li>
             </ul>
           </div>
@@ -349,7 +349,7 @@
         <div class="col-md-7">
           <div class="details wow fadeInLeft">
             <ul>
-              <a href="tel:971559832756"><li><img src="{{ asset('/images/reciver.png')}}" alt=""> +971 55 983 2756</li></a>
+              <a href="tel:971559832756"><li><img src="{{ asset('/images/reciver.png')}}" alt="">+971526306673</li></a>
               <a href="mailto:info@mena-speakers.com"><li class="change ch2"><img src="{{ asset('/images/mail.png')}}" alt=""> info@mena-speakers.com</li></a>
             </ul>
           </div>
