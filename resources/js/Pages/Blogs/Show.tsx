@@ -3,12 +3,14 @@ import MainLayout from "@/Layouts/MainLayout";
 import { Head, Link } from "@inertiajs/react";
 import truncateText from "@/Utils/truncateText";
 import { BlogType } from "@/types/blog-type";
+import { SpeakerType } from "@/types/speaker-type";
 
 interface ViewBlogPageProps {
   blog: BlogType;
+  author: SpeakerType;
 }
 
-function ViewBlogPage({ blog }: ViewBlogPageProps) {
+function ViewBlogPage({ blog, author }: ViewBlogPageProps) {
   const blogStructuredData = {
     "@context": "https://schema.org",
     "@type": "Article",
@@ -92,6 +94,7 @@ function ViewBlogPage({ blog }: ViewBlogPageProps) {
           </div>
 
           <div className="col-span-1 lg:col-span-4">
+            <h1>{author ? author.name : ""}</h1>
             <div
               dangerouslySetInnerHTML={{ __html: blog.content }}
               className="px-6 lg  py-12  lg:px-0"
