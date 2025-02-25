@@ -7,10 +7,9 @@ import { SpeakerType } from "@/types/speaker-type";
 
 interface ViewBlogPageProps {
   blog: BlogType;
-  author: SpeakerType;
 }
 
-function ViewBlogPage({ blog, author }: ViewBlogPageProps) {
+function ViewBlogPage({ blog }: ViewBlogPageProps) {
   const blogStructuredData = {
     "@context": "https://schema.org",
     "@type": "Article",
@@ -94,7 +93,6 @@ function ViewBlogPage({ blog, author }: ViewBlogPageProps) {
           </div>
 
           <div className="col-span-1 lg:col-span-4">
-            <h1>{author ? author.name : ""}</h1>
             <div
               dangerouslySetInnerHTML={{ __html: blog.content }}
               className="px-6 lg  py-12  lg:px-0"
