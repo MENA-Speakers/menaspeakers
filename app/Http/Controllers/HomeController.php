@@ -5,21 +5,16 @@ namespace App\Http\Controllers;
 use App\Http\Resources\BlogResource;
 use App\Http\Resources\CategoryResource;
 use App\Http\Resources\ImageResource;
-use App\Http\Resources\ProfileResource;
 use App\Http\Resources\SpeakerResource;
 use App\Http\Resources\TopicResource;
-use App\Mail\BirthdayEmail;
 use App\Models\Blog;
 use App\Models\Category;
 use App\Models\Faq;
 use App\Models\Image;
-use App\Models\Profile;
 use App\Models\Speaker;
 use App\Models\Testimonial;
 use App\Models\Topic;
 use Artesaos\SEOTools\Facades\SEOTools;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Mail;
 use Inertia\Inertia;
 
 class HomeController extends Controller

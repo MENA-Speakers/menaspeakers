@@ -7,6 +7,7 @@ use App\Models\Blog;
 use Artesaos\SEOTools\Facades\SEOTools;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
+
 /**
        * Handles blog-related actions for the application.
        */
