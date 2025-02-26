@@ -93,7 +93,7 @@
         'content'  => $request->input('content'),
         'keywords' => $request->input('keywords'),
         'excerpt'  => $request->input('excerpt'),
-        'author_id' => $request->input('authorId'),
+        'speaker_id' => $request->input('authorId'),
         'featured' => boolval($request->input('featured')),
       ]);
 
@@ -175,7 +175,7 @@
         'content'  => $request->input('content'),
         'excerpt'  => $request->input('excerpt'),
         'featured' => boolval($request->input('featured')),
-        'author_id' => $request->input('authorId'),
+        'speaker_id' => $request->input('authorId'),
       ]);
 
       $categoryIds = [];
