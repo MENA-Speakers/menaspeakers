@@ -9,13 +9,23 @@ use Inertia\Inertia;
 
 class GalleryController extends Controller
 {
-    public function index()
-    {
-        SEOTools::setTitle('Gallery | MENA Speakers');
-        SEOTools::setDescription('Browse the MENA Speakers gallery to relive inspiring moments from past events. View highlights of world-renowned speakers and transformative engagements in the Middle East.');
+/**
+    * Display the gallery page with the latest images.
+    *
+    * This method sets the SEO metadata for the gallery page and retrieves the latest
+    * images from the database. It then renders the 'Gallery/Index' view with these images.
+    *
+    * @return \Inertia\Response
+    */
+   public function index()
+   {
+       // Set SEO metadata for the gallery page
+       SEOTools::setTitle('Gallery | MENA Speakers');
+       SEOTools::setDescription('Browse the MENA Speakers gallery to relive inspiring moments from past events. View highlights of world-renowned speakers and transformative engagements in the Middle East.');
 
-        return Inertia::render('Gallery/Index', [
-            'gallery' => ImageResource::collection(Image::latest()->get())
-        ]);
-    }
+       // Render the 'Gallery/Index' view with the latest images
+       return Inertia::render('Gallery/Index', [
+           'gallery' => ImageResource::collection(Image::latest()->get())
+       ]);
+   }
 }

@@ -195,7 +195,11 @@ Represents a frequently asked question in the system.
 
 ### Routes
 
+
+
 #### Web Routes
+
+### Web Routes
 
 - **GET /about**: Displays the About Us page.
 - **GET /terms**: Displays the Terms and Conditions page.
@@ -203,6 +207,36 @@ Represents a frequently asked question in the system.
 - **GET /contact**: Displays the Contact page.
 - **GET /profile**: Displays the Profile page.
 - **GET /profile-arabic**: Displays the Profile page in Arabic.
+- **GET /speakers**: Lists all speakers.
+- **GET /speakers/{id}**: Displays details for a specific speaker.
+- **POST /speakers**: Creates a new speaker.
+- **PUT /speakers/{id}**: Updates an existing speaker.
+- **DELETE /speakers/{id}**: Deletes a specific speaker.
+- **GET /blogs**: Lists all blog posts.
+- **GET /blogs/{id}**: Displays details for a specific blog post.
+- **POST /blogs**: Creates a new blog post.
+- **PUT /blogs/{id}**: Updates an existing blog post.
+- **DELETE /blogs/{id}**: Deletes a specific blog post.
+- **GET /topics**: Lists all topics.
+- **GET /topics/{id}**: Displays details for a specific topic.
+- **POST /topics**: Creates a new topic.
+- **PUT /topics/{id}**: Updates an existing topic.
+- **DELETE /topics/{id}**: Deletes a specific topic.
+- **GET /videos**: Lists all videos.
+- **GET /videos/{id}**: Displays details for a specific video.
+- **POST /videos**: Uploads a new video.
+- **PUT /videos/{id}**: Updates an existing video.
+- **DELETE /videos/{id}**: Deletes a specific video.
+- **GET /testimonials**: Lists all testimonials.
+- **GET /testimonials/{id}**: Displays details for a specific testimonial.
+- **POST /testimonials**: Creates a new testimonial.
+- **PUT /testimonials/{id}**: Updates an existing testimonial.
+- **DELETE /testimonials/{id}**: Deletes a specific testimonial.
+- **GET /faqs**: Lists all frequently asked questions.
+- **GET /faqs/{id}**: Displays details for a specific FAQ.
+- **POST /faqs**: Creates a new FAQ.
+- **PUT /faqs/{id}**: Updates an existing FAQ.
+- **DELETE /faqs/{id}**: Deletes a specific FAQ.
 
 ## Admin Panel
 

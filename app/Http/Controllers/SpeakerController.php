@@ -11,15 +11,22 @@ use Artesaos\SEOTools\Facades\SEOTools;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
-class ProfilesController extends Controller
+class SpeakerController extends Controller
 {
 
-/**
- * Display a listing of the speakers.
- *
- * @param \Illuminate\Http\Request $request
- * @return \Inertia\Response
- */
+  /**
+   * Displays the main index page for speakers, allowing filtering and searching functionality.
+   *
+   * Sets the SEO title and description for the Speakers page to optimize for search engines.
+   * If a query parameter is provided in the request, it performs a search on the speakers' database and paginates the results.
+   * Otherwise, retrieves all speakers, ordering with the most recent ones first and paginates.
+   * Additionally, retrieves, formats, and provides topics, categories, and locations data to support filtering options on the frontend.
+   * Renders the speakers' index page in the 'Speakers/Index' Inertia view with the provided data.
+   *
+   * @param Request $request The incoming HTTP request containing optional query parameters for filtering.
+   *
+   * @return \Inertia\Response The rendered Inertia view for the speakers' index page.
+   */
 public function index(Request $request){
 
   // Set SEO title and description for the speakers page
@@ -72,6 +79,17 @@ public function index(Request $request){
 }
 
 
+  /**
+   * Displays the details of a given speaker including their metadata for SEO purposes.
+   *
+   * Sets the SEO title, description, Open Graph URL, Open Graph type, Twitter site information,
+   * and JSON-LD image for structured data enhancement.
+   * Renders the speaker's details in the 'Speakers/Show' Inertia view using the SpeakerResource.
+   *
+   * @param Speaker $speaker The speaker whose details are to be displayed.
+   *
+   * @return \Inertia\Response The rendered Inertia view for the speaker details.
+   */
   public function show(Speaker $speaker){
     SEOTools::setTitle($speaker->first_name . ' ' . $speaker->last_name);
     SEOTools::setDescription($speaker->key_titles);

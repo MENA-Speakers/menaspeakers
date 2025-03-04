@@ -35,21 +35,21 @@
         Route::get('/', [AdminHomeController::class, 'index'])->name('dashboard');
 
         // Proposal Profiles
-        Route::get('profiles', [AdminProfileController::class, 'index'])->name('profiles.index');
-        Route::post('profiles/search', [AdminProfileController::class, 'search'])->name('profiles.search');
-        Route::get('profiles/create', [AdminProfileController::class, 'create'])->name('profiles.create');
-        Route::get('profiles/{profile}', [AdminProfileController::class, 'show'])->name('profiles.show');
-        Route::post('profiles', [AdminProfileController::class, 'store'])->name('profiles.store');
-        Route::get('profiles/{profile}/edit', [AdminProfileController::class, 'edit'])->name('profiles.edit');
-        Route::post('profiles/{profile}', [AdminProfileController::class, 'update'])->name('profiles.update');
-        Route::post('profiles/{profile}/delete', [AdminProfileController::class, 'destroy'])->name('profiles.delete');
+//        Route::get('profiles', [AdminProfileController::class, 'index'])->name('profiles.index');
+//        Route::post('profiles/search', [AdminProfileController::class, 'search'])->name('profiles.search');
+//        Route::get('profiles/create', [AdminProfileController::class, 'create'])->name('profiles.create');
+//        Route::get('profiles/{profile}', [AdminProfileController::class, 'show'])->name('profiles.show');
+//        Route::post('profiles', [AdminProfileController::class, 'store'])->name('profiles.store');
+//        Route::get('profiles/{profile}/edit', [AdminProfileController::class, 'edit'])->name('profiles.edit');
+//        Route::post('profiles/{profile}', [AdminProfileController::class, 'update'])->name('profiles.update');
+//        Route::post('profiles/{profile}/delete', [AdminProfileController::class, 'destroy'])->name('profiles.delete');
 
         // Profile Rate Cards
-        Route::get('profiles/{profile}/rate-cards', [AdminRateCardController::class, 'index'])->name('profiles.rate-cards');
-        Route::post('profiles/{profile:hash_id}/rate-cards', [AdminSpeakerPortfolioController::class, 'store'])->name('profiles.rate-cards.store');
-        Route::post('profiles/{portfolio}/rate-cards/delete', [AdminSpeakerPortfolioController::class, 'destroy'])->name('profiles.rate-cards.destroy');
-        Route::post('profiles/{portfolio}/rate-cards/update', [AdminSpeakerPortfolioController::class, 'update'])->name('profiles.rate-cards.update');
-        Route::get('profiles/rate-cards/{portfolio}/edit', [AdminSpeakerPortfolioController::class, 'edit'])->name('profiles.rate-cards.edit');
+//        Route::get('profiles/{profile}/rate-cards', [AdminRateCardController::class, 'index'])->name('profiles.rate-cards');
+//        Route::post('profiles/{profile:hash_id}/rate-cards', [AdminSpeakerPortfolioController::class, 'store'])->name('profiles.rate-cards.store');
+//        Route::post('profiles/{portfolio}/rate-cards/delete', [AdminSpeakerPortfolioController::class, 'destroy'])->name('profiles.rate-cards.destroy');
+//        Route::post('profiles/{portfolio}/rate-cards/update', [AdminSpeakerPortfolioController::class, 'update'])->name('profiles.rate-cards.update');
+//        Route::get('profiles/rate-cards/{portfolio}/edit', [AdminSpeakerPortfolioController::class, 'edit'])->name('profiles.rate-cards.edit');
 
         // Employees Routes
         Route::get('employees', [EmployeeController::class, 'index'])->name('employees.index');
@@ -60,13 +60,13 @@
         Route::post('/faqs', [AdminFaqController::class, 'store'])->name('faqs.store');
         Route::post('/faqs/{faq}/delete', [AdminFaqController::class, 'delete'])->name('faqs.destroy');
 
-        // Portfolios Routes
-        Route::get('portfolios', [PortfolioController::class, 'index'])->name('portfolios.index');
-        Route::post('portfolios', [PortfolioController::class, 'store'])->name('portfolios.store');
-        Route::get('portfolios/create', [PortfolioController::class, 'create'])->name('portfolios.create');
-        Route::get('portfolios/{portfolio}/edit', [PortfolioController::class, 'edit'])->name('portfolios.edit');
-        Route::post('portfolios/{portfolio}', [PortfolioController::class, 'update'])->name('portfolios.update');
-        Route::post('portfolios/{portfolio}/delete', [PortfolioController::class, 'destroy'])->name('portfolios.delete');
+//        // Portfolios Routes
+//        Route::get('portfolios', [PortfolioController::class, 'index'])->name('portfolios.index');
+//        Route::post('portfolios', [PortfolioController::class, 'store'])->name('portfolios.store');
+//        Route::get('portfolios/create', [PortfolioController::class, 'create'])->name('portfolios.create');
+//        Route::get('portfolios/{portfolio}/edit', [PortfolioController::class, 'edit'])->name('portfolios.edit');
+//        Route::post('portfolios/{portfolio}', [PortfolioController::class, 'update'])->name('portfolios.update');
+//        Route::post('portfolios/{portfolio}/delete', [PortfolioController::class, 'destroy'])->name('portfolios.delete');
 
         // Profile Videos
         Route::get('profiles/{profile}/videos', [AdminProfileVideoController::class, 'index'])->name('profiles.videos');
@@ -100,13 +100,13 @@
         Route::get('settings/location', [SettingController::class, 'location'])->name('settings.location');
         Route::post('settings/location', [SettingController::class, 'store'])->name('settings.location.store');
 
-        // Deals
-        Route::get('deals', [DealController::class, 'index'])->name('deals.index');
-        Route::post('deals', [DealController::class, 'store'])->name('deals.store');
-        Route::get('deals/create', [DealController::class, 'create'])->name('deals.create');
-        Route::get('deals/{deal}/edit', [DealController::class, 'edit'])->name('deals.edit');
-        Route::post('deals/{deal}', [DealController::class, 'update'])->name('deals.update');
-        Route::post('deals/{deal}/delete', [DealController::class, 'destroy'])->name('deals.delete');
+//        // Deals
+//        Route::get('deals', [DealController::class, 'index'])->name('deals.index');
+//        Route::post('deals', [DealController::class, 'store'])->name('deals.store');
+//        Route::get('deals/create', [DealController::class, 'create'])->name('deals.create');
+//        Route::get('deals/{deal}/edit', [DealController::class, 'edit'])->name('deals.edit');
+//        Route::post('deals/{deal}', [DealController::class, 'update'])->name('deals.update');
+//        Route::post('deals/{deal}/delete', [DealController::class, 'destroy'])->name('deals.delete');
 
         // Proposals
         Route::get('proposals', [ProposalController::class, 'index'])->name('proposals.index');

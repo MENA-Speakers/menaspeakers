@@ -12,7 +12,7 @@
   use App\Http\Controllers\HomeController;
   use App\Http\Controllers\LocationController;
   use App\Http\Controllers\PagesController;
-  use App\Http\Controllers\ProfilesController;
+  use App\Http\Controllers\SpeakerController;
   use App\Http\Controllers\SpeakerNotificationController;
   use App\Http\Controllers\TopicController;
   use App\Models\Speaker;
@@ -32,7 +32,7 @@
 
   Route::get('/', [HomeController::class, 'index'])->name('index');
 
-  Route::controller(ProfilesController::class)->group(function() {
+  Route::controller(SpeakerController::class)->group(function() {
     Route::get('/speakers', 'index')->name('speakers.index');
     Route::get('/speakers/{speaker}', 'show')->name('speakers.show');
   });
