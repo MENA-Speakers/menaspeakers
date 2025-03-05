@@ -7,16 +7,32 @@ import {FaqType} from "@/types/faq-type";
 import axios from "axios";
 import {Dialog, Transition} from "@headlessui/react";
 import {XMarkIcon} from "@heroicons/react/24/outline";
-import AddFaqForm from "@/Components/Admin/AddFaqForm";
 import {Input} from "@/Components/ui/input";
 import {Textarea} from "@/Components/ui/textarea";
 import {useFormik} from "formik";
 import * as Yup from "yup";
 
+/**
+ * Represents the properties for the FAQ Page component.
+ *
+ * This interface defines the structure for the properties
+ * required by a FAQ (Frequently Asked Questions) page,
+ * specifically holding a collection of FAQ objects.
+ *
+ * @interface
+ * @property {FaqType[]} faqs - An array of FAQ objects, where each object represents a question and its corresponding answer.
+ */
 interface FaqPageProps {
  faqs: FaqType[];
 }
 
+/**
+ * Represents a FAQ (Frequently Asked Questions) page for managing and displaying FAQs.
+ *
+ * @param {Object} props Component props.
+ * @param {Array} props.faqs List of FAQ entries, where each FAQ contains a question and an answer.
+ * @return {JSX.Element} The FAQ page component that renders a list of FAQs with options to add or delete entries.
+ */
 function FaqPage( {faqs} : FaqPageProps) {
 
   const [addingFaq, setAddingFaq] = useState(false);

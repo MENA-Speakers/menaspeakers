@@ -14,11 +14,28 @@ import {Label} from "@/Components/ui/label";
 import {BlogType} from "@/types/blog-type";
 import Select from "react-select";
 
+/**
+ * Represents an option type used in selections or dropdown lists.
+ *
+ * @interface optionType
+ * @property {string} value - The underlying value associated with the option.
+ * @property {string} label - The display text for the option visible to users.
+ */
 interface optionType {
   value: string;
   label: string;
 }
 
+/**
+ * Represents the properties required to create a blog.
+ *
+ * @interface createBlogProps
+ * @property {BlogType} blog - The blog object containing the main content and details.
+ * @property {optionType[]} categories - Array of available category options for the blog.
+ * @property {optionType[]} selectedCategories - Array of categories currently selected for the blog.
+ * @property {optionType[]} authors - Array of available author options for the blog.
+ * @property {optionType} author - The author currently selected for the blog.
+ */
 interface createBlogProps {
   blog: BlogType,
   categories: optionType[],
@@ -27,6 +44,18 @@ interface createBlogProps {
   author: optionType
 }
 
+/**
+ * Renders the blog creation form, initializes the form submission
+ * functionality with validation rules and handles all related processes.
+ *
+ * @param {Object} props - The properties for the Create function.
+ * @param {Object} props.blog - The current blog object being edited. It may contain pre-existing values like title, meta title, keywords, content, etc.
+ * @param {Array} props.categories - The list of categories available for selection in the form.
+ * @param {Array} props.selectedCategories - The currently selected categories for the blog.
+ * @param {Array} props.authors - The list of author options available for selection.
+ * @param {Object} props.author - The currently selected author information.
+ * @return {JSX.Element} Returns the JSX element for rendering the blog form.
+ */
 function Create({blog, categories, selectedCategories, authors, author}: createBlogProps) {
 // Initialize the formik object with initial values and validation schema
   const formik = useFormik({
@@ -110,6 +139,20 @@ function Create({blog, categories, selectedCategories, authors, author}: createB
       formik.setFieldValue('image', acceptedFiles[0]);
     },
   });
+
+  const modules = {
+    toolbar: [
+      [{ 'header': '1'}, {'header': '2'}, { 'font': [] }],
+      [{size: []}],
+      ['bold', 'italic', 'underline', 'strike', 'blockquote'],
+      [{'list': 'ordered'}, {'list': 'bullet'},
+        {'indent': '-1'}, {'indent': '+1'}],
+      ['link', 'image', 'video'],
+      ['clean']
+    ],
+  };
+
+
 
 
   return (
@@ -221,6 +264,7 @@ function Create({blog, categories, selectedCategories, authors, author}: createB
                   theme='snow'
                   value={formik.values.content}
                   onChange={(e) => formik.setFieldValue('content', e)}
+                  modules={modules}
                 />
 
               </div>

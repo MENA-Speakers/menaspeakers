@@ -1,63 +1,86 @@
-import { Fragment, useState } from 'react'
-import { Dialog, Transition } from '@headlessui/react'
+import {Fragment, Key, SetStateAction, useState} from 'react'
+import {Dialog, Transition} from '@headlessui/react'
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
-import {Head, router} from "@inertiajs/react";
+import {Head} from "@inertiajs/react";
 import {useFormik} from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 import PrimaryButton from "@/Components/PrimaryButton";
-import InputLabel from "@/Components/InputLabel";
 import {XMarkIcon} from "@heroicons/react/24/outline";
 import AdminYoutubeVideo from "@/Components/AdminYoutubeVideo";
+import {Button} from "@/Components/ui/button";
+import {SpeakerType} from "@/types/speaker-type";
+import {VideoType} from "@/types/video-type";
 
-function Show( {speaker, videos} ) {
+/**
+ * Represents the properties for a show.
+ *
+ * @interface ShowProps
+ * @property {SpeakerType} speaker - The speaker associated with the show.
+ * @property {VideoType} videos - The list or details of videos related to the show.
+ */
+interface ShowProps {
+  speaker: SpeakerType,
+  videos: VideoType
+}
 
-  const [video, setVideo] = useState( null );
-  const [open, setOpen] = useState( false );
-  const [isEditing, setIsEditing] = useState( false );
-  const [allVideos, setAllVideos] = useState( videos );
+/**
+ * Displays the speaker's information and associated YouTube videos. Provides functionality to add or edit a video link.
+ *
+ * @param {Object} props - The properties passed to the component.
+ * @param {Object} props.speaker - The speaker object containing details about the speaker.
+ * @param {Array} props.videos - The list of videos associated with the speaker.
+ *
+ * @return {JSX.Element} - A React component that renders the UI for managing videos associated with a speaker.
+ */
+function Show({speaker, videos}: ShowProps) {
 
-  const editVideo = ( video ) => {
-    setVideo( video );
-    setIsEditing( true );
-    setOpen( true );
-    formik.setFieldValue( 'link', 'https://www.youtube.com/watch?v=' + video.link );
+  const [video, setVideo] = useState(null);
+  const [open, setOpen] = useState(false);
+  const [isEditing, setIsEditing] = useState(false);
+  const [allVideos, setAllVideos] = useState(videos);
+
+  const editVideo = (video: any) => {
+    setVideo(video);
+    setIsEditing(true);
+    setOpen(true);
+    formik.setFieldValue('link', 'https://www.youtube.com/watch?v=' + video?.link);
   }
 
-  const formik = useFormik( {
+  const formik = useFormik({
     initialValues: {
-      link:  '',
+      link: '',
     },
 
-    validationSchema: Yup.object( {
+    validationSchema: Yup.object({
       //Validate youtube link
       link: Yup.string()
-        .matches( /^(https?\:\/\/)?(www\.youtube\.com)\/.+$/, 'Please enter a valid youtube link' )
-        .required( 'Link is required' ),
-    } ),
+        .matches(/^(https?\:\/\/)?(www\.youtube\.com)\/.+$/, 'Please enter a valid youtube link')
+        .required('Link is required'),
+    }),
 
     onSubmit: values => {
-      let postUrl = route( 'admin.speakers.videos.store', speaker.slug );
-      if ( isEditing ) {
-        postUrl = route( 'admin.speakers.videos.update', video.id );
+      let postUrl = route('admin.speakers.videos.store', speaker.slug);
+      if (isEditing) {
+        postUrl = route('admin.speakers.videos.update', video.id);
       }
 
-      axios.post( postUrl, values
-      ).then( ( response ) => {
-        formik.setSubmitting( false );
-        setOpen( false)
-        setIsEditing( false)
+      axios.post(postUrl, values
+      ).then((response) => {
+        formik.setSubmitting(false);
+        setOpen(false)
+        setIsEditing(false)
         formik.resetForm();
-        setAllVideos( response.data );
-      } ).catch( ( error ) => {
+        setAllVideos(response.data);
+      }).catch((error) => {
         //Set formik errors
-        if ( error.response.status === 422 ) {
-          formik.setErrors( error.response.data.errors );
+        if (error.response.status === 422) {
+          formik.setErrors(error.response.data.errors);
         }
-        formik.setSubmitting( false );
-      } );
+        formik.setSubmitting(false);
+      });
     },
-  } );
+  });
 
 
   return (
@@ -65,7 +88,7 @@ function Show( {speaker, videos} ) {
       header={
         <div className="flex justify-between">
           <h2 className="font-semibold text-xl text-gray-800 leading-tight">Speaker - {speaker.name}</h2>
-          <PrimaryButton onClick={() => setOpen( true )}>Add Video</PrimaryButton>
+          <Button onClick={() => setOpen(true)}>Add Video</Button>
         </div>
       }
     >
@@ -74,8 +97,8 @@ function Show( {speaker, videos} ) {
       <div className="py-12">
         <div className="max-w-7xl mx-auto sm:p-6 lg:p-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {
-            allVideos?.map( ( video, index ) => (
-              <AdminYoutubeVideo key={index} video={video} />
+            allVideos?.map((video: { id: Key | null | undefined; } ) => (
+              <AdminYoutubeVideo key={video.id} video={video} />
             ) )
           }
 

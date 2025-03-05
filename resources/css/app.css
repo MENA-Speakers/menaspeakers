@@ -102,10 +102,7 @@
   /* Blue backdrop glow shadow*/
 
   .ql-container {
-    min-height: 300px;
+    min-height: 300px !important;
   }
 
-  .makeStyles-container-1 {
-    padding: 4px !important;
-  }
 }

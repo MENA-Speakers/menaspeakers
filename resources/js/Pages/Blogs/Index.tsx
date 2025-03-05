@@ -5,6 +5,9 @@ import BlogCard from "@/Components/BlogCard";
 import Pagination from "@/Components/Pagination";
 import {BlogType} from "@/types/blog-type";
 
+/**
+ * Represents the structure of blog data, including paginated information, links, and metadata.
+ */
 interface blogData {
   data: BlogType[],
   links: {
@@ -29,7 +32,18 @@ interface blogData {
   }
 }
 
-function Index({blogs, query}: {blogs: blogData, query: string}) {
+/**
+ * Renders the Blog Index page, including the hero section, blog listing, and pagination.
+ *
+ * @param {Object} props - The properties passed to the component.
+ * @param {Object} props.blogs - The blog data to be displayed.
+ * @param {Array} props.blogs.data - The list of blog posts, including individual blog data.
+ * @param {Object} props.blogs.links - Pagination links for navigating between blog pages.
+ * @param {Object} props.blogs.meta - Additional metadata for the pagination.
+ * @param {string} props.query - The current search query used to filter the blogs.
+ * @return {JSX.Element} The JSX layout for the blog index page.
+ */
+function BlogsPage({blogs, query}: {blogs: blogData, query: string}) {
   return (
     <MainLayout>
       <Head>
@@ -73,4 +87,4 @@ function Index({blogs, query}: {blogs: blogData, query: string}) {
   );
 }
 
-export default Index;
+export default BlogsPage;

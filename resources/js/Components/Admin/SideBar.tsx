@@ -29,12 +29,7 @@ export function SideBar({ className }: SidebarProps) {
               <Mic2 className="mr-2 h-5 w-5" />
               Speakers
             </Link>
-            <Link href={route('admin.profiles.index')} className={ cn("w-full flex justify-start items-center px-3 py-2 text-gray-600 hover:bg-slate-100 hover:text-gray-900 rounded-lg",
-              route().current('admin.profiles.*') && 'bg-slate-100 rounded-lg text-gray-900'
-            )}>
-              <CircleUser className="mr-2 h-5 w-5" />
-              Profiles
-            </Link>
+
 
              <Link href={route('admin.gallery.index')} className={ cn("w-full flex justify-start items-center px-3 py-2 text-gray-600 hover:bg-slate-100 hover:text-gray-900 rounded-lg",
               route().current('admin.gallery.*') && 'bg-slate-100 rounded-lg text-gray-900'

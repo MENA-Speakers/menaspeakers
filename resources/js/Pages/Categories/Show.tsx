@@ -15,12 +15,12 @@ interface SpeakerDataType {
 
 }
 
-interface ShowTopicProps {
+interface ShowCategoryProps {
   speakers: SpeakerType[],
   query: string,
   locations: any[]
 }
-function ShowTopic({speakers, query, locations} : ShowTopicProps) {
+function ShowCategory({speakers, query, locations} : ShowCategoryProps) {
   const formik = useFormik({
     initialValues: {
       query: query ? query : ''
@@ -37,32 +37,6 @@ function ShowTopic({speakers, query, locations} : ShowTopicProps) {
       <section className="py-12">
         <div className="max-w-7xl mx-auto  sm:px-6   px-6 lg:px-0">
 
-          {/*<div className=" pb-12 w-full lg:w-2/3 mx-auto">*/}
-          {/*  <form onSubmit={formik.handleSubmit} className={'space-y-4'}>*/}
-          {/*    <div className={'flex space-x-6 items-center'}>*/}
-          {/*      <div className="flex-grow relative">*/}
-          {/*        <Input name="query" placeholder={'Search'}*/}
-          {/*               className={'w-full border rounded-3xl py-3 px-8'} value={formik.values.query} onChange={formik.handleChange} />*/}
-          {/*        <Search className={'absolute top-1/2 transform -translate-y-1/2 right-4 h-6 w-6 text-gray-400'}/>*/}
-          {/*      </div>*/}
-
-          {/*    </div>*/}
-          {/*  </form>*/}
-          {/*  <div className={'py-4 px-6 flex space-x-3 '}>*/}
-          {/*    <p className={'text-gray-900 text-sm'}>Popular searches: </p>*/}
-          {/*    <div className={'text-sm flex space-x-2'}>*/}
-          {/*      {*/}
-          {/*        locations.map(location => (*/}
-          {/*          <Link key={location.id}*/}
-          {/*                href={route('location.show', {location: location.slug})}*/}
-          {/*                className={'text-gray-500 hover:text-gray-900 text-sm hover:bg-gray-50 px-1.2 underline rounded'}>*/}
-          {/*            {location.name}*/}
-          {/*          </Link>*/}
-          {/*        ))*/}
-          {/*      }*/}
-          {/*    </div>*/}
-          {/*  </div>*/}
-          {/*</div>*/}
 
           {
             !speakers.length && (
@@ -89,14 +63,11 @@ function ShowTopic({speakers, query, locations} : ShowTopicProps) {
               ))}
           </div>
 
-          {/*/!* Pagination *!/*/}
-          {/*<div className="flex justify-center mt-6">*/}
-          {/*  <Pagination links={speakers.links} metaLinks={speakers.meta} />*/}
-          {/*</div>*/}
+
         </div>
       </section>
     </MainLayout>
   );
 }
 
-export default ShowTopic;
+export default ShowCategory;

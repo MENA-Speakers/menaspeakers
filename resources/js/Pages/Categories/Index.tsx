@@ -6,11 +6,30 @@ import Pagination from "@/Components/Pagination";
 import {BlogType} from "@/types/blog-type";
 import {PublicCategoryType} from "@/types/PublicCategoryType";
 
+/**
+ * Represents the properties for the public category page.
+ *
+ * This interface is used to define the shape of the props required
+ * by a component that displays public categories on a page.
+ *
+ * @interface
+ * @property {PublicCategoryType[]} categories - An array of category objects to be displayed.
+ * @property {string} query - A search query or filter string associated with the categories.
+ */
 interface PublicCategoryPageProps {
   categories: PublicCategoryType[],
   query: string
 }
 
+/**
+ * Renders the public category page, displaying a list of blog categories and a header section.
+ *
+ * @param {Object} props - The props object for the PublicCategoryPage component.
+ * @param {Array} props.categories - An array of category objects to display on the page. Each category object contains properties such as `id`, `slug`, `name`, and `image`.
+ * @param {Object} props.query - The query parameters object used to fetch or manipulate categories or related data.
+ *
+ * @return {JSX.Element} The JSX representation of the PublicCategoryPage component.
+ */
 function PublicCategoryPage({categories, query}: PublicCategoryPageProps) {
   return (
     <MainLayout>

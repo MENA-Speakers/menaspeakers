@@ -1,18 +1,26 @@
-import React, {Fragment, useRef, useState} from 'react'
-import {Head, Link, router} from "@inertiajs/react";
+import React, {useState} from 'react'
+import {Head} from "@inertiajs/react";
 import AdminLayout from "@/Layouts/AdminLayout";
 import {ProfileType} from "@/types/admin-profiles";
-import {VideoType} from "@/types/media";
 import AdminProfileHeader from "@/Components/Admin/AdminProfileHeader";
 import {PortfolioType} from "@/types/portfolio-type";
 import {ProposalType} from "@/types/proposal-type";
 import {RateCardType} from "@/types/rate-card";
 import {Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow} from "@/Components/ui/table";
 import {Button} from "@/Components/ui/button";
-import {Dialog, Transition} from '@headlessui/react';
-import {CheckIcon} from "lucide-react";
 import AddVideoLink from "@/Components/AddVideoLink";
 
+/**
+ * Represents the properties required to display a user profile.
+ *
+ * @interface ShowProfileProps
+ *
+ * @property {ProfileType} profile - The profile details of the user.
+ * @property {VideoLinks[]} videos - An array of video links associated with the user.
+ * @property {PortfolioType[]} portfolios - A collection of portfolio entries for the user.
+ * @property {ProposalType[]} proposals - A set of proposals related to the user.
+ * @property {RateCardType[]} rateCards - A list of rate cards associated with the user and their services.
+ */
 interface ShowProfileProps {
   profile: ProfileType,
   videos: VideoLinks[],
@@ -22,6 +30,15 @@ interface ShowProfileProps {
 }
 
 
+/**
+ * Displays the profile and its associated videos in an administrative layout.
+ * Provides functionality to add video links to the profile.
+ *
+ * @param {Object} props - The properties passed to the component.
+ * @param {Object} props.profile - The profile data to display, containing details such as the profile's ID.
+ * @param {Array} props.videos - A list of video objects, where each video contains a link.
+ * @return {JSX.Element} The rendered profile display component.
+ */
 function ShowProfile({profile, videos}: ShowProfileProps) {
 
   const [open, setOpen] = useState(false);

@@ -19,12 +19,31 @@ import {Accordion, AccordionContent, AccordionItem, AccordionTrigger} from "@/Co
 import AddGalleryForm from "@/Components/Admin/AddGalleryForm";
 import {X} from "lucide-react";
 
+/**
+ * Represents the properties required to display a show.
+ *
+ * @interface ShowProps
+ * @property {SpeakerType} speaker - The speaker details for the show.
+ * @property {VideoType[]} videos - A list of videos associated with the show.
+ * @property {FaqType[]} faqs - A list of frequently asked questions related to the show.
+ */
 interface ShowProps {
   speaker: SpeakerType,
   videos: VideoType[],
   faqs: FaqType[],
 }
 
+/**
+ * Displays a detailed view of a speaker, including their videos, FAQs, and gallery images.
+ * Provides functionality for adding, editing, and deleting videos, FAQs, and images,
+ * while maintaining a state-managed interface using React hooks.
+ *
+ * @param {Object} props - The props for the Show component.
+ * @param {Object} props.speaker - The speaker object containing information and resources about the speaker.
+ * @param {Array} props.videos - An array of video objects associated with the speaker.
+ * @param {Array} props.faqs - An array of FAQ objects associated with the speaker.
+ * @return {ReactElement} The rendered view of the speaker's details with interactive features to manage resources.
+ */
 function Show({ speaker, videos, faqs } : ShowProps) {
 
 

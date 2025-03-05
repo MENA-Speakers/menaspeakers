@@ -9,7 +9,29 @@ import {SpeakerType} from "@/types/speaker-type";
 import Pagination from "@/Components/Pagination";
 
 /**
- * Interface for speaker data structure.
+ * The SpeakerData interface represents the data structure for speaker information, which includes
+ * a list of speakers, pagination links, and metadata about the paginated results.
+ *
+ * It consists of the following properties:
+ *
+ * @property {SpeakerType[]} data - An array of speaker objects of type SpeakerType.
+ * @property {Object} links - An object containing URLs for pagination navigation.
+ * @property {string} links.first - URL for the first page of the results.
+ * @property {string} links.last - URL for the last page of the results.
+ * @property {string} links.prev - URL for the previous page of the results.
+ * @property {string} links.next - URL for the next page of the results.
+ * @property {Object} meta - Metadata about the paginated results.
+ * @property {number} meta.current_page - The current page number.
+ * @property {number} meta.from - The starting index of the current page.
+ * @property {number} meta.last_page - The last page number in the pagination.
+ * @property {Object[]} meta.links - An array of link objects for pagination.
+ * @property {string} meta.links.url - The URL associated with a pagination link.
+ * @property {string} meta.links.label - The label describing the pagination link (e.g., page number).
+ * @property {boolean} meta.links.active - Indicates whether the link is for the current page.
+ * @property {string} meta.path - The base path used for generating pagination URLs.
+ * @property {number} meta.per_page - The number of results shown per page.
+ * @property {number} meta.to - The ending index of the current page.
+ * @property {number} meta.total - The total number of results available.
  */
 interface SpeakerData {
   data: SpeakerType[],
@@ -36,12 +58,12 @@ interface SpeakerData {
 }
 
 /**
- * Component for displaying the list of speakers.
+ * Renders the Index component, which displays a list of speakers and provides search functionality.
  *
- * @param {Object} props - Component properties.
- * @param {SpeakerData} props.speakers - The speaker data.
- * @param {string} props.query - The search query.
- * @returns {JSX.Element} The rendered component.
+ * @param {Object} props - The properties passed to the component.
+ * @param {Object} props.speakers - Data representing the list of speakers, including pagination details.
+ * @param {string} props.query - Initial query string for the search input.
+ * @return {JSX.Element} The rendered Index component.
  */
 function Index({speakers, query}: { speakers: SpeakerData, query: string }) {
 

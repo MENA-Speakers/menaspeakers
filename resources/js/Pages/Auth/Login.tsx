@@ -10,6 +10,14 @@ import {Input} from "@/Components/ui/input";
 import {Label} from "@/Components/ui/label";
 import {Button} from "@/Components/ui/button";
 
+/**
+ * Represents the Login component for user authentication.
+ *
+ * @param {Object} props - The properties passed to the component.
+ * @param {string} props.status - A message or status indicator, typically used for success notifications.
+ * @param {boolean} props.canResetPassword - A flag indicating whether the user has the option to reset their password.
+ * @return {JSX.Element} The rendered Login component.
+ */
 export default function Login({ status, canResetPassword }) {
     const { data, setData, post, processing, errors, reset } = useForm({
         email: '',

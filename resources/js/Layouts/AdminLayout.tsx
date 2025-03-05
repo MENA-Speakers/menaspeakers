@@ -2,6 +2,14 @@
 import {SideBar} from "@/Components/Admin/SideBar";
 import TopMenu from "@/Components/Admin/TopMenu";
 
+/**
+ * AdminLayout is a layout component that organizes the structure of an admin page,
+ * providing a top menu, sidebar, and a main content area.
+ *
+ * @param {Object} props - The props object for the AdminLayout component.
+ * @param {React.ReactNode} props.children - The child elements or components to be displayed within the main content area.
+ * @return {JSX.Element} Returns the rendered layout component containing the top menu, sidebar, and content area.
+ */
 export default function AdminLayout({children} : {
     children: React.ReactNode
 }) {

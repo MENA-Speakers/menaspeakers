@@ -6,6 +6,18 @@ import Footer from "@/Components/Footer";
 import { Toaster } from "sonner";
 import { Home, Phone, User } from "lucide-react";
 
+/**
+ * Defines the navigation menu structure for an application.
+ *
+ * @type {Array<Object>} navigation
+ * @property {string} name - The display name of the navigation item.
+ * @property {boolean} dropdown - Indicates if the navigation item has a dropdown menu.
+ * @property {string|null} route - The named route associated with the navigation item. Null if not applicable.
+ * @property {Array<Object>|undefined} children - The child menu items for dropdown menus. Undefined for non-dropdown items.
+ * @property {string} children[].name - The display name of the child menu item.
+ * @property {string|null} children[].route - The named route associated with the child menu item. Null if not applicable.
+ * @property {string} [children[].link] - The external link associated with the child menu item. Optional.
+ */
 const navigation = [
   { name: "Home", dropdown: false, route: "index" },
   { name: "Speakers", dropdown: false, route: "speakers.index" },
@@ -35,6 +47,14 @@ const navigation = [
   },
 ];
 
+/**
+ * MainLayout component that provides the overall layout structure for the application.
+ * Includes a header with navigation, mobile menu, main content area, and footer.
+ *
+ * @param {Object} props - The properties object.
+ * @param {React.ReactNode} props.children - The content to be displayed within the main layout.
+ * @return {JSX.Element} The rendered MainLayout component.
+ */
 export default function MainLayout({
   children,
 }: {

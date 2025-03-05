@@ -1,16 +1,28 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import PrimaryButton from "@/Components/PrimaryButton";
-import { Head, Link } from "@inertiajs/react";
-import { useFormik } from "formik";
-import { useDropzone } from "react-dropzone";
-import DangerButton from "@/Components/DangerButton";
+import {Head, Link} from "@inertiajs/react";
+import {useFormik} from "formik";
+import {useDropzone} from "react-dropzone";
 import AdminLayout from "@/Layouts/AdminLayout";
 import {Button} from "@/Components/ui/button";
 import axios from "axios";
 
-function Index(props) {
+/**
+ * The Index component is used to display a gallery of images with functionality to upload, preview, and delete images.
+ * It utilizes form handling, state management, and React Dropzone for file uploads.
+ *
+ * @param {Object} props - The properties passed to the Index component.
+ * @param {Array} props.images - An array of initial images to populate the gallery.
+ * @return {JSX.Element} The JSX markup for the Index component, which includes the gallery display, upload modal, and controls.
+ */
 
-  const [gallery, setGallery] = useState(props.images);
+interface GalleryIndexProps {
+  images: any[];
+}
+
+function GalleryIndexPage({images} : GalleryIndexProps) {
+
+  const [gallery, setGallery] = useState(images);
   const [isOpen, setIsOpen] = useState(false);
 
   const uploadGallery = () => {
@@ -162,4 +174,4 @@ function Index(props) {
   );
 }
 
-export default Index;
+export default GalleryIndexPage;

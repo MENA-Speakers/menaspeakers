@@ -5,10 +5,38 @@ import truncateText from "@/Utils/truncateText";
 import { BlogType } from "@/types/blog-type";
 import { SpeakerType } from "@/types/speaker-type";
 
+/**
+ * Interface representing the properties for the ViewBlogPage component.
+ *
+ * It defines the necessary data structure required to display a blog page,
+ * including the main blog data.
+ *
+ * @typedef {Object} ViewBlogPageProps
+ * @property {BlogType} blog - The blog content and metadata to be rendered on the page.
+ */
 interface ViewBlogPageProps {
   blog: BlogType;
 }
 
+/**
+ * Renders a blog page with structured data, metadata, and its associated layout, content, and categories.
+ *
+ * @param {Object} props - The properties passed to the component.
+ * @param {Object} props.blog - The blog data object containing information about the blog post.
+ * @param {string} props.blog.title - The title of the blog post.
+ * @param {string} props.blog.image - The image URL associated with the blog post.
+ * @param {string} props.blog.keywords - A string of keywords related to the blog post.
+ * @param {string} props.blog.excerpt - The short description or summary of the blog post.
+ * @param {string} props.blog.content - The full HTML content of the blog post.
+ * @param {Date} props.blog.created_at - The publication date of the blog post.
+ * @param {Date} props.blog.updated_at - The last updated date of the blog post.
+ * @param {Array} [props.blog.categories] - An optional array of category objects associated with the blog post.
+ * @param {string} props.blog.categories[].id - The unique identifier of a category.
+ * @param {string} props.blog.categories[].name - The name of a category.
+ * @param {string} props.blog.categories[].slug - The slug of a category for URL purposes.
+ *
+ * @return {JSX.Element} - A JSX element representing the blog page layout and content.
+ */
 function ViewBlogPage({ blog }: ViewBlogPageProps) {
   const blogStructuredData = {
     "@context": "https://schema.org",

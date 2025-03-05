@@ -17,11 +17,26 @@ import {Label} from "@/Components/ui/label";
 import CreatableSelect from 'react-select/creatable';
 import Select from 'react-select';
 
+/**
+ * Represents an option with a distinct value and label pair.
+ * Commonly used for dropdowns, selectors, or other UI components that involve selectable options.
+ */
 interface optionType {
   value: string;
   label: string;
 }
 
+/**
+ * CreateProps defines the properties required to configure the creation of an entity.
+ *
+ * Properties:
+ * - speaker: Represents the speaker information, defined by the `SpeakerType` type.
+ * - locations: An array of locations, each defined by the `LocationType` type.
+ * - categories: An array of category options, each defined by the `optionType` type.
+ * - topics: An array of topic options, each defined by the `optionType` type.
+ * - selectedTopics: An array of selected topic options, each defined by the `optionType` type.
+ * - selectedCategories: An array of selected category options, each defined by the `optionType` type.
+ */
 interface CreateProps {
   speaker: SpeakerType;
   locations: LocationType[];
@@ -31,6 +46,18 @@ interface CreateProps {
   selectedCategories: optionType[];
 }
 
+/**
+ * Creates or updates a speaker entity using the provided properties and handles the form submission.
+ *
+ * @param {Object} props The properties to configure the creation or update process.
+ * @param {Object} props.speaker The existing speaker object, if editing an existing speaker.
+ * @param {Array} props.locations An array of available location options.
+ * @param {Array} props.categories An array of available categories.
+ * @param {Array} props.topics An array of available topics.
+ * @param {Array} props.selectedCategories An array of preselected categories for the speaker.
+ * @param {Array} props.selectedTopics An array of preselected topics for the speaker.
+ * @return {JSX.Element} The rendered form for creating or editing a speaker.
+ */
 function Create({
                   speaker,
                   locations,
@@ -219,33 +246,6 @@ function Create({
               }
 
             </div>
-
-            {/*{*/}
-            {/*  !isEditing &&*/}
-
-            {/*  <div>*/}
-            {/*    <Label htmlFor="key_titles" className="block text-sm font-medium text-gray-700">Slug (speaker url)</Label>*/}
-            {/*    <div className="mt-1">*/}
-            {/*      <Input type="text"*/}
-            {/*             name="slug"*/}
-            {/*             value={formik.values.slug}*/}
-            {/*             onChange={formik.handleChange}*/}
-            {/*             id="slug"*/}
-            {/*             className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"*/}
-            {/*             placeholder="saana-azzam"/>*/}
-            {/*    </div>*/}
-
-            {/*    {*/}
-            {/*      formik.touched.slug && formik.errors.slug ? (*/}
-            {/*        <div className="text-red-500 text-xs italic">{formik.errors.slug}</div>*/}
-            {/*      ) : null*/}
-            {/*    }*/}
-
-            {/*  </div>*/}
-
-
-            {/*}*/}
-
 
             <div>
               <Label htmlFor="excerpt" className="block text-sm font-medium text-gray-700">Meta

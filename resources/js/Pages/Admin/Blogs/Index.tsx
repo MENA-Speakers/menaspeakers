@@ -2,7 +2,6 @@ import React from 'react';
 import PrimaryButton from "@/Components/PrimaryButton";
 import {Head, Link, router} from "@inertiajs/react";
 import {useFormik} from "formik";
-import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import AdminLayout from "@/Layouts/AdminLayout";
 import {Input} from "@/Components/ui/input";
 import {Button} from "@/Components/ui/button";

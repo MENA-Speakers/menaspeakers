@@ -7,6 +7,17 @@ import TextInput from "@/Components/TextInput";
 import PrimaryButton from "@/Components/PrimaryButton";
 import Pagination from "@/Components/Pagination";
 
+/**
+ * Renders the Index component that displays a list of speakers for a specific location.
+ * Includes search functionality and location filtering.
+ *
+ * @param {Object} props - The properties passed to the component.
+ * @param {Object} props.speakers - An object containing speaker data and pagination links.
+ * @param {string} props.query - The search query input value.
+ * @param {Array} props.locations - A list of location objects available for filtering.
+ * @param {Object} props.location - The current location object containing details like slug and name.
+ * @returns {JSX.Element} The rendered Index component.
+ */
 function Index({speakers, query, locations, location}) {
   const formik = useFormik({
     initialValues: {

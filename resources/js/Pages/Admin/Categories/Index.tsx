@@ -16,12 +16,31 @@ import {FaqType} from "@/types/faq-type";
 import {useDropzone} from "react-dropzone";
 import {Label} from "@/Components/ui/label";
 
+/**
+ * Represents the properties required for rendering a category page.
+ *
+ * This interface defines the structure of the data that is passed
+ * to a category page component, including the categories and topics
+ * to be displayed.
+ *
+ * @property {CategoryType[]} categories - The list of categories to be shown on the page.
+ * @property {CategoryType[]} topics - The list of topics related to the categories on the page.
+ */
 interface CategoryPageProps {
   categories: CategoryType[];
   topics: CategoryType[];
 }
 
-function Index({categories, topics}: CategoryPageProps) {
+/**
+ * Renders the admin categories and topics page. Provides the ability to view, add, and delete categories and topics.
+ * Includes forms for creating new categories with validation and image uploads.
+ *
+ * @param {Object} props - Props passed to the component.
+ * @param {CategoryType[]} props.categories - Initial list of categories to display.
+ * @param {CategoryType[]} props.topics - Initial list of topics to display.
+ * @return {JSX.Element} The rendered component for managing categories and topics.
+ */
+function AdminCategoriesPage({categories, topics}: CategoryPageProps) {
 
   const [allCategories, setAllCategories] = React.useState<CategoryType[]>(categories);
   const [allTopics, setAllTopics] = React.useState<CategoryType[]>(topics);
@@ -313,4 +332,4 @@ function Index({categories, topics}: CategoryPageProps) {
   );
 }
 
-export default Index;
+export default AdminCategoriesPage;

@@ -11,7 +11,19 @@ import AdminLayout from "@/Layouts/AdminLayout";
 import {Input} from "@/Components/ui/input";
 import {Textarea} from "@/Components/ui/textarea";
 import {Label} from "@/Components/ui/label";
+import {BlogType} from "@/types/blog-type";
 
+/**
+ * This function renders a form for creating or updating a blog post, and handles form submission
+ * using Formik and Yup for validation. It also includes features for handling images through a dropzone
+ * and previews, along with various blog properties such as title, meta title, keywords, excerpt,
+ * content, and featured status.
+ *
+ * @param {Object} params - The parameter object.
+ * @param {BlogType} params.blog - An optional blog object containing details for the form's initial values, such as title, meta title, keywords, featured status, content, excerpt, and image.
+ *
+ * @return {JSX.Element} Returns a JSX element representing the blog creation/edit form within the admin layout.
+ */
 function Create( {blog} : {blog: BlogType} ) {
 
   const formik = useFormik( {
@@ -138,7 +150,7 @@ function Create( {blog} : {blog: BlogType} ) {
             <div>
               <label htmlFor="excerpt" className="block text-sm font-medium text-gray-700">Excerpt </label>
               <div className="mt-1">
-                <Textarea rows="2" name="excerpt"
+                <Textarea rows={2} name="excerpt"
                           value={formik.values.excerpt}
                           onChange={formik.handleChange}
                           id="excerpt"

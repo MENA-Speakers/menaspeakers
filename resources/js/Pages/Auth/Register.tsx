@@ -8,6 +8,13 @@ import { Head, Link, useForm } from '@inertiajs/react';
 import {Input} from "@/Components/ui/input";
 import {Label} from "@/Components/ui/label";
 
+/**
+ * Handles the registration process for new users.
+ * Provides a form for user input, validates the data, and submits it to the server.
+ * Manages user input state, errors, and form processing.
+ *
+ * @return {JSX.Element} A React component rendering the registration form layout and input fields.
+ */
 export default function Register() {
     const { data, setData, post, processing, errors, reset } = useForm({
         name: '',
