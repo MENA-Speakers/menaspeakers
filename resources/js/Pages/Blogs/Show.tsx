@@ -108,22 +108,22 @@ function ViewBlogPage({ blog, speakers }: ViewBlogPageProps) {
               </div>
             )}
             {/* AUTHOR SECTION */}
-            {blog.authorId && (
+            {/* {blog.authorId && (
               <div className={"p-4 rounded-xl bg-[#F2F6FE] lg:w-[90%] "}>
                 <h2 className="text-2xl pb-4 text-mena-brand">Author</h2>
 
                 <div className={"flex flex-wrap items-center gap-4"}>
                   <Link
-                    href={route("speakers.show", authorName.slug)}
+                    href={route("speakers.show", authorName?.slug)}
                     className={
                       "px-4 py-1.5 rounded-3xl bg-mena-brand border border-mena-brand text-white"
                     }
                   >
-                    {authorName.name}
+                    {authorName?.name}
                   </Link>
                 </div>
               </div>
-            )}
+            )} */}
             {/*TOPICS SECTION */}
             {/* <div className={"p-4 rounded-xl bg-[#F2F6FE] lg:w-[90%] "}>
               <h2 className="text-2xl pb-4 text-mena-brand">TOPICS</h2>
