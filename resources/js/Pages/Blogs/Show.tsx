@@ -17,7 +17,7 @@ import { Speaker } from "lucide-react";
  */
 interface ViewBlogPageProps {
   blog: BlogType;
-  speakers: SpeakerType[];
+  // speakers: SpeakerType[];
 }
 
 /**
@@ -39,7 +39,7 @@ interface ViewBlogPageProps {
  *
  * @return {JSX.Element} - A JSX element representing the blog page layout and content.
  */
-function ViewBlogPage({ blog, speakers }: ViewBlogPageProps) {
+function ViewBlogPage({ blog }: ViewBlogPageProps) {
   const blogStructuredData = {
     "@context": "https://schema.org",
     "@type": "Article",
@@ -56,7 +56,7 @@ function ViewBlogPage({ blog, speakers }: ViewBlogPageProps) {
     image: blog.image,
     description: blog.excerpt ? blog.excerpt : truncateText(blog.content, 150),
   };
-  const authorName = speakers.find((speaker) => speaker.id === blog.authorId);
+  // const authorName = speakers.find((speaker) => speaker.id === blog.authorId);
 
   return (
     <MainLayout>
@@ -124,22 +124,7 @@ function ViewBlogPage({ blog, speakers }: ViewBlogPageProps) {
                 </div>
               </div>
             )} */}
-            {/*TOPICS SECTION */}
-            {/* <div className={"p-4 rounded-xl bg-[#F2F6FE] lg:w-[90%] "}>
-              <h2 className="text-2xl pb-4 text-mena-brand">TOPICS</h2>
-
-              <div className={"flex flex-wrap items-center gap-4"}>
-                <div
-                  className={
-                    "px-4 py-1.5 rounded-3xl border border-mena-brand text-mena-brand"
-                  }
-                >
-                  Politics
-                </div>
-              </div>
-            </div> */}
           </div>
-
           <div className="col-span-1 lg:col-span-4">
             <div
               dangerouslySetInnerHTML={{ __html: blog.content }}
