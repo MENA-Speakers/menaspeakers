@@ -108,7 +108,7 @@ function ViewBlogPage({ blog, speakers }: ViewBlogPageProps) {
               </div>
             )}
             {/* AUTHOR SECTION */}
-            {authorName && (
+            {blog.authorId && (
               <div className={"p-4 rounded-xl bg-[#F2F6FE] lg:w-[90%] "}>
                 <h2 className="text-2xl pb-4 text-mena-brand">Author</h2>
 
