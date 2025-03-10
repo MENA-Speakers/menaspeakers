@@ -4,6 +4,7 @@ import { Head, Link } from "@inertiajs/react";
 import truncateText from "@/Utils/truncateText";
 import { BlogType } from "@/types/blog-type";
 import { SpeakerType } from "@/types/speaker-type";
+import { Speaker } from "lucide-react";
 
 /**
  * Interface representing the properties for the ViewBlogPage component.
@@ -16,6 +17,7 @@ import { SpeakerType } from "@/types/speaker-type";
  */
 interface ViewBlogPageProps {
   blog: BlogType;
+  speakers: SpeakerType[];
 }
 
 /**
@@ -37,7 +39,7 @@ interface ViewBlogPageProps {
  *
  * @return {JSX.Element} - A JSX element representing the blog page layout and content.
  */
-function ViewBlogPage({ blog }: ViewBlogPageProps) {
+function ViewBlogPage({ blog, speakers }: ViewBlogPageProps) {
   const blogStructuredData = {
     "@context": "https://schema.org",
     "@type": "Article",
@@ -54,6 +56,7 @@ function ViewBlogPage({ blog }: ViewBlogPageProps) {
     image: blog.image,
     description: blog.excerpt ? blog.excerpt : truncateText(blog.content, 150),
   };
+  const authorName = speakers.find((speaker) => speaker.id === blog.authorId);
 
   return (
     <MainLayout>
@@ -101,6 +104,23 @@ function ViewBlogPage({ blog }: ViewBlogPageProps) {
                       {category.name}
                     </Link>
                   ))}
+                </div>
+              </div>
+            )}
+            {/* AUTHOR SECTION */}
+            {authorName && (
+              <div className={"p-4 rounded-xl bg-[#F2F6FE] lg:w-[90%] "}>
+                <h2 className="text-2xl pb-4 text-mena-brand">Author</h2>
+
+                <div className={"flex flex-wrap items-center gap-4"}>
+                  <Link
+                    href={route("speakers.show", authorName.slug)}
+                    className={
+                      "px-4 py-1.5 rounded-3xl bg-mena-brand border border-mena-brand text-white"
+                    }
+                  >
+                    {authorName.name}
+                  </Link>
                 </div>
               </div>
             )}
