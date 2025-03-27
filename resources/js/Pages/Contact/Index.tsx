@@ -50,14 +50,25 @@ function Index({ speaker }: ContactPageProps) {
               here to help. We can help you with speaker choices, availability
               and fees.
             </p>
-            <div className="py-6 lg:py-12">
+            <div className="py-6 lg:py-10">
               <h3 className="font-semibold text-lg">Email</h3>
               <a href={"mailto:info@mena-speakers.com"}>
                 info@mena-speakers.com
               </a>
             </div>
+            <div className="">
+              <h3 className="font-semibold text-lg mb-2">WhatsApp</h3>
+              <a href={" https://wa.me/971559832756"}>
+                {" "}
+                <img
+                  className="w-52"
+                  src="/images/WhatsAppButtonGreenSmall.png"
+                  alt=""
+                />
+              </a>
+            </div>
 
-            <div className="py-6 lg:py-12">
+            <div className="py-6 lg:py-10">
               <h3 className="font-semibold text-lg mb-2">Socials</h3>
               <SocialLogos dark={false} />
             </div>
