@@ -7,6 +7,7 @@ import { Textarea } from "@/Components/ui/textarea";
 import ContactPageForm from "@/Components/ui/ContactPageForm";
 import { SpeakerType } from "@/types/speaker-type";
 import SocialLogos from "@/Components/ui/SocialLogos";
+import Contact from "@/Components/contact";
 interface ContactPageProps {
   speaker: SpeakerType;
 }
@@ -93,8 +94,8 @@ function Index({ speaker }: ContactPageProps) {
               </div>
             )}
             <p>Fill the form so that our team can reach out to you</p>
-
-            <ContactPageForm speaker={speaker} />
+            {/* <ContactPageForm speaker={speaker} /> */}
+            <Contact />
           </div>
         </div>
       </section>
