@@ -60,7 +60,7 @@ Route::get('/terms-condition', [PagesController::class, 'terms'])->name('pages.t
 Route::get('/privacy-policy', [PagesController::class, 'privacy'])->name('pages.privacy-policy');
 Route::get('/contact/thank-you', [PagesController::class, 'thanks'])->name('pages.thank-you');
 Route::get('/contact', [PagesController::class, 'contact'])->name('pages.contact');
-Route::get('/contact/BookSpeaker', [PagesController::class, 'Book'])->name('pages.BookSpeaker');
+Route::get('/contact/BookSpeaker', [PagesController::class, 'book'])->name('pages.BookSpeaker');
 
 Route::get('/page/refund-policy', [PagesController::class, 'policy'])->name('pages.policy');
 
