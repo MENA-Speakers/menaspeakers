@@ -93,9 +93,15 @@ class PagesController extends Controller
     return Inertia::render("Contact/ThankYou");
   }
 
-  public function book()
+  public function book(Request $request)
   {
-    return Inertia::render("Contact/BookSpeaker");
+    // Retrieve the speaker based on the provided slug
+    $speaker = Speaker::where('slug', $request->speaker)->first();
+
+    // Render the contact page with the retrieved speaker data
+    return Inertia::render('Contact/BookSpeaker', [
+      'speaker' => $speaker ? new SpeakerResource($speaker) : null
+    ]);
   }
 
   /**
