@@ -7,7 +7,7 @@ import { Textarea } from "@/Components/ui/textarea";
 import ContactPageForm from "@/Components/ui/ContactPageForm";
 import { SpeakerType } from "@/types/speaker-type";
 import SocialLogos from "@/Components/ui/SocialLogos";
-import Contact from "@/Components/contact";
+import Contact from "@/Components/Contact";
 interface ContactPageProps {
   speaker: SpeakerType;
 }
