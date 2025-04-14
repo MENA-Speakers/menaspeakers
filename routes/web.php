@@ -83,6 +83,9 @@ Route::group(['prefix' => 'external', 'as' => 'external.'], function () {
 
 //Site map route
 Route::get('sitemap', function () {
+  // Force the base URL
+  config(['app.url' => 'https://mena-speakers.com']);
+
   $sitemap = Sitemap::create()
     ->add(route('index'))
     ->add(route('speakers.index'))

@@ -32,6 +32,9 @@ class GenerateSitemap extends Command
    */
   public function handle()
   {
+    // Force the base URL
+    config(['app.url' => 'https://mena-speakers.com']);
+
     // Generate Site Map
     $sitemap = Sitemap::create()
       ->add(Url::create('/'))
