@@ -170,9 +170,6 @@ class AdminBlogController extends Controller
    */
   public function update(BlogUpdateRequest $request, Blog $blog)
   {
-    // Get the speaker ID from the request
-    $speakerId = $request->input('author')['value'] ?? null;
-
     $blog->update([
       'title'      => $request->input('title'),
       'content'    => $request->input('content'),

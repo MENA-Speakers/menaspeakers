@@ -14,12 +14,11 @@ class BlogUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required|string|max:255',
-            'content' => 'required|string',
-            'excerpt' => 'nullable|string',
+            'title'    => 'required|string|max:255',
+            'content'  => 'required|string',
+            'excerpt'  => 'nullable|string',
             'featured' => 'boolean',
-            'author' => 'required|array',
-            'author.value' => 'required|exists:speakers,id',
+            'authorId' => 'required|exists:speakers,id', // Add validation for authorId
             'categories' => 'nullable|array',
             'categories.*.value' => 'exists:categories,id',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
