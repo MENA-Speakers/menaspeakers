@@ -170,31 +170,34 @@ class AdminBlogController extends Controller
    */
   public function update(BlogUpdateRequest $request, Blog $blog)
   {
-    $data = [
-      'title' => $request->input('title'),
-      'content' => $request->input('content'),
-      'excerpt' => $request->input('excerpt'),
-      'featured' => $request->boolean('featured'),
-      'speaker_id' => $request->input('author.value')
-    ];
+    // Get the speaker ID from the request
+    $speakerId = $request->input('author')['value'] ?? null;
 
-    $blog->update($data);
+    $blog->update([
+      'title'      => $request->input('title'),
+      'content'    => $request->input('content'),
+      'excerpt'    => $request->input('excerpt'),
+      'featured'   => boolval($request->input('featured')),
+      'speaker_id' => $request->input('authorId'), // Changed from authorId to match the database column
+    ]);
 
-    if ($request->has('categories')) {
-      $categoryIds = collect($request->input('categories'))->pluck('value')->toArray();
+    $categoryIds = [];
+    if (isset($request->input('categories')[0]['value'])) {
+      $categoryIds = array_map(function ($category) {
+        return $category['value'];
+      }, $request->input('categories'));
+    }
+
+    if (!empty($categoryIds)) {
       $blog->categories()->sync($categoryIds);
     }
 
     if ($request->hasFile('image')) {
-      $blog->clearMediaCollection('image');
       $blog->addMediaFromRequest('image')
         ->toMediaCollection('image');
     }
 
-    return response()->json([
-      'message' => 'Blog updated successfully',
-      'blog' => $blog->fresh(['author', 'categories', 'media'])
-    ]);
+    return response()->json(['success' => true]);
   }
 
 

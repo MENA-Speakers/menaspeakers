@@ -99,10 +99,7 @@ Route::get('sitemap', function () {
   $sitemap->writeToFile(public_path('sitemap.xml'));
 })->name('sitemap');
 
-Route::middleware(['auth', 'verified'])->group(function () {
-  Route::put('/admin/blogs/{blog}', [AdminBlogController::class, 'update'])->name('admin.blogs.update');
-  Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
-});
+Route::get('/dashboard', [DashboardController::class, 'dashboard'])->middleware(['auth', 'verified'])->name('dashboard');
 
 require __DIR__ . '/admin.php';
 require __DIR__ . '/auth.php';
