@@ -268,29 +268,20 @@ function Create({
               />
             </div>
 
-            <div className="w-full">
-              <Label
-                htmlFor="author"
-                className="block text-sm font-medium text-gray-700"
-              >
-                Author
-              </Label>
+            <div>
+              <Label htmlFor="author">Author</Label>
               <Select
+                id="author"
+                name="author"
+                options={authors}
                 value={formik.values.author}
                 onChange={(option) => formik.setFieldValue("author", option)}
-                name="author"
-                placeholder={"Select Author"}
-                options={authors.map((author) => ({
-                  value: author.id.toString(), // Convert to string if needed
-                  label: author.full_name,
-                }))}
-                className="basic-select"
-                classNamePrefix="select"
-                isClearable={true} // Allow clearing the selection
+                isClearable
+                className="mt-1"
               />
               {formik.touched.author && formik.errors.author && (
-                <div className="text-red-500 text-xs mt-1">
-                  {formik.errors.author as string}
+                <div className="text-red-500 text-sm mt-1">
+                  {formik.errors.author}
                 </div>
               )}
             </div>
