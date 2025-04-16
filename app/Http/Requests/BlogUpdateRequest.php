@@ -7,6 +7,16 @@ use Illuminate\Foundation\Http\FormRequest;
 class BlogUpdateRequest extends FormRequest
 {
     /**
+     * Determine if the user is authorized to make this request.
+     *
+     * @return bool
+     */
+    public function authorize()
+    {
+        return true;
+    }
+
+    /**
      * Get the validation rules that apply to the request.
      *
      * @return array<string, mixed>
@@ -14,14 +24,8 @@ class BlogUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'title'    => 'required|string|max:255',
-            'content'  => 'required|string',
-            'excerpt'  => 'nullable|string',
-            'featured' => 'boolean',
-            'authorId' => 'required|exists:speakers,id', // Add validation for authorId
-            'categories' => 'nullable|array',
-            'categories.*.value' => 'exists:categories,id',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+          'title' => 'required',
+          'content' => 'required',
         ];
     }
 }
