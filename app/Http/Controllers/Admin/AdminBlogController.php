@@ -16,7 +16,6 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\DB;
 use Inertia\Inertia;
 
 class AdminBlogController extends Controller
@@ -49,22 +48,26 @@ class AdminBlogController extends Controller
    */
   public function create()
   {
+
+    $categories = Category::all()->map(function ($category) {
+      return [
+        'value' => $category->id,
+        'label' => $category->name,
+      ];
+    });
+
+    $authors = Speaker::all()->map(function ($author) {
+      return [
+        'value' => $author->id,
+        'label' => $author->first_name . ' ' . $author->last_name,
+      ];
+    });
+
+
     return Inertia::render('Admin/Blogs/Create', [
-      'authors' => Speaker::select('id', 'full_name', 'slug')
-        ->orderBy('full_name')
-        ->get(),
-      'categories' => Category::select('id', 'name')
-        ->orderBy('name')
-        ->get()
-        ->map(function ($category) {
-          return [
-            'value' => $category->id,
-            'label' => $category->name
-          ];
-        }),
+      'categories' => $categories,
       'selectedCategories' => [],
-      'author' => null,
-      'blog' => null
+      'authors' => $authors,
     ]);
   }
 
@@ -117,30 +120,38 @@ class AdminBlogController extends Controller
    */
   public function edit(Blog $blog)
   {
+
+    $selectedCategories = $blog->categories->map(function ($category) {
+      return [
+        'value' => $category->id,
+        'label' => $category->name,
+      ];
+    });
+
+    $categories = Category::all()->map(function ($category) {
+      return [
+        'value' => $category->id,
+        'label' => $category->name,
+      ];
+    });
+
+    $author = Speaker::find($blog->author_id);
+    $authors = Speaker::all()->map(function ($author) {
+      return [
+        'value' => $author->id,
+        'label' => $author->first_name . ' ' . $author->last_name,
+      ];
+    });
+
     return Inertia::render('Admin/Blogs/Create', [
-      'blog' => $blog->load(['author', 'categories']),
-      'authors' => Speaker::select('id', 'full_name', 'slug')
-        ->orderBy('full_name')
-        ->get(),
-      'categories' => Category::select('id', 'name')
-        ->orderBy('name')
-        ->get()
-        ->map(function ($category) {
-          return [
-            'value' => $category->id,
-            'label' => $category->name
-          ];
-        }),
-      'selectedCategories' => $blog->categories->map(function ($category) {
-        return [
-          'value' => $category->id,
-          'label' => $category->name
-        ];
-      }),
-      'author' => $blog->author ? [
-        'value' => $blog->author->id,
-        'label' => $blog->author->full_name
-      ] : null
+      'blog' => new BlogResource($blog),
+      'categories' => $categories,
+      'selectedCategories' => $selectedCategories,
+      'author' => $author ? [
+        'value' => $author->id,
+        'label' => $author->first_name . ' ' . $author->last_name,
+      ] : null,
+      'authors' => $authors ? $authors : [],
     ]);
   }
 
@@ -155,9 +166,9 @@ class AdminBlogController extends Controller
    * @param BlogUpdateRequest $request The request object containing the validated data for the blog post update.
    * @param Blog $blog The blog instance to be updated.
    *
-   * @return RedirectResponse
+   * @return Response The response after the blog post has been updated.
    */
-  public function update(BlogUpdateRequest $request, Blog $blog): RedirectResponse
+  public function update(BlogUpdateRequest $request, Blog $blog)
   {
     try {
       DB::beginTransaction();
@@ -184,11 +195,17 @@ class AdminBlogController extends Controller
       }
 
       DB::commit();
-      return redirect()->route('admin.blogs.index')
-        ->with('success', 'Blog updated successfully');
+
+      return response()->json([
+        'message' => 'Blog updated successfully',
+        'blog' => $blog->fresh(['author', 'categories', 'media'])
+      ]);
     } catch (\Exception $e) {
       DB::rollBack();
-      return back()->with('error', 'An error occurred while updating the blog');
+      return response()->json([
+        'message' => 'An error occurred while updating the blog',
+        'error' => $e->getMessage()
+      ], 500);
     }
   }
 

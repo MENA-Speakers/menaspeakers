@@ -36,19 +36,12 @@ interface optionType {
  * @property {optionType[]} authors - Array of available author options for the blog.
  * @property {optionType} author - The author currently selected for the blog.
  */
-interface AuthorType {
-  id: number;
-  full_name: string;
-  slug: string;
-  image?: string;
-}
-
 interface createBlogProps {
   blog: BlogType;
   categories: optionType[];
   selectedCategories: optionType[];
-  authors: AuthorType[]; // Changed this to match the actual author type
-  author: AuthorType | null;
+  authors: optionType[];
+  author: optionType;
 }
 
 /**
@@ -79,13 +72,13 @@ function Create({
       featured: blog?.featured || false,
       author: blog?.author
         ? {
-            value: blog.author.id.toString(), // Convert to string if needed
+            value: blog.author.id,
             label: blog.author.full_name,
           }
         : null,
       categories:
         blog?.categories?.map((category) => ({
-          value: category.id.toString(), // Convert to string if needed
+          value: category.id,
           label: category.name,
         })) || [],
       image: null,
@@ -108,7 +101,8 @@ function Create({
       formData.append("featured", values.featured ? "1" : "0");
 
       if (values.author) {
-        formData.append("author_id", values.author.value); // Changed this line
+        formData.append("author[value]", values.author.value);
+        formData.append("author[label]", values.author.label);
       }
 
       if (values.categories) {
@@ -281,18 +275,12 @@ function Create({
                 name="author"
                 placeholder={"Select Author"}
                 options={authors.map((author) => ({
-                  value: author.id.toString(), // Convert to string if needed
+                  value: author.id,
                   label: author.full_name,
                 }))}
                 className="basic-select"
                 classNamePrefix="select"
-                isClearable={true} // Allow clearing the selection
               />
-              {formik.touched.author && formik.errors.author && (
-                <div className="text-red-500 text-xs mt-1">
-                  {formik.errors.author as string}
-                </div>
-              )}
             </div>
 
             <div>
