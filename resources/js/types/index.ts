@@ -14,7 +14,7 @@ export interface Blog {
     featured: boolean;
     image: string;
     author: Author;
-    categories: CategoryType[];
+    categories: Category[];
     published_at: string;
 }
 
@@ -33,3 +33,4 @@ export interface BlogFormData {
         label: string;
     }[];
 }
+
