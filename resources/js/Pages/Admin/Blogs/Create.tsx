@@ -79,13 +79,13 @@ function Create({
       featured: blog?.featured || false,
       author: blog?.author
         ? {
-            value: blog.author.id, // Make sure we're using the correct id
-            label: blog.author.full_name, // Using the concatenated name from backend
+            value: blog.author.id.toString(), // Convert to string if needed
+            label: blog.author.full_name,
           }
         : null,
       categories:
         blog?.categories?.map((category) => ({
-          value: category.id,
+          value: category.id.toString(), // Convert to string if needed
           label: category.name,
         })) || [],
       image: null,
@@ -108,16 +108,17 @@ function Create({
       formData.append("featured", values.featured ? "1" : "0");
 
       if (values.author) {
-        formData.append("author_id", values.author.value.toString());
+        formData.append("author_id", values.author.value); // Changed this line
       }
 
-      if (values.categories && values.categories.length > 0) {
+      if (values.categories) {
         values.categories.forEach((category, index) => {
-          formData.append(`categories[${index}]`, category.value.toString());
+          formData.append(`categories[${index}][value]`, category.value);
+          formData.append(`categories[${index}][label]`, category.label);
         });
       }
 
-      if (values.image instanceof File) {
+      if (values.image) {
         formData.append("image", values.image);
       }
 
@@ -144,7 +145,6 @@ function Create({
           if (error.response.status === 422) {
             formik.setErrors(error.response.data.errors);
           }
-          console.error("Error:", error.response?.data); // Add this for debugging
           formik.setSubmitting(false);
         });
     },
