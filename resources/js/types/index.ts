@@ -1,13 +1,8 @@
 export interface Author {
     id: number;
-    name: string;
+    name: string; // Updated from full_name to name
     slug: string;
     image: string;
-}
-
-export interface SelectOption {
-    value: number;
-    label: string;
 }
 
 export interface Blog {
@@ -18,8 +13,8 @@ export interface Blog {
     excerpt: string;
     featured: boolean;
     image: string;
-    author: Author | null;
-    categories: CategoryType[];
+    author: Author;
+    categories: Category[];
     published_at: string;
 }
 
@@ -29,8 +24,13 @@ export interface BlogFormData {
     excerpt: string;
     featured: boolean;
     image?: File | null;
-    author: SelectOption | null;
-    categories: SelectOption[];
+    author: {
+        value: number;
+        label: string;
+    } | null;
+    categories: {
+        value: number;
+        label: string;
+    }[];
 }
-
 
