@@ -159,36 +159,36 @@ class AdminBlogController extends Controller
 
   /**
    * Update the specified resource in storage.
-   *
-   * This method handles the update of an existing blog post. It validates the request data,
-   * updates the blog post with the provided data, and optionally handles the upload
-   * of a new image file associated with the blog post.
-   *
-   * @param BlogUpdateRequest $request The request object containing the validated data for the blog post update.
-   * @param Blog $blog The blog instance to be updated.
-   *
-   * @return RedirectResponse
    */
-  public function update(BlogUpdateRequest $request, Blog $blog): RedirectResponse
+  public function update(Request $request, Blog $blog)
   {
+    $validated = $request->validate([
+      'title' => 'required|string|max:255',
+      'content' => 'required|string',
+      'excerpt' => 'required|string',
+      'featured' => 'boolean',
+      'author_id' => 'nullable|exists:speakers,id',
+      'categories' => 'nullable|array',
+      'categories.*' => 'exists:categories,id',
+      'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048'
+    ]);
+
+    DB::beginTransaction();
     try {
-      DB::beginTransaction();
+      $blog->update([
+        'title' => $validated['title'],
+        'content' => $validated['content'],
+        'excerpt' => $validated['excerpt'],
+        'featured' => $validated['featured'],
+        'author_id' => $validated['author_id'] ?? null,
+      ]);
 
-      $data = [
-        'title' => $request->input('title'),
-        'content' => $request->input('content'),
-        'excerpt' => $request->input('excerpt'),
-        'featured' => $request->boolean('featured'),
-        'speaker_id' => $request->input('author.value')
-      ];
-
-      $blog->update($data);
-
-      if ($request->has('categories')) {
-        $categoryIds = collect($request->input('categories'))->pluck('value')->toArray();
-        $blog->categories()->sync($categoryIds);
+      // Handle categories
+      if (isset($validated['categories'])) {
+        $blog->categories()->sync($validated['categories']);
       }
 
+      // Handle image upload
       if ($request->hasFile('image')) {
         $blog->clearMediaCollection('image');
         $blog->addMediaFromRequest('image')
@@ -196,11 +196,17 @@ class AdminBlogController extends Controller
       }
 
       DB::commit();
-      return redirect()->route('admin.blogs.index')
-        ->with('success', 'Blog updated successfully');
+
+      return redirect()
+        ->route('admin.blogs.index')
+        ->with('success', 'Blog updated successfully.');
     } catch (\Exception $e) {
       DB::rollBack();
-      return back()->with('error', 'An error occurred while updating the blog');
+      Log::error('Blog update failed: ' . $e->getMessage());
+
+      return back()
+        ->withErrors(['error' => 'Failed to update blog. Please try again.'])
+        ->withInput();
     }
   }
 

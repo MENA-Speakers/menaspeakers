@@ -99,9 +99,8 @@ Route::get('sitemap', function () {
   $sitemap->writeToFile(public_path('sitemap.xml'));
 })->name('sitemap');
 
-Route::middleware(['auth', 'verified'])->group(function () {
-  Route::put('/admin/blogs/{blog}', [AdminBlogController::class, 'update'])->name('admin.blogs.update');
-  Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
+Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(function () {
+  Route::resource('blogs', AdminBlogController::class);
 });
 
 require __DIR__ . '/admin.php';
