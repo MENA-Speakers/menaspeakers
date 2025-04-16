@@ -5,7 +5,6 @@ import truncateText from "@/Utils/truncateText";
 interface BlogCardProps {
   blog: BlogType;
 }
-
 function BlogCard({ blog }: BlogCardProps) {
   return (
     <div className="rounded-2xl overflow-hidden border">

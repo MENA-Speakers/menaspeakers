@@ -111,41 +111,19 @@ function ViewBlogPage({ blog }: ViewBlogPageProps) {
             {blog.author ? (
               <div className={"p-4 rounded-xl bg-[#F2F6FE] lg:w-[90%] "}>
                 <h2 className="text-2xl pb-4 text-mena-brand">Author</h2>
-                <div className="flex items-center space-x-4">
-                  <Link href={route("speakers.show", blog.author.slug)}>
-                    <img
-                      src={blog.author.image}
-                      alt={blog.author.full_name}
-                      className="w-16 h-16 rounded-full object-cover"
-                    />
+
+                <div className={"flex flex-wrap items-center gap-4"}>
+                  <Link
+                    href={route("speakers.show", authorName?.slug)}
+                    className={
+                      "px-4 py-1.5 rounded-3xl bg-mena-brand border border-mena-brand text-white"
+                    }
+                  >
+                    {authorName?.name}
                   </Link>
-                  <div>
-                    <Link
-                      href={route("speakers.show", blog.author.slug)}
-                      className="text-lg font-semibold hover:text-mena-brand"
-                    >
-                      {blog.author.full_name}
-                    </Link>
-                    <p className="text-sm text-slate-600 mt-1">
-                      {blog.author.title || "Speaker"}
-                    </p>
-                  </div>
                 </div>
               </div>
-            ) : (
-              <div className={"p-4 rounded-xl bg-[#F2F6FE] lg:w-[90%] "}>
-                <h2 className="text-2xl pb-4 text-mena-brand">Author</h2>
-                <div className="flex items-center space-x-4">
-                  <div className="w-16 h-16 rounded-full bg-mena-brand flex items-center justify-center">
-                    <span className="text-white text-xl">MS</span>
-                  </div>
-                  <div>
-                    <p className="text-lg font-semibold">MENA Speakers</p>
-                    <p className="text-sm text-slate-600 mt-1">Official</p>
-                  </div>
-                </div>
-              </div>
-            )}
+            )} */}
           </div>
           <div className="col-span-1 lg:col-span-4">
             <div
