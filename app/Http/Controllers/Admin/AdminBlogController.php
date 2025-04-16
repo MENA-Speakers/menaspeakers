@@ -50,8 +50,8 @@ class AdminBlogController extends Controller
   public function create()
   {
     return Inertia::render('Admin/Blogs/Create', [
-      'authors' => Speaker::select('id', 'full_name', 'slug')
-        ->orderBy('full_name')
+      'authors' => Speaker::select('id', 'name as full_name', 'slug')
+        ->orderBy('name')
         ->get(),
       'categories' => Category::select('id', 'name')
         ->orderBy('name')
@@ -119,8 +119,8 @@ class AdminBlogController extends Controller
   {
     return Inertia::render('Admin/Blogs/Create', [
       'blog' => $blog->load(['author', 'categories']),
-      'authors' => Speaker::select('id', 'full_name', 'slug')
-        ->orderBy('full_name')
+      'authors' => Speaker::select('id', 'name as full_name', 'slug')
+        ->orderBy('name')
         ->get(),
       'categories' => Category::select('id', 'name')
         ->orderBy('name')
@@ -139,7 +139,7 @@ class AdminBlogController extends Controller
       }),
       'author' => $blog->author ? [
         'value' => $blog->author->id,
-        'label' => $blog->author->full_name
+        'label' => $blog->author->name
       ] : null
     ]);
   }
