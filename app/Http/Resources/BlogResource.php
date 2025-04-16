@@ -28,7 +28,7 @@ class BlogResource extends JsonResource
       'categories' => $this->categories,
       'author' => $this->author ? [
         'id' => $this->author->id,
-        'name' => $this->author->name,  // Changed from full_name to name
+        'name' => trim($this->author->first_name . ' ' . $this->author->last_name),
         'slug' => $this->author->slug,
         'image' => $this->author->getFirstMediaUrl('avatar', 'webp')
       ] : null,
