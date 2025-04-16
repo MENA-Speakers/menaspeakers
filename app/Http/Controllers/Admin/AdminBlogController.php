@@ -170,43 +170,31 @@ class AdminBlogController extends Controller
    */
   public function update(BlogUpdateRequest $request, Blog $blog)
   {
-    try {
-      DB::beginTransaction();
+    $data = [
+      'title' => $request->input('title'),
+      'content' => $request->input('content'),
+      'excerpt' => $request->input('excerpt'),
+      'featured' => $request->boolean('featured'),
+      'speaker_id' => $request->input('author.value')
+    ];
 
-      $data = [
-        'title' => $request->input('title'),
-        'content' => $request->input('content'),
-        'excerpt' => $request->input('excerpt'),
-        'featured' => $request->boolean('featured'),
-        'speaker_id' => $request->input('author.value')
-      ];
+    $blog->update($data);
 
-      $blog->update($data);
-
-      if ($request->has('categories')) {
-        $categoryIds = collect($request->input('categories'))->pluck('value')->toArray();
-        $blog->categories()->sync($categoryIds);
-      }
-
-      if ($request->hasFile('image')) {
-        $blog->clearMediaCollection('image');
-        $blog->addMediaFromRequest('image')
-          ->toMediaCollection('image');
-      }
-
-      DB::commit();
-
-      return response()->json([
-        'message' => 'Blog updated successfully',
-        'blog' => $blog->fresh(['author', 'categories', 'media'])
-      ]);
-    } catch (\Exception $e) {
-      DB::rollBack();
-      return response()->json([
-        'message' => 'An error occurred while updating the blog',
-        'error' => $e->getMessage()
-      ], 500);
+    if ($request->has('categories')) {
+      $categoryIds = collect($request->input('categories'))->pluck('value')->toArray();
+      $blog->categories()->sync($categoryIds);
     }
+
+    if ($request->hasFile('image')) {
+      $blog->clearMediaCollection('image');
+      $blog->addMediaFromRequest('image')
+        ->toMediaCollection('image');
+    }
+
+    return response()->json([
+      'message' => 'Blog updated successfully',
+      'blog' => $blog->fresh(['author', 'categories', 'media'])
+    ]);
   }
 
 

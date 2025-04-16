@@ -73,7 +73,7 @@ function Create({
       author: blog?.author
         ? {
             value: blog.author.id,
-            label: blog.author.full_name,
+            label: blog.author.name,
           }
         : null,
       categories:
@@ -116,17 +116,16 @@ function Create({
         formData.append("image", values.image);
       }
 
-      const isEditing = !!blog?.id;
-      const url = isEditing
-        ? route("admin.blogs.update", blog.slug)
-        : route("admin.blogs.store");
-
-      if (isEditing) {
+      // Determine the URL for the POST request based on whether a blog exists
+      let postUrl = route("admin.blogs.store");
+      if (blog) {
+        postUrl = route("admin.blogs.update", blog.slug);
+        // Add _method field for Laravel to recognize this as a PUT request
         formData.append("_method", "PUT");
       }
 
       axios
-        .post(url, formData, {
+        .post(postUrl, formData, {
           headers: {
             "Content-Type": "multipart/form-data",
           },
@@ -181,7 +180,7 @@ function Create({
 
   return (
     <AdminLayout>
-      <Head title={blog ? "Edit Blog" : "New Blog"} />
+      <Head title="New Blog" />
 
       <div className="py-4">
         <div className="max-w-7xl mx-auto sm:p-6 lg:p-4 bg-white overflow-hidden">
@@ -262,23 +261,20 @@ function Create({
               />
             </div>
 
-            <div className="w-full">
+            <div className="w-full ">
               <Label
-                htmlFor="author"
+                htmlFor="location"
                 className="block text-sm font-medium text-gray-700"
               >
                 Author
               </Label>
               <Select
-                value={formik.values.author}
-                onChange={(option) => formik.setFieldValue("author", option)}
-                name="author"
+                defaultValue={author}
+                onChange={(e) => formik.setFieldValue("authorId", e?.value)}
+                name="authorId"
                 placeholder={"Select Author"}
-                options={authors.map((author) => ({
-                  value: author.id,
-                  label: author.full_name,
-                }))}
-                className="basic-select"
+                options={authors}
+                className="basic-multi-select"
                 classNamePrefix="select"
               />
             </div>
