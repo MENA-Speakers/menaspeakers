@@ -32,7 +32,7 @@ class AdminBlogController extends Controller
    */
   public function index()
   {
-    $blogs = Blog::with(['author', 'categories'])->latest()->paginate(12);
+    $blogs = Blog::with('author')->latest()->paginate(12);
     return Inertia::render('Admin/Blogs/Index', [
       'blogs' => BlogResource::collection($blogs)
     ]);
@@ -48,6 +48,7 @@ class AdminBlogController extends Controller
    */
   public function create()
   {
+
     $categories = Category::all()->map(function ($category) {
       return [
         'value' => $category->id,
@@ -62,11 +63,11 @@ class AdminBlogController extends Controller
       ];
     });
 
+
     return Inertia::render('Admin/Blogs/Create', [
       'categories' => $categories,
       'selectedCategories' => [],
       'authors' => $authors,
-      'author' => null,
     ]);
   }
 
@@ -119,7 +120,7 @@ class AdminBlogController extends Controller
    */
   public function edit(Blog $blog)
   {
-    $blog->load(['author', 'categories']);
+    $blog->load('author');
 
     $selectedCategories = $blog->categories->map(function ($category) {
       return [
@@ -135,6 +136,7 @@ class AdminBlogController extends Controller
       ];
     });
 
+    $author = Speaker::find($blog->author_id);
     $authors = Speaker::all()->map(function ($author) {
       return [
         'value' => $author->id,
@@ -146,11 +148,11 @@ class AdminBlogController extends Controller
       'blog' => new BlogResource($blog),
       'categories' => $categories,
       'selectedCategories' => $selectedCategories,
-      'authors' => $authors,
-      'author' => $blog->author ? [
-        'value' => $blog->author->id,
-        'label' => $blog->author->first_name . ' ' . $blog->author->last_name,
+      'author' => $author ? [
+        'value' => $author->id,
+        'label' => $author->first_name . ' ' . $author->last_name,
       ] : null,
+      'authors' => $authors,
     ]);
   }
 
