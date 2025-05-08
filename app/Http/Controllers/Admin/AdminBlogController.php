@@ -166,7 +166,7 @@ class AdminBlogController extends Controller
    * @param BlogUpdateRequest $request The request object containing the validated data for the blog post update.
    * @param Blog $blog The blog instance to be updated.
    *
-   * @return Response The response after the blog post has been updated.
+   * @return RedirectResponse A redirect response to the blog index route.
    */
   public function update(BlogUpdateRequest $request, Blog $blog)
   {
@@ -193,6 +193,8 @@ class AdminBlogController extends Controller
       $blog->addMediaFromRequest('image')
         ->toMediaCollection('image');
     }
+
+    return Redirect::route('admin.blogs.index');
   }
 
 
