@@ -56,9 +56,18 @@ class AdminBlogController extends Controller
       ];
     });
 
+    $authors = Speaker::all()->map(function ($author) {
+      return [
+        'value' => $author->id,
+        'label' => $author->first_name . ' ' . $author->last_name,
+      ];
+    });
+
     return Inertia::render('Admin/Blogs/Create', [
       'categories' => $categories,
       'selectedCategories' => [],
+      'authors' => $authors,
+      'author' => null,
     ]);
   }
 
@@ -154,10 +163,22 @@ class AdminBlogController extends Controller
       ];
     });
 
+    $authors = Speaker::all()->map(function ($author) {
+      return [
+        'value' => $author->id,
+        'label' => $author->first_name . ' ' . $author->last_name,
+      ];
+    });
+
     return Inertia::render('Admin/Blogs/Create', [
       'blog' => $blog,
       'categories' => $categories,
       'selectedCategories' => $selectedCategories,
+      'authors' => $authors,
+      'author' => $blog->author ? [
+        'value' => $blog->author->id,
+        'label' => $blog->author->first_name . ' ' . $blog->author->last_name,
+      ] : null,
     ]);
   }
 
