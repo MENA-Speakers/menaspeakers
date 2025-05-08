@@ -1,28 +1,28 @@
-import React from "react";
+import React from 'react';
 import { Link } from "@inertiajs/react";
 import truncateText from "@/Utils/truncateText";
 import { BlogType } from "@/types/blog-type";
 
 interface BlogCardProps {
-  blog: BlogType;
+  blog: BlogType
 }
+<<<<<<< HEAD
 <<<<<<< HEAD
 
 =======
 >>>>>>> parent of d05b746 (Revert "added author section on blogs")
 function BlogCard({ blog }: BlogCardProps) {
+=======
+function BlogCard({ blog } : BlogCardProps) {
+>>>>>>> parent of 0806d9f (added author to blog-card)
   return (
     <div className="rounded-2xl overflow-hidden border">
-      <Link
-        href={route("blogs.show", blog.slug)}
-        aria-label={"Read blog details"}
-      >
-        <img
-          className={"h-60 w-full object-cover"}
-          src={blog.image}
-          alt={blog.title}
-        />
+      <Link href={route('blogs.show', blog.slug)} aria-label={'Read blog details'}>
+        <img className={'h-60 w-full object-cover'}
+             src={blog.image}
+             alt={blog.title}/>
       </Link>
+<<<<<<< HEAD
       <div className={"py-4 space-y-4 p-3"}>
 <<<<<<< HEAD
         <div className="flex justify-between items-center">
@@ -87,7 +87,18 @@ function BlogCard({ blog }: BlogCardProps) {
         >
           {blog.title}
         </Link>
+=======
+      <div className={'py-4 space-y-4 p-3'}>
+        <p className="text-xs py-1 text-slate-500">
+          {
+            blog.published_at
+          }
+        </p>
+        <Link className={''} href={route('blogs.show', blog.slug)} aria-label={blog.title}>{blog.title}</Link>
+
+>>>>>>> parent of 0806d9f (added author to blog-card)
       </div>
+
     </div>
   );
 }
