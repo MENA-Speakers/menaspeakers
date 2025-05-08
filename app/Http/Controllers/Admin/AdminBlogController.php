@@ -18,9 +18,37 @@
   use Illuminate\Support\Facades\Redirect;
   use Inertia\Inertia;
 
-  class AdminBlogController extends Controller
+class AdminBlogController extends Controller
+{
+
+
+  /**
+   * Display a listing of the resource.
+   *
+   * This method retrieves the latest blog posts, paginates them, and renders the 'Admin/Blogs/Index' component
+   * using the Inertia.js library. The paginated blog posts are passed as a prop to the component.
+   *
+   * @return \Inertia\Response The Inertia response containing the paginated list of blog posts.
+   */
+  public function index()
   {
-<<<<<<< HEAD
+    $blogs = Blog::with('author')->latest()->paginate(12);
+    return Inertia::render('Admin/Blogs/Index', [
+      'blogs' => BlogResource::collection($blogs)
+    ]);
+  }
+
+  /**
+   * Show the form for creating a new resource.
+   *
+   * This method renders the form for creating a new blog post.
+   * It uses the Inertia.js library to render the 'Admin/Blogs/Create' component.
+   *
+   * @return \Inertia\Response The Inertia response containing the form for creating a new blog post.
+   */
+  public function create()
+  {
+
     $categories = Category::all()->map(function ($category) {
       return [
         'value' => $category->id,
@@ -110,7 +138,7 @@
    */
   public function edit(Blog $blog)
   {
-    $blog->load('categories');
+    $blog->load('author');
 
     $selectedCategories = $blog->categories->map(function ($category) {
       return [
@@ -251,17 +279,17 @@
         ];
       });
 
-      return Inertia::render('Admin/Blogs/Create', [
-        'blog' => new BlogResource($blog),
-        'categories' => $categories,
-        'selectedCategories' => $selectedCategories,
-        'author' => $author ? [
-          'value' => $author->id,
-          'label' => $author->first_name . ' ' . $author->last_name,
-        ] : null,
-        'authors' => $authors ? $authors : [],
-      ]);
-    }
+    return Inertia::render('Admin/Blogs/Create', [
+      'blog' => new BlogResource($blog),
+      'categories' => $categories,
+      'selectedCategories' => $selectedCategories,
+      'author' => $author ? [
+        'value' => $author->id,
+        'label' => $author->first_name . ' ' . $author->last_name,
+      ] : null,
+      'authors' => $authors,
+    ]);
+  }
 
 
     /**
