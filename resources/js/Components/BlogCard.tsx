@@ -5,7 +5,6 @@ import truncateText from "@/Utils/truncateText";
 interface BlogCardProps {
   blog: BlogType;
 }
-
 function BlogCard({ blog }: BlogCardProps) {
   return (
     <div className="rounded-2xl overflow-hidden border">
@@ -20,7 +19,12 @@ function BlogCard({ blog }: BlogCardProps) {
         />
       </Link>
       <div className={"py-4 space-y-4 p-3"}>
-        <p className="text-xs py-1 text-slate-500">{blog.published_at}</p>
+        <div className="flex justify-between items-center">
+          <p className="text-xs py-1 text-slate-500">{blog.published_at}</p>
+          <p className="text-xs py-1 text-slate-500">
+            By {blog.author?.name || "MENA Speakers"}
+          </p>
+        </div>
         <Link
           className={""}
           href={route("blogs.show", blog.slug)}
