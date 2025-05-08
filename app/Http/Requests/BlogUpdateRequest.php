@@ -24,8 +24,12 @@ class BlogUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-          'title' => 'required',
-          'content' => 'required',
+            'title' => 'required',
+            'content' => 'required',
+            'excerpt' => 'required',
+            'authorId' => 'required|exists:speakers,id',
+            'categories' => 'array',
+            'featured' => 'boolean',
         ];
     }
 }

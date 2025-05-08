@@ -32,7 +32,7 @@ class AdminBlogController extends Controller
    */
   public function index()
   {
-    $blogs = Blog::latest()->paginate(12);
+    $blogs = Blog::with('author')->latest()->paginate(12);
     return Inertia::render('Admin/Blogs/Index', [
       'blogs' => BlogResource::collection($blogs)
     ]);
@@ -120,6 +120,7 @@ class AdminBlogController extends Controller
    */
   public function edit(Blog $blog)
   {
+    $blog->load('author');
 
     $selectedCategories = $blog->categories->map(function ($category) {
       return [
@@ -151,7 +152,7 @@ class AdminBlogController extends Controller
         'value' => $author->id,
         'label' => $author->first_name . ' ' . $author->last_name,
       ] : null,
-      'authors' => $authors ? $authors : [],
+      'authors' => $authors,
     ]);
   }
 
