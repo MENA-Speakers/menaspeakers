@@ -1,4 +1,5 @@
-import {CategoryType} from "@/types/speaker-type";
+import { CategoryType } from "@/types/speaker-type";
+import { SpeakerType } from "@/types/speaker-type";
 
 export type BlogType = {
   id: number;
@@ -16,4 +17,5 @@ export type BlogType = {
   categories: CategoryType[];
   featured: boolean;
   authorId: number;
+  author?: SpeakerType;
 };
