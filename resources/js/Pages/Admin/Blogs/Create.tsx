@@ -257,7 +257,6 @@ function Create({
                 Author
               </Label>
               <Select
-                defaultValue={author}
                 value={authors.find(
                   (author) => author.value === formik.values.authorId
                 )}
