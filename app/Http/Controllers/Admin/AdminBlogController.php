@@ -144,7 +144,7 @@
    * @param BlogUpdateRequest $request The request object containing the validated data for the blog post update.
    * @param Blog $blog The blog instance to be updated.
    *
-   * @return RedirectResponse A redirect response to the blog index route.
+   * @return Response The response after the blog post has been updated.
    */
   public function update(BlogUpdateRequest $request, Blog $blog)
   {
@@ -320,6 +320,4 @@
 
       return Redirect::route('admin.blogs.index');
     }
-
-    return Redirect::route('admin.blogs.index');
   }
