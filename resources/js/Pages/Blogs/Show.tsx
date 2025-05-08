@@ -108,7 +108,7 @@ function ViewBlogPage({ blog }: ViewBlogPageProps) {
               </div>
             )}
             {/* AUTHOR SECTION */}
-            {blog.author ? (
+            {blog.author && (
               <div className={"p-4 rounded-xl bg-[#F2F6FE] lg:w-[90%] "}>
                 <h2 className="text-2xl pb-4 text-mena-brand">Author</h2>
 
@@ -123,7 +123,7 @@ function ViewBlogPage({ blog }: ViewBlogPageProps) {
                   </Link>
                 </div>
               </div>
-            )} */}
+            )}
           </div>
           <div className="col-span-1 lg:col-span-4">
             <div
