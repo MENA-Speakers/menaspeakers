@@ -249,27 +249,6 @@ function Create({
               />
             </div>
 
-            <div className="w-full ">
-              <Label
-                htmlFor="location"
-                className="block text-sm font-medium text-gray-700"
-              >
-                Author
-              </Label>
-              <Select
-                defaultValue={author}
-                value={authors.find(
-                  (author) => author.value === formik.values.authorId
-                )}
-                onChange={(e) => formik.setFieldValue("authorId", e?.value)}
-                name="authorId"
-                placeholder={"Select Author"}
-                options={authors}
-                className="basic-multi-select"
-                classNamePrefix="select"
-              />
-            </div>
-
             <div>
               <label
                 htmlFor="excerpt"
