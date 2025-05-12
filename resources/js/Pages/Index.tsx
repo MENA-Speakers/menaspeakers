@@ -99,9 +99,9 @@ function Index({
           </div>
           <div className={"mt-4"}>
             <p className={"text-slate-500"}>
-              Our roster of 350+ expert professionals is dedicated to making
-              your event a success, ensuring your audience remains educated,
-              engaged and empowered.
+              With a network of 400+ expert speakers and industry professionals,
+              we deliver impactful moments that keep your audience educated,
+              engaged, and empowered
             </p>
           </div>
           <HomeFeaturedSpeakers speakers={speakers} />
@@ -124,10 +124,13 @@ function Index({
                 </h2>
                 <div className={"mt-6"}>
                   <p className={"text-slate-500"}>
-                    MENA Speakers is the leading speakers and MC corporation in
-                    the Middle East. We provide public speakers, MCs, and
-                    corporate trainers. We are a one-stop solution for all your
-                    event needs. Get a speaker in 5 minutes.
+                    MENA Speakers is the Middle East’s leading agency for
+                    professional speakers, MCs, and corporate trainers. We
+                    provide a one-stop solution for all your event needs—whether
+                    you're planning a conference, workshop, or corporate
+                    gathering. Book a powerful speaker or MC in just 5 minutes
+                    and ensure your audience is inspired, engaged, and
+                    empowered.
                   </p>
 
                   <div className="mt-6 grid grid-cols-1 gap-4 lg:grid-cols-3">
