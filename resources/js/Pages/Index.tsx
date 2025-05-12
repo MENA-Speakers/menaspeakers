@@ -139,7 +139,7 @@ function Index({
                       }
                     >
                       <p className="text-center text-white">
-                        Protocol and speakers management
+                        Protocol and Speakers Management
                       </p>
                     </a>
 
@@ -161,7 +161,7 @@ function Index({
                       }
                     >
                       <p className="text-center text-white">
-                        Speaker Fast track
+                        Speaker Fast Track
                       </p>
                     </a>
                   </div>
@@ -261,7 +261,7 @@ function Index({
                 </div>
               </div>
 
-              <div className={"grid grid-cols-2 lg:grid-cols-4 gap-6"}>
+              <div className={"grid grid-cols-2 lg:grid-cols-2 gap-6"}>
                 {topics.map((topic) => (
                   <div key={topic.id} className={" flex flex-col"}>
                     <Link href={route("topics.show", { topic: topic.slug })}>
