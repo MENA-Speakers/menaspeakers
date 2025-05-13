@@ -12,7 +12,7 @@ class EmailBlacklistController extends Controller
     public function index()
     {
         $blacklist = EmailBlacklist::orderBy('created_at', 'desc')->paginate(10);
-        
+
         return Inertia::render('Admin/EmailBlacklist/Index', [
             'blacklist' => $blacklist
         ]);
@@ -26,7 +26,7 @@ class EmailBlacklistController extends Controller
             'reason' => 'nullable|string'
         ]);
 
-        $blacklist = EmailBlacklist::create([
+        EmailBlacklist::create([
             'name' => $request->name,
             'email' => $request->email,
             'reason' => $request->reason
@@ -39,8 +39,8 @@ class EmailBlacklistController extends Controller
     {
         $blacklist = EmailBlacklist::findOrFail($id);
         $blacklist->delete();
-        
-        return redirect()->back()->with('success', 'Email removed from blacklist');
+
+        return response()->json(['success' => true]);
     }
 
     public function check(Request $request)
@@ -50,7 +50,7 @@ class EmailBlacklistController extends Controller
         ]);
 
         $isBlacklisted = EmailBlacklist::isBlacklisted($request->email);
-        
+
         return response()->json([
             'blacklisted' => $isBlacklisted
         ]);
