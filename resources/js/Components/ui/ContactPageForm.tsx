@@ -298,7 +298,15 @@ function FooterContactForm({ speaker }: FooterContactFormProps) {
       </div>
       <div className="col-span-2">
         <Button
-          disabled={formik.isSubmitting || formSubmitted}
+          disabled={
+            formik.isSubmitting ||
+            formSubmitted ||
+            blacklistedEmails.some(
+              (blacklistedEmail) =>
+                formik.values.email.toLowerCase() ===
+                blacklistedEmail.toLowerCase()
+            )
+          }
           type="button"
           onClick={(e) => {
             e.preventDefault();
