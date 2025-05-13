@@ -108,7 +108,7 @@ export default function HomeTestimonialsSection({
         }
 
         .animate-marquee-reverse {
-          animation: marquee-reverse 40s linear infinite;
+          animation: marquee-reverse 70s linear infinite;
         }
       `}</style>
     </div>
