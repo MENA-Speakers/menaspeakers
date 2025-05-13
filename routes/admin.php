@@ -1,9 +1,3 @@
-
-Route::middleware(['auth'])->group(function () {
-    Route::get('/blacklist', [BlacklistController::class, 'index'])->name('admin.blacklist.index');
-    Route::post('/blacklist', [BlacklistController::class, 'store'])->name('admin.blacklist.store');
-});
-
 <?php
 
   use App\Http\Controllers\Admin\AdminBlogController;
