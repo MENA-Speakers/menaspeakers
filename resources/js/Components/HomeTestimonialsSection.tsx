@@ -1,5 +1,4 @@
 import { cn } from "@/lib/utils";
-import { Marquee } from "@/Components/ui/marquee";
 import { TestimonialType } from "@/types/testimonial-type";
 
 interface HomeTestimonialsSectionProps {
@@ -38,7 +37,7 @@ const TestimonialCard = ({
 export default function HomeTestimonialsSection({
   testimonials,
 }: HomeTestimonialsSectionProps) {
-  // Duplicate testimonials to ensure seamless marquee animation
+  // Duplicate testimonials for seamless looping
   const duplicatedTestimonials = [...testimonials, ...testimonials];
 
   return (
@@ -50,27 +49,30 @@ export default function HomeTestimonialsSection({
       <div className="relative flex w-full flex-col items-center justify-center overflow-hidden">
         {testimonials.length > 0 ? (
           <>
-            <Marquee pauseOnHover className="[--duration:40s] gap-4">
-              {duplicatedTestimonials.map((testimonial, index) => (
-                <TestimonialCard
-                  key={`${testimonial.id}-${index}`}
-                  {...testimonial}
-                />
-              ))}
-            </Marquee>
+            {/* Marquee Container */}
+            <div className="flex w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent_0%,_black_20%,_black_80%,_transparent_100%)]">
+              {/* Animated Row */}
+              <div className="animate-marquee flex w-fit gap-4 py-4">
+                {duplicatedTestimonials.map((testimonial, index) => (
+                  <TestimonialCard
+                    key={`${testimonial.id}-${index}`}
+                    {...testimonial}
+                  />
+                ))}
+              </div>
+            </div>
 
-            <Marquee
-              reverse
-              pauseOnHover
-              className="mt-4 [--duration:40s] gap-4"
-            >
-              {duplicatedTestimonials.map((testimonial, index) => (
-                <TestimonialCard
-                  key={`${testimonial.id}-${index}-reverse`}
-                  {...testimonial}
-                />
-              ))}
-            </Marquee>
+            {/* Reverse Row */}
+            <div className="flex w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent_0%,_black_20%,_black_80%,_transparent_100%)]">
+              <div className="animate-marquee-reverse flex w-fit gap-4 py-4">
+                {duplicatedTestimonials.map((testimonial, index) => (
+                  <TestimonialCard
+                    key={`${testimonial.id}-${index}-reverse`}
+                    {...testimonial}
+                  />
+                ))}
+              </div>
+            </div>
 
             <div className="pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-background" />
             <div className="pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-background" />
@@ -81,6 +83,34 @@ export default function HomeTestimonialsSection({
           </p>
         )}
       </div>
+
+      <style jsx global>{`
+        @keyframes marquee {
+          from {
+            transform: translateX(0%);
+          }
+          to {
+            transform: translateX(-50%);
+          }
+        }
+
+        @keyframes marquee-reverse {
+          from {
+            transform: translateX(-50%);
+          }
+          to {
+            transform: translateX(0%);
+          }
+        }
+
+        .animate-marquee {
+          animation: marquee 40s linear infinite;
+        }
+
+        .animate-marquee-reverse {
+          animation: marquee-reverse 40s linear infinite;
+        }
+      `}</style>
     </div>
   );
 }
