@@ -96,45 +96,46 @@ function FooterContactForm({ speaker }: FooterContactFormProps) {
     }),
 
     onSubmit: (values) => {
-      const isBlacklisted = blacklistedEmails.some((blacklistedEmail) => {
-        return values.email === blacklistedEmail;
-      });
+      // Check for blacklisted emails first
+      const isBlacklisted = blacklistedEmails.some(
+        (blacklistedEmail) =>
+          values.email.toLowerCase() === blacklistedEmail.toLowerCase()
+      );
 
       if (isBlacklisted) {
         toast.error(
           "This email address is not accepted. Please use a different email."
         );
-        return;
+        formik.setSubmitting(false); // Add this to reset submitting state
+        return; // This exit prevents subsequent code execution
       }
+
       if (values.subject !== "") {
         toast.error("Something went wrong. Please try again later.");
+        formik.setSubmitting(false); // Add this to reset submitting state
         return;
       }
 
-      sendBitrix(values).then((r) => {
-        formik.setSubmitting(false);
-        toast.success(
-          "Your request has been submitted successfully. We will get back to you shortly."
-        );
-        router.visit(route("pages.thank-you"), { method: "get" });
-        setFormSubmitted(true);
-      });
-
-      // console.log('values', values)
-      axios
-        .post(route("leads.store"), values)
-        .then((response) => {
-          formik.setSubmitting(false);
-          toast.success(
-            "Your request has been submitted successfully. We will get back to you shortly."
-          );
-          setFormSubmitted(true);
+      // Only proceed with submission if all checks pass
+      sendBitrix(values)
+        .then((r) => {
+          axios
+            .post(route("leads.store"), values)
+            .then((response) => {
+              formik.setSubmitting(false);
+              toast.success("Your request has been submitted successfully.");
+              router.visit(route("pages.thank-you"), { method: "get" });
+              setFormSubmitted(true);
+            })
+            .catch((error) => {
+              if (error.response.status === 422) {
+                formik.setErrors(error.response.data.errors);
+              }
+              formik.setSubmitting(false);
+            });
         })
         .catch((error) => {
-          //Set formik errors
-          if (error.response.status === 422) {
-            formik.setErrors(error.response.data.errors);
-          }
+          console.error("Error in submission:", error);
           formik.setSubmitting(false);
         });
     },
