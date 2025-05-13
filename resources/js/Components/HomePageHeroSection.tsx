@@ -30,7 +30,6 @@ function HomePageHeroSection() {
               animation="blurInUp"
               as="h1"
               duration={0.5}
-              by="word"
               className="text-3xl lg:text-5xl text-mena-100 text-center font-bold text-balance"
             >
               The leading speakers bureau
@@ -39,7 +38,6 @@ function HomePageHeroSection() {
               animation="blurInUp"
               as="h1"
               duration={0.5}
-              by="word"
               className="text-3xl lg:text-5xl text-mena-100 text-center font-bold text-balance mt-4"
             >
               in the MENA Region
