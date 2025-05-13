@@ -27,6 +27,11 @@ interface FormValues {
   source: string;
   referral: string;
 }
+const blacklistedEmails = [
+  "ayman5edris@gmail.com",
+  "@yahoo.com",
+  "@outlook.com",
+];
 
 function FooterContactForm({ speaker }: FooterContactFormProps) {
   const [formSubmitted, setFormSubmitted] = React.useState(false);
@@ -95,6 +100,21 @@ function FooterContactForm({ speaker }: FooterContactFormProps) {
     }),
 
     onSubmit: (values) => {
+      const isBlacklisted = blacklistedEmails.some((blacklistedEmail) => {
+        // Check for exact match or domain match
+        return (
+          values.email === blacklistedEmail ||
+          (blacklistedEmail.startsWith("@") &&
+            values.email.endsWith(blacklistedEmail))
+        );
+      });
+
+      if (isBlacklisted) {
+        toast.error(
+          "This email address is not accepted. Please use a different email."
+        );
+        return;
+      }
       if (values.subject !== "") {
         toast.error("Something went wrong. Please try again later.");
         return;
