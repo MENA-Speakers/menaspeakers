@@ -2,10 +2,14 @@ import { cn } from "@/lib/utils";
 import { TestimonialType } from "@/types/testimonial-type";
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of 8560592 (edited animation duration)
 interface HomeTestimonialsSectionProps {
   testimonials: TestimonialType[];
 }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 const HomeTestimonialsSection = ({
   testimonials,
@@ -26,6 +30,8 @@ const HomeTestimonialsSection = ({
 =======
 =======
 >>>>>>> parent of 882ee8e (added the shadcn component)
+=======
+>>>>>>> parent of 8560592 (edited animation duration)
 const TestimonialCard = ({
   author,
   author_title,
@@ -103,24 +109,35 @@ export default function HomeTestimonialsSection({
 =======
 export default function HomeTestimonialsSection({
   testimonials,
+<<<<<<< HEAD
 }: {
   testimonials: TestimonialType[];
 }) {
 >>>>>>> parent of 882ee8e (added the shadcn component)
+=======
+}: HomeTestimonialsSectionProps) {
+>>>>>>> parent of 8560592 (edited animation duration)
   // Duplicate testimonials for seamless looping
   const duplicatedTestimonials = [...testimonials, ...testimonials];
 
   return (
 <<<<<<< HEAD
+<<<<<<< HEAD
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 =======
     <div className="w-full overflow-hidden py-12">
 >>>>>>> parent of 882ee8e (added the shadcn component)
+=======
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+>>>>>>> parent of 8560592 (edited animation duration)
       <h2 className="text-3xl font-bold text-center mb-8 text-mena-brand">
         What Our Clients Say
       </h2>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of 8560592 (edited animation duration)
       <div className="relative flex w-full flex-col items-center justify-center overflow-hidden">
         {testimonials.length > 0 ? (
           <>
@@ -136,6 +153,7 @@ export default function HomeTestimonialsSection({
                 ))}
               </div>
             </div>
+<<<<<<< HEAD
 
             {/* Reverse Row */}
             <div className="flex w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent_0%,_black_20%,_black_80%,_transparent_100%)]">
@@ -170,23 +188,36 @@ export default function HomeTestimonialsSection({
             ))}
           </div>
         </div>
+=======
+>>>>>>> parent of 8560592 (edited animation duration)
 
-        {/* Bottom Marquee (Reverse) */}
-        <div className="flex overflow-hidden [mask-image:linear-gradient(to_right,transparent_0%,_black_10%,_black_90%,_transparent_100%)]">
-          <div className="animate-marquee-reverse flex w-fit gap-4 py-4 group-hover:[animation-play-state:paused]">
-            {duplicatedTestimonials.map((testimonial, index) => (
-              <TestimonialCard
-                key={`${testimonial.id}-${index}-reverse`}
-                {...testimonial}
-              />
-            ))}
-          </div>
-        </div>
+            {/* Reverse Row */}
+            <div className="flex w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent_0%,_black_20%,_black_80%,_transparent_100%)]">
+              <div className="animate-marquee-reverse flex w-fit gap-4 py-4">
+                {duplicatedTestimonials.map((testimonial, index) => (
+                  <TestimonialCard
+                    key={`${testimonial.id}-${index}-reverse`}
+                    {...testimonial}
+                  />
+                ))}
+              </div>
+            </div>
 
+<<<<<<< HEAD
         {/* Gradient Overlays */}
         <div className="pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-background" />
         <div className="pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-background" />
 >>>>>>> parent of 882ee8e (added the shadcn component)
+=======
+            <div className="pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-background" />
+            <div className="pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-background" />
+          </>
+        ) : (
+          <p className="text-center py-8 text-gray-500">
+            No testimonials available
+          </p>
+        )}
+>>>>>>> parent of 8560592 (edited animation duration)
       </div>
 
       <style jsx global>{`
@@ -210,15 +241,20 @@ export default function HomeTestimonialsSection({
 
         .animate-marquee {
 <<<<<<< HEAD
+<<<<<<< HEAD
           animation: marquee 40s linear infinite;
 =======
           animation: marquee 60s linear infinite;
 >>>>>>> parent of 882ee8e (added the shadcn component)
+=======
+          animation: marquee 40s linear infinite;
+>>>>>>> parent of 8560592 (edited animation duration)
         }
 
         .animate-marquee-reverse {
           animation: marquee-reverse 40s linear infinite;
         }
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 
@@ -228,6 +264,8 @@ export default function HomeTestimonialsSection({
           animation-play-state: paused;
         }
 >>>>>>> parent of 882ee8e (added the shadcn component)
+=======
+>>>>>>> parent of 8560592 (edited animation duration)
       `}</style>
     </div>
   );
