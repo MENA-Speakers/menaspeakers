@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
 import { TestimonialType } from "@/types/testimonial-type";
-import React from "react";
+import React, { useState } from "react";
 
 interface HomeTestimonialsSectionProps {
   testimonials: TestimonialType[];
@@ -11,15 +11,27 @@ const TestimonialCard = ({
   author_title,
   content,
 }: TestimonialType) => {
+  const [isHovered, setIsHovered] = useState(false);
+
   return (
     <figure
       className={cn(
-        "relative h-full w-64 shrink-0 cursor-pointer overflow-hidden rounded-xl border p-4",
+        "relative h-full w-64 shrink-0 cursor-pointer overflow-hidden rounded-xl border p-4 transition-all duration-300",
         "border-gray-950/[.1] bg-gray-950/[.01] hover:bg-gray-950/[.05]",
-        "dark:border-gray-50/[.1] dark:bg-gray-50/[.10] dark:hover:bg-gray-50/[.15]"
+        "dark:border-gray-50/[.1] dark:bg-gray-50/[.10] dark:hover:bg-gray-50/[.15]",
+        isHovered && "z-10 shadow-lg transform scale-105"
       )}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     >
-      <blockquote className="mt-2 text-sm line-clamp-4">{content}</blockquote>
+      <blockquote
+        className={cn(
+          "mt-2 text-sm transition-all duration-300",
+          isHovered ? "line-clamp-none" : "line-clamp-4"
+        )}
+      >
+        {content}
+      </blockquote>
       <div className="flex flex-col mt-4">
         <figcaption className="text-sm font-medium dark:text-white">
           {author}
@@ -39,6 +51,7 @@ export default function HomeTestimonialsSection({
 }: HomeTestimonialsSectionProps) {
   // Duplicate testimonials for seamless looping
   const duplicatedTestimonials = [...testimonials, ...testimonials];
+  const [isPaused, setIsPaused] = useState(false);
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -46,13 +59,22 @@ export default function HomeTestimonialsSection({
         What Our Clients Say
       </h2>
 
-      <div className="relative flex w-full flex-col items-center justify-center overflow-hidden">
+      <div
+        className="relative flex w-full flex-col items-center justify-center overflow-hidden"
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
+      >
         {testimonials.length > 0 ? (
           <>
             {/* Marquee Container */}
             <div className="flex w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent_0%,_black_20%,_black_80%,_transparent_100%)]">
               {/* Animated Row */}
-              <div className="animate-marquee flex w-fit gap-4 py-4">
+              <div
+                className={cn(
+                  "flex w-fit gap-4 py-4",
+                  isPaused ? "animate-paused" : "animate-marquee"
+                )}
+              >
                 {duplicatedTestimonials.map((testimonial, index) => (
                   <TestimonialCard
                     key={`${testimonial.id}-${index}`}
@@ -64,7 +86,12 @@ export default function HomeTestimonialsSection({
 
             {/* Reverse Row */}
             <div className="flex w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent_0%,_black_20%,_black_80%,_transparent_100%)]">
-              <div className="animate-marquee-reverse flex w-fit gap-4 py-4">
+              <div
+                className={cn(
+                  "flex w-fit gap-4 py-4",
+                  isPaused ? "animate-paused" : "animate-marquee-reverse"
+                )}
+              >
                 {duplicatedTestimonials.map((testimonial, index) => (
                   <TestimonialCard
                     key={`${testimonial.id}-${index}-reverse`}
@@ -109,6 +136,27 @@ export default function HomeTestimonialsSection({
 
         .animate-marquee-reverse {
           animation: marquee-reverse 70s linear infinite;
+        }
+
+        .animate-paused {
+          animation-play-state: paused;
+        }
+
+        @keyframes fade-in {
+          from {
+            opacity: 0;
+          }
+          to {
+            opacity: 1;
+          }
+        }
+
+        .line-clamp-none {
+          display: -webkit-box;
+          -webkit-line-clamp: initial;
+          -webkit-box-orient: vertical;
+          overflow: visible;
+          animation: fade-in 0.3s ease-in;
         }
       `}</style>
     </div>
