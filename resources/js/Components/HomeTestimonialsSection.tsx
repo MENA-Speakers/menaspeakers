@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils";
-import { Marquee } from "@/Components/ui/marquee";
 import { TestimonialType } from "@/types/testimonial-type";
 
+<<<<<<< HEAD
 interface HomeTestimonialsSectionProps {
   testimonials: TestimonialType[];
 }
@@ -24,12 +24,15 @@ const HomeTestimonialsSection = ({
           // dark styles
           "dark:border-gray-50/[.1] dark:bg-gray-50/[.10] dark:hover:bg-gray-50/[.15]"
 =======
+=======
+>>>>>>> parent of 882ee8e (added the shadcn component)
 const TestimonialCard = ({
   author,
   author_title,
   content,
   id,
 }: TestimonialType) => {
+<<<<<<< HEAD
   return (
     <figure
       className={cn(
@@ -65,39 +68,59 @@ const TestimonialCard = ({
     );
   };
 
+=======
+>>>>>>> parent of 882ee8e (added the shadcn component)
   return (
-    <div className="relative flex w-full flex-col items-center justify-center overflow-hidden">
-      <Marquee pauseOnHover className="[--duration:20s]">
-        {firstRow.map((testimonial) => (
-          <ReviewCard key={testimonial.id} {...testimonial} />
-        ))}
-      </Marquee>
-      <Marquee reverse pauseOnHover className="[--duration:20s]">
-        {secondRow.map((testimonial) => (
-          <ReviewCard key={testimonial.id} {...testimonial} />
-        ))}
-      </Marquee>
-      <div className="pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-background"></div>
-      <div className="pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-background"></div>
-    </div>
+    <figure
+      className={cn(
+        "relative h-full w-64 shrink-0 cursor-pointer overflow-hidden rounded-xl border p-4",
+        "border-gray-950/[.1] bg-gray-950/[.01] hover:bg-gray-950/[.05]",
+        "dark:border-gray-50/[.1] dark:bg-gray-50/[.10] dark:hover:bg-gray-50/[.15]"
+      )}
+    >
+      <blockquote className="mt-2 text-sm line-clamp-4">{content}</blockquote>
+      <div className="flex flex-col mt-4">
+        <figcaption className="text-sm font-medium dark:text-white">
+          {author}
+        </figcaption>
+        {author_title && (
+          <p className="text-xs font-medium text-gray-500 dark:text-white/40">
+            {author_title}
+          </p>
+        )}
+      </div>
+    </figure>
   );
 };
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 export default HomeTestimonialsSection;
 =======
 export default function HomeTestimonialsSection({
   testimonials,
 }: HomeTestimonialsSectionProps) {
+=======
+export default function HomeTestimonialsSection({
+  testimonials,
+}: {
+  testimonials: TestimonialType[];
+}) {
+>>>>>>> parent of 882ee8e (added the shadcn component)
   // Duplicate testimonials for seamless looping
   const duplicatedTestimonials = [...testimonials, ...testimonials];
 
   return (
+<<<<<<< HEAD
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+=======
+    <div className="w-full overflow-hidden py-12">
+>>>>>>> parent of 882ee8e (added the shadcn component)
       <h2 className="text-3xl font-bold text-center mb-8 text-mena-brand">
         What Our Clients Say
       </h2>
 
+<<<<<<< HEAD
       <div className="relative flex w-full flex-col items-center justify-center overflow-hidden">
         {testimonials.length > 0 ? (
           <>
@@ -134,6 +157,36 @@ export default function HomeTestimonialsSection({
             No testimonials available
           </p>
         )}
+=======
+      <div className="relative group">
+        {/* Top Marquee */}
+        <div className="flex overflow-hidden [mask-image:linear-gradient(to_right,transparent_0%,_black_10%,_black_90%,_transparent_100%)]">
+          <div className="animate-marquee flex w-fit gap-4 py-4 group-hover:[animation-play-state:paused]">
+            {duplicatedTestimonials.map((testimonial, index) => (
+              <TestimonialCard
+                key={`${testimonial.id}-${index}`}
+                {...testimonial}
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* Bottom Marquee (Reverse) */}
+        <div className="flex overflow-hidden [mask-image:linear-gradient(to_right,transparent_0%,_black_10%,_black_90%,_transparent_100%)]">
+          <div className="animate-marquee-reverse flex w-fit gap-4 py-4 group-hover:[animation-play-state:paused]">
+            {duplicatedTestimonials.map((testimonial, index) => (
+              <TestimonialCard
+                key={`${testimonial.id}-${index}-reverse`}
+                {...testimonial}
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* Gradient Overlays */}
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-background" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-background" />
+>>>>>>> parent of 882ee8e (added the shadcn component)
       </div>
 
       <style jsx global>{`
@@ -156,14 +209,30 @@ export default function HomeTestimonialsSection({
         }
 
         .animate-marquee {
+<<<<<<< HEAD
           animation: marquee 40s linear infinite;
+=======
+          animation: marquee 60s linear infinite;
+>>>>>>> parent of 882ee8e (added the shadcn component)
         }
 
         .animate-marquee-reverse {
           animation: marquee-reverse 40s linear infinite;
         }
+<<<<<<< HEAD
+=======
+
+        /* Pause animation on parent hover */
+        .group:hover .animate-marquee,
+        .group:hover .animate-marquee-reverse {
+          animation-play-state: paused;
+        }
+>>>>>>> parent of 882ee8e (added the shadcn component)
       `}</style>
     </div>
   );
 }
+<<<<<<< HEAD
 >>>>>>> parent of 8560592 (edited animation duration)
+=======
+>>>>>>> parent of 882ee8e (added the shadcn component)
