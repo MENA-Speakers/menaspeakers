@@ -3,6 +3,7 @@ import { Input } from "@/Components/ui/input";
 import { useFormik } from "formik";
 import { router } from "@inertiajs/react";
 import { Search } from "lucide-react";
+import { TextAnimate } from "@/Components/ui/text-animate";
 
 function HomePageHeroSection() {
   const formik = useFormik({
@@ -25,11 +26,22 @@ function HomePageHeroSection() {
       <div className="absolute bg-gradient-to-br from-black/90 via-slate-900/90 to-zinc-900/70  px-6 inset-0 z-0">
         <div className="w-full lg:h-full flex h-[600px]  items-center justify-center flex-col space-y-8">
           <div className={"space-y-8 py-12"}>
-            <h1 className="text-3xl lg:text-5xl text-mena-100 text-center font-bold text-balance">
+            <TextAnimate
+              animation="blurInUp"
+              as="h1"
+              duration={0.5}
+              className="text-3xl lg:text-5xl text-mena-100 text-center font-bold text-balance"
+            >
               The leading speakers bureau
-              <br />
+            </TextAnimate>{" "}
+            <TextAnimate
+              animation="blurInUp"
+              as="h1"
+              duration={0.5}
+              className="text-3xl lg:text-5xl text-mena-100 text-center font-bold text-balance mt-4"
+            >
               in the MENA Region
-            </h1>
+            </TextAnimate>
             <div className={"w-full lg:w-[70%] space-y-2 mx-auto"}>
               <form
                 onSubmit={formik.handleSubmit}

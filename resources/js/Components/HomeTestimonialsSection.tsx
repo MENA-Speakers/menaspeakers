@@ -1,73 +1,81 @@
-import React from 'react';
-import {TestimonialType} from "@/types/testimonial-type";
-import 'swiper/css';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, Pagination, Navigation } from 'swiper/modules';
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
+import { cn } from "@/lib/utils";
+import { Marquee } from "@/Components/ui/marquee";
+import { TestimonialType } from "@/types/testimonial-type";
 
 interface HomeTestimonialsSectionProps {
   testimonials: TestimonialType[];
 }
 
-function HomeTestimonialsSection({testimonials}: HomeTestimonialsSectionProps) {
+const TestimonialCard = ({
+  author,
+  author_title,
+  content,
+  id,
+}: TestimonialType) => {
   return (
-    <div className="max-w-7xl mx-auto space-y-8">
-      <h3 className="text-4xl text-mena-brand font-semibold">
-        Testimonials
-      </h3>
-      <Swiper
-        slidesPerView={1}
-        autoplay={{
-          delay: 3500,
-          disableOnInteraction: false,
-        }}
-        pagination={{
-          clickable: true,
-        }}
-        navigation={true}
-        modules={[Autoplay, Pagination, Navigation]}
-      >
-        {
-          testimonials.map((testimonial) => (
-            <SwiperSlide>
+    <figure
+      className={cn(
+        "relative h-full w-64 cursor-pointer overflow-hidden rounded-xl border p-4 mx-2",
+        // light styles
+        "border-gray-950/[.1] bg-gray-950/[.01] hover:bg-gray-950/[.05]",
+        // dark styles
+        "dark:border-gray-50/[.1] dark:bg-gray-50/[.10] dark:hover:bg-gray-50/[.15]"
+      )}
+    >
+      <blockquote className="mt-2 text-sm line-clamp-4">{content}</blockquote>
+      <div className="flex flex-col mt-4">
+        <figcaption className="text-sm font-medium dark:text-white">
+          {author}
+        </figcaption>
+        {author_title && (
+          <p className="text-xs font-medium text-gray-500 dark:text-white/40">
+            {author_title}
+          </p>
+        )}
+      </div>
+    </figure>
+  );
+};
 
+export default function HomeTestimonialsSection({
+  testimonials,
+}: HomeTestimonialsSectionProps) {
+  // Split testimonials into two rows for the marquee effect
+  const firstRow = testimonials.slice(0, Math.ceil(testimonials.length / 2));
+  const secondRow = testimonials.slice(Math.ceil(testimonials.length / 2));
 
-              <div className={'py-6 max-w-4xl mx-auto flex flex-col lg:flex-row gap-6 lg:gap-12 items-start'}>
-                <div className={'w-full flex items-center justify-center'}>
-                  <svg
-                    className={'w-12 lg:w-20 h-12 lg:h-20 opacity-10'}
-                    viewBox="0 0 84 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M67.673 32.631C76.8922 32.631 83.1049 38.8737 83.1049 48.1236C83.1049 56.4473 75.9644 63.3819 66.2931 63.3819C55.6998 63.3819 47.8723 55.0581 47.8723 42.3439C47.8723 13.4452 69.5169 1.88577 83.1049 0.496582V13.2108C73.8916 14.8287 63.5332 23.8442 63.0693 33.7915C63.5332 33.5628 65.3712 32.631 67.673 32.631ZM20.7021 32.631C29.9096 32.631 36.1281 38.8737 36.1281 48.1236C36.1281 56.4473 28.9876 63.3819 19.3163 63.3819C8.72302 63.3819 0.895508 55.0581 0.895508 42.3439C0.895508 13.4452 22.5401 1.88577 36.1281 0.496582V13.2108C26.9148 14.8287 16.5564 23.8442 16.0925 33.7915C16.5564 33.5628 18.3944 32.631 20.7021 32.631Z"
-                      fill="#050505"/>
-                  </svg>
-                </div>
+  return (
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 className="text-3xl font-bold text-center mb-8 text-mena-brand">
+        What Our Clients Say
+      </h2>
 
-                <div>
-                  <p className="text-slate-500">
-                    {testimonial.content}
-                  </p>
+      <div className="relative flex w-full flex-col items-center justify-center overflow-hidden">
+        {testimonials.length > 0 ? (
+          <>
+            <Marquee pauseOnHover className="[--duration:30s]">
+              {firstRow.map((testimonial) => (
+                <TestimonialCard key={testimonial.id} {...testimonial} />
+              ))}
+            </Marquee>
 
-                  <div className="mt-6 flex justify-between">
-                    <div>
-                      <h4 className="text-lg font-semibold text-mena-brand">{testimonial.author}</h4>
-                      <p className="text-sm text-[#F15A29]">{testimonial.author_title}</p>
-                    </div>
+            {secondRow.length > 0 && (
+              <Marquee reverse pauseOnHover className="mt-4 [--duration:30s]">
+                {secondRow.map((testimonial) => (
+                  <TestimonialCard key={testimonial.id} {...testimonial} />
+                ))}
+              </Marquee>
+            )}
 
-                  </div>
-
-                </div>
-
-              </div>
-            </SwiperSlide>
-          ))
-        }
-
-      </Swiper>
-
+            <div className="pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-background"></div>
+            <div className="pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-background"></div>
+          </>
+        ) : (
+          <p className="text-center py-8 text-gray-500">
+            No testimonials available
+          </p>
+        )}
+      </div>
     </div>
   );
 }
-
-export default HomeTestimonialsSection;
