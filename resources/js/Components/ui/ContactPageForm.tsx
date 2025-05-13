@@ -30,7 +30,6 @@ interface FormValues {
 
 function FooterContactForm({ speaker }: FooterContactFormProps) {
   const [formSubmitted, setFormSubmitted] = React.useState(false);
-  const [isCheckingBlacklist, setIsCheckingBlacklist] = React.useState(false);
 
   const sendBitrix = async (values: FormValues) => {
     const crmUrl = `${import.meta.env.VITE_BITRIX_CRM_URL}/crm.deal.add.json?  
@@ -74,22 +73,6 @@ function FooterContactForm({ speaker }: FooterContactFormProps) {
     }
   };
 
-  // Check if email is blacklisted
-  const checkBlacklist = async (email: string) => {
-    try {
-      setIsCheckingBlacklist(true);
-      const response = await axios.post(route("email-blacklist.check"), {
-        email,
-      });
-      return response.data.blacklisted;
-    } catch (error) {
-      console.error("Error checking blacklist:", error);
-      return false;
-    } finally {
-      setIsCheckingBlacklist(false);
-    }
-  };
-
   const formik = useFormik({
     initialValues: {
       full_name: "",
@@ -111,16 +94,9 @@ function FooterContactForm({ speaker }: FooterContactFormProps) {
       referral: Yup.string().required("Please select how you heard about us"),
     }),
 
-    onSubmit: async (values) => {
+    onSubmit: (values) => {
       if (values.subject !== "") {
         toast.error("Something went wrong. Please try again later.");
-        return;
-      }
-
-      // Check if email is blacklisted before submitting
-      const isBlacklisted = await checkBlacklist(values.email);
-      if (isBlacklisted) {
-        toast.error("Sorry, we cannot process your request at this time.");
         return;
       }
 
@@ -133,6 +109,7 @@ function FooterContactForm({ speaker }: FooterContactFormProps) {
         setFormSubmitted(true);
       });
 
+      // console.log('values', values)
       axios
         .post(route("leads.store"), values)
         .then((response) => {
@@ -160,7 +137,7 @@ function FooterContactForm({ speaker }: FooterContactFormProps) {
             <ThumbsUp className="h-4 w-4 text-teal-600 stroke-1" />
             <AlertTitle>Message Received</AlertTitle>
             <AlertDescription>
-              Your request has been submitted successfully. We will get back to
+              our request has been submitted successfully. We will get back to
               you shortly.
             </AlertDescription>
           </Alert>
@@ -172,7 +149,7 @@ function FooterContactForm({ speaker }: FooterContactFormProps) {
         </Label>
         <Input
           id="full_name"
-          disabled={formik.isSubmitting || formSubmitted || isCheckingBlacklist}
+          disabled={formik.isSubmitting || formSubmitted}
           placeholder={"Full Name"}
           value={formik.values.full_name}
           onChange={formik.handleChange}
@@ -209,7 +186,7 @@ function FooterContactForm({ speaker }: FooterContactFormProps) {
         </Label>
         <Input
           id="company"
-          disabled={formik.isSubmitting || formSubmitted || isCheckingBlacklist}
+          disabled={formik.isSubmitting || formSubmitted}
           placeholder={"Company Name"}
           value={formik.values.company}
           onChange={formik.handleChange}
@@ -227,7 +204,7 @@ function FooterContactForm({ speaker }: FooterContactFormProps) {
         <Input
           id="email"
           type={"email"}
-          disabled={formik.isSubmitting || formSubmitted || isCheckingBlacklist}
+          disabled={formik.isSubmitting || formSubmitted}
           placeholder={"example@email.com"}
           value={formik.values.email}
           onChange={formik.handleChange}
@@ -296,7 +273,7 @@ function FooterContactForm({ speaker }: FooterContactFormProps) {
       </div>
       <div className="col-span-2">
         <Button
-          disabled={formik.isSubmitting || formSubmitted || isCheckingBlacklist}
+          disabled={formik.isSubmitting || formSubmitted}
           onClick={() => formik.handleSubmit()}
           type={"submit"}
           className="px-3 w-full bg-mena-brand hover:bg-mena-brand/90"

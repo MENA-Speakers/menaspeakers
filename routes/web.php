@@ -103,16 +103,3 @@ Route::get('/dashboard', [DashboardController::class, 'dashboard'])->middleware(
 
 require __DIR__ . '/admin.php';
 require __DIR__ . '/auth.php';
-
-// Add these routes to your existing admin routes
-Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
-  // Other admin routes...
-
-  // Email Blacklist routes
-  Route::get('/email-blacklist', [App\Http\Controllers\Admin\EmailBlacklistController::class, 'index'])->name('email-blacklist.index');
-  Route::post('/email-blacklist', [App\Http\Controllers\Admin\EmailBlacklistController::class, 'store'])->name('email-blacklist.store');
-  Route::delete('/email-blacklist/{id}', [App\Http\Controllers\Admin\EmailBlacklistController::class, 'destroy'])->name('email-blacklist.destroy');
-});
-
-// Public route for checking blacklist (can be protected with throttling)
-Route::post('/check-email-blacklist', [App\Http\Controllers\Admin\EmailBlacklistController::class, 'check'])->name('email-blacklist.check');
