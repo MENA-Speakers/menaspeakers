@@ -1,3 +1,6 @@
+
+Route::post('/blacklist/check', [BlacklistController::class, 'check'])->name('blacklist.check');
+
 <?php
 
 use App\Http\Controllers\Admin\DashboardController;

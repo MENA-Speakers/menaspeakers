@@ -94,10 +94,24 @@ function FooterContactForm({ speaker }: FooterContactFormProps) {
       referral: Yup.string().required("Please select how you heard about us"),
     }),
 
-    onSubmit: (values) => {
+    onSubmit: async (values) => {
       if (values.subject !== "") {
         toast.error("Something went wrong. Please try again later.");
         return;
+      }
+
+      // Check if email is blacklisted
+      try {
+        const response = await axios.post(route('blacklist.check'), {
+          email: values.email
+        });
+        
+        if (response.data.blacklisted) {
+          toast.error("Unable to process your request at this time.");
+          return;
+        }
+      } catch (error) {
+        console.error('Error checking blacklist:', error);
       }
 
       sendBitrix(values).then((r) => {
