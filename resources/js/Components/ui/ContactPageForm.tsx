@@ -89,14 +89,27 @@ function FooterContactForm({ speaker }: FooterContactFormProps) {
 
     validationSchema: Yup.object({
       full_name: Yup.string().required("Full name is required"),
-      email: Yup.string().email().required("Email is required"),
+      email: Yup.string()
+        .email()
+        .required("Email is required")
+        .test(
+          "not-blacklisted",
+          "This email address is not accepted. Please use a different email.",
+          function (value) {
+            if (!value) return true; // Skip validation if no email is provided
+            return !blacklistedEmails.some(
+              (blacklistedEmail) =>
+                value.toLowerCase() === blacklistedEmail.toLowerCase()
+            );
+          }
+        ),
       phone: Yup.string().required("Phone number is required"),
       message: Yup.string().required("Message is required"),
       referral: Yup.string().required("Please select how you heard about us"),
     }),
 
     onSubmit: (values) => {
-      // Check for blacklisted emails first
+      // Double-check blacklist as a safety measure
       const isBlacklisted = blacklistedEmails.some(
         (blacklistedEmail) =>
           values.email.toLowerCase() === blacklistedEmail.toLowerCase()
@@ -106,19 +119,19 @@ function FooterContactForm({ speaker }: FooterContactFormProps) {
         toast.error(
           "This email address is not accepted. Please use a different email."
         );
-        formik.setSubmitting(false); // Add this to reset submitting state
-        return; // This exit prevents subsequent code execution
+        formik.setSubmitting(false);
+        return;
       }
 
       if (values.subject !== "") {
         toast.error("Something went wrong. Please try again later.");
-        formik.setSubmitting(false); // Add this to reset submitting state
+        formik.setSubmitting(false);
         return;
       }
 
       // Only proceed with submission if all checks pass
       sendBitrix(values)
-        .then((r) => {
+        .then(() => {
           axios
             .post(route("leads.store"), values)
             .then((response) => {
@@ -128,7 +141,7 @@ function FooterContactForm({ speaker }: FooterContactFormProps) {
               setFormSubmitted(true);
             })
             .catch((error) => {
-              if (error.response.status === 422) {
+              if (error.response && error.response.status === 422) {
                 formik.setErrors(error.response.data.errors);
               }
               formik.setSubmitting(false);
@@ -149,7 +162,7 @@ function FooterContactForm({ speaker }: FooterContactFormProps) {
             <ThumbsUp className="h-4 w-4 text-teal-600 stroke-1" />
             <AlertTitle>Message Received</AlertTitle>
             <AlertDescription>
-              our request has been submitted successfully. We will get back to
+              Your request has been submitted successfully. We will get back to
               you shortly.
             </AlertDescription>
           </Alert>
@@ -286,8 +299,26 @@ function FooterContactForm({ speaker }: FooterContactFormProps) {
       <div className="col-span-2">
         <Button
           disabled={formik.isSubmitting || formSubmitted}
-          onClick={() => formik.handleSubmit()}
-          type={"submit"}
+          type="button"
+          onClick={(e) => {
+            e.preventDefault();
+
+            // Check blacklist before submitting
+            const isBlacklisted = blacklistedEmails.some(
+              (blacklistedEmail) =>
+                formik.values.email.toLowerCase() ===
+                blacklistedEmail.toLowerCase()
+            );
+
+            if (isBlacklisted) {
+              toast.error(
+                "This email address is not accepted. Please use a different email."
+              );
+              return;
+            }
+
+            formik.handleSubmit();
+          }}
           className="px-3 w-full bg-mena-brand hover:bg-mena-brand/90"
         >
           <span className="">Send Message</span>
