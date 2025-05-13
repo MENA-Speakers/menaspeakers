@@ -94,9 +94,9 @@ function FooterContactForm({ speaker }: FooterContactFormProps) {
         .required("Email is required")
         .test(
           "not-blacklisted",
-          "This email address is not accepted. Please use a different email.",
-          function (value) {
-            if (!value) return true; // Skip validation if no email is provided
+          "Something went wrong, try again later",
+          (value) => {
+            if (!value) return true;
             return !blacklistedEmails.some(
               (blacklistedEmail) =>
                 value.toLowerCase() === blacklistedEmail.toLowerCase()
@@ -105,7 +105,7 @@ function FooterContactForm({ speaker }: FooterContactFormProps) {
         ),
       phone: Yup.string().required("Phone number is required"),
       message: Yup.string().required("Message is required"),
-      referral: Yup.string().required("Please select how you heard about us"),
+      referral: Yup.string().required("Please select how you heard about us"),
     }),
 
     onSubmit: (values) => {
