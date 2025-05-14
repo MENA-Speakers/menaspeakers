@@ -94,7 +94,6 @@ function Index({
       {/* Hero Header*/}
       <HomePageHeroSection />
       <ScrollToTop />
-
       {/*FEATURED SPEAKERS SECTION */}
       <section className={"py-12 px-6"}>
         <div className="max-w-7xl mx-auto">
@@ -118,7 +117,6 @@ function Index({
           <HomeFeaturedSpeakers speakers={speakers} />
         </div>
       </section>
-
       {/*ABOUT US SECTION */}
       <section className="px-6 py-16 lg:py-24 overflow-hidden relative bg-gradient-to-r from-slate-50 to-blue-50">
         <div className="max-w-7xl mx-auto">
@@ -196,12 +194,10 @@ function Index({
           </div>
         </div>
       </section>
-
       {/*OUR CLIENTS SECTION */}
       <section className="py-12 lg:py-24 px-6 bg-[#F2F6FE]">
         <HomeOurPartners />
       </section>
-
       {/*CATEGORIES SECTION  SECTION*/}
       <section className="py-16 px-6 bg-gradient-to-r from-slate-50 to-blue-50">
         <div className="max-w-7xl mx-auto">
@@ -249,7 +245,7 @@ function Index({
                 </Link>
               </div>
 
-              {/* Change grid to 2 columns */}
+              {/* Change grid to 2 columns and restrict card width */}
               <div className="grid grid-cols-2 gap-4 max-w-md mx-auto">
                 {categories.slice(0, 4).map((category, index) => {
                   const getCategoryIcon = () => {
@@ -270,7 +266,8 @@ function Index({
                       href={route("categories.show", category.slug)}
                       className="group"
                     >
-                      <div className="relative overflow-hidden rounded-xl aspect-square">
+                      {/* Limit card width and center */}
+                      <div className="relative overflow-hidden rounded-xl aspect-square max-w-xs mx-auto">
                         <div className="absolute inset-0 bg-gradient-to-br from-mena-brand to-mena-brand/70 flex items-center justify-center">
                           {getCategoryIcon()}
                         </div>
@@ -323,7 +320,7 @@ function Index({
                 </Link>
               </div>
 
-              {/* Change grid to 2 columns */}
+              {/* Change grid to 2 columns and restrict card width */}
               <div className="grid grid-cols-2 gap-4 max-w-md mx-auto">
                 {topics.slice(0, 4).map((topic) => (
                   <Link
@@ -331,7 +328,8 @@ function Index({
                     href={route("topics.show", topic.slug)}
                     className="group"
                   >
-                    <div className="relative overflow-hidden rounded-xl aspect-square">
+                    {/* Limit card width and center */}
+                    <div className="relative overflow-hidden rounded-xl aspect-square max-w-xs mx-auto">
                       <img
                         className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110"
                         src={
@@ -355,7 +353,7 @@ function Index({
             </div>
           </div>
         </div>
-      </section>
+      </section>{" "}
       {/*FAQ SECTION*/}
       <section className="py-12 px-6">
         <div className="max-w-7xl mx-auto">
@@ -378,14 +376,12 @@ function Index({
           </div>
         </div>
       </section>
-
       {/*TESTIMONIALS SECTION*/}
       {testimonials.length > 0 && (
         <section className="py-12 bg-[#F2F6FE]">
           <HomeTestimonialsSection testimonials={testimonials} />
         </section>
       )}
-
       {/*RESOURCES SECTION   */}
       <section className="py-12 px-6">
         <div className="max-w-7xl mx-auto">
@@ -407,7 +403,6 @@ function Index({
           </div>
         </div>
       </section>
-
       {/*CONTACT SECTION   */}
       <section className="py-12 px-6 bg-[#F2F6FE]">
         <div className="max-w-7xl mx-auto flex gap-12 flex-col lg:flex-row">
