@@ -186,7 +186,7 @@ function Index({
             <div className="order-1 lg:order-2">
               <div className="relative rounded-3xl overflow-hidden shadow-lg aspect-square lg:aspect-auto lg:h-[500px]">
                 <img
-                  className="h-full w-full object-contain"
+                  className="h-full w-full object-cover rounded-3xl"
                   src="/images/home-about-us.jpeg"
                   alt="About MENA Speakers"
                 />
