@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
 import { TestimonialType } from "@/types/testimonial-type";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 interface HomeTestimonialsSectionProps {
   testimonials: TestimonialType[];
@@ -12,17 +12,45 @@ const TestimonialCard = ({
   content,
 }: TestimonialType) => {
   const [isHovered, setIsHovered] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    // Check if we're on mobile
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    // Initial check
+    checkMobile();
+
+    // Add resize listener
+    window.addEventListener("resize", checkMobile);
+
+    // Cleanup
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  const handleCardInteraction = () => {
+    if (isMobile) {
+      // Toggle on tap for mobile
+      setIsHovered(!isHovered);
+    }
+  };
 
   return (
     <figure
       className={cn(
-        "relative h-full w-64 shrink-0 cursor-pointer overflow-hidden rounded-xl border p-4 transition-all duration-300",
+        "relative h-full w-64 shrink-0 overflow-hidden rounded-xl border p-4 transition-all duration-300",
         "border-gray-950/[.1] bg-gray-950/[.01] hover:bg-gray-950/[.05]",
         "dark:border-gray-50/[.1] dark:bg-gray-50/[.10] dark:hover:bg-gray-50/[.15]",
-        isHovered && "z-10 shadow-lg transform scale-105"
+        isHovered && "z-10 shadow-lg transform scale-105",
+        isMobile
+          ? "w-[85vw] max-w-[300px] cursor-pointer"
+          : "w-64 cursor-pointer"
       )}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+      onClick={handleCardInteraction}
+      onMouseEnter={() => !isMobile && setIsHovered(true)}
+      onMouseLeave={() => !isMobile && setIsHovered(false)}
     >
       <blockquote
         className={cn(
@@ -42,6 +70,11 @@ const TestimonialCard = ({
           </p>
         )}
       </div>
+      {isMobile && (
+        <div className="absolute bottom-2 right-2 text-xs text-gray-400">
+          {isHovered ? "Tap to collapse" : "Tap to expand"}
+        </div>
+      )}
     </figure>
   );
 };
@@ -52,10 +85,27 @@ export default function HomeTestimonialsSection({
   // Duplicate testimonials for seamless looping
   const duplicatedTestimonials = [...testimonials, ...testimonials];
   const [isPaused, setIsPaused] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    // Check if we're on mobile
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    // Initial check
+    checkMobile();
+
+    // Add resize listener
+    window.addEventListener("resize", checkMobile);
+
+    // Cleanup
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   return (
-    <div className="max-w-7xl mx-auto sm:px-6 ">
-      <h2 className="text-3xl font-bold mb-8 text-mena-brand lg:px-8">
+    <div className="max-w-7xl mx-auto sm:px-6">
+      <h2 className="text-3xl font-bold mb-8 text-mena-brand lg:px-8 px-4">
         What Our Clients Say
       </h2>
 
@@ -72,7 +122,11 @@ export default function HomeTestimonialsSection({
               <div
                 className={cn(
                   "flex w-fit gap-4 py-4",
-                  isPaused ? "animate-paused" : "animate-marquee"
+                  isPaused
+                    ? "animate-paused"
+                    : isMobile
+                    ? "animate-marquee-slow"
+                    : "animate-marquee"
                 )}
               >
                 {duplicatedTestimonials.map((testimonial, index) => (
@@ -84,22 +138,24 @@ export default function HomeTestimonialsSection({
               </div>
             </div>
 
-            {/* Reverse Row */}
-            <div className="flex w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent_0%,_black_20%,_black_80%,_transparent_100%)]">
-              <div
-                className={cn(
-                  "flex w-fit gap-4 py-4",
-                  isPaused ? "animate-paused" : "animate-marquee-reverse"
-                )}
-              >
-                {duplicatedTestimonials.map((testimonial, index) => (
-                  <TestimonialCard
-                    key={`${testimonial.id}-${index}-reverse`}
-                    {...testimonial}
-                  />
-                ))}
+            {/* Only show second row on desktop */}
+            {!isMobile && (
+              <div className="flex w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent_0%,_black_20%,_black_80%,_transparent_100%)]">
+                <div
+                  className={cn(
+                    "flex w-fit gap-4 py-4",
+                    isPaused ? "animate-paused" : "animate-marquee-reverse"
+                  )}
+                >
+                  {duplicatedTestimonials.map((testimonial, index) => (
+                    <TestimonialCard
+                      key={`${testimonial.id}-${index}-reverse`}
+                      {...testimonial}
+                    />
+                  ))}
+                </div>
               </div>
-            </div>
+            )}
 
             <div className="pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-background" />
             <div className="pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-background" />
@@ -111,6 +167,12 @@ export default function HomeTestimonialsSection({
         )}
       </div>
 
+      {isMobile && (
+        <div className="text-center text-sm text-gray-500 mt-4 px-4">
+          Tap a card to read the full testimonial
+        </div>
+      )}
+
       <style jsx global>{`
         @keyframes marquee {
           from {
@@ -118,6 +180,15 @@ export default function HomeTestimonialsSection({
           }
           to {
             transform: translateX(-50%);
+          }
+        }
+
+        @keyframes marquee-slow {
+          from {
+            transform: translateX(0%);
+          }
+          to {
+            transform: translateX(-100%);
           }
         }
 
@@ -132,6 +203,10 @@ export default function HomeTestimonialsSection({
 
         .animate-marquee {
           animation: marquee 70s linear infinite;
+        }
+
+        .animate-marquee-slow {
+          animation: marquee-slow 40s linear infinite;
         }
 
         .animate-marquee-reverse {
