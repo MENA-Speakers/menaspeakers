@@ -54,8 +54,8 @@ export default function HomeTestimonialsSection({
   const [isPaused, setIsPaused] = useState(false);
 
   return (
-    <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
-      <h2 className="text-3xl font-bold mb-8 text-mena-brand">
+    <div className="max-w-7xl mx-auto sm:px-6 ">
+      <h2 className="text-3xl font-bold mb-8 text-mena-brand lg:px-8">
         What Our Clients Say
       </h2>
 
