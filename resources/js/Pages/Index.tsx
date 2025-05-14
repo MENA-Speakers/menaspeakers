@@ -94,8 +94,8 @@ function Index({
       {/* Hero Header*/}
       <HomePageHeroSection />
       <ScrollToTop />
-      {/*FEATURED SPEAKERS SECTION */}
 
+      {/*FEATURED SPEAKERS SECTION */}
       <section className={"py-12 px-6"}>
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col lg:flex-row justify-between items-center">
@@ -197,8 +197,12 @@ function Index({
         </div>
       </section>
 
-      {/*CATEGORIES SECTION  SECTION*/}
+      {/*OUR CLIENTS SECTION */}
+      <section className="py-12 lg:py-24 px-6 bg-[#F2F6FE]">
+        <HomeOurPartners />
+      </section>
 
+      {/*CATEGORIES SECTION  SECTION*/}
       <section className="py-16 px-6 bg-gradient-to-r from-slate-50 to-blue-50">
         <div className="max-w-7xl mx-auto">
           <div className="mb-10">
@@ -352,14 +356,7 @@ function Index({
         </div>
       </section>
 
-      {/*OUR CLIENTS SECTION */}
-
-      <section className="py-12 lg:py-24 px-6 bg-[#F2F6FE]">
-        <HomeOurPartners />
-      </section>
-
       {/*FAQ SECTION*/}
-
       <section className="py-12 px-6">
         <div className="max-w-7xl mx-auto">
           <h3 className="text-4xl text-mena-brand font-semibold">FAQ</h3>
@@ -412,7 +409,6 @@ function Index({
       </section>
 
       {/*CONTACT SECTION   */}
-
       <section className="py-12 px-6 bg-[#F2F6FE]">
         <div className="max-w-7xl mx-auto flex gap-12 flex-col lg:flex-row">
           <div className="w-full lg:w-1/2">
