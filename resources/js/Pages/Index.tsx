@@ -187,7 +187,7 @@ function Index({
               <div className="relative rounded-3xl overflow-hidden shadow-lg aspect-square lg:aspect-auto lg:h-[500px]">
                 <img
                   className="h-full w-full object-cover"
-                  src="/images/home-about-us.webp"
+                  src="/images/home-about-us.jpeg"
                   alt="About MENA Speakers"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-mena-brand/30 to-transparent"></div>
