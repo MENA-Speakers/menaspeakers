@@ -120,89 +120,80 @@ function Index({
       </section>
 
       {/*ABOUT US SECTION */}
-
-      <section className="px-6 py-6 lg:py-24 overflow-hidden lg:h-[700px] relative">
-        <div className="lg:absolute lg:inset-0 lg:p-6 z-10">
-          <div className="max-w-7xl mx-auto h-full z-10 flex items-center">
-            <div className="w-full lg:w-2/3 lg:pr-12">
-              <div className={"p-4 lg:p-12 w-full bg-slate-200 rounded-3xl "}>
-                <h2
-                  className={
-                    "text-3xl lg:text-5xl font-semibold text-mena-brand"
-                  }
-                >
+      <section className="px-6 py-16 lg:py-24 overflow-hidden relative bg-gradient-to-r from-slate-50 to-blue-50">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="order-2 lg:order-1">
+              <div className="bg-white p-8 rounded-3xl shadow-sm border border-slate-100">
+                <h2 className="text-3xl lg:text-4xl font-semibold text-mena-brand mb-6">
                   About Us
                 </h2>
-                <div className={"mt-6"}>
-                  <p className={"text-slate-500"}>
-                    MENA Speakers is the Middle East’s leading agency for
-                    professional speakers, MCs, and corporate trainers. We
-                    provide a one-stop solution for all your event needs—whether
-                    you're planning a conference, workshop, or corporate
-                    gathering. Book a powerful speaker or MC in just 5 minutes
-                    and ensure your audience is inspired, engaged, and
-                    empowered.
-                  </p>
+                <p className="text-slate-600 mb-6">
+                  MENA Speakers is the Middle East's leading agency for
+                  professional speakers, MCs, and corporate trainers. We provide
+                  a one-stop solution for all your event needs—whether you're
+                  planning a conference, workshop, or corporate gathering. Book
+                  a powerful speaker or MC in just 5 minutes and ensure your
+                  audience is inspired, engaged, and empowered.
+                </p>
 
-                  <div className="mt-6 grid grid-cols-1 gap-4 lg:grid-cols-3">
-                    <a
-                      href={"https://speakers-mgt.mena-speakers.com"}
-                      target={"_blank"}
-                      className={
-                        "py-3 px-4 col-span-1 bg-mena-brand rounded-xl flex items-center justify-center"
-                      }
-                    >
-                      <p className="text-center text-white">
-                        Protocol and Speakers Management
-                      </p>
-                    </a>
+                <div className="grid grid-cols-1 gap-4 sm:grid-cols-3 mb-6">
+                  <a
+                    href="https://speakers-mgt.mena-speakers.com"
+                    target="_blank"
+                    className="py-3 px-4 bg-mena-brand rounded-xl flex items-center justify-center transition-transform hover:scale-105"
+                  >
+                    <p className="text-center text-white text-sm">
+                      Protocol and Speakers Management
+                    </p>
+                  </a>
 
-                    <a
-                      href={"https://public-speaking.mena-speakers.com"}
-                      target={"_blank"}
-                      className={
-                        "py-3 px-4 col-span-1 bg-mena-brand rounded-xl flex items-center justify-center"
-                      }
-                    >
-                      <p className="text-center text-white">Public Speaking</p>
-                    </a>
+                  <a
+                    href="https://public-speaking.mena-speakers.com"
+                    target="_blank"
+                    className="py-3 px-4 bg-mena-brand rounded-xl flex items-center justify-center transition-transform hover:scale-105"
+                  >
+                    <p className="text-center text-white text-sm">
+                      Public Speaking
+                    </p>
+                  </a>
 
-                    <a
-                      href={"https://fasttrack.mena-speakers.com"}
-                      target={"_black"}
-                      className={
-                        "py-3 px-4 col-span-1 bg-mena-brand rounded-xl flex items-center justify-center"
-                      }
-                    >
-                      <p className="text-center text-white">
-                        Speaker Fast Track
-                      </p>
-                    </a>
-                  </div>
-
-                  <div className="mt-6 ">
-                    <span className={"border-b pb-1 border-[#F15A29]"}>
-                      <Link
-                        href={"/about-us"}
-                        aria-label={"About Us"}
-                        title={"Learn more about us"}
-                        className="mt-6 text-[#F15A29]"
-                      >
-                        Learn More
-                      </Link>
-                    </span>
-                  </div>
+                  <a
+                    href="https://fasttrack.mena-speakers.com"
+                    target="_blank"
+                    className="py-3 px-4 bg-mena-brand rounded-xl flex items-center justify-center transition-transform hover:scale-105"
+                  >
+                    <p className="text-center text-white text-sm">
+                      Speaker Fast Track
+                    </p>
+                  </a>
                 </div>
+
+                <Link
+                  href="/about-us"
+                  aria-label="About Us"
+                  title="Learn more about us"
+                  className="inline-flex items-center text-[#F15A29] group"
+                >
+                  <span className="border-b border-[#F15A29] pb-1">
+                    Learn More
+                  </span>
+                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </Link>
+              </div>
+            </div>
+
+            <div className="order-1 lg:order-2">
+              <div className="relative rounded-3xl overflow-hidden shadow-lg aspect-square lg:aspect-auto lg:h-[500px]">
+                <img
+                  className="h-full w-full object-cover"
+                  src="/images/home-about-us.webp"
+                  alt="About MENA Speakers"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-mena-brand/30 to-transparent"></div>
               </div>
             </div>
           </div>
-        </div>
-        <div className="z-0 absolute bottom-0 top-0 right-0 w-[70%]">
-          <img
-            className={"z-0 hidden lg:block h-full w-full object-cover"}
-            src="/images/home-about-us.webp"
-            alt="about mena speakers"
-          />
         </div>
       </section>
 
