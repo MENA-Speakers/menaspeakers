@@ -33,7 +33,7 @@ const TestimonialCard = ({
         {content}
       </blockquote>
       <div className="flex flex-col mt-4">
-        <figcaption className="text-sm font-medium dark:text-white">
+        <figcaption className="text-sm font-medium dark:text-white text-mena-100">
           {author}
         </figcaption>
         {author_title && (
@@ -54,7 +54,7 @@ export default function HomeTestimonialsSection({
   const [isPaused, setIsPaused] = useState(false);
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
       <h2 className="text-3xl font-bold text-center mb-8 text-mena-brand">
         What Our Clients Say
       </h2>

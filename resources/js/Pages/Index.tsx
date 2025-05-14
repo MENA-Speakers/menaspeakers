@@ -322,7 +322,7 @@ function Index({
 
       {/*TESTIMONIALS SECTION*/}
       {testimonials.length > 0 && (
-        <section className="py-12 px-6 bg-[#F2F6FE]">
+        <section className="py-12 bg-[#F2F6FE]">
           <HomeTestimonialsSection testimonials={testimonials} />
         </section>
       )}
