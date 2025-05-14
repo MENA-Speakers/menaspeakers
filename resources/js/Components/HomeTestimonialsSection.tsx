@@ -33,7 +33,7 @@ const TestimonialCard = ({
         {content}
       </blockquote>
       <div className="flex flex-col mt-4">
-        <figcaption className="text-sm font-medium dark:text-white text-mena-100">
+        <figcaption className="text-sm font-medium dark:text-white text-mena-brand">
           {author}
         </figcaption>
         {author_title && (
