@@ -21,35 +21,24 @@ const TestimonialCard = ({
   const cardRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Check if we're on mobile
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 768);
     };
-
-    // Initial check
     checkMobile();
-
-    // Add resize listener
     window.addEventListener("resize", checkMobile);
-
-    // Cleanup
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
   useEffect(() => {
-    // Center the card when expanded on mobile
     if (isExpanded && isMobile && cardRef.current) {
       cardRef.current.scrollIntoView({
         behavior: "smooth",
         block: "center",
-        inline: "center",
       });
     }
   }, [isExpanded, isMobile]);
 
-  const handleCardClick = (e: React.MouseEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
+  const handleCardClick = () => {
     if (isMobile) {
       onExpand(id);
     }
@@ -62,19 +51,17 @@ const TestimonialCard = ({
         "relative h-full shrink-0 overflow-hidden rounded-xl border p-4 transition-all duration-300",
         "border-gray-950/[.1] bg-gray-950/[.01] hover:bg-gray-950/[.05]",
         "dark:border-gray-50/[.1] dark:bg-gray-50/[.10] dark:hover:bg-gray-50/[.15]",
-        isExpanded && "z-20 shadow-lg transform scale-105",
+        isExpanded && "z-20 shadow-lg",
         isMobile
           ? "w-[85vw] max-w-[300px] cursor-pointer"
           : "w-64 cursor-pointer",
-        isExpanded &&
-          isMobile &&
-          "fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90vw] max-w-[350px] max-h-[80vh] overflow-y-auto bg-white dark:bg-gray-900"
+        isExpanded && isMobile && "bg-white dark:bg-gray-900"
       )}
       onClick={handleCardClick}
       onMouseEnter={() => !isMobile && onExpand(id)}
       onMouseLeave={() => !isMobile && onExpand("")}
     >
-      <figure>
+      <div>
         <blockquote
           className={cn(
             "mt-2 text-sm transition-all duration-300",
@@ -84,16 +71,16 @@ const TestimonialCard = ({
           {content}
         </blockquote>
         <div className="flex flex-col mt-4">
-          <figcaption className="text-sm font-medium dark:text-white text-mena-brand">
+          <div className="text-sm font-medium dark:text-white text-mena-brand">
             {author}
-          </figcaption>
+          </div>
           {author_title && (
             <p className="text-xs font-medium text-gray-500 dark:text-white/40">
               {author_title}
             </p>
           )}
         </div>
-      </figure>
+      </div>
       {isMobile && (
         <div className="absolute bottom-2 right-2 text-xs text-gray-400">
           {isExpanded ? "Tap to close" : "Tap to read"}
@@ -106,65 +93,52 @@ const TestimonialCard = ({
 export default function HomeTestimonialsSection({
   testimonials,
 }: HomeTestimonialsSectionProps) {
-  // Duplicate testimonials for seamless looping
   const duplicatedTestimonials = [...testimonials, ...testimonials];
   const [isPaused, setIsPaused] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [expandedCardId, setExpandedCardId] = useState<string | number>("");
-  const [showOverlay, setShowOverlay] = useState(false);
-  const marqueeRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Check if we're on mobile
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 768);
     };
-
-    // Initial check
     checkMobile();
-
-    // Add resize listener
     window.addEventListener("resize", checkMobile);
-
-    // Cleanup
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
   useEffect(() => {
-    // Show/hide overlay based on expanded card
-    setShowOverlay(!!expandedCardId && isMobile);
-
-    // Pause animation when a card is expanded
-    setIsPaused(!!expandedCardId && isMobile);
-
-    // Prevent body scroll when overlay is shown
-    if (!!expandedCardId && isMobile) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
+    // Pause animation when a card is expanded on mobile
+    if (isMobile) {
+      setIsPaused(!!expandedCardId);
     }
-
-    return () => {
-      document.body.style.overflow = "";
-    };
   }, [expandedCardId, isMobile]);
 
   const handleExpandCard = (id: string | number) => {
     setExpandedCardId(expandedCardId === id ? "" : id);
   };
 
-  const closeExpandedCard = (e: React.MouseEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
-    setExpandedCardId("");
-  };
-
-  // Resume animation when card is closed
+  // Handle clicks outside cards to close expanded card
   useEffect(() => {
-    if (!expandedCardId && marqueeRef.current) {
-      setIsPaused(false);
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        expandedCardId &&
+        containerRef.current &&
+        !containerRef.current.contains(event.target as Node)
+      ) {
+        setExpandedCardId("");
+      }
+    };
+
+    if (isMobile && expandedCardId) {
+      document.addEventListener("click", handleClickOutside);
     }
-  }, [expandedCardId]);
+
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, [expandedCardId, isMobile]);
 
   return (
     <div className="max-w-7xl mx-auto sm:px-6">
@@ -173,25 +147,17 @@ export default function HomeTestimonialsSection({
       </h2>
 
       <div
+        ref={containerRef}
         className="relative flex w-full flex-col items-center justify-center overflow-hidden"
         onMouseEnter={() => !isMobile && setIsPaused(true)}
         onMouseLeave={() => !isMobile && setIsPaused(false)}
       >
         {testimonials.length > 0 ? (
           <>
-            {/* Overlay for mobile expanded card */}
-            {showOverlay && (
-              <div
-                className="fixed inset-0 bg-black/60 z-10"
-                onClick={closeExpandedCard}
-              />
-            )}
-
             {/* Marquee Container */}
             <div className="flex w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent_0%,_black_20%,_black_80%,_transparent_100%)]">
               {/* Animated Row */}
               <div
-                ref={marqueeRef}
                 className={cn(
                   "flex w-fit gap-4 py-4",
                   isPaused
@@ -243,7 +209,7 @@ export default function HomeTestimonialsSection({
         )}
       </div>
 
-      {isMobile && !showOverlay && (
+      {isMobile && (
         <div className="text-center text-sm text-gray-500 mt-4 px-4">
           Tap a card to read the full testimonial
         </div>
@@ -291,23 +257,6 @@ export default function HomeTestimonialsSection({
 
         .animate-paused {
           animation-play-state: paused;
-        }
-
-        @keyframes fade-in {
-          from {
-            opacity: 0;
-          }
-          to {
-            opacity: 1;
-          }
-        }
-
-        .line-clamp-none {
-          display: -webkit-box;
-          -webkit-line-clamp: initial;
-          -webkit-box-orient: vertical;
-          overflow: visible;
-          animation: fade-in 0.3s ease-in;
         }
       `}</style>
     </div>
