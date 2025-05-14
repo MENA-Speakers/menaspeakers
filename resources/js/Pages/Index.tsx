@@ -250,23 +250,45 @@ function Index({
                     href={route("categories.show", category.slug)}
                     className="group"
                   >
-                    <div className="bg-slate-50 hover:bg-slate-100 transition-colors rounded-xl p-4 h-full flex flex-col justify-between">
-                      <div className="w-12 h-12 mb-3 flex items-center justify-center bg-mena-brand/10 rounded-lg">
-                        {category.image ? (
-                          <img
-                            src={category.image}
-                            alt={category.name}
-                            className="w-6 h-6 object-contain"
-                          />
-                        ) : (
-                          <span className="text-mena-brand text-xl">
-                            {category.name.charAt(0)}
-                          </span>
-                        )}
+                    <div className="relative overflow-hidden rounded-xl p-4 h-full flex flex-col justify-between transition-all duration-300 bg-gradient-to-br from-slate-50 to-blue-50 hover:from-slate-100 hover:to-blue-100 border border-transparent hover:border-mena-brand/10">
+                      <div className="flex items-center mb-3">
+                        <div className="w-10 h-10 flex items-center justify-center bg-mena-brand rounded-lg mr-3">
+                          {category.image ? (
+                            <img
+                              src={category.image}
+                              alt={category.name}
+                              className="w-5 h-5 object-contain invert opacity-80"
+                            />
+                          ) : (
+                            <span className="text-white text-sm font-medium">
+                              {category.name.charAt(0)}
+                            </span>
+                          )}
+                        </div>
+                        <span className="text-sm font-medium text-slate-800 group-hover:text-mena-brand transition-colors line-clamp-2">
+                          {category.name}
+                        </span>
                       </div>
-                      <span className="text-sm font-medium text-slate-800 group-hover:text-mena-brand transition-colors">
-                        {category.name}
-                      </span>
+                      <div className="mt-auto">
+                        <span className="text-xs text-slate-500 flex items-center">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="h-3 w-3 mr-1"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+                            />
+                          </svg>
+                          {category.speaker_count || 0} Speakers
+                        </span>
+                      </div>
+                      <div className="absolute bottom-0 right-0 w-12 h-12 -mb-6 -mr-6 rounded-full bg-mena-brand/5 group-hover:bg-mena-brand/10 transition-all duration-300"></div>
                     </div>
                   </Link>
                 ))}
