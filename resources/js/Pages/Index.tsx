@@ -197,92 +197,137 @@ function Index({
 
       {/*CATEGORIES SECTION  SECTION*/}
 
-      <section className="py-12 mt-12 px-6">
+      <section className="py-16 px-6 bg-gradient-to-r from-slate-50 to-blue-50">
         <div className="max-w-7xl mx-auto">
-          <div className="">
-            <h2
-              className={"text-mena-brand text-2xl font-semibold lg:text-4xl"}
-            >
-              Browse category
+          <div className="mb-10">
+            <h2 className="text-3xl md:text-4xl font-semibold text-mena-brand">
+              Browse by Category
             </h2>
+            <p className="mt-3 text-slate-600 max-w-2xl">
+              Find the perfect speaker for your event based on expertise and
+              specialization
+            </p>
           </div>
 
-          <div className="w-full flex flex-col lg:flex-row gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
             {/*CATEGORIES SECTION */}
-            <div className="w-full py-4 lg:w-1/2 flex flex-col space-y-6">
-              <div className="flex justify-between items-end">
-                <div className={" space-y-1 "}>
-                  <h3 className="text-xl text-mena-brand">Categories</h3>
-                  <p>Find a speaker on current global trends</p>
-                </div>
+            <div className="bg-white rounded-2xl shadow-sm p-6 border border-slate-100">
+              <div className="flex justify-between items-center mb-6">
                 <div>
-                  <Link
-                    href={route("categories.index")}
-                    className="text-[#F15A29] "
-                  >
-                    View All Categories
-                  </Link>
+                  <h3 className="text-xl font-semibold text-mena-brand">
+                    Categories
+                  </h3>
+                  <p className="text-slate-500 text-sm mt-1">
+                    Find a speaker on current global trends
+                  </p>
                 </div>
+                <Link
+                  href={route("categories.index")}
+                  className="text-[#F15A29] flex items-center group"
+                >
+                  View All
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-4 w-4 ml-1 transition-transform group-hover:translate-x-1"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9 5l7 7-7 7"
+                    />
+                  </svg>
+                </Link>
               </div>
 
-              <div className={"flex gap-6 sm:flex-col"}>
-                {categories.map((category) => (
-                  <div
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                {categories.slice(0, 6).map((category) => (
+                  <Link
                     key={category.id}
-                    className={"w-full lg:w-1/2 flex flex-col"}
+                    href={route("categories.show", category.slug)}
+                    className="group"
                   >
-                    {/*<Link href={route('categories.show', {category: category.slug})}>*/}
-                    {/*  <img className={'h-40 object-cover w-full rounded-xl'}*/}
-                    {/*       src={category.image ? category.image : '/images/placeholder.webp'}*/}
-                    {/*       alt={`${category.name} Speakers`}/>*/}
-                    {/*  </Link>*/}
-                    <Link
-                      href={route("categories.show", category.slug)}
-                      className="text-sm mt-1"
-                    >
-                      {category.name}
-                    </Link>
-                  </div>
+                    <div className="bg-slate-50 hover:bg-slate-100 transition-colors rounded-xl p-4 h-full flex flex-col justify-between">
+                      <div className="w-12 h-12 mb-3 flex items-center justify-center bg-mena-brand/10 rounded-lg">
+                        {category.image ? (
+                          <img
+                            src={category.image}
+                            alt={category.name}
+                            className="w-6 h-6 object-contain"
+                          />
+                        ) : (
+                          <span className="text-mena-brand text-xl">
+                            {category.name.charAt(0)}
+                          </span>
+                        )}
+                      </div>
+                      <span className="text-sm font-medium text-slate-800 group-hover:text-mena-brand transition-colors">
+                        {category.name}
+                      </span>
+                    </div>
+                  </Link>
                 ))}
               </div>
             </div>
 
             {/*TOPICS SECTION */}
-            <div className="w-full py-4 lg:w-1/2 flex flex-col space-y-6">
-              <div className="flex justify-between items-end">
-                <div className={" space-y-1 "}>
-                  <h3 className="text-xl text-mena-brand">Topics</h3>
-                  <p>Find a speaker on a specific topic</p>
-                </div>
+            <div className="bg-white rounded-2xl shadow-sm p-6 border border-slate-100">
+              <div className="flex justify-between items-center mb-6">
                 <div>
-                  <Link
-                    href={route("topics.index")}
-                    className="text-[#F15A29] "
-                  >
-                    View All Topics
-                  </Link>
+                  <h3 className="text-xl font-semibold text-mena-brand">
+                    Topics
+                  </h3>
+                  <p className="text-slate-500 text-sm mt-1">
+                    Find a speaker on a specific topic
+                  </p>
                 </div>
+                <Link
+                  href={route("topics.index")}
+                  className="text-[#F15A29] flex items-center group"
+                >
+                  View All
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-4 w-4 ml-1 transition-transform group-hover:translate-x-1"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9 5l7 7-7 7"
+                    />
+                  </svg>
+                </Link>
               </div>
 
-              <div className={"grid grid-cols-2 lg:grid-cols-4 gap-6"}>
-                {topics.map((topic) => (
-                  <div key={topic.id} className={" flex flex-col"}>
-                    <Link href={route("topics.show", { topic: topic.slug })}>
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                {topics.slice(0, 6).map((topic) => (
+                  <Link
+                    key={topic.id}
+                    href={route("topics.show", topic.slug)}
+                    className="group"
+                  >
+                    <div className="relative overflow-hidden rounded-xl aspect-square">
                       <img
-                        className={"h-20 object-cover w-full rounded-xl"}
+                        className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110"
                         src={
                           topic.image ? topic.image : "/images/placeholder.webp"
                         }
                         alt={`${topic.name} Speakers`}
                       />
-                    </Link>
-                    <Link
-                      href={route("topics.show", topic.slug)}
-                      className="text-sm mt-1"
-                    >
-                      {topic.name}
-                    </Link>
-                  </div>
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-3">
+                        <span className="text-white text-sm font-medium">
+                          {topic.name}
+                        </span>
+                      </div>
+                    </div>
+                  </Link>
                 ))}
               </div>
             </div>
