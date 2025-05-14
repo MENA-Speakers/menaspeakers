@@ -18,7 +18,7 @@ const TestimonialCard = ({
   isExpanded: boolean;
 }) => {
   const [isMobile, setIsMobile] = useState(false);
-  const cardRef = useRef<HTMLElement>(null);
+  const cardRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     // Check if we're on mobile
@@ -47,14 +47,16 @@ const TestimonialCard = ({
     }
   }, [isExpanded, isMobile]);
 
-  const handleCardInteraction = () => {
+  const handleCardClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
     if (isMobile) {
       onExpand(id);
     }
   };
 
   return (
-    <figure
+    <div
       ref={cardRef}
       className={cn(
         "relative h-full shrink-0 overflow-hidden rounded-xl border p-4 transition-all duration-300",
@@ -68,34 +70,36 @@ const TestimonialCard = ({
           isMobile &&
           "fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90vw] max-w-[350px] max-h-[80vh] overflow-y-auto bg-white dark:bg-gray-900"
       )}
-      onClick={handleCardInteraction}
+      onClick={handleCardClick}
       onMouseEnter={() => !isMobile && onExpand(id)}
       onMouseLeave={() => !isMobile && onExpand("")}
     >
-      <blockquote
-        className={cn(
-          "mt-2 text-sm transition-all duration-300",
-          isExpanded ? "line-clamp-none" : "line-clamp-4"
-        )}
-      >
-        {content}
-      </blockquote>
-      <div className="flex flex-col mt-4">
-        <figcaption className="text-sm font-medium dark:text-white text-mena-brand">
-          {author}
-        </figcaption>
-        {author_title && (
-          <p className="text-xs font-medium text-gray-500 dark:text-white/40">
-            {author_title}
-          </p>
-        )}
-      </div>
+      <figure>
+        <blockquote
+          className={cn(
+            "mt-2 text-sm transition-all duration-300",
+            isExpanded ? "line-clamp-none" : "line-clamp-4"
+          )}
+        >
+          {content}
+        </blockquote>
+        <div className="flex flex-col mt-4">
+          <figcaption className="text-sm font-medium dark:text-white text-mena-brand">
+            {author}
+          </figcaption>
+          {author_title && (
+            <p className="text-xs font-medium text-gray-500 dark:text-white/40">
+              {author_title}
+            </p>
+          )}
+        </div>
+      </figure>
       {isMobile && (
         <div className="absolute bottom-2 right-2 text-xs text-gray-400">
           {isExpanded ? "Tap to close" : "Tap to read"}
         </div>
       )}
-    </figure>
+    </div>
   );
 };
 
@@ -108,6 +112,7 @@ export default function HomeTestimonialsSection({
   const [isMobile, setIsMobile] = useState(false);
   const [expandedCardId, setExpandedCardId] = useState<string | number>("");
   const [showOverlay, setShowOverlay] = useState(false);
+  const marqueeRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     // Check if we're on mobile
@@ -130,11 +135,7 @@ export default function HomeTestimonialsSection({
     setShowOverlay(!!expandedCardId && isMobile);
 
     // Pause animation when a card is expanded
-    if (expandedCardId && isMobile) {
-      setIsPaused(true);
-    } else if (!isPaused) {
-      setIsPaused(false);
-    }
+    setIsPaused(!!expandedCardId && isMobile);
 
     // Prevent body scroll when overlay is shown
     if (!!expandedCardId && isMobile) {
@@ -152,9 +153,18 @@ export default function HomeTestimonialsSection({
     setExpandedCardId(expandedCardId === id ? "" : id);
   };
 
-  const closeExpandedCard = () => {
+  const closeExpandedCard = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
     setExpandedCardId("");
   };
+
+  // Resume animation when card is closed
+  useEffect(() => {
+    if (!expandedCardId && marqueeRef.current) {
+      setIsPaused(false);
+    }
+  }, [expandedCardId]);
 
   return (
     <div className="max-w-7xl mx-auto sm:px-6">
@@ -181,6 +191,7 @@ export default function HomeTestimonialsSection({
             <div className="flex w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent_0%,_black_20%,_black_80%,_transparent_100%)]">
               {/* Animated Row */}
               <div
+                ref={marqueeRef}
                 className={cn(
                   "flex w-fit gap-4 py-4",
                   isPaused
