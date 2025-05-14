@@ -343,9 +343,13 @@ function Index({
                         }
                         alt={`${topic.name} Speakers`}
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-3">
-                        <span className="text-white text-sm font-medium">
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex flex-col justify-end p-3">
+                        <span className="text-white text-sm font-medium mb-2">
                           {topic.name}
+                        </span>
+                        <span className="text-xs text-white/80 flex items-center">
+                          <Mic className="h-3 w-3 mr-1" />
+                          {topic.speaker_count || 0} Speakers
                         </span>
                       </div>
                     </div>
