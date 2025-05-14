@@ -186,7 +186,7 @@ function Index({
             <div className="order-1 lg:order-2">
               <div className="relative rounded-3xl overflow-hidden shadow-lg aspect-square lg:aspect-auto lg:h-[500px]">
                 <img
-                  className="h-full w-full object-cover"
+                  className="h-full w-full object-contain"
                   src="/images/home-about-us.jpeg"
                   alt="About MENA Speakers"
                 />
@@ -250,7 +250,7 @@ function Index({
               </div>
 
               {/* Change grid to 2 columns */}
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-2 gap-4 max-w-md mx-auto">
                 {categories.slice(0, 4).map((category, index) => {
                   const getCategoryIcon = () => {
                     const icons = [
@@ -324,7 +324,7 @@ function Index({
               </div>
 
               {/* Change grid to 2 columns */}
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-2 gap-4 max-w-md mx-auto">
                 {topics.slice(0, 4).map((topic) => (
                   <Link
                     key={topic.id}
