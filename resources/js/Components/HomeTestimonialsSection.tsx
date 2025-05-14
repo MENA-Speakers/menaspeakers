@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
 import { TestimonialType } from "@/types/testimonial-type";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 interface HomeTestimonialsSectionProps {
   testimonials: TestimonialType[];
@@ -10,9 +10,15 @@ const TestimonialCard = ({
   author,
   author_title,
   content,
-}: TestimonialType) => {
-  const [isHovered, setIsHovered] = useState(false);
+  id,
+  onExpand,
+  isExpanded,
+}: TestimonialType & {
+  onExpand: (id: number | string) => void;
+  isExpanded: boolean;
+}) => {
   const [isMobile, setIsMobile] = useState(false);
+  const cardRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     // Check if we're on mobile
@@ -30,32 +36,46 @@ const TestimonialCard = ({
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
+  useEffect(() => {
+    // Center the card when expanded on mobile
+    if (isExpanded && isMobile && cardRef.current) {
+      cardRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+        inline: "center",
+      });
+    }
+  }, [isExpanded, isMobile]);
+
   const handleCardInteraction = () => {
     if (isMobile) {
-      // Toggle on tap for mobile
-      setIsHovered(!isHovered);
+      onExpand(id);
     }
   };
 
   return (
     <figure
+      ref={cardRef}
       className={cn(
-        "relative h-full w-64 shrink-0 overflow-hidden rounded-xl border p-4 transition-all duration-300",
+        "relative h-full shrink-0 overflow-hidden rounded-xl border p-4 transition-all duration-300",
         "border-gray-950/[.1] bg-gray-950/[.01] hover:bg-gray-950/[.05]",
         "dark:border-gray-50/[.1] dark:bg-gray-50/[.10] dark:hover:bg-gray-50/[.15]",
-        isHovered && "z-10 shadow-lg transform scale-105",
+        isExpanded && "z-20 shadow-lg transform scale-105",
         isMobile
           ? "w-[85vw] max-w-[300px] cursor-pointer"
-          : "w-64 cursor-pointer"
+          : "w-64 cursor-pointer",
+        isExpanded &&
+          isMobile &&
+          "fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90vw] max-w-[350px] max-h-[80vh] overflow-y-auto bg-white dark:bg-gray-900"
       )}
       onClick={handleCardInteraction}
-      onMouseEnter={() => !isMobile && setIsHovered(true)}
-      onMouseLeave={() => !isMobile && setIsHovered(false)}
+      onMouseEnter={() => !isMobile && onExpand(id)}
+      onMouseLeave={() => !isMobile && onExpand("")}
     >
       <blockquote
         className={cn(
           "mt-2 text-sm transition-all duration-300",
-          isHovered ? "line-clamp-none" : "line-clamp-4"
+          isExpanded ? "line-clamp-none" : "line-clamp-4"
         )}
       >
         {content}
@@ -72,7 +92,7 @@ const TestimonialCard = ({
       </div>
       {isMobile && (
         <div className="absolute bottom-2 right-2 text-xs text-gray-400">
-          {isHovered ? "Tap to collapse" : "Tap to expand"}
+          {isExpanded ? "Tap to close" : "Tap to read"}
         </div>
       )}
     </figure>
@@ -86,6 +106,8 @@ export default function HomeTestimonialsSection({
   const duplicatedTestimonials = [...testimonials, ...testimonials];
   const [isPaused, setIsPaused] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [expandedCardId, setExpandedCardId] = useState<string | number>("");
+  const [showOverlay, setShowOverlay] = useState(false);
 
   useEffect(() => {
     // Check if we're on mobile
@@ -103,6 +125,37 @@ export default function HomeTestimonialsSection({
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
+  useEffect(() => {
+    // Show/hide overlay based on expanded card
+    setShowOverlay(!!expandedCardId && isMobile);
+
+    // Pause animation when a card is expanded
+    if (expandedCardId && isMobile) {
+      setIsPaused(true);
+    } else if (!isPaused) {
+      setIsPaused(false);
+    }
+
+    // Prevent body scroll when overlay is shown
+    if (!!expandedCardId && isMobile) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [expandedCardId, isMobile]);
+
+  const handleExpandCard = (id: string | number) => {
+    setExpandedCardId(expandedCardId === id ? "" : id);
+  };
+
+  const closeExpandedCard = () => {
+    setExpandedCardId("");
+  };
+
   return (
     <div className="max-w-7xl mx-auto sm:px-6">
       <h2 className="text-3xl font-bold mb-8 text-mena-brand lg:px-8 px-4">
@@ -111,11 +164,19 @@ export default function HomeTestimonialsSection({
 
       <div
         className="relative flex w-full flex-col items-center justify-center overflow-hidden"
-        onMouseEnter={() => setIsPaused(true)}
-        onMouseLeave={() => setIsPaused(false)}
+        onMouseEnter={() => !isMobile && setIsPaused(true)}
+        onMouseLeave={() => !isMobile && setIsPaused(false)}
       >
         {testimonials.length > 0 ? (
           <>
+            {/* Overlay for mobile expanded card */}
+            {showOverlay && (
+              <div
+                className="fixed inset-0 bg-black/60 z-10"
+                onClick={closeExpandedCard}
+              />
+            )}
+
             {/* Marquee Container */}
             <div className="flex w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent_0%,_black_20%,_black_80%,_transparent_100%)]">
               {/* Animated Row */}
@@ -133,6 +194,8 @@ export default function HomeTestimonialsSection({
                   <TestimonialCard
                     key={`${testimonial.id}-${index}`}
                     {...testimonial}
+                    onExpand={handleExpandCard}
+                    isExpanded={expandedCardId === testimonial.id}
                   />
                 ))}
               </div>
@@ -151,6 +214,8 @@ export default function HomeTestimonialsSection({
                     <TestimonialCard
                       key={`${testimonial.id}-${index}-reverse`}
                       {...testimonial}
+                      onExpand={handleExpandCard}
+                      isExpanded={expandedCardId === testimonial.id}
                     />
                   ))}
                 </div>
@@ -167,7 +232,7 @@ export default function HomeTestimonialsSection({
         )}
       </div>
 
-      {isMobile && (
+      {isMobile && !showOverlay && (
         <div className="text-center text-sm text-gray-500 mt-4 px-4">
           Tap a card to read the full testimonial
         </div>
