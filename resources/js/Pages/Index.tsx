@@ -246,7 +246,7 @@ function Index({
               </div>
 
               <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                {categories.slice(0, 6).map((category, index) => {
+                {categories.slice(0, 4).map((category, index) => {
                   // Map category names to appropriate icons
                   const getCategoryIcon = () => {
                     const icons = [
@@ -320,7 +320,7 @@ function Index({
               </div>
 
               <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                {topics.slice(0, 6).map((topic) => (
+                {topics.slice(0, 4).map((topic) => (
                   <Link
                     key={topic.id}
                     href={route("topics.show", topic.slug)}
