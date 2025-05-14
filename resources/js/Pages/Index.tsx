@@ -265,8 +265,6 @@ function Index({
                       <Lightbulb className="h-8 w-8 text-white" />,
                       <TrendingUp className="h-8 w-8 text-white" />,
                       <Globe className="h-8 w-8 text-white" />,
-                      <Target className="h-8 w-8 text-white" />,
-                      <Users className="h-8 w-8 text-white" />,
                     ];
                     return icons[index % icons.length];
                   };
