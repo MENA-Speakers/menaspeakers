@@ -216,7 +216,7 @@ function Index({
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-            {/*CATEGORIES SECTION */}
+            {/* CATEGORIES SECTION */}
             <div className="bg-white rounded-2xl shadow-sm p-6 border border-slate-100">
               <div className="flex justify-between items-center mb-6">
                 <div>
@@ -249,9 +249,9 @@ function Index({
                 </Link>
               </div>
 
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+              {/* Change grid to 2 columns */}
+              <div className="grid grid-cols-2 gap-4">
                 {categories.slice(0, 4).map((category, index) => {
-                  // Map category names to appropriate icons
                   const getCategoryIcon = () => {
                     const icons = [
                       <Briefcase className="h-8 w-8 text-white" />,
@@ -290,7 +290,7 @@ function Index({
               </div>
             </div>
 
-            {/*TOPICS SECTION */}
+            {/* TOPICS SECTION */}
             <div className="bg-white rounded-2xl shadow-sm p-6 border border-slate-100">
               <div className="flex justify-between items-center mb-6">
                 <div>
@@ -323,7 +323,8 @@ function Index({
                 </Link>
               </div>
 
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+              {/* Change grid to 2 columns */}
+              <div className="grid grid-cols-2 gap-4">
                 {topics.slice(0, 4).map((topic) => (
                   <Link
                     key={topic.id}
@@ -355,7 +356,6 @@ function Index({
           </div>
         </div>
       </section>
-
       {/*FAQ SECTION*/}
       <section className="py-12 px-6">
         <div className="max-w-7xl mx-auto">
