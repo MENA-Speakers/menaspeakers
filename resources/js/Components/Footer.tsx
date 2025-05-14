@@ -24,7 +24,7 @@ const Footer = () => {
             className="mb-4"
           />
           <SocialLogos dark={true} />
-          <p className="text-balance">
+          <p className="text-balance lg:text-left text-center">
             The <b className="text-white">#1</b> Speakers Bureau in the MENA
             Region since <b className="text-white">2016</b>.
           </p>
