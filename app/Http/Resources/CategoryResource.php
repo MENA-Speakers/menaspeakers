@@ -14,12 +14,13 @@ class CategoryResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        return[
+        return [
             'id' => $this->id,
             'slug' => $this->slug,
             'name' => $this->name,
             'speaker_count' => $this->speakers?->count(),
             'image' => $this->getFirstMediaUrl('image', 'webp'),
+            'random_speaker_image' => $this->random_speaker_image ?? null,
             'speakers' => $this->speakers,
         ];
     }

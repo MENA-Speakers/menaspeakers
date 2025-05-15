@@ -47,16 +47,22 @@ class HomeController extends Controller
     $faqs = Faq::where('speaker_id', null)->get();
     $testimonials = Testimonial::latest()->limit(12)->get();
 
-    // Retrieve random categories and topics
-    // Old code
-    $categories = Category::inRandomOrder()->limit(4)->get();
-
-    // New code
+    // Retrieve categories with speaker count and a random speaker image
     $categories = Category::withCount('speakers')
       ->orderBy('speakers_count', 'desc')
       ->limit(4)
       ->get();
-    $topics = Topic::inRandomOrder()->limit(8)->get();
+
+    // Add a random speaker image to each category
+    foreach ($categories as $category) {
+      $randomSpeaker = $category->speakers()->inRandomOrder()->first();
+      $category->random_speaker_image = $randomSpeaker ? $randomSpeaker->getFirstMediaUrl('avatar') : null;
+    }
+
+    $topics = Topic::withCount('speakers')
+      ->orderBy('speakers_count', 'desc')
+      ->limit(4)
+      ->get();
 
     // Render the 'Index' view with the retrieved resources
     return Inertia::render('Index', [

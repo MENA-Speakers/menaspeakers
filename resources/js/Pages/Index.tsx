@@ -247,46 +247,36 @@ function Index({
 
               {/* Grid with top 4 categories by speaker count */}
               <div className="grid grid-cols-2 gap-4 max-w-md mx-auto">
-                {categories
-                  .slice() // Create copy to avoid mutation
-                  .sort(
-                    (a, b) => (b.speaker_count || 0) - (a.speaker_count || 0)
-                  )
-                  .slice(0, 4)
-                  .map((category, index) => {
-                    const getCategoryIcon = () => {
-                      const icons = [
-                        <Briefcase className="h-8 w-8 text-white" />,
-                        <Award className="h-8 w-8 text-white" />,
-                        <BookOpen className="h-8 w-8 text-white" />,
-                        <Lightbulb className="h-8 w-8 text-white" />,
-                      ];
-                      return icons[index % icons.length];
-                    };
-
-                    return (
-                      <Link
-                        key={category.id}
-                        href={route("categories.show", category.slug)}
-                        className="group"
-                      >
-                        <div className="relative overflow-hidden rounded-xl aspect-square">
-                          <div className="absolute inset-0 bg-gradient-to-br from-mena-brand to-mena-brand/70 flex items-center justify-center">
-                            {getCategoryIcon()}
-                          </div>
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex flex-col justify-end p-3">
-                            <span className="text-white text-sm font-medium mb-2">
-                              {category.name}
-                            </span>
-                            <span className="text-xs text-white/80 flex items-center">
-                              <Mic className="h-3 w-3 mr-1" />
-                              {category.speaker_count || 0} Speakers
-                            </span>
-                          </div>
+                {categories.slice(0, 4).map((category) => (
+                  <Link
+                    key={category.id}
+                    href={route("categories.show", category.slug)}
+                    className="group"
+                  >
+                    <div className="relative overflow-hidden rounded-xl aspect-square">
+                      {category.random_speaker_image ? (
+                        <img
+                          className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110"
+                          src={category.random_speaker_image}
+                          alt={`${category.name} Category`}
+                        />
+                      ) : (
+                        <div className="absolute inset-0 bg-gradient-to-br from-mena-brand to-mena-brand/70 flex items-center justify-center">
+                          <Briefcase className="h-8 w-8 text-white" />
                         </div>
-                      </Link>
-                    );
-                  })}
+                      )}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex flex-col justify-end p-3">
+                        <span className="text-white text-sm font-medium mb-2">
+                          {category.name}
+                        </span>
+                        <span className="text-xs text-white/80 flex items-center">
+                          <Mic className="h-3 w-3 mr-1" />
+                          {category.speaker_count || 0} Speakers
+                        </span>
+                      </div>
+                    </div>
+                  </Link>
+                ))}
               </div>
             </div>
 
