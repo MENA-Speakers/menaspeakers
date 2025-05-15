@@ -1,4 +1,3 @@
-import { color } from "framer-motion";
 import { Youtube, Linkedin, Facebook, Instagram } from "lucide-react";
 
 export default function SocialLogos({ dark }: { dark: boolean }) {
@@ -8,84 +7,78 @@ export default function SocialLogos({ dark }: { dark: boolean }) {
       href: "https://www.youtube.com/@menaspeakers4868",
       logo: (
         <Youtube
-          className={`${
-            dark
-              ? "text-slate-100"
-              : "text-gray-800 hover:text-slate-100 duration-300"
-          }`}
+          className={
+            dark ? "text-slate-100" : "hover:text-slate-100 text-gray-800"
+          }
         />
       ),
-      color: "red-600",
+      hoverClass: "hover:bg-[#FF0000]",
     },
     {
       Name: "linkedin",
       href: "https://www.linkedin.com/company/mena-speakers/mycompany",
       logo: (
         <Linkedin
-          className={`${
-            dark
-              ? "text-slate-100"
-              : "text-gray-800 hover:text-slate-100 duration-300"
-          }`}
+          className={
+            dark ? "text-slate-100" : "hover:text-slate-100 text-gray-800"
+          }
         />
       ),
-      color: "blue-800",
+      hoverClass: "hover:bg-[#0A66C2]",
     },
     {
       Name: "facebook",
       href: "https://www.facebook.com/menaspeakers",
       logo: (
         <Facebook
-          className={`${
-            dark
-              ? "text-slate-100"
-              : "text-gray-800 hover:text-slate-100 duration-300"
-          }`}
+          className={
+            dark ? "text-slate-100" : "hover:text-slate-100 text-gray-800"
+          }
         />
       ),
-      color: "blue-600",
+      hoverClass: "hover:bg-[#1877F2]",
     },
     {
       Name: "instagram",
       href: "https://www.instagram.com/menaspeakers/",
       logo: (
         <Instagram
-          className={`${
-            dark
-              ? "text-slate-100"
-              : "text-gray-800 hover:text-slate-100 duration-300"
-          }`}
+          className={
+            dark ? "text-slate-100" : "hover:text-slate-100 text-gray-800"
+          }
         />
       ),
-      color: "pink-600",
+      hoverClass: "hover:bg-[#E4405F]",
     },
   ];
 
   return (
-    <div className="flex space-x-2 mb-4 ">
+    <div className="flex space-x-2 mb-4">
       {Logos.map((item) => (
         <a
           key={item.Name}
-          target={"_blank"}
+          target="_blank"
+          rel="noopener noreferrer"
           href={item.href}
-          className={`p-2 ${
+          className={`p-2 rounded-lg transition duration-300 ${
             dark ? "bg-gray-800" : "bg-slate-200"
-          } transition duration-300 hover:bg-${item.color} rounded-lg`}
+          } ${item.hoverClass} hover:text-white`} // Added hover:text-white here
         >
           {item.logo}
         </a>
       ))}
       <a
-        target={"_blank"}
-        href={"https://twitter.com/menaspeakers"}
-        className={`p-2 ${
+        target="_blank"
+        rel="noopener noreferrer"
+        href="https://twitter.com/menaspeakers"
+        className={`p-2 rounded-lg transition duration-300 ${
           dark ? "bg-gray-800" : "bg-slate-200"
-        } transition duration-300 hover:bg-blue-500 rounded-lg`}
+        } hover:bg-[#000000]`}
       >
         <img
           src="/icons/x-twitter-brands-solid.svg"
-          alt=""
-          className={`${dark ? "invert" : "hover:invert duration-300"} w-6`}
+          alt="Twitter/X"
+          className={`w-6 ${dark ? "invert" : ""} hover:invert`}
         />
       </a>
     </div>

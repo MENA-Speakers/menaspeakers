@@ -1,14 +1,14 @@
-import React from 'react';
+import React from "react";
 import MainLayout from "@/Layouts/MainLayout";
-import {Head, Link} from "@inertiajs/react";
-import {PublicTopicType} from "@/types/PublicTopicType";
+import { Head, Link } from "@inertiajs/react";
+import { PublicTopicType } from "@/types/PublicTopicType";
 
 interface PublicTopicPageProps {
-  topics: PublicTopicType[],
-  query: string
+  topics: PublicTopicType[];
+  query: string;
 }
 
-function PublicTopicPage({topics, query}: PublicTopicPageProps) {
+function PublicTopicPage({ topics, query }: PublicTopicPageProps) {
   return (
     <MainLayout>
       <Head>
@@ -16,13 +16,16 @@ function PublicTopicPage({topics, query}: PublicTopicPageProps) {
       </Head>
       <section className="relative h-[550px] -mt-6">
         <img
-          aria-label={'Blogs hero image'}
-          src="/images/blog-hero-image.jpeg" alt="groupe of mena speakers in front of people at forume event" className="w-full h-full object-cover"/>
+          aria-label={"Blogs hero image"}
+          src="/images/blog-hero-image.jpeg"
+          alt="groupe of mena speakers in front of people at forume event"
+          className="w-full h-full object-cover"
+        />
 
         <div className="absolute inset-0 z-0">
           <div className="w-full h-full z-20 bg-black/50">
             <div className="max-w-7xl mx-auto flex items-center justify-center h-full  px-4 sm px-6 lg px-8">
-                <h1 className="text-white text-5xl font-bold">Topics</h1>
+              <h1 className="text-white text-5xl font-bold">Topics</h1>
             </div>
           </div>
         </div>
@@ -30,24 +33,27 @@ function PublicTopicPage({topics, query}: PublicTopicPageProps) {
 
       <section className="py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 px-6 lg:px-0">
-
-
           {/* Display Speakers*/}
           <div className="grid grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
-
-            {
-              topics.map(topic => (
-                <div key={topic.id} className="bg-white rounded-lg shadow-md overflow-hidden">
+            {topics.map((topic) => (
+              <div
+                key={topic.id}
+                className="bg-white rounded-lg shadow-md overflow-hidden"
+              >
+                <Link href={`/topics/${topic.slug}`}>
+                  <img
+                    src={topic.random_speaker_image}
+                    alt={topic.name}
+                    className="w-full h-48 object-cover"
+                  />
+                </Link>
+                <div className="p-4">
                   <Link href={`/topics/${topic.slug}`}>
-                    <img src={topic.image} alt={topic.name} className="w-full h-48 object-cover"/>
+                    <h2 className="text-sm text-gray-800">{topic.name}</h2>
                   </Link>
-                  <div className="p-4">
-                    <Link href={`/topics/${topic.slug}`}>
-                      <h2 className="text-sm text-gray-800">{topic.name}</h2>
-                    </Link>
-                  </div>
                 </div>
-              ))}
+              </div>
+            ))}
           </div>
 
           {/* Pagination */}
