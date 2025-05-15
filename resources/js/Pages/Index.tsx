@@ -200,20 +200,20 @@ function Index({
       </section>
       {/*CATEGORIES SECTION  SECTION*/}
       <section className="py-16 px-6 bg-gradient-to-r from-slate-50 to-blue-50">
-        <div className="max-w-7xl mx-auto">
-          <div className="mb-10">
-            <h2 className="text-3xl md:text-4xl font-semibold text-mena-brand">
-              Browse by Category
-            </h2>
-            <p className="mt-3 text-slate-600 max-w-2xl">
-              Find the perfect speaker for your event based on expertise and
-              specialization
-            </p>
-          </div>
+        <div className="mb-10">
+          <h2 className="text-3xl md:text-4xl font-semibold text-mena-brand">
+            Browse by Category
+          </h2>
+          <p className="mt-3 text-slate-600 max-w-2xl">
+            Find the perfect speaker for your event based on expertise and
+            specialization
+          </p>
+        </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+        <div className="max-w-5xl mx-auto">
+          <div className="flex justify-between items-center flex-col lg:flex-row gap-5 lg:gap-0">
             {/* CATEGORIES SECTION */}
-            <div className="bg-white rounded-2xl shadow-sm p-6 border border-slate-100">
+            <div className="bg-white rounded-2xl shadow-sm p-6 border border-slate-100 max-w-[500px] lg:min-w-[500px]">
               <div className="flex justify-between items-center mb-6">
                 <div>
                   <h3 className="text-xl font-semibold text-mena-brand">
@@ -246,7 +246,7 @@ function Index({
               </div>
 
               {/* Change grid to 2 columns and restrict card width */}
-              <div className="grid grid-cols-2 gap-4 max-w-md mx-auto">
+              <div className="grid grid-cols-2 gap-5 max-w-xs mx-auto">
                 {categories.slice(0, 4).map((category, index) => {
                   const getCategoryIcon = () => {
                     const icons = [
@@ -267,7 +267,7 @@ function Index({
                       className="group"
                     >
                       {/* Limit card width and center */}
-                      <div className="relative overflow-hidden rounded-xl aspect-square max-w-xs mx-auto">
+                      <div className="relative overflow-hidden rounded-xl aspect-square max-w-[150px] mx-auto">
                         <div className="absolute inset-0 bg-gradient-to-br from-mena-brand to-mena-brand/70 flex items-center justify-center">
                           {getCategoryIcon()}
                         </div>
@@ -288,7 +288,7 @@ function Index({
             </div>
 
             {/* TOPICS SECTION */}
-            <div className="bg-white rounded-2xl shadow-sm p-6 border border-slate-100">
+            <div className="bg-white rounded-2xl shadow-sm p-6 border border-slate-100 max-w-[500px] lg:min-w-[500px]">
               <div className="flex justify-between items-center mb-6">
                 <div>
                   <h3 className="text-xl font-semibold text-mena-brand">
@@ -321,7 +321,7 @@ function Index({
               </div>
 
               {/* Change grid to 2 columns and restrict card width */}
-              <div className="grid grid-cols-2 gap-4 max-w-md mx-auto">
+              <div className="grid grid-cols-2 gap-5 max-w-xs mx-auto">
                 {topics.slice(0, 4).map((topic) => (
                   <Link
                     key={topic.id}
@@ -329,7 +329,7 @@ function Index({
                     className="group"
                   >
                     {/* Limit card width and center */}
-                    <div className="relative overflow-hidden rounded-xl aspect-square max-w-xs mx-auto">
+                    <div className="relative overflow-hidden rounded-xl aspect-square max-w-[150px] mx-auto">
                       <img
                         className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110"
                         src={
