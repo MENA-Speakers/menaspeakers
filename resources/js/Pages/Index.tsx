@@ -101,11 +101,17 @@ function Index({
             <h2 className="text-2xl lg:text-4xl font-semibold text-mena-brand">
               Featured Speakers
             </h2>
-            <div className="border-b border-[#F15A29] pb-1">
-              <Link href={"/speakers"} className="text-[#F15A29] ">
+            <Link
+              href="/speakers"
+              aria-label="Speakers"
+              title="See all speakers"
+              className="inline-flex items-center text-[#F15A29] group"
+            >
+              <span className="border-b border-[#F15A29] pb-1">
                 View All Speakers
-              </Link>
-            </div>
+              </span>
+              <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </Link>
           </div>
           <div className={"mt-4"}>
             <p className={"text-slate-500"}>
@@ -222,26 +228,17 @@ function Index({
                   <p className="text-slate-500 text-sm mt-1">
                     Find a speaker on current global trends
                   </p>
-                </div>
+                </div>{" "}
                 <Link
                   href={route("categories.index")}
-                  className="text-[#F15A29] flex items-center group"
+                  aria-label="Categories"
+                  title="See all categories"
+                  className="inline-flex items-center text-[#F15A29] group"
                 >
-                  View All
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-4 w-4 ml-1 transition-transform group-hover:translate-x-1"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M9 5l7 7-7 7"
-                    />
-                  </svg>
+                  <span className="border-b border-[#F15A29] pb-1">
+                    View All
+                  </span>
+                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Link>
               </div>
 
@@ -290,26 +287,17 @@ function Index({
                   <p className="text-slate-500 text-sm mt-1">
                     Find a speaker on a specific topic
                   </p>
-                </div>
+                </div>{" "}
                 <Link
                   href={route("topics.index")}
-                  className="text-[#F15A29] flex items-center group"
+                  aria-label="Topics"
+                  title="See all topics"
+                  className="inline-flex items-center text-[#F15A29] group"
                 >
-                  View All
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-4 w-4 ml-1 transition-transform group-hover:translate-x-1"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M9 5l7 7-7 7"
-                    />
-                  </svg>
+                  <span className="border-b border-[#F15A29] pb-1">
+                    View All
+                  </span>
+                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Link>
               </div>
 
@@ -391,11 +379,15 @@ function Index({
             <h2 className="text-2xl lg:text-4xl font-semibold text-mena-brand">
               Resources
             </h2>
-            <div className="border-b border-[#F15A29] pb-1">
-              <Link href={"/blogs"} className="text-[#F15A29] ">
-                View All
-              </Link>
-            </div>
+            <Link
+              href="/blogs"
+              aria-label="Blogs"
+              title="See all blogs"
+              className="inline-flex items-center text-[#F15A29] group"
+            >
+              <span className="border-b border-[#F15A29] pb-1">View All</span>
+              <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </Link>
           </div>
 
           <div className="py-6 grid grid-cols-1 md:grid-cols-2 gap-6 lg:grid-cols-4">
