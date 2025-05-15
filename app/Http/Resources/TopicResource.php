@@ -16,11 +16,11 @@ class TopicResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'name' => $this->name,
             'slug' => $this->slug,
+            'name' => $this->name,
             'speaker_count' => $this->speakers?->count(),
             'image' => $this->getFirstMediaUrl('image', 'webp'),
-            'speakers' => SpeakerResource::collection($this->speakers),
+            'random_speaker_image' => $this->random_speaker_image ?? null,
         ];
     }
 }

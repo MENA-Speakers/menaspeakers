@@ -59,10 +59,17 @@ class HomeController extends Controller
       $category->random_speaker_image = $randomSpeaker ? $randomSpeaker->getFirstMediaUrl('avatar') : null;
     }
 
+    // Retrieve topics with speaker count
     $topics = Topic::withCount('speakers')
       ->orderBy('speakers_count', 'desc')
       ->limit(4)
       ->get();
+
+    // Add a random speaker image to each topic
+    foreach ($topics as $topic) {
+      $randomSpeaker = $topic->speakers()->inRandomOrder()->first();
+      $topic->random_speaker_image = $randomSpeaker ? $randomSpeaker->getFirstMediaUrl('avatar') : null;
+    }
 
     // Render the 'Index' view with the retrieved resources
     return Inertia::render('Index', [

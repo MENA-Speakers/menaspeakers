@@ -11,6 +11,7 @@ export interface TagType {
 }
 
 export interface CategoryType {
+  random_speaker_image: any;
   speaker_count: number;
   id: number;
   image: string;
