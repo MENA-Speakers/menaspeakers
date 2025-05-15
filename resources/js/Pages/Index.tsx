@@ -245,45 +245,47 @@ function Index({
                 </Link>
               </div>
 
-              {/* Change grid to 2 columns and restrict card width */}
-              <div className="grid grid-cols-2 gap-5 max-w-xs mx-auto">
-                {categories.slice(0, 4).map((category, index) => {
-                  const getCategoryIcon = () => {
-                    const icons = [
-                      <Briefcase className="h-8 w-8 text-white" />,
-                      <Award className="h-8 w-8 text-white" />,
-                      <BookOpen className="h-8 w-8 text-white" />,
-                      <Lightbulb className="h-8 w-8 text-white" />,
-                      <TrendingUp className="h-8 w-8 text-white" />,
-                      <Globe className="h-8 w-8 text-white" />,
-                    ];
-                    return icons[index % icons.length];
-                  };
+              {/* Grid with top 4 categories by speaker count */}
+              <div className="grid grid-cols-2 gap-4 max-w-md mx-auto">
+                {categories
+                  .sort(
+                    (a, b) => (b.speaker_count || 0) - (a.speaker_count || 0)
+                  )
+                  .slice(0, 4)
+                  .map((category, index) => {
+                    const getCategoryIcon = () => {
+                      const icons = [
+                        <Briefcase className="h-8 w-8 text-white" />,
+                        <Award className="h-8 w-8 text-white" />,
+                        <BookOpen className="h-8 w-8 text-white" />,
+                        <Lightbulb className="h-8 w-8 text-white" />,
+                      ];
+                      return icons[index % icons.length];
+                    };
 
-                  return (
-                    <Link
-                      key={category.id}
-                      href={route("categories.show", category.slug)}
-                      className="group"
-                    >
-                      {/* Limit card width and center */}
-                      <div className="relative overflow-hidden rounded-xl aspect-square max-w-[150px] mx-auto">
-                        <div className="absolute inset-0 bg-gradient-to-br from-mena-brand to-mena-brand/70 flex items-center justify-center">
-                          {getCategoryIcon()}
+                    return (
+                      <Link
+                        key={category.id}
+                        href={route("categories.show", category.slug)}
+                        className="group"
+                      >
+                        <div className="relative overflow-hidden rounded-xl aspect-square">
+                          <div className="absolute inset-0 bg-gradient-to-br from-mena-brand to-mena-brand/70 flex items-center justify-center">
+                            {getCategoryIcon()}
+                          </div>
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex flex-col justify-end p-3">
+                            <span className="text-white text-sm font-medium mb-2">
+                              {category.name}
+                            </span>
+                            <span className="text-xs text-white/80 flex items-center">
+                              <Mic className="h-3 w-3 mr-1" />
+                              {category.speaker_count || 0} Speakers
+                            </span>
+                          </div>
                         </div>
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex flex-col justify-end p-3">
-                          <span className="text-white text-sm font-medium mb-2">
-                            {category.name}
-                          </span>
-                          <span className="text-xs text-white/80 flex items-center">
-                            <Mic className="h-3 w-3 mr-1" />
-                            {category.speaker_count || 0} Speakers
-                          </span>
-                        </div>
-                      </div>
-                    </Link>
-                  );
-                })}
+                      </Link>
+                    );
+                  })}
               </div>
             </div>
 
@@ -320,35 +322,41 @@ function Index({
                 </Link>
               </div>
 
-              {/* Change grid to 2 columns and restrict card width */}
-              <div className="grid grid-cols-2 gap-5 max-w-xs mx-auto">
-                {topics.slice(0, 4).map((topic) => (
-                  <Link
-                    key={topic.id}
-                    href={route("topics.show", topic.slug)}
-                    className="group"
-                  >
-                    {/* Limit card width and center */}
-                    <div className="relative overflow-hidden rounded-xl aspect-square max-w-[150px] mx-auto">
-                      <img
-                        className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110"
-                        src={
-                          topic.image ? topic.image : "/images/placeholder.webp"
-                        }
-                        alt={`${topic.name} Speakers`}
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex flex-col justify-end p-3">
-                        <span className="text-white text-sm font-medium mb-2">
-                          {topic.name}
-                        </span>
-                        <span className="text-xs text-white/80 flex items-center">
-                          <Mic className="h-3 w-3 mr-1" />
-                          {topic.speaker_count || 0} Speakers
-                        </span>
+              {/* Grid with top 4 topics by speaker count */}
+              <div className="grid grid-cols-2 gap-4 max-w-md mx-auto">
+                {topics
+                  .sort(
+                    (a, b) => (b.speaker_count || 0) - (a.speaker_count || 0)
+                  )
+                  .slice(0, 4)
+                  .map((topic) => (
+                    <Link
+                      key={topic.id}
+                      href={route("topics.show", topic.slug)}
+                      className="group"
+                    >
+                      <div className="relative overflow-hidden rounded-xl aspect-square">
+                        <img
+                          className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110"
+                          src={
+                            topic.image
+                              ? topic.image
+                              : "/images/placeholder.webp"
+                          }
+                          alt={`${topic.name} Speakers`}
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex flex-col justify-end p-3">
+                          <span className="text-white text-sm font-medium mb-2">
+                            {topic.name}
+                          </span>
+                          <span className="text-xs text-white/80 flex items-center">
+                            <Mic className="h-3 w-3 mr-1" />
+                            {topic.speaker_count || 0} Speakers
+                          </span>
+                        </div>
                       </div>
-                    </div>
-                  </Link>
-                ))}
+                    </Link>
+                  ))}
               </div>
             </div>
           </div>
