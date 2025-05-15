@@ -1,9 +1,9 @@
 //Speaker interface
 
 
-import {PortfolioType} from "@/types/portfolio-type";
-import {FaqType} from "@/types/faq-type";
-import {VideoType} from "@/types/video-type";
+import { PortfolioType } from "@/types/portfolio-type";
+import { FaqType } from "@/types/faq-type";
+import { VideoType } from "@/types/video-type";
 
 export interface TagType {
   id: number;
@@ -11,6 +11,7 @@ export interface TagType {
 }
 
 export interface CategoryType {
+  speaker_count: number;
   id: number;
   image: string;
   slug: string;

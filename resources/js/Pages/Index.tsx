@@ -248,6 +248,7 @@ function Index({
               {/* Grid with top 4 categories by speaker count */}
               <div className="grid grid-cols-2 gap-4 max-w-md mx-auto">
                 {categories
+                  .slice() // Create copy to avoid mutation
                   .sort(
                     (a, b) => (b.speaker_count || 0) - (a.speaker_count || 0)
                   )
@@ -325,6 +326,7 @@ function Index({
               {/* Grid with top 4 topics by speaker count */}
               <div className="grid grid-cols-2 gap-4 max-w-md mx-auto">
                 {topics
+                  .slice() // Create copy to avoid mutation
                   .sort(
                     (a, b) => (b.speaker_count || 0) - (a.speaker_count || 0)
                   )
